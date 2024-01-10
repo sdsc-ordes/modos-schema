@@ -93,6 +93,7 @@ classes:
       - has_sequence
       - taxon_id
       - source_uri
+      - version
 
   ReferenceSequence:
     is_a: NamedThing
@@ -101,6 +102,7 @@ classes:
     slots:
       - sequence_md5
       - source_uri
+      - version
 
   AlignmentSet:
     is_a: DataEntity
@@ -218,6 +220,9 @@ slots:
     is_a: has_part
     description: Specifies the reference coordinate system used by an omics dataset.
     range: ReferenceGenome
+  version:
+    description: A string specifying the release or version of a software or resource.
+    range: string
 
 enums:
   OmicsType:
