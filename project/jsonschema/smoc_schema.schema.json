@@ -8,6 +8,10 @@
                     "$ref": "#/$defs/DataFormat",
                     "description": "Data/file format associated with a data entity."
                 },
+                "data_path": {
+                    "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
+                    "type": "string"
+                },
                 "description": {
                     "description": "A human-readable description for a thing",
                     "type": "string"
@@ -27,17 +31,13 @@
                     "description": "A unique identifier for a thing",
                     "type": "string"
                 },
-                "location": {
-                    "description": "The uniform resource identifier to access a resource, either on the web or the filesystem",
-                    "type": "string"
-                },
                 "name": {
                     "description": "A human-readable name for a thing",
                     "type": "string"
                 }
             },
             "required": [
-                "location",
+                "data_path",
                 "data_format",
                 "id"
             ],
@@ -52,6 +52,10 @@
                     "$ref": "#/$defs/DataFormat",
                     "description": "Data/file format associated with a data entity."
                 },
+                "data_path": {
+                    "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
+                    "type": "string"
+                },
                 "description": {
                     "description": "A human-readable description for a thing",
                     "type": "string"
@@ -71,17 +75,13 @@
                     "description": "A unique identifier for a thing",
                     "type": "string"
                 },
-                "location": {
-                    "description": "The uniform resource identifier to access a resource, either on the web or the filesystem",
-                    "type": "string"
-                },
                 "name": {
                     "description": "A human-readable name for a thing",
                     "type": "string"
                 }
             },
             "required": [
-                "location",
+                "data_path",
                 "data_format",
                 "id"
             ],
@@ -141,6 +141,10 @@
                     "$ref": "#/$defs/DataFormat",
                     "description": "Data/file format associated with a data entity."
                 },
+                "data_path": {
+                    "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
+                    "type": "string"
+                },
                 "description": {
                     "description": "A human-readable description for a thing",
                     "type": "string"
@@ -160,17 +164,13 @@
                     "description": "A unique identifier for a thing",
                     "type": "string"
                 },
-                "location": {
-                    "description": "The uniform resource identifier to access a resource, either on the web or the filesystem",
-                    "type": "string"
-                },
                 "name": {
                     "description": "A human-readable name for a thing",
                     "type": "string"
                 }
             },
             "required": [
-                "location",
+                "data_path",
                 "data_format",
                 "id"
             ],
@@ -331,6 +331,10 @@
             "additionalProperties": false,
             "description": "Reference assembly of a given genome, consisting of a collection of congiguous sequences (contigs).",
             "properties": {
+                "data_path": {
+                    "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
+                    "type": "string"
+                },
                 "description": {
                     "description": "A human-readable description for a thing",
                     "type": "string"
@@ -344,10 +348,6 @@
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
-                    "type": "string"
-                },
-                "location": {
-                    "description": "The uniform resource identifier to access a resource, either on the web or the filesystem",
                     "type": "string"
                 },
                 "name": {
@@ -371,7 +371,7 @@
                 }
             },
             "required": [
-                "location",
+                "data_path",
                 "id"
             ],
             "title": "ReferenceGenome",
@@ -479,6 +479,10 @@
                     "$ref": "#/$defs/DataFormat",
                     "description": "Data/file format associated with a data entity."
                 },
+                "data_path": {
+                    "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
+                    "type": "string"
+                },
                 "description": {
                     "description": "A human-readable description for a thing",
                     "type": "string"
@@ -498,17 +502,13 @@
                     "description": "A unique identifier for a thing",
                     "type": "string"
                 },
-                "location": {
-                    "description": "The uniform resource identifier to access a resource, either on the web or the filesystem",
-                    "type": "string"
-                },
                 "name": {
                     "description": "A human-readable name for a thing",
                     "type": "string"
                 }
             },
             "required": [
-                "location",
+                "data_path",
                 "data_format",
                 "id"
             ],

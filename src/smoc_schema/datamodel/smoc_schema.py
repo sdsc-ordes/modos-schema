@@ -1,5 +1,5 @@
 # Auto generated from smoc_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-01-10T14:29:52
+# Generation date: 2024-01-10T15:19:57
 # Schema: smoc-schema
 #
 # id: https://w3id.org/sdsc-ordes/smoc-schema
@@ -260,7 +260,7 @@ class DataEntity(NamedThing):
     class_model_uri: ClassVar[URIRef] = SMOC.DataEntity
 
     id: Union[str, DataEntityId] = None
-    location: Union[str, URI] = None
+    data_path: str = None
     data_format: Union[str, "DataFormat"] = None
     has_sample: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
     has_reference: Optional[Union[str, ReferenceGenomeId]] = None
@@ -271,10 +271,10 @@ class DataEntity(NamedThing):
         if not isinstance(self.id, DataEntityId):
             self.id = DataEntityId(self.id)
 
-        if self._is_empty(self.location):
-            self.MissingRequiredField("location")
-        if not isinstance(self.location, URI):
-            self.location = URI(self.location)
+        if self._is_empty(self.data_path):
+            self.MissingRequiredField("data_path")
+        if not isinstance(self.data_path, str):
+            self.data_path = str(self.data_path)
 
         if self._is_empty(self.data_format):
             self.MissingRequiredField("data_format")
@@ -304,7 +304,7 @@ class ReferenceGenome(NamedThing):
     class_model_uri: ClassVar[URIRef] = SMOC.ReferenceGenome
 
     id: Union[str, ReferenceGenomeId] = None
-    location: Union[str, URI] = None
+    data_path: str = None
     has_sequence: Optional[Union[Union[str, ReferenceSequenceId], List[Union[str, ReferenceSequenceId]]]] = empty_list()
     taxon_id: Optional[Union[int, List[int]]] = empty_list()
     source_uri: Optional[Union[str, URI]] = None
@@ -316,10 +316,10 @@ class ReferenceGenome(NamedThing):
         if not isinstance(self.id, ReferenceGenomeId):
             self.id = ReferenceGenomeId(self.id)
 
-        if self._is_empty(self.location):
-            self.MissingRequiredField("location")
-        if not isinstance(self.location, URI):
-            self.location = URI(self.location)
+        if self._is_empty(self.data_path):
+            self.MissingRequiredField("data_path")
+        if not isinstance(self.data_path, str):
+            self.data_path = str(self.data_path)
 
         if not isinstance(self.has_sequence, list):
             self.has_sequence = [self.has_sequence] if self.has_sequence is not None else []
@@ -386,7 +386,7 @@ class AlignmentSet(DataEntity):
     class_model_uri: ClassVar[URIRef] = SMOC.AlignmentSet
 
     id: Union[str, AlignmentSetId] = None
-    location: Union[str, URI] = None
+    data_path: str = None
     data_format: Union[str, "DataFormat"] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -411,7 +411,7 @@ class VariantSet(DataEntity):
     class_model_uri: ClassVar[URIRef] = SMOC.VariantSet
 
     id: Union[str, VariantSetId] = None
-    location: Union[str, URI] = None
+    data_path: str = None
     data_format: Union[str, "DataFormat"] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -436,7 +436,7 @@ class Array(DataEntity):
     class_model_uri: ClassVar[URIRef] = SMOC.Array
 
     id: Union[str, ArrayId] = None
-    location: Union[str, URI] = None
+    data_path: str = None
     data_format: Union[str, "DataFormat"] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -571,8 +571,8 @@ slots.taxon_id = Slot(uri=SMOC.taxon_id, name="taxon_id", curie=SMOC.curie('taxo
 slots.collector = Slot(uri=SMOC.collector, name="collector", curie=SMOC.curie('collector'),
                    model_uri=SMOC.collector, domain=None, range=Optional[Union[str, List[str]]])
 
-slots.location = Slot(uri=SMOC.location, name="location", curie=SMOC.curie('location'),
-                   model_uri=SMOC.location, domain=None, range=Union[str, URI])
+slots.data_path = Slot(uri=SMOC.data_path, name="data_path", curie=SMOC.curie('data_path'),
+                   model_uri=SMOC.data_path, domain=None, range=str)
 
 slots.sequence_md5 = Slot(uri=SMOC.sequence_md5, name="sequence_md5", curie=SMOC.curie('sequence_md5'),
                    model_uri=SMOC.sequence_md5, domain=None, range=Optional[str],

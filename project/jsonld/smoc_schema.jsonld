@@ -631,17 +631,31 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "location",
-      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/location",
-      "description": "The uniform resource identifier to access a resource, either on the web or the filesystem",
+      "name": "data_path",
+      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/data_path",
+      "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
+      "examples": [
+        {
+          "value": "s3://example-bucket/path/to/data",
+          "@type": "Example"
+        },
+        {
+          "value": "relative/file/path",
+          "@type": "Example"
+        },
+        {
+          "value": "file:///absolute/file/path",
+          "@type": "Example"
+        }
+      ],
       "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/location",
+      "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/data_path",
       "owner": "ReferenceGenome",
       "domain_of": [
         "DataEntity",
         "ReferenceGenome"
       ],
-      "range": "uri",
+      "range": "string",
       "required": true,
       "@type": "SlotDefinition"
     },
@@ -863,7 +877,7 @@
         "id",
         "name",
         "description",
-        "location",
+        "data_path",
         "data_format",
         "has_sample",
         "has_reference"
@@ -882,7 +896,7 @@
         "id",
         "name",
         "description",
-        "location",
+        "data_path",
         "has_sequence",
         "taxon_id",
         "source_uri",
@@ -920,7 +934,7 @@
         "id",
         "name",
         "description",
-        "location",
+        "data_path",
         "data_format",
         "has_sample",
         "has_reference"
@@ -939,7 +953,7 @@
         "id",
         "name",
         "description",
-        "location",
+        "data_path",
         "data_format",
         "has_sample",
         "has_reference"
@@ -958,7 +972,7 @@
         "id",
         "name",
         "description",
-        "location",
+        "data_path",
         "data_format",
         "has_sample",
         "has_reference"
@@ -992,9 +1006,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "smoc_schema.yaml",
-  "source_file_date": "2024-01-10T14:29:03",
-  "source_file_size": 7407,
-  "generation_date": "2024-01-10T14:29:47",
+  "source_file_date": "2024-01-10T15:19:28",
+  "source_file_size": 7624,
+  "generation_date": "2024-01-10T15:19:52",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/smoc_schema.context.jsonld",

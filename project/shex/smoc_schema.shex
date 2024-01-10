@@ -74,7 +74,7 @@ linkml:Sparqlpath xsd:string
     CLOSED {
        (  $<DataEntity_tes> (  &<NamedThing_tes> ;
              rdf:type [ schema1:Thing ] ? ;
-             <location> @linkml:Uri ;
+             <data_path> @linkml:String ;
              <data_format> @<DataFormat> ;
              <has_sample> @<Sample> * ;
              <has_reference> @<ReferenceGenome> ?
@@ -115,7 +115,7 @@ linkml:Sparqlpath xsd:string
 <ReferenceGenome> CLOSED {
     (  $<ReferenceGenome_tes> (  &<NamedThing_tes> ;
           rdf:type [ schema1:Thing ] ? ;
-          <location> @linkml:Uri ;
+          <data_path> @linkml:String ;
           <has_sequence> @<ReferenceSequence> * ;
           <taxon_id> @linkml:Integer * ;
           <source_uri> @linkml:Uri ? ;

@@ -4,7 +4,7 @@ message AlignmentSet
   uriorcurie id = 0
   string name = 0
   string description = 0
-  uri location = 0
+  string dataPath = 0
   dataFormat dataFormat = 0
  repeated  sample hasSample = 0
   referenceGenome hasReference = 0
@@ -15,7 +15,7 @@ message Array
   uriorcurie id = 0
   string name = 0
   string description = 0
-  uri location = 0
+  string dataPath = 0
   dataFormat dataFormat = 0
  repeated  sample hasSample = 0
   referenceGenome hasReference = 0
@@ -36,7 +36,7 @@ message DataEntity
   uriorcurie id = 0
   string name = 0
   string description = 0
-  uri location = 0
+  string dataPath = 0
   dataFormat dataFormat = 0
  repeated  sample hasSample = 0
   referenceGenome hasReference = 0
@@ -70,7 +70,7 @@ message ReferenceGenome
   uriorcurie id = 0
   string name = 0
   string description = 0
-  uri location = 0
+  string dataPath = 0
  repeated  referenceSequence hasSequence = 0
  repeated  integer taxonId = 0
   uri sourceUri = 0
@@ -104,7 +104,7 @@ message VariantSet
   uriorcurie id = 0
   string name = 0
   string description = 0
-  uri location = 0
+  string dataPath = 0
   dataFormat dataFormat = 0
  repeated  sample hasSample = 0
   referenceGenome hasReference = 0
