@@ -41,6 +41,22 @@ message DataEntity
  repeated  sample hasSample = 0
   referenceGenome hasReference = 0
  }
+// Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata.
+message MODO
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  datetime creationDate = 0
+ repeated  assay hasAssay = 0
+  datetime lastUpdateDate = 0
+  uri sourceUri = 0
+ }
+// A holder for Multi-Omics Digital Objects
+message MODOCollection
+ {
+ repeated  mODO entries = 0
+ }
 // A generic grouping for any identifiable entity
 message NamedThing
  {
@@ -58,6 +74,7 @@ message ReferenceGenome
  repeated  referenceSequence hasSequence = 0
  repeated  integer taxonId = 0
   uri sourceUri = 0
+  string version = 0
  }
 // A contiguous sequence of DNA part of a reference coordinate system (genome assembly).
 message ReferenceSequence
@@ -67,6 +84,7 @@ message ReferenceSequence
   string description = 0
   string sequenceMd5 = 0
   uri sourceUri = 0
+  string version = 0
  }
 // A biological sample used in assays. Examples include a whole organism, tissue or cell line.
 message Sample
@@ -74,23 +92,11 @@ message Sample
   uriorcurie id = 0
   string name = 0
   string description = 0
+  string cellType = 0
+  string sourceMaterial = 0
+  sex sex = 0
  repeated  integer taxonId = 0
  repeated  string collector = 0
- }
-// Represents the digital object. It encapsulates omics and other datasets and their metadata.
-message Study
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
-  datetime startDate = 0
-  datetime completionDate = 0
- repeated  assay hasAssay = 0
- }
-// A holder for Study objects
-message StudyCollection
- {
- repeated  study entries = 0
  }
 // A data entity consisting of genomic variants relative to a reference.
 message VariantSet

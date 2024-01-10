@@ -1,5 +1,20 @@
 
 
+CREATE TABLE "MODO" (
+	id TEXT NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	creation_date DATETIME NOT NULL, 
+	last_update_date DATETIME NOT NULL, 
+	source_uri TEXT, 
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE "MODOCollection" (
+	entries TEXT, 
+	PRIMARY KEY (entries)
+);
+
 CREATE TABLE "NamedThing" (
 	id TEXT NOT NULL, 
 	name TEXT, 
@@ -13,6 +28,7 @@ CREATE TABLE "ReferenceGenome" (
 	description TEXT, 
 	location TEXT NOT NULL, 
 	source_uri TEXT, 
+	version TEXT, 
 	PRIMARY KEY (id)
 );
 
@@ -20,21 +36,10 @@ CREATE TABLE "Sample" (
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
+	cell_type TEXT, 
+	source_material TEXT, 
+	sex VARCHAR(6), 
 	PRIMARY KEY (id)
-);
-
-CREATE TABLE "Study" (
-	id TEXT NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	start_date DATETIME NOT NULL, 
-	completion_date DATETIME, 
-	PRIMARY KEY (id)
-);
-
-CREATE TABLE "StudyCollection" (
-	entries TEXT, 
-	PRIMARY KEY (entries)
 );
 
 CREATE TABLE "AlignmentSet" (
@@ -66,9 +71,9 @@ CREATE TABLE "Assay" (
 	name TEXT, 
 	description TEXT, 
 	has_sample TEXT, 
-	"Study_id" TEXT, 
+	"MODO_id" TEXT, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY("Study_id") REFERENCES "Study" (id)
+	FOREIGN KEY("MODO_id") REFERENCES "MODO" (id)
 );
 
 CREATE TABLE "ReferenceSequence" (
@@ -77,6 +82,7 @@ CREATE TABLE "ReferenceSequence" (
 	description TEXT, 
 	sequence_md5 TEXT, 
 	source_uri TEXT, 
+	version TEXT, 
 	"ReferenceGenome_id" TEXT, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY("ReferenceGenome_id") REFERENCES "ReferenceGenome" (id)

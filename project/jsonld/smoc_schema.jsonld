@@ -366,6 +366,21 @@
   ],
   "enums": [
     {
+      "name": "Sex",
+      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/Sex",
+      "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
+      "permissible_values": [
+        {
+          "text": "Male",
+          "description": "The male sex."
+        },
+        {
+          "text": "Female",
+          "description": "The female sex."
+        }
+      ]
+    },
+    {
       "name": "OmicsType",
       "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/OmicsType",
       "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
@@ -484,33 +499,28 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "completion_date",
-      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/completion_date",
-      "description": "The date on which the concluding information for this study is completed.",
+      "name": "creation_date",
+      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/creation_date",
+      "description": "The date on which something was created.",
       "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
-      "mappings": [
-        "https://w3id.org/fair-genomes/ontology/completion_date"
-      ],
-      "slot_uri": "https://w3id.org/fair-genomes/ontology/completion_date",
-      "owner": "Study",
+      "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/creation_date",
+      "owner": "MODO",
       "domain_of": [
-        "Study"
+        "MODO"
       ],
       "range": "datetime",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "start_date",
-      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/start_date",
-      "description": "The date on which this study began.",
+      "name": "last_update_date",
+      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/last_update_date",
+      "description": "The date on which the thing was last modified.",
       "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
-      "mappings": [
-        "https://w3id.org/fair-genomes/ontology/start_date"
-      ],
-      "slot_uri": "https://w3id.org/fair-genomes/ontology/start_date",
-      "owner": "Study",
+      "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/last_update_date",
+      "owner": "MODO",
       "domain_of": [
-        "Study"
+        "MODO"
       ],
       "range": "datetime",
       "required": true,
@@ -539,9 +549,9 @@
       "is_a": "has_part",
       "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/has_assay",
       "multivalued": true,
-      "owner": "Study",
+      "owner": "MODO",
       "domain_of": [
-        "Study"
+        "MODO"
       ],
       "range": "Assay",
       "@type": "SlotDefinition"
@@ -652,11 +662,12 @@
     {
       "name": "source_uri",
       "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/source_uri",
-      "description": "The URI from which a resource was obtained.",
+      "description": "The URI from which a resource or dataset was obtained or derived.",
       "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/source_uri",
       "owner": "ReferenceSequence",
       "domain_of": [
+        "MODO",
         "ReferenceGenome",
         "ReferenceSequence"
       ],
@@ -693,16 +704,69 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "studyCollection__entries",
+      "name": "version",
+      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/version",
+      "description": "A string specifying the release or version of a software or resource.",
+      "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/version",
+      "owner": "ReferenceSequence",
+      "domain_of": [
+        "ReferenceGenome",
+        "ReferenceSequence"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "cell_type",
+      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/cell_type",
+      "description": "The cell type name.",
+      "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/cell_type",
+      "owner": "Sample",
+      "domain_of": [
+        "Sample"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "source_material",
+      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/source_material",
+      "description": "The biological source from which the sample was isolated (tissue, organ, ...).",
+      "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/source_material",
+      "owner": "Sample",
+      "domain_of": [
+        "Sample"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sex",
+      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/sex",
+      "description": "The biological sex of a sample.",
+      "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/sex",
+      "owner": "Sample",
+      "domain_of": [
+        "Sample"
+      ],
+      "range": "Sex",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "mODOCollection__entries",
       "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/entries",
       "multivalued": true,
       "alias": "entries",
-      "owner": "StudyCollection",
+      "owner": "MODOCollection",
       "domain_of": [
-        "StudyCollection"
+        "MODOCollection"
       ],
-      "range": "Study",
+      "range": "MODO",
       "inlined": true,
       "@type": "SlotDefinition"
     }
@@ -726,26 +790,22 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "Study",
-      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/Study",
-      "description": "Represents the digital object. It encapsulates omics and other datasets and their metadata.",
+      "name": "MODO",
+      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/MODO",
+      "description": "Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata.",
       "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
-      "see_also": [
-        "bioschemas:Study",
-        "FG:Study",
-        "NCIT:C63536"
-      ],
       "is_a": "NamedThing",
       "slots": [
         "id",
         "name",
         "description",
-        "start_date",
-        "completion_date",
-        "has_assay"
+        "creation_date",
+        "has_assay",
+        "last_update_date",
+        "source_uri"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/sdsc-ordes/smoc-schema/Study",
+      "class_uri": "https://w3id.org/sdsc-ordes/smoc-schema/MODO",
       "@type": "ClassDefinition"
     },
     {
@@ -783,6 +843,9 @@
         "id",
         "name",
         "description",
+        "cell_type",
+        "source_material",
+        "sex",
         "taxon_id",
         "collector"
       ],
@@ -822,7 +885,8 @@
         "location",
         "has_sequence",
         "taxon_id",
-        "source_uri"
+        "source_uri",
+        "version"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/sdsc-ordes/smoc-schema/ReferenceGenome",
@@ -839,7 +903,8 @@
         "name",
         "description",
         "sequence_md5",
-        "source_uri"
+        "source_uri",
+        "version"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/sdsc-ordes/smoc-schema/ReferenceSequence",
@@ -903,33 +968,33 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "StudyCollection",
-      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/StudyCollection",
-      "description": "A holder for Study objects",
+      "name": "MODOCollection",
+      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/MODOCollection",
+      "description": "A holder for Multi-Omics Digital Objects",
       "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
       "slots": [
-        "studyCollection__entries"
+        "mODOCollection__entries"
       ],
       "slot_usage": {},
       "attributes": [
         {
           "name": "entries",
           "multivalued": true,
-          "range": "Study",
+          "range": "MODO",
           "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
-      "class_uri": "https://w3id.org/sdsc-ordes/smoc-schema/StudyCollection",
+      "class_uri": "https://w3id.org/sdsc-ordes/smoc-schema/MODOCollection",
       "tree_root": true,
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "smoc_schema.yaml",
-  "source_file_date": "2024-01-04T00:36:45",
-  "source_file_size": 6873,
-  "generation_date": "2024-01-04T00:38:52",
+  "source_file_date": "2024-01-10T14:29:03",
+  "source_file_size": 7407,
+  "generation_date": "2024-01-10T14:29:47",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/smoc_schema.context.jsonld",

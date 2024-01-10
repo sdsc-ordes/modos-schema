@@ -188,6 +188,111 @@
             "title": "DataFormat",
             "type": "string"
         },
+        "MODO": {
+            "additionalProperties": false,
+            "description": "Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata.",
+            "properties": {
+                "creation_date": {
+                    "description": "The date on which something was created.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "has_assay": {
+                    "description": "An assay that was performed as part of a given thing.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "last_update_date": {
+                    "description": "The date on which the thing was last modified.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "source_uri": {
+                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "creation_date",
+                "last_update_date",
+                "id"
+            ],
+            "title": "MODO",
+            "type": "object"
+        },
+        "MODOCollection": {
+            "additionalProperties": false,
+            "description": "A holder for Multi-Omics Digital Objects",
+            "properties": {
+                "entries": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/MODO__identifier_optional"
+                    },
+                    "type": "object"
+                }
+            },
+            "title": "MODOCollection",
+            "type": "object"
+        },
+        "MODO__identifier_optional": {
+            "additionalProperties": false,
+            "description": "Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata.",
+            "properties": {
+                "creation_date": {
+                    "description": "The date on which something was created.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "has_assay": {
+                    "description": "An assay that was performed as part of a given thing.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "last_update_date": {
+                    "description": "The date on which the thing was last modified.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "source_uri": {
+                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "creation_date",
+                "last_update_date"
+            ],
+            "title": "MODO",
+            "type": "object"
+        },
         "NamedThing": {
             "additionalProperties": false,
             "description": "A generic grouping for any identifiable entity",
@@ -250,7 +355,7 @@
                     "type": "string"
                 },
                 "source_uri": {
-                    "description": "The URI from which a resource was obtained.",
+                    "description": "The URI from which a resource or dataset was obtained or derived.",
                     "type": "string"
                 },
                 "taxon_id": {
@@ -259,6 +364,10 @@
                         "type": "integer"
                     },
                     "type": "array"
+                },
+                "version": {
+                    "description": "A string specifying the release or version of a software or resource.",
+                    "type": "string"
                 }
             },
             "required": [
@@ -290,7 +399,11 @@
                     "type": "string"
                 },
                 "source_uri": {
-                    "description": "The URI from which a resource was obtained.",
+                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "A string specifying the release or version of a software or resource.",
                     "type": "string"
                 }
             },
@@ -304,6 +417,10 @@
             "additionalProperties": false,
             "description": "A biological sample used in assays. Examples include a whole organism, tissue or cell line.",
             "properties": {
+                "cell_type": {
+                    "description": "The cell type name.",
+                    "type": "string"
+                },
                 "collector": {
                     "description": "The organization responsible for collecting a given sample.",
                     "items": {
@@ -323,6 +440,14 @@
                     "description": "A human-readable name for a thing",
                     "type": "string"
                 },
+                "sex": {
+                    "$ref": "#/$defs/Sex",
+                    "description": "The biological sex of a sample."
+                },
+                "source_material": {
+                    "description": "The biological source from which the sample was isolated (tissue, organ, ...).",
+                    "type": "string"
+                },
                 "taxon_id": {
                     "description": "The taxid number describing the taxonomic range of a sample.",
                     "items": {
@@ -337,100 +462,14 @@
             "title": "Sample",
             "type": "object"
         },
-        "Study": {
-            "additionalProperties": false,
-            "description": "Represents the digital object. It encapsulates omics and other datasets and their metadata.",
-            "properties": {
-                "completion_date": {
-                    "description": "The date on which the concluding information for this study is completed.",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A human-readable description for a thing",
-                    "type": "string"
-                },
-                "has_assay": {
-                    "description": "An assay that was performed as part of a given thing.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "id": {
-                    "description": "A unique identifier for a thing",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "A human-readable name for a thing",
-                    "type": "string"
-                },
-                "start_date": {
-                    "description": "The date on which this study began.",
-                    "format": "date-time",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "start_date",
-                "id"
+        "Sex": {
+            "description": "",
+            "enum": [
+                "Male",
+                "Female"
             ],
-            "title": "Study",
-            "type": "object"
-        },
-        "StudyCollection": {
-            "additionalProperties": false,
-            "description": "A holder for Study objects",
-            "properties": {
-                "entries": {
-                    "additionalProperties": {
-                        "$ref": "#/$defs/Study__identifier_optional"
-                    },
-                    "type": "object"
-                }
-            },
-            "title": "StudyCollection",
-            "type": "object"
-        },
-        "Study__identifier_optional": {
-            "additionalProperties": false,
-            "description": "Represents the digital object. It encapsulates omics and other datasets and their metadata.",
-            "properties": {
-                "completion_date": {
-                    "description": "The date on which the concluding information for this study is completed.",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A human-readable description for a thing",
-                    "type": "string"
-                },
-                "has_assay": {
-                    "description": "An assay that was performed as part of a given thing.",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "id": {
-                    "description": "A unique identifier for a thing",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "A human-readable name for a thing",
-                    "type": "string"
-                },
-                "start_date": {
-                    "description": "The date on which this study began.",
-                    "format": "date-time",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "start_date"
-            ],
-            "title": "Study",
-            "type": "object"
+            "title": "Sex",
+            "type": "string"
         },
         "VariantSet": {
             "additionalProperties": false,
@@ -480,12 +519,12 @@
     "$id": "https://w3id.org/sdsc-ordes/smoc-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": true,
-    "description": "A holder for Study objects",
+    "description": "A holder for Multi-Omics Digital Objects",
     "metamodel_version": "1.7.0",
     "properties": {
         "entries": {
             "additionalProperties": {
-                "$ref": "#/$defs/Study__identifier_optional"
+                "$ref": "#/$defs/MODO__identifier_optional"
             },
             "type": "object"
         }

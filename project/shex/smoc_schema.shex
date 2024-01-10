@@ -3,7 +3,6 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
 PREFIX schema1: <http://schema.org/>
-PREFIX FG: <https://w3id.org/fair-genomes/ontology/>
 
 
 linkml:String xsd:string
@@ -85,6 +84,24 @@ linkml:Sparqlpath xsd:string
     } OR @<AlignmentSet> OR @<Array> OR @<VariantSet>
 )
 
+<MODO> CLOSED {
+    (  $<MODO_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <creation_date> @linkml:Datetime ;
+          <has_assay> @<Assay> * ;
+          <last_update_date> @linkml:Datetime ;
+          <source_uri> @linkml:Uri ?
+       ) ;
+       rdf:type [ <MODO> ]
+    )
+}
+
+<MODOCollection> CLOSED {
+    (  $<MODOCollection_tes> <entries> @<MODO> * ;
+       rdf:type [ <MODOCollection> ] ?
+    )
+}
+
 <NamedThing>  (
     CLOSED {
        (  $<NamedThing_tes> (  schema1:name @linkml:String ? ;
@@ -92,7 +109,7 @@ linkml:Sparqlpath xsd:string
           ) ;
           rdf:type [ schema1:Thing ]
        )
-    } OR @<Assay> OR @<DataEntity> OR @<ReferenceGenome> OR @<ReferenceSequence> OR @<Sample> OR @<Study>
+    } OR @<Assay> OR @<DataEntity> OR @<MODO> OR @<ReferenceGenome> OR @<ReferenceSequence> OR @<Sample>
 )
 
 <ReferenceGenome> CLOSED {
@@ -101,7 +118,8 @@ linkml:Sparqlpath xsd:string
           <location> @linkml:Uri ;
           <has_sequence> @<ReferenceSequence> * ;
           <taxon_id> @linkml:Integer * ;
-          <source_uri> @linkml:Uri ?
+          <source_uri> @linkml:Uri ? ;
+          <version> @linkml:String ?
        ) ;
        rdf:type [ <ReferenceGenome> ]
     )
@@ -111,7 +129,8 @@ linkml:Sparqlpath xsd:string
     (  $<ReferenceSequence_tes> (  &<NamedThing_tes> ;
           rdf:type [ schema1:Thing ] ? ;
           <sequence_md5> @linkml:String ? ;
-          <source_uri> @linkml:Uri ?
+          <source_uri> @linkml:Uri ? ;
+          <version> @linkml:String ?
        ) ;
        rdf:type [ <ReferenceSequence> ]
     )
@@ -120,27 +139,13 @@ linkml:Sparqlpath xsd:string
 <Sample> CLOSED {
     (  $<Sample_tes> (  &<NamedThing_tes> ;
           rdf:type [ schema1:Thing ] ? ;
+          <cell_type> @linkml:String ? ;
+          <source_material> @linkml:String ? ;
+          <sex> @<Sex> ? ;
           <taxon_id> @linkml:Integer * ;
           <collector> @linkml:String *
        ) ;
        rdf:type [ <Sample> ]
-    )
-}
-
-<Study> CLOSED {
-    (  $<Study_tes> (  &<NamedThing_tes> ;
-          rdf:type [ schema1:Thing ] ? ;
-          FG:start_date @linkml:Datetime ;
-          FG:completion_date @linkml:Datetime ? ;
-          <has_assay> @<Assay> *
-       ) ;
-       rdf:type [ <Study> ]
-    )
-}
-
-<StudyCollection> CLOSED {
-    (  $<StudyCollection_tes> <entries> @<Study> * ;
-       rdf:type [ <StudyCollection> ] ?
     )
 }
 

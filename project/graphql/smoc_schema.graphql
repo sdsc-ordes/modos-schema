@@ -41,6 +41,22 @@ type DataEntity
     hasReference: ReferenceGenome
   }
 
+type MODO
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    creationDate: Datetime!
+    hasAssay: [Assay]
+    lastUpdateDate: Datetime!
+    sourceUri: Uri
+  }
+
+type MODOCollection
+  {
+    entries: [MODO]
+  }
+
 type NamedThing
   {
     id: Uriorcurie!
@@ -57,6 +73,7 @@ type ReferenceGenome
     hasSequence: [ReferenceSequence]
     taxonId: [Integer]
     sourceUri: Uri
+    version: String
   }
 
 type ReferenceSequence
@@ -66,6 +83,7 @@ type ReferenceSequence
     description: String
     sequenceMd5: String
     sourceUri: Uri
+    version: String
   }
 
 type Sample
@@ -73,23 +91,11 @@ type Sample
     id: Uriorcurie!
     name: String
     description: String
+    cellType: String
+    sourceMaterial: String
+    sex: Sex
     taxonId: [Integer]
     collector: [String]
-  }
-
-type Study
-  {
-    id: Uriorcurie!
-    name: String
-    description: String
-    startDate: Datetime!
-    completionDate: Datetime
-    hasAssay: [Assay]
-  }
-
-type StudyCollection
-  {
-    entries: [Study]
   }
 
 type VariantSet

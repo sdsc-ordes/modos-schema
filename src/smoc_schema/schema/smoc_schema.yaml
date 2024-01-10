@@ -43,8 +43,9 @@ classes:
       It encapsulates omics and other datasets and their metadata.
     slots:
       - creation_date
+      - has_assay
+      - last_update_date
       - source_uri
-      - last_modified_date
 
   Assay:
     is_a: NamedThing
@@ -115,13 +116,13 @@ classes:
     is_a: DataEntity
     description: Data entity consisting of an N-dimensional array.
 
-  StudyCollection:
+  MODOCollection:
     tree_root: true
     description: >-
-      A holder for Study objects
+      A holder for Multi-Omics Digital Objects
     attributes:
       entries:
-        range: Study
+        range: MODO
         multivalued: true
         inlined: true
 
@@ -157,7 +158,7 @@ slots:
     description: The date on which something was created.
     range: datetime
     required: true
-  last_updated_date:
+  last_update_date:
     description: The date on which the thing was last modified.
     range: datetime
     required: true

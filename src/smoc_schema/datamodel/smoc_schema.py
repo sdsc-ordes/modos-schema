@@ -1,5 +1,5 @@
 # Auto generated from smoc_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-01-04T00:38:57
+# Generation date: 2024-01-10T14:29:52
 # Schema: smoc-schema
 #
 # id: https://w3id.org/sdsc-ordes/smoc-schema
@@ -51,7 +51,7 @@ class NamedThingId(URIorCURIE):
     pass
 
 
-class StudyId(NamedThingId):
+class MODOId(NamedThingId):
     pass
 
 
@@ -119,39 +119,45 @@ class NamedThing(YAMLRoot):
 
 
 @dataclass
-class Study(NamedThing):
+class MODO(NamedThing):
     """
-    Represents the digital object. It encapsulates omics and other datasets and their metadata.
+    Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata.
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SMOC["Study"]
-    class_class_curie: ClassVar[str] = "smoc:Study"
-    class_name: ClassVar[str] = "Study"
-    class_model_uri: ClassVar[URIRef] = SMOC.Study
+    class_class_uri: ClassVar[URIRef] = SMOC["MODO"]
+    class_class_curie: ClassVar[str] = "smoc:MODO"
+    class_name: ClassVar[str] = "MODO"
+    class_model_uri: ClassVar[URIRef] = SMOC.MODO
 
-    id: Union[str, StudyId] = None
-    start_date: Union[str, XSDDateTime] = None
-    completion_date: Optional[Union[str, XSDDateTime]] = None
+    id: Union[str, MODOId] = None
+    creation_date: Union[str, XSDDateTime] = None
+    last_update_date: Union[str, XSDDateTime] = None
     has_assay: Optional[Union[Union[str, AssayId], List[Union[str, AssayId]]]] = empty_list()
+    source_uri: Optional[Union[str, URI]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
             self.MissingRequiredField("id")
-        if not isinstance(self.id, StudyId):
-            self.id = StudyId(self.id)
+        if not isinstance(self.id, MODOId):
+            self.id = MODOId(self.id)
 
-        if self._is_empty(self.start_date):
-            self.MissingRequiredField("start_date")
-        if not isinstance(self.start_date, XSDDateTime):
-            self.start_date = XSDDateTime(self.start_date)
+        if self._is_empty(self.creation_date):
+            self.MissingRequiredField("creation_date")
+        if not isinstance(self.creation_date, XSDDateTime):
+            self.creation_date = XSDDateTime(self.creation_date)
 
-        if self.completion_date is not None and not isinstance(self.completion_date, XSDDateTime):
-            self.completion_date = XSDDateTime(self.completion_date)
+        if self._is_empty(self.last_update_date):
+            self.MissingRequiredField("last_update_date")
+        if not isinstance(self.last_update_date, XSDDateTime):
+            self.last_update_date = XSDDateTime(self.last_update_date)
 
         if not isinstance(self.has_assay, list):
             self.has_assay = [self.has_assay] if self.has_assay is not None else []
         self.has_assay = [v if isinstance(v, AssayId) else AssayId(v) for v in self.has_assay]
+
+        if self.source_uri is not None and not isinstance(self.source_uri, URI):
+            self.source_uri = URI(self.source_uri)
 
         super().__post_init__(**kwargs)
 
@@ -209,6 +215,9 @@ class Sample(NamedThing):
     class_model_uri: ClassVar[URIRef] = SMOC.Sample
 
     id: Union[str, SampleId] = None
+    cell_type: Optional[str] = None
+    source_material: Optional[str] = None
+    sex: Optional[Union[str, "Sex"]] = None
     taxon_id: Optional[Union[int, List[int]]] = empty_list()
     collector: Optional[Union[str, List[str]]] = empty_list()
 
@@ -217,6 +226,15 @@ class Sample(NamedThing):
             self.MissingRequiredField("id")
         if not isinstance(self.id, SampleId):
             self.id = SampleId(self.id)
+
+        if self.cell_type is not None and not isinstance(self.cell_type, str):
+            self.cell_type = str(self.cell_type)
+
+        if self.source_material is not None and not isinstance(self.source_material, str):
+            self.source_material = str(self.source_material)
+
+        if self.sex is not None and not isinstance(self.sex, Sex):
+            self.sex = Sex(self.sex)
 
         if not isinstance(self.taxon_id, list):
             self.taxon_id = [self.taxon_id] if self.taxon_id is not None else []
@@ -290,6 +308,7 @@ class ReferenceGenome(NamedThing):
     has_sequence: Optional[Union[Union[str, ReferenceSequenceId], List[Union[str, ReferenceSequenceId]]]] = empty_list()
     taxon_id: Optional[Union[int, List[int]]] = empty_list()
     source_uri: Optional[Union[str, URI]] = None
+    version: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -313,6 +332,9 @@ class ReferenceGenome(NamedThing):
         if self.source_uri is not None and not isinstance(self.source_uri, URI):
             self.source_uri = URI(self.source_uri)
 
+        if self.version is not None and not isinstance(self.version, str):
+            self.version = str(self.version)
+
         super().__post_init__(**kwargs)
 
 
@@ -331,6 +353,7 @@ class ReferenceSequence(NamedThing):
     id: Union[str, ReferenceSequenceId] = None
     sequence_md5: Optional[str] = None
     source_uri: Optional[Union[str, URI]] = None
+    version: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -343,6 +366,9 @@ class ReferenceSequence(NamedThing):
 
         if self.source_uri is not None and not isinstance(self.source_uri, URI):
             self.source_uri = URI(self.source_uri)
+
+        if self.version is not None and not isinstance(self.version, str):
+            self.version = str(self.version)
 
         super().__post_init__(**kwargs)
 
@@ -423,26 +449,39 @@ class Array(DataEntity):
 
 
 @dataclass
-class StudyCollection(YAMLRoot):
+class MODOCollection(YAMLRoot):
     """
-    A holder for Study objects
+    A holder for Multi-Omics Digital Objects
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SMOC["StudyCollection"]
-    class_class_curie: ClassVar[str] = "smoc:StudyCollection"
-    class_name: ClassVar[str] = "StudyCollection"
-    class_model_uri: ClassVar[URIRef] = SMOC.StudyCollection
+    class_class_uri: ClassVar[URIRef] = SMOC["MODOCollection"]
+    class_class_curie: ClassVar[str] = "smoc:MODOCollection"
+    class_name: ClassVar[str] = "MODOCollection"
+    class_model_uri: ClassVar[URIRef] = SMOC.MODOCollection
 
-    entries: Optional[Union[Dict[Union[str, StudyId], Union[dict, Study]], List[Union[dict, Study]]]] = empty_dict()
+    entries: Optional[Union[Dict[Union[str, MODOId], Union[dict, MODO]], List[Union[dict, MODO]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="entries", slot_type=Study, key_name="id", keyed=True)
+        self._normalize_inlined_as_dict(slot_name="entries", slot_type=MODO, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
 
 # Enumerations
+class Sex(EnumDefinitionImpl):
+
+    Male = PermissibleValue(
+        text="Male",
+        description="The male sex.")
+    Female = PermissibleValue(
+        text="Female",
+        description="The female sex.")
+
+    _defn = EnumDefinition(
+        name="Sex",
+    )
+
 class OmicsType(EnumDefinitionImpl):
 
     GENOMICS = PermissibleValue(
@@ -505,11 +544,11 @@ slots.description = Slot(uri=SCHEMA.description, name="description", curie=SCHEM
 slots.has_part = Slot(uri=SCHEMA.hasPart, name="has_part", curie=SCHEMA.curie('hasPart'),
                    model_uri=SMOC.has_part, domain=None, range=Optional[str])
 
-slots.completion_date = Slot(uri=FG.completion_date, name="completion_date", curie=FG.curie('completion_date'),
-                   model_uri=SMOC.completion_date, domain=None, range=Optional[Union[str, XSDDateTime]])
+slots.creation_date = Slot(uri=SMOC.creation_date, name="creation_date", curie=SMOC.curie('creation_date'),
+                   model_uri=SMOC.creation_date, domain=None, range=Union[str, XSDDateTime])
 
-slots.start_date = Slot(uri=FG.start_date, name="start_date", curie=FG.curie('start_date'),
-                   model_uri=SMOC.start_date, domain=None, range=Union[str, XSDDateTime])
+slots.last_update_date = Slot(uri=SMOC.last_update_date, name="last_update_date", curie=SMOC.curie('last_update_date'),
+                   model_uri=SMOC.last_update_date, domain=None, range=Union[str, XSDDateTime])
 
 slots.omics_type = Slot(uri=SMOC.omics_type, name="omics_type", curie=SMOC.curie('omics_type'),
                    model_uri=SMOC.omics_type, domain=None, range=Union[Union[str, "OmicsType"], List[Union[str, "OmicsType"]]])
@@ -548,5 +587,17 @@ slots.has_sequence = Slot(uri=SMOC.has_sequence, name="has_sequence", curie=SMOC
 slots.has_reference = Slot(uri=SMOC.has_reference, name="has_reference", curie=SMOC.curie('has_reference'),
                    model_uri=SMOC.has_reference, domain=None, range=Optional[Union[str, ReferenceGenomeId]])
 
-slots.studyCollection__entries = Slot(uri=SMOC.entries, name="studyCollection__entries", curie=SMOC.curie('entries'),
-                   model_uri=SMOC.studyCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, StudyId], Union[dict, Study]], List[Union[dict, Study]]]])
+slots.version = Slot(uri=SMOC.version, name="version", curie=SMOC.curie('version'),
+                   model_uri=SMOC.version, domain=None, range=Optional[str])
+
+slots.cell_type = Slot(uri=SMOC.cell_type, name="cell_type", curie=SMOC.curie('cell_type'),
+                   model_uri=SMOC.cell_type, domain=None, range=Optional[str])
+
+slots.source_material = Slot(uri=SMOC.source_material, name="source_material", curie=SMOC.curie('source_material'),
+                   model_uri=SMOC.source_material, domain=None, range=Optional[str])
+
+slots.sex = Slot(uri=SMOC.sex, name="sex", curie=SMOC.curie('sex'),
+                   model_uri=SMOC.sex, domain=None, range=Optional[Union[str, "Sex"]])
+
+slots.mODOCollection__entries = Slot(uri=SMOC.entries, name="mODOCollection__entries", curie=SMOC.curie('entries'),
+                   model_uri=SMOC.mODOCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, MODOId], Union[dict, MODO]], List[Union[dict, MODO]]]])
