@@ -393,6 +393,10 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="MODOCollection/">MODOCollection</a></td>
+<td>A holder for Multi-Omics Digital Objects</td>
+</tr>
+<tr>
 <td><a href="NamedThing/">NamedThing</a></td>
 <td>A generic grouping for any identifiable entity</td>
 </tr>
@@ -417,6 +421,10 @@
 <td>A data entity consisting of genomic variants relative to a reference.</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="MODO/">MODO</a></td>
+<td>Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata.</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ReferenceGenome/">ReferenceGenome</a></td>
 <td>Reference assembly of a given genome, consisting of a collection of congiguous sequences (contigs).</td>
 </tr>
@@ -427,14 +435,6 @@
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Sample/">Sample</a></td>
 <td>A biological sample used in assays. Examples include a whole organism, tissue or cell line.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Study/">Study</a></td>
-<td>Represents the digital object. It encapsulates omics and other datasets and their metadata.</td>
-</tr>
-<tr>
-<td><a href="StudyCollection/">StudyCollection</a></td>
-<td>A holder for Study objects</td>
 </tr>
 </tbody>
 </table>
@@ -448,12 +448,16 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="cell_type/">cell_type</a></td>
+<td>The cell type name</td>
+</tr>
+<tr>
 <td><a href="collector/">collector</a></td>
 <td>The organization responsible for collecting a given sample</td>
 </tr>
 <tr>
-<td><a href="completion_date/">completion_date</a></td>
-<td>The date on which the concluding information for this study is completed</td>
+<td><a href="creation_date/">creation_date</a></td>
+<td>The date on which something was created</td>
 </tr>
 <tr>
 <td><a href="data_format/">data_format</a></td>
@@ -496,6 +500,10 @@
 <td>A unique identifier for a thing</td>
 </tr>
 <tr>
+<td><a href="last_update_date/">last_update_date</a></td>
+<td>The date on which the thing was last modified</td>
+</tr>
+<tr>
 <td><a href="location/">location</a></td>
 <td>The uniform resource identifier to access a resource, either on the web or th...</td>
 </tr>
@@ -512,16 +520,24 @@
 <td>The pre-computed hash uniquely representing a biological sequence</td>
 </tr>
 <tr>
-<td><a href="source_uri/">source_uri</a></td>
-<td>The URI from which a resource was obtained</td>
+<td><a href="sex/">sex</a></td>
+<td>The biological sex of a sample</td>
 </tr>
 <tr>
-<td><a href="start_date/">start_date</a></td>
-<td>The date on which this study began</td>
+<td><a href="source_material/">source_material</a></td>
+<td>The biological source from which the sample was isolated (tissue, organ,</td>
+</tr>
+<tr>
+<td><a href="source_uri/">source_uri</a></td>
+<td>The URI from which a resource or dataset was obtained or derived</td>
 </tr>
 <tr>
 <td><a href="taxon_id/">taxon_id</a></td>
 <td>The taxid number describing the taxonomic range of a sample</td>
+</tr>
+<tr>
+<td><a href="version/">version</a></td>
+<td>A string specifying the release or version of a software or resource</td>
 </tr>
 </tbody>
 </table>
@@ -540,6 +556,10 @@
 </tr>
 <tr>
 <td><a href="OmicsType/">OmicsType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Sex/">Sex</a></td>
 <td></td>
 </tr>
 </tbody>

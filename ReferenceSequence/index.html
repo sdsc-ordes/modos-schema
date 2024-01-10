@@ -221,6 +221,8 @@
 
       ReferenceSequence : source_uri
 
+      ReferenceSequence : version
+
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -250,7 +252,13 @@
 <tr>
 <td><a href="../source_uri/">source_uri</a></td>
 <td>0..1 <br/> <a href="../Uri/">Uri</a></td>
-<td>The URI from which a resource was obtained</td>
+<td>The URI from which a resource or dataset was obtained or derived</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../version/">version</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A string specifying the release or version of a software or resource</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -328,6 +336,7 @@ is_a: NamedThing
 slots:
 - sequence_md5
 - source_uri
+- version
 
 </code></pre>
 </details>
@@ -354,15 +363,27 @@ attributes:
     pattern: ^[a-f0-9]{32}$
   source_uri:
     name: source_uri
-    description: The URI from which a resource was obtained.
+    description: The URI from which a resource or dataset was obtained or derived.
     from_schema: https://w3id.org/sdsc-ordes/smoc-schema
     rank: 1000
     alias: source_uri
     owner: ReferenceSequence
     domain_of:
+    - MODO
     - ReferenceGenome
     - ReferenceSequence
     range: uri
+  version:
+    name: version
+    description: A string specifying the release or version of a software or resource.
+    from_schema: https://w3id.org/sdsc-ordes/smoc-schema
+    rank: 1000
+    alias: version
+    owner: ReferenceSequence
+    domain_of:
+    - ReferenceGenome
+    - ReferenceSequence
+    range: string
   id:
     name: id
     description: A unique identifier for a thing

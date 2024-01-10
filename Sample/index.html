@@ -216,6 +216,8 @@
     class Sample
       NamedThing &lt;|-- Sample
 
+      Sample : cell_type
+
       Sample : collector
 
       Sample : description
@@ -223,6 +225,12 @@
       Sample : id
 
       Sample : name
+
+      Sample : sex
+
+          Sample --|&gt; Sex : sex
+
+      Sample : source_material
 
       Sample : taxon_id
 
@@ -246,6 +254,24 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../cell_type/">cell_type</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The cell type name</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../source_material/">source_material</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The biological source from which the sample was isolated (tissue, organ,</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sex/">sex</a></td>
+<td>0..1 <br/> <a href="../Sex/">Sex</a></td>
+<td>The biological sex of a sample</td>
+<td>direct</td>
+</tr>
 <tr>
 <td><a href="../taxon_id/">taxon_id</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
@@ -361,6 +387,9 @@ see_also:
 - bioschemas:Sample
 is_a: NamedThing
 slots:
+- cell_type
+- source_material
+- sex
 - taxon_id
 - collector
 
@@ -376,6 +405,37 @@ see_also:
 - bioschemas:Sample
 is_a: NamedThing
 attributes:
+  cell_type:
+    name: cell_type
+    description: The cell type name.
+    from_schema: https://w3id.org/sdsc-ordes/smoc-schema
+    rank: 1000
+    alias: cell_type
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+  source_material:
+    name: source_material
+    description: The biological source from which the sample was isolated (tissue,
+      organ, ...).
+    from_schema: https://w3id.org/sdsc-ordes/smoc-schema
+    rank: 1000
+    alias: source_material
+    owner: Sample
+    domain_of:
+    - Sample
+    range: string
+  sex:
+    name: sex
+    description: The biological sex of a sample.
+    from_schema: https://w3id.org/sdsc-ordes/smoc-schema
+    rank: 1000
+    alias: sex
+    owner: Sample
+    domain_of:
+    - Sample
+    range: Sex
   taxon_id:
     name: taxon_id
     description: The taxid number describing the taxonomic range of a sample.
