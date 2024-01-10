@@ -42,14 +42,8 @@ classes:
     description: >-
       Represents the digital object.
       It encapsulates omics and other datasets and their metadata.
-    see_also:
-      - bioschemas:Study
-      - FG:Study
-      - NCIT:C63536
     slots:
-      - start_date
-      - completion_date
-      - has_assay
+      - creation_date
       - source_uri
 
   Assay:
@@ -214,7 +208,7 @@ slots:
     range: string
     pattern: "^[a-f0-9]{32}$"
   source_uri:
-    description: The URI from which a resource was obtained.
+    description: The URI from which a resource or dataset was obtained or derived.
     range: uri
   has_sequence:
     is_a: has_part
