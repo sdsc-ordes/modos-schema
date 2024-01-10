@@ -44,6 +44,7 @@ classes:
     slots:
       - creation_date
       - source_uri
+      - last_modified_date
 
   Assay:
     is_a: NamedThing
@@ -152,14 +153,12 @@ slots:
   has_part:
     slot_uri: schema:hasPart
     description: Indicates an item that is part of this item.
-
-  completion_date:
-    slot_uri: FG:completion_date
-    description: The date on which the concluding information for this study is completed.
+  creation_date:
+    description: The date on which something was created.
     range: datetime
-  start_date:
-    slot_uri: FG:start_date
-    description: The date on which this study began.
+    required: true
+  last_updated_date:
+    description: The date on which the thing was last modified.
     range: datetime
     required: true
   omics_type:
