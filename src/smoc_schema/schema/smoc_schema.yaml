@@ -38,9 +38,8 @@ classes:
 
   MODO:
     is_a: NamedThing
-    name: Multi-Omics Digital Object
     description: >-
-      Represents the digital object.
+      Represents the Multi-Omics Digital Object.
       It encapsulates omics and other datasets and their metadata.
     slots:
       - creation_date
@@ -223,7 +222,7 @@ slots:
     description: A string specifying the release or version of a software or resource.
     range: string
   cell_type:
-    decription: The cell type name.
+    description: The cell type name.
     range: string
   source_material:
     description: The biological source from which the sample was isolated (tissue, organ, ...).
