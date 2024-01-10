@@ -78,7 +78,7 @@ classes:
     description: >-
       An entity containing data.
     slots:
-      - location
+      - data_path
       - data_format
       - has_sample
       - has_reference
@@ -89,7 +89,7 @@ classes:
       Reference assembly of a given genome, consisting
       of a collection of congiguous sequences (contigs).
     slots:
-      - location
+      - data_path
       - has_sequence
       - taxon_id
       - source_uri
@@ -194,12 +194,17 @@ slots:
     description: The organization responsible for collecting a given sample.
     range: string
     multivalued: true
-  location:
+  data_path:
     description: >-
-      The uniform resource identifier to access a resource,
-      either on the web or the filesystem
-    range: uri
+      The path to access a resource, on a network or local filesystem.
+      Can be a path relative to the root of the digital object, a URL,
+      or an absolute path.
+    range: string
     required: true
+    examples:
+      - value: "s3://example-bucket/path/to/data"
+      - value: "relative/file/path"
+      - value: "file:///absolute/file/path"
   sequence_md5:
     description: >-
       The pre-computed hash uniquely representing a biological sequence.
