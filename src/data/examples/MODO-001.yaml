@@ -1,7 +1,8 @@
 # Example data object
 ---
 entries:
-  - id: example:Study001
+  - id: example:MODO001
     name: Test for the schema
     description: If this fails, something is wrong with the schema
-    start_date: "2023-12-22"
+    creation_date: "2023-12-22"
+    last_update_date: "2023-12-23"
