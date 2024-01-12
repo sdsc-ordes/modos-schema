@@ -1,15 +1,16 @@
 # smoc-schema
 
-Metadata schema for the SMOC Multi-Omics Digital Object
+Metadata schema for the SMOC Multi-Omics Digital Object.
 
 ```mermaid
 erDiagram
-StudyCollection {
+MODOCollection {
 
 }
-Study {
-    datetime start_date  
-    datetime completion_date  
+MODO {
+    datetime creation_date  
+    datetime last_update_date  
+    uri source_uri  
     uriorcurie id  
     string name  
     string description  
@@ -21,16 +22,17 @@ Assay {
     string description  
 }
 DataEntity {
-    uri location  
+    string data_path  
     DataFormat data_format  
     uriorcurie id  
     string name  
     string description  
 }
 ReferenceGenome {
-    uri location  
+    string data_path  
     integerList taxon_id  
     uri source_uri  
+    string version  
     uriorcurie id  
     string name  
     string description  
@@ -38,11 +40,15 @@ ReferenceGenome {
 ReferenceSequence {
     string sequence_md5  
     uri source_uri  
+    string version  
     uriorcurie id  
     string name  
     string description  
 }
 Sample {
+    string cell_type  
+    string source_material  
+    Sex sex  
     integerList taxon_id  
     stringList collector  
     uriorcurie id  
@@ -50,14 +56,16 @@ Sample {
     string description  
 }
 
-StudyCollection ||--}o Study : "entries"
-Study ||--}o Assay : "has_assay"
+MODOCollection ||--}o MODO : "entries"
+MODO ||--}o Assay : "has_assay"
 Assay ||--}o Sample : "has_sample"
 Assay ||--}o DataEntity : "has_data"
 DataEntity ||--}o Sample : "has_sample"
 DataEntity ||--|o ReferenceGenome : "has_reference"
 ReferenceGenome ||--}o ReferenceSequence : "has_sequence"
+
 ```
+
 
 
 ## Website
