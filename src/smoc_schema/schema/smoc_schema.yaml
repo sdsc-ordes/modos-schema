@@ -12,13 +12,14 @@ prefixes:
   smoc: https://w3id.org/sdsc-ordes/smoc-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/
-  schema: http://schema.org/
   bioschemas: https://bioschemas.org/
   EDAM: http://edamontology.org/
-  NCIT: http://purl.obolibrary.org/obo/NCIT_
   FG: https://w3id.org/fair-genomes/ontology/
-  sphn: https://biomedit.ch/rdf/sphn-schema/sphn#
   example: https://example.org/
+  GENO: http://purl.obolibrary.org/obo/GENO_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  schema: http://schema.org/
+  sphn: https://biomedit.ch/rdf/sphn-schema/sphn#
 default_prefix: smoc
 default_range: string
 
@@ -85,6 +86,8 @@ classes:
 
   ReferenceGenome:
     is_a: NamedThing
+    see_also: 
+      - GENO:0000914
     description: >-
       Reference assembly of a given genome, consisting
       of a collection of congiguous sequences (contigs).
@@ -97,6 +100,8 @@ classes:
 
   ReferenceSequence:
     is_a: NamedThing
+    see_also:
+      - GENO:0000017
     description: >-
       A contiguous sequence of DNA part of a reference coordinate system (genome assembly).
     slots:
