@@ -1,5 +1,5 @@
 # Auto generated from smoc_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-01-10T15:19:57
+# Generation date: 2024-01-12T11:08:53
 # Schema: smoc-schema
 #
 # id: https://w3id.org/sdsc-ordes/smoc-schema
@@ -33,6 +33,7 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 # Namespaces
 EDAM = CurieNamespace('EDAM', 'http://edamontology.org/')
 FG = CurieNamespace('FG', 'https://w3id.org/fair-genomes/ontology/')
+GENO = CurieNamespace('GENO', 'http://purl.obolibrary.org/obo/GENO_')
 NCIT = CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT_')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
 BIOSCHEMAS = CurieNamespace('bioschemas', 'https://bioschemas.org/')

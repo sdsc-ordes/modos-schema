@@ -24,10 +24,6 @@
       "prefix_reference": "https://w3id.org/biolink/"
     },
     {
-      "prefix_prefix": "schema",
-      "prefix_reference": "http://schema.org/"
-    },
-    {
       "prefix_prefix": "bioschemas",
       "prefix_reference": "https://bioschemas.org/"
     },
@@ -36,20 +32,28 @@
       "prefix_reference": "http://edamontology.org/"
     },
     {
-      "prefix_prefix": "NCIT",
-      "prefix_reference": "http://purl.obolibrary.org/obo/NCIT_"
-    },
-    {
       "prefix_prefix": "FG",
       "prefix_reference": "https://w3id.org/fair-genomes/ontology/"
     },
     {
-      "prefix_prefix": "sphn",
-      "prefix_reference": "https://biomedit.ch/rdf/sphn-schema/sphn#"
-    },
-    {
       "prefix_prefix": "example",
       "prefix_reference": "https://example.org/"
+    },
+    {
+      "prefix_prefix": "GENO",
+      "prefix_reference": "http://purl.obolibrary.org/obo/GENO_"
+    },
+    {
+      "prefix_prefix": "NCIT",
+      "prefix_reference": "http://purl.obolibrary.org/obo/NCIT_"
+    },
+    {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    },
+    {
+      "prefix_prefix": "sphn",
+      "prefix_reference": "https://biomedit.ch/rdf/sphn-schema/sphn#"
     }
   ],
   "default_prefix": "smoc",
@@ -891,6 +895,9 @@
       "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/ReferenceGenome",
       "description": "Reference assembly of a given genome, consisting of a collection of congiguous sequences (contigs).",
       "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
+      "see_also": [
+        "GENO:0000914"
+      ],
       "is_a": "NamedThing",
       "slots": [
         "id",
@@ -911,6 +918,9 @@
       "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/ReferenceSequence",
       "description": "A contiguous sequence of DNA part of a reference coordinate system (genome assembly).",
       "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
+      "see_also": [
+        "GENO:0000017"
+      ],
       "is_a": "NamedThing",
       "slots": [
         "id",
@@ -1006,9 +1016,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "smoc_schema.yaml",
-  "source_file_date": "2024-01-10T15:19:28",
-  "source_file_size": 7624,
-  "generation_date": "2024-01-10T15:19:52",
+  "source_file_date": "2024-01-12T10:41:27",
+  "source_file_size": 7740,
+  "generation_date": "2024-01-12T11:08:47",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/smoc_schema.context.jsonld",

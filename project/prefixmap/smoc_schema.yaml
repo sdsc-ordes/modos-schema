@@ -1,6 +1,7 @@
 {
    "EDAM": "http://edamontology.org/",
    "FG": "https://w3id.org/fair-genomes/ontology/",
+   "GENO": "http://purl.obolibrary.org/obo/GENO_",
    "NCIT": "http://purl.obolibrary.org/obo/NCIT_",
    "biolink": "https://w3id.org/biolink/",
    "bioschemas": "https://bioschemas.org/",

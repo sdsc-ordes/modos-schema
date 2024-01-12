@@ -10,11 +10,7 @@ schema1:Thing a sh:NodeShape ;
     sh:closed true ;
     sh:description "A generic grouping for any identifiable entity" ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:order 1 ;
@@ -23,19 +19,38 @@ schema1:Thing a sh:NodeShape ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:order 2 ;
-            sh:path schema1:description ] ;
+            sh:path schema1:description ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path schema1:identifier ] ;
     sh:targetClass schema1:Thing .
 
 smoc:AlignmentSet a sh:NodeShape ;
     sh:closed true ;
     sh:description "A data entity consisting of genomic intervals aligned to a reference." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Data/file format associated with a data entity." ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path schema1:name ],
+        [ sh:description "Data/file format associated with a data entity." ;
             sh:in ( EDAM:format_3462 EDAM:format_1930 EDAM:format_3915 EDAM:format_1929 ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path smoc:data_format ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 4 ;
+            sh:path schema1:identifier ],
+        [ sh:class smoc:Sample ;
+            sh:description "Biological sample included or described by a given thing." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path smoc:has_sample ],
         [ sh:class smoc:ReferenceGenome ;
             sh:description "Specifies the reference coordinate system used by an omics dataset." ;
             sh:maxCount 1 ;
@@ -43,43 +58,27 @@ smoc:AlignmentSet a sh:NodeShape ;
             sh:order 3 ;
             sh:path smoc:has_reference ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path schema1:name ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path schema1:description ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 4 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
             sh:description "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path smoc:data_path ],
-        [ sh:class smoc:Sample ;
-            sh:description "Biological sample included or described by a given thing." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path smoc:has_sample ] ;
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path schema1:description ] ;
     sh:targetClass smoc:AlignmentSet .
 
 smoc:Array a sh:NodeShape ;
     sh:closed true ;
     sh:description "Data entity consisting of an N-dimensional array." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Data/file format associated with a data entity." ;
-            sh:in ( EDAM:format_3462 EDAM:format_1930 EDAM:format_3915 EDAM:format_1929 ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path smoc:data_format ],
+    sh:property [ sh:class smoc:Sample ;
+            sh:description "Biological sample included or described by a given thing." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path smoc:has_sample ],
         [ sh:class smoc:ReferenceGenome ;
             sh:description "Specifies the reference coordinate system used by an omics dataset." ;
             sh:maxCount 1 ;
@@ -97,21 +96,22 @@ smoc:Array a sh:NodeShape ;
             sh:order 4 ;
             sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path schema1:name ],
-        [ sh:datatype xsd:string ;
             sh:description "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path smoc:data_path ],
-        [ sh:class smoc:Sample ;
-            sh:description "Biological sample included or described by a given thing." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path smoc:has_sample ] ;
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path schema1:name ],
+        [ sh:description "Data/file format associated with a data entity." ;
+            sh:in ( EDAM:format_3462 EDAM:format_1930 EDAM:format_3915 EDAM:format_1929 ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path smoc:data_format ] ;
     sh:targetClass smoc:Array .
 
 smoc:MODOCollection a sh:NodeShape ;
@@ -128,32 +128,22 @@ smoc:VariantSet a sh:NodeShape ;
     sh:closed true ;
     sh:description "A data entity consisting of genomic variants relative to a reference." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class smoc:Sample ;
-            sh:description "Biological sample included or described by a given thing." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path smoc:has_sample ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:order 5 ;
             sh:path schema1:name ],
-        [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 4 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path schema1:description ],
         [ sh:datatype xsd:string ;
             sh:description "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path smoc:data_path ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 4 ;
+            sh:path schema1:identifier ],
         [ sh:description "Data/file format associated with a data entity." ;
             sh:in ( EDAM:format_3462 EDAM:format_1930 EDAM:format_3915 EDAM:format_1929 ) ;
             sh:maxCount 1 ;
@@ -165,18 +155,28 @@ smoc:VariantSet a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
-            sh:path smoc:has_reference ] ;
+            sh:path smoc:has_reference ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path schema1:description ],
+        [ sh:class smoc:Sample ;
+            sh:description "Biological sample included or described by a given thing." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path smoc:has_sample ] ;
     sh:targetClass smoc:VariantSet .
 
 smoc:Assay a sh:NodeShape ;
     sh:closed true ;
     sh:description "A coordinated set of actions designed to generate data from samples." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A unique identifier for a thing" ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 3 ;
-            sh:path schema1:identifier ],
+            sh:order 5 ;
+            sh:path schema1:description ],
         [ sh:class smoc:DataEntity ;
             sh:description "Data entity included in a given collection." ;
             sh:nodeKind sh:IRI ;
@@ -192,11 +192,11 @@ smoc:Assay a sh:NodeShape ;
             sh:minCount 1 ;
             sh:order 2 ;
             sh:path smoc:omics_type ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
+        [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path schema1:description ],
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
@@ -208,7 +208,12 @@ smoc:DataEntity a sh:NodeShape ;
     sh:closed true ;
     sh:description "An entity containing data." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Data/file format associated with a data entity." ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path schema1:description ],
+        [ sh:description "Data/file format associated with a data entity." ;
             sh:in ( EDAM:format_3462 EDAM:format_1930 EDAM:format_3915 EDAM:format_1929 ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -220,142 +225,142 @@ smoc:DataEntity a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path smoc:has_reference ],
-        [ sh:datatype xsd:string ;
-            sh:description "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 0 ;
-            sh:path smoc:data_path ],
         [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 4 ;
             sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path schema1:description ],
+            sh:order 5 ;
+            sh:path schema1:name ],
         [ sh:class smoc:Sample ;
             sh:description "Biological sample included or described by a given thing." ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path smoc:has_sample ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
+            sh:description "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path." ;
             sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path schema1:name ] ;
+            sh:minCount 1 ;
+            sh:order 0 ;
+            sh:path smoc:data_path ] ;
     sh:targetClass smoc:DataEntity .
 
 smoc:MODO a sh:NodeShape ;
     sh:closed true ;
     sh:description "Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "The date on which the thing was last modified." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path smoc:last_update_date ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path schema1:name ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "The URI from which a resource or dataset was obtained or derived." ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path smoc:source_uri ],
-        [ sh:class smoc:Assay ;
+    sh:property [ sh:class smoc:Assay ;
             sh:description "An assay that was performed as part of a given thing." ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path smoc:has_assay ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path schema1:description ],
         [ sh:datatype xsd:dateTime ;
             sh:description "The date on which something was created." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 0 ;
             sh:path smoc:creation_date ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 5 ;
+            sh:path schema1:name ],
         [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 4 ;
-            sh:path schema1:identifier ] ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "The date on which the thing was last modified." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path smoc:last_update_date ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "The URI from which a resource or dataset was obtained or derived." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path smoc:source_uri ] ;
     sh:targetClass smoc:MODO .
 
 smoc:ReferenceSequence a sh:NodeShape ;
     sh:closed true ;
     sh:description "A contiguous sequence of DNA part of a reference coordinate system (genome assembly)." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 3 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "The URI from which a resource or dataset was obtained or derived." ;
-            sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path smoc:source_uri ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 5 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "The pre-computed hash uniquely representing a biological sequence. Calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM)." ;
             sh:maxCount 1 ;
             sh:order 0 ;
             sh:path smoc:sequence_md5 ;
             sh:pattern "^[a-f0-9]{32}$" ],
         [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "The URI from which a resource or dataset was obtained or derived." ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path smoc:source_uri ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 3 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
             sh:description "A string specifying the release or version of a software or resource." ;
             sh:maxCount 1 ;
             sh:order 2 ;
             sh:path smoc:version ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
+            sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path schema1:name ] ;
+            sh:order 5 ;
+            sh:path schema1:description ] ;
     sh:targetClass smoc:ReferenceSequence .
 
 smoc:ReferenceGenome a sh:NodeShape ;
     sh:closed true ;
     sh:description "Reference assembly of a given genome, consisting of a collection of congiguous sequences (contigs)." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:integer ;
-            sh:description "The taxid number describing the taxonomic range of a sample." ;
-            sh:order 2 ;
-            sh:path smoc:taxon_id ],
-        [ sh:datatype xsd:string ;
-            sh:description "A string specifying the release or version of a software or resource." ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
-            sh:order 4 ;
-            sh:path smoc:version ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "The URI from which a resource or dataset was obtained or derived." ;
-            sh:maxCount 1 ;
-            sh:order 3 ;
-            sh:path smoc:source_uri ],
+            sh:order 6 ;
+            sh:path schema1:name ],
         [ sh:class smoc:ReferenceSequence ;
             sh:description "Denotes that a sequence belongs to a collection (e.g. a reference genome)." ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path smoc:has_sequence ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
+            sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path schema1:name ],
+            sh:order 7 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:integer ;
+            sh:description "The taxid number describing the taxonomic range of a sample." ;
+            sh:order 2 ;
+            sh:path smoc:taxon_id ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "The URI from which a resource or dataset was obtained or derived." ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path smoc:source_uri ],
+        [ sh:datatype xsd:string ;
+            sh:description "A string specifying the release or version of a software or resource." ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path smoc:version ],
         [ sh:datatype xsd:string ;
             sh:description "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path." ;
             sh:maxCount 1 ;
@@ -366,12 +371,7 @@ smoc:ReferenceGenome a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 5 ;
-            sh:path schema1:identifier ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 7 ;
-            sh:path schema1:description ] ;
+            sh:path schema1:identifier ] ;
     sh:targetClass smoc:ReferenceGenome .
 
 smoc:Sample a sh:NodeShape ;
@@ -379,42 +379,42 @@ smoc:Sample a sh:NodeShape ;
     sh:description "A biological sample used in assays. Examples include a whole organism, tissue or cell line." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "The biological source from which the sample was isolated (tissue, organ, ...)." ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
-            sh:order 1 ;
-            sh:path smoc:source_material ],
-        [ sh:datatype xsd:string ;
-            sh:description "The organization responsible for collecting a given sample." ;
-            sh:order 4 ;
-            sh:path smoc:collector ],
-        [ sh:datatype xsd:integer ;
-            sh:description "The taxid number describing the taxonomic range of a sample." ;
-            sh:order 3 ;
-            sh:path smoc:taxon_id ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:order 7 ;
-            sh:path schema1:description ],
+            sh:order 6 ;
+            sh:path schema1:name ],
         [ sh:description "The biological sex of a sample." ;
             sh:in ( "Male" "Female" ) ;
             sh:maxCount 1 ;
             sh:order 2 ;
             sh:path smoc:sex ],
+        [ sh:datatype xsd:string ;
+            sh:description "The organization responsible for collecting a given sample." ;
+            sh:order 4 ;
+            sh:path smoc:collector ],
+        [ sh:datatype xsd:string ;
+            sh:description "The cell type name." ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path smoc:cell_type ],
         [ sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 5 ;
             sh:path schema1:identifier ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
+            sh:description "The biological source from which the sample was isolated (tissue, organ, ...)." ;
             sh:maxCount 1 ;
-            sh:order 6 ;
-            sh:path schema1:name ],
+            sh:order 1 ;
+            sh:path smoc:source_material ],
         [ sh:datatype xsd:string ;
-            sh:description "The cell type name." ;
+            sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
-            sh:order 0 ;
-            sh:path smoc:cell_type ] ;
+            sh:order 7 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:integer ;
+            sh:description "The taxid number describing the taxonomic range of a sample." ;
+            sh:order 3 ;
+            sh:path smoc:taxon_id ] ;
     sh:targetClass smoc:Sample .
 
