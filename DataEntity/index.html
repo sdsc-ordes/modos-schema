@@ -221,6 +221,8 @@
 
           DataEntity --|&gt; DataFormat : data_format
 
+      DataEntity : data_path
+
       DataEntity : description
 
       DataEntity : has_reference
@@ -232,8 +234,6 @@
           DataEntity --|&gt; Sample : has_sample
 
       DataEntity : id
-
-      DataEntity : location
 
       DataEntity : name
 
@@ -263,9 +263,9 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../location/">location</a></td>
-<td>1..1 <br/> <a href="../Uri/">Uri</a></td>
-<td>The uniform resource identifier to access a resource, either on the web or th...</td>
+<td><a href="../data_path/">data_path</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>The path to access a resource, on a network or local filesystem</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -358,7 +358,7 @@ description: An entity containing data.
 from_schema: https://w3id.org/sdsc-ordes/smoc-schema
 is_a: NamedThing
 slots:
-- location
+- data_path
 - data_format
 - has_sample
 - has_reference
@@ -372,18 +372,23 @@ description: An entity containing data.
 from_schema: https://w3id.org/sdsc-ordes/smoc-schema
 is_a: NamedThing
 attributes:
-  location:
-    name: location
-    description: The uniform resource identifier to access a resource, either on the
-      web or the filesystem
+  data_path:
+    name: data_path
+    description: The path to access a resource, on a network or local filesystem.
+      Can be a path relative to the root of the digital object, a URL, or an absolute
+      path.
+    examples:
+    - value: s3://example-bucket/path/to/data
+    - value: relative/file/path
+    - value: file:///absolute/file/path
     from_schema: https://w3id.org/sdsc-ordes/smoc-schema
     rank: 1000
-    alias: location
+    alias: data_path
     owner: DataEntity
     domain_of:
     - DataEntity
     - ReferenceGenome
-    range: uri
+    range: string
     required: true
   data_format:
     name: data_format
