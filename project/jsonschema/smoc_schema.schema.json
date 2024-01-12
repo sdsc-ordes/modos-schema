@@ -1,5 +1,298 @@
 {
     "$defs": {
+        "AlignmentSet": {
+            "additionalProperties": false,
+            "description": "A data entity consisting of genomic intervals aligned to a reference.",
+            "properties": {
+                "data_format": {
+                    "$ref": "#/$defs/DataFormat",
+                    "description": "Data/file format associated with a data entity."
+                },
+                "data_path": {
+                    "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "has_reference": {
+                    "description": "Specifies the reference coordinate system used by an omics dataset.",
+                    "type": "string"
+                },
+                "has_sample": {
+                    "description": "Biological sample included or described by a given thing.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "data_path",
+                "data_format",
+                "id"
+            ],
+            "title": "AlignmentSet",
+            "type": "object"
+        },
+        "Array": {
+            "additionalProperties": false,
+            "description": "Data entity consisting of an N-dimensional array.",
+            "properties": {
+                "data_format": {
+                    "$ref": "#/$defs/DataFormat",
+                    "description": "Data/file format associated with a data entity."
+                },
+                "data_path": {
+                    "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "has_reference": {
+                    "description": "Specifies the reference coordinate system used by an omics dataset.",
+                    "type": "string"
+                },
+                "has_sample": {
+                    "description": "Biological sample included or described by a given thing.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "data_path",
+                "data_format",
+                "id"
+            ],
+            "title": "Array",
+            "type": "object"
+        },
+        "Assay": {
+            "additionalProperties": false,
+            "description": "A coordinated set of actions designed to generate data from samples.",
+            "properties": {
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "has_data": {
+                    "description": "Data entity included in a given collection.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "has_sample": {
+                    "description": "Biological sample included or described by a given thing.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "omics_type": {
+                    "description": "The type of omics considered.",
+                    "items": {
+                        "$ref": "#/$defs/OmicsType"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "omics_type",
+                "id"
+            ],
+            "title": "Assay",
+            "type": "object"
+        },
+        "DataEntity": {
+            "additionalProperties": false,
+            "description": "An entity containing data.",
+            "properties": {
+                "data_format": {
+                    "$ref": "#/$defs/DataFormat",
+                    "description": "Data/file format associated with a data entity."
+                },
+                "data_path": {
+                    "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "has_reference": {
+                    "description": "Specifies the reference coordinate system used by an omics dataset.",
+                    "type": "string"
+                },
+                "has_sample": {
+                    "description": "Biological sample included or described by a given thing.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "data_path",
+                "data_format",
+                "id"
+            ],
+            "title": "DataEntity",
+            "type": "object"
+        },
+        "DataFormat": {
+            "description": "",
+            "enum": [
+                "CRAM",
+                "FASTQ",
+                "Zarr",
+                "FASTA"
+            ],
+            "title": "DataFormat",
+            "type": "string"
+        },
+        "MODO": {
+            "additionalProperties": false,
+            "description": "Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata.",
+            "properties": {
+                "creation_date": {
+                    "description": "The date on which something was created.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "has_assay": {
+                    "description": "An assay that was performed as part of a given thing.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "last_update_date": {
+                    "description": "The date on which the thing was last modified.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "source_uri": {
+                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "creation_date",
+                "last_update_date",
+                "id"
+            ],
+            "title": "MODO",
+            "type": "object"
+        },
+        "MODOCollection": {
+            "additionalProperties": false,
+            "description": "A holder for Multi-Omics Digital Objects",
+            "properties": {
+                "entries": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/MODO__identifier_optional"
+                    },
+                    "type": "object"
+                }
+            },
+            "title": "MODOCollection",
+            "type": "object"
+        },
+        "MODO__identifier_optional": {
+            "additionalProperties": false,
+            "description": "Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata.",
+            "properties": {
+                "creation_date": {
+                    "description": "The date on which something was created.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "has_assay": {
+                    "description": "An assay that was performed as part of a given thing.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "last_update_date": {
+                    "description": "The date on which the thing was last modified.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "source_uri": {
+                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "creation_date",
+                "last_update_date"
+            ],
+            "title": "MODO",
+            "type": "object"
+        },
         "NamedThing": {
             "additionalProperties": false,
             "description": "A generic grouping for any identifiable entity",
@@ -23,29 +316,71 @@
             "title": "NamedThing",
             "type": "object"
         },
-        "PersonStatus": {
+        "OmicsType": {
             "description": "",
             "enum": [
-                "ALIVE",
-                "DEAD",
-                "UNKNOWN"
+                "GENOMICS",
+                "TRANSCRIPTOMICS",
+                "METABOLOMICS",
+                "PROTEOMICS"
             ],
-            "title": "PersonStatus",
+            "title": "OmicsType",
             "type": "string"
         },
-        "Study": {
+        "ReferenceGenome": {
             "additionalProperties": false,
-            "description": "Represents a Study",
+            "description": "Reference assembly of a given genome, consisting of a collection of congiguous sequences (contigs).",
             "properties": {
-                "age_in_years": {
-                    "description": "Number of years since birth",
-                    "type": "integer"
-                },
-                "birth_date": {
-                    "description": "Date on which a person is born",
-                    "format": "date",
+                "data_path": {
+                    "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
                     "type": "string"
                 },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "has_sequence": {
+                    "description": "Denotes that a sequence belongs to a collection (e.g. a reference genome).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                },
+                "source_uri": {
+                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "type": "string"
+                },
+                "taxon_id": {
+                    "description": "The taxid number describing the taxonomic range of a sample.",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "version": {
+                    "description": "A string specifying the release or version of a software or resource.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "data_path",
+                "id"
+            ],
+            "title": "ReferenceGenome",
+            "type": "object"
+        },
+        "ReferenceSequence": {
+            "additionalProperties": false,
+            "description": "A contiguous sequence of DNA part of a reference coordinate system (genome assembly).",
+            "properties": {
                 "description": {
                     "description": "A human-readable description for a thing",
                     "type": "string"
@@ -58,55 +393,40 @@
                     "description": "A human-readable name for a thing",
                     "type": "string"
                 },
-                "primary_email": {
-                    "description": "The main email address of a person",
-                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
+                "sequence_md5": {
+                    "description": "The pre-computed hash uniquely representing a biological sequence. Calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).",
+                    "pattern": "^[a-f0-9]{32}$",
                     "type": "string"
                 },
-                "vital_status": {
-                    "$ref": "#/$defs/PersonStatus",
-                    "description": "living or dead status"
+                "source_uri": {
+                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "A string specifying the release or version of a software or resource.",
+                    "type": "string"
                 }
             },
             "required": [
                 "id"
             ],
-            "title": "Study",
+            "title": "ReferenceSequence",
             "type": "object"
         },
-        "StudyCollection": {
+        "Sample": {
             "additionalProperties": false,
-            "description": "A holder for Study objects",
+            "description": "A biological sample used in assays. Examples include a whole organism, tissue or cell line.",
             "properties": {
-                "entries": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Study__identifier_optional"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
-                    "type": "object"
-                }
-            },
-            "title": "StudyCollection",
-            "type": "object"
-        },
-        "Study__identifier_optional": {
-            "additionalProperties": false,
-            "description": "Represents a Study",
-            "properties": {
-                "age_in_years": {
-                    "description": "Number of years since birth",
-                    "type": "integer"
-                },
-                "birth_date": {
-                    "description": "Date on which a person is born",
-                    "format": "date",
+                "cell_type": {
+                    "description": "The cell type name.",
                     "type": "string"
+                },
+                "collector": {
+                    "description": "The organization responsible for collecting a given sample.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
@@ -120,37 +440,91 @@
                     "description": "A human-readable name for a thing",
                     "type": "string"
                 },
-                "primary_email": {
-                    "description": "The main email address of a person",
-                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
+                "sex": {
+                    "$ref": "#/$defs/Sex",
+                    "description": "The biological sex of a sample."
+                },
+                "source_material": {
+                    "description": "The biological source from which the sample was isolated (tissue, organ, ...).",
                     "type": "string"
                 },
-                "vital_status": {
-                    "$ref": "#/$defs/PersonStatus",
-                    "description": "living or dead status"
+                "taxon_id": {
+                    "description": "The taxid number describing the taxonomic range of a sample.",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
                 }
             },
-            "required": [],
-            "title": "Study",
+            "required": [
+                "id"
+            ],
+            "title": "Sample",
+            "type": "object"
+        },
+        "Sex": {
+            "description": "",
+            "enum": [
+                "Male",
+                "Female"
+            ],
+            "title": "Sex",
+            "type": "string"
+        },
+        "VariantSet": {
+            "additionalProperties": false,
+            "description": "A data entity consisting of genomic variants relative to a reference.",
+            "properties": {
+                "data_format": {
+                    "$ref": "#/$defs/DataFormat",
+                    "description": "Data/file format associated with a data entity."
+                },
+                "data_path": {
+                    "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": "string"
+                },
+                "has_reference": {
+                    "description": "Specifies the reference coordinate system used by an omics dataset.",
+                    "type": "string"
+                },
+                "has_sample": {
+                    "description": "Biological sample included or described by a given thing.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "data_path",
+                "data_format",
+                "id"
+            ],
+            "title": "VariantSet",
             "type": "object"
         }
     },
     "$id": "https://w3id.org/sdsc-ordes/smoc-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": true,
-    "description": "A holder for Study objects",
+    "description": "A holder for Multi-Omics Digital Objects",
     "metamodel_version": "1.7.0",
     "properties": {
         "entries": {
             "additionalProperties": {
-                "anyOf": [
-                    {
-                        "$ref": "#/$defs/Study__identifier_optional"
-                    },
-                    {
-                        "type": "null"
-                    }
-                ]
+                "$ref": "#/$defs/MODO__identifier_optional"
             },
             "type": "object"
         }

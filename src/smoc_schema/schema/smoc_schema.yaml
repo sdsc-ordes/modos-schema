@@ -9,16 +9,18 @@ see_also:
   - https://sdsc-ordes.github.io/smoc-schema
 
 prefixes:
-  smoc_schema: https://w3id.org/sdsc-ordes/smoc-schema/
+  smoc: https://w3id.org/sdsc-ordes/smoc-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/
-  schema: http://schema.org/
   bioschemas: https://bioschemas.org/
   EDAM: http://edamontology.org/
-  NCIT: http://purl.obolibrary.org/obo/NCIT_
   FG: https://w3id.org/fair-genomes/ontology/
   example: https://example.org/
-default_prefix: smoc_schema
+  GENO: http://purl.obolibrary.org/obo/GENO_
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  schema: http://schema.org/
+  sphn: https://biomedit.ch/rdf/sphn-schema/sphn#
+default_prefix: smoc
 default_range: string
 
 imports:
@@ -35,92 +37,112 @@ classes:
       - description
     class_uri: schema:Thing
 
-  Study:
+  MODO:
     is_a: NamedThing
     description: >-
-      Represents the digital object.
+      Represents the Multi-Omics Digital Object.
       It encapsulates omics and other datasets and their metadata.
-    see_also:
-      - bioschemas:Study
-      - FG:Study
-      - NCIT:C63536
     slots:
-      - start_date
-      - completion_date
-      - has_experiment
+      - creation_date
+      - has_assay
+      - last_update_date
+      - source_uri
 
-  Experiment:
+  Assay:
+    is_a: NamedThing
     see_also:
       - NCIT:C42790
+      - sphn:Assay
     description: >-
-      A coordinated set of actions designed to generate data.
-      An experiment can contain multiple samples and datasets.
+      A coordinated set of actions designed to generate data from samples.
     slots:
       - has_sample
-      - has_record
+      - has_data
+      - omics_type
 
   Sample:
+    is_a: NamedThing
     see_also:
       - bioschemas:Sample
     description: >-
-      A biological sample used in experiments.
+      A biological sample used in assays.
       Examples include a whole organism, tissue or cell line.
     slots:
+      - cell_type
+      - source_material
+      - sex
       - taxon_id
       - collector
 
-  Record:
+  DataEntity:
+    is_a: NamedThing
     description: >-
-      An individual data record.
-      Examples include an array or an alignment file.
+      An entity containing data.
     slots:
-      - location
-      - format
+      - data_path
+      - data_format
       - has_sample
       - has_reference
 
   ReferenceGenome:
+    is_a: NamedThing
+    see_also: 
+      - GENO:0000914
     description: >-
       Reference assembly of a given genome, consisting
       of a collection of congiguous sequences (contigs).
     slots:
-      - name
+      - data_path
       - has_sequence
       - taxon_id
-      - location
       - source_uri
+      - version
 
   ReferenceSequence:
+    is_a: NamedThing
+    see_also:
+      - GENO:0000017
     description: >-
       A contiguous sequence of DNA part of a reference coordinate system (genome assembly).
     slots:
-      - name
       - sequence_md5
-      - location
       - source_uri
+      - version
 
   AlignmentSet:
-    is_a: Record
-    description: A data record consisting of genomic intervals aligned to a reference.
+    is_a: DataEntity
+    description: A data entity consisting of genomic intervals aligned to a reference.
 
   VariantSet:
-    is_a: Record
-    description: A data record consisting of genomic variants relative to a reference.
+    is_a: DataEntity
+    description: A data entity consisting of genomic variants relative to a reference.
 
   Array:
-    is_a: Record
-    description: Data record consisting of an N-dimensional array.
+    is_a: DataEntity
+    description: Data entity consisting of an N-dimensional array.
 
-  StudyCollection:
+  MODOCollection:
     tree_root: true
     description: >-
-      A holder for Study objects
+      A holder for Multi-Omics Digital Objects
     attributes:
       entries:
-        range: Study
+        range: MODO
         multivalued: true
         inlined: true
 
+# TODO: Expand schema to support standard use cases
+# NOTE: Suggestions below based on the SPHN 2024 schema
+
+# QualityControlMetric
+# StandardOperatingProcedure
+# SequencingAssay(Assay)
+# MassSpectometryAssay(Assay)
+# DataProcessing
+# SequencingAnalysis(DataProcessing)
+# SampleProcessing
+# LibraryPreparation(SampleProcessing)
+# Software
 
 slots:
   id:
@@ -134,39 +156,60 @@ slots:
   description:
     slot_uri: schema:description
     description: A human-readable description for a thing
-
-  completion_date:
-    slot_uri: FG:completion_date
-    description: The date on which the concluding information for this study is completed.
+  has_part:
+    slot_uri: schema:hasPart
+    description: Indicates an item that is part of this item.
+  creation_date:
+    description: The date on which something was created.
     range: datetime
-  start_date:
-    slot_uri: FG:start_date
-    description: The date on which this study began.
+    required: true
+  last_update_date:
+    description: The date on which the thing was last modified.
     range: datetime
+    required: true
   omics_type:
     description: The type of omics considered.
     range: OmicsType
-  has_experiment:
-    description: An experiment.
-    range: Experiment
+    required: true
+    multivalued: true
+  has_assay:
+    is_a: has_part
+    description: An assay that was performed as part of a given thing.
+    range: Assay
+    multivalued: true
   has_sample:
+    is_a: has_part
     description: Biological sample included or described by a given thing.
     range: Sample
-  has_record:
-    description: Data record included in a given collection.
-    range: Record
-  format:
-    description: Data/file format associated with a data record.
+    multivalued: true
+  has_data:
+    is_a: has_part
+    description: Data entity included in a given collection.
+    range: DataEntity
+    multivalued: true
+  data_format:
+    description: Data/file format associated with a data entity.
     range: DataFormat
+    required: true
   taxon_id:
     description: The taxid number describing the taxonomic range of a sample.
     range: integer
+    multivalued: true
   collector:
     description: The organization responsible for collecting a given sample.
     range: string
-  location:
-    description: The location of a data record, either on the web or the filesystem
-    range: uriorcurie
+    multivalued: true
+  data_path:
+    description: >-
+      The path to access a resource, on a network or local filesystem.
+      Can be a path relative to the root of the digital object, a URL,
+      or an absolute path.
+    range: string
+    required: true
+    examples:
+      - value: "s3://example-bucket/path/to/data"
+      - value: "relative/file/path"
+      - value: "file:///absolute/file/path"
   sequence_md5:
     description: >-
       The pre-computed hash uniquely representing a biological sequence.
@@ -174,16 +217,37 @@ slots:
     range: string
     pattern: "^[a-f0-9]{32}$"
   source_uri:
-    description: The URI from which a resource was obtained.
-    range: uriorcurie
+    description: The URI from which a resource or dataset was obtained or derived.
+    range: uri
   has_sequence:
-    description: Denotes that a sequence beolongs to a collection (e.g. a reference genome).
+    is_a: has_part
+    description: Denotes that a sequence belongs to a collection (e.g. a reference genome).
     range: ReferenceSequence
+    multivalued: true
   has_reference:
+    is_a: has_part
     description: Specifies the reference coordinate system used by an omics dataset.
     range: ReferenceGenome
+  version:
+    description: A string specifying the release or version of a software or resource.
+    range: string
+  cell_type:
+    description: The cell type name.
+    range: string
+  source_material:
+    description: The biological source from which the sample was isolated (tissue, organ, ...).
+    range: string
+  sex:
+    description: The biological sex of a sample.
+    range: Sex
 
 enums:
+  Sex:
+    permissible_values:
+      Male:
+        description: The male sex.
+      Female:
+        description: The female sex.
   OmicsType:
     permissible_values:
       GENOMICS:
@@ -207,6 +271,12 @@ enums:
       CRAM:
         description: Referenced-based compression of alignment format.
         meaning: EDAM:format_3462
+      FASTQ:
+        description: FASTQ short read format with sequence and any type of quality scores.
+        meaning: EDAM:format_1930
       Zarr:
         description: Chunked, compressed N-dimensional arrays.
         meaning: EDAM:format_3915
+      FASTA:
+        description: FASTA sequence format including NCBI-style IDs.
+        meaning: EDAM:format_1929

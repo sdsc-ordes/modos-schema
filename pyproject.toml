@@ -2,14 +2,14 @@
 name = "smoc_schema"
 version = "0.1.0"
 description = "Metadata schema for the SMOC Multi-Omics Digital Object"
-authors = ["My Name <my-name@my-org.org>"]
+authors = ["Cyril Matthey-Doret"]
 license = "MIT"
 readme = "README.md"
 include = ["README.md", "src/smoc_schema/schema", "project"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-linkml-runtime = "^1.1.24"
+linkml-runtime = "^1.6"
 
 [tool.poetry-dynamic-versioning]
 enable = true
@@ -17,7 +17,7 @@ vcs = "git"
 style = "pep440"
 
 [tool.poetry.dev-dependencies]
-linkml = "^1.3.5"
+linkml = "^1.6"
 mkdocs-material = "^8.2.8"
 mkdocs-mermaid2-plugin = "^0.6.0"
 schemasheets = "^0.1.14"

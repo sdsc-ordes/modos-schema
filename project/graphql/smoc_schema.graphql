@@ -1,3 +1,62 @@
+type AlignmentSet
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    dataPath: String!
+    dataFormat: DataFormat!
+    hasSample: [Sample]
+    hasReference: ReferenceGenome
+  }
+
+type Array
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    dataPath: String!
+    dataFormat: DataFormat!
+    hasSample: [Sample]
+    hasReference: ReferenceGenome
+  }
+
+type Assay
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    hasSample: [Sample]
+    hasData: [DataEntity]
+    omicsType: [OmicsType]!
+  }
+
+type DataEntity
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    dataPath: String!
+    dataFormat: DataFormat!
+    hasSample: [Sample]
+    hasReference: ReferenceGenome
+  }
+
+type MODO
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    creationDate: Datetime!
+    hasAssay: [Assay]
+    lastUpdateDate: Datetime!
+    sourceUri: Uri
+  }
+
+type MODOCollection
+  {
+    entries: [MODO]
+  }
+
 type NamedThing
   {
     id: Uriorcurie!
@@ -5,19 +64,48 @@ type NamedThing
     description: String
   }
 
-type Study
+type ReferenceGenome
   {
     id: Uriorcurie!
     name: String
     description: String
-    primaryEmail: String
-    birthDate: Date
-    ageInYears: Integer
-    vitalStatus: PersonStatus
+    dataPath: String!
+    hasSequence: [ReferenceSequence]
+    taxonId: [Integer]
+    sourceUri: Uri
+    version: String
   }
 
-type StudyCollection
+type ReferenceSequence
   {
-    entries: [Study]
+    id: Uriorcurie!
+    name: String
+    description: String
+    sequenceMd5: String
+    sourceUri: Uri
+    version: String
+  }
+
+type Sample
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    cellType: String
+    sourceMaterial: String
+    sex: Sex
+    taxonId: [Integer]
+    collector: [String]
+  }
+
+type VariantSet
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    dataPath: String!
+    dataFormat: DataFormat!
+    hasSample: [Sample]
+    hasReference: ReferenceGenome
   }
 

@@ -43,6 +43,65 @@ linkml:Jsonpath xsd:string
 
 linkml:Sparqlpath xsd:string
 
+<AlignmentSet> CLOSED {
+    (  $<AlignmentSet_tes> (  &<DataEntity_tes> ;
+          rdf:type [ <DataEntity> ] ?
+       ) ;
+       rdf:type [ <AlignmentSet> ]
+    )
+}
+
+<Array> CLOSED {
+    (  $<Array_tes> (  &<DataEntity_tes> ;
+          rdf:type [ <DataEntity> ] ?
+       ) ;
+       rdf:type [ <Array> ]
+    )
+}
+
+<Assay> CLOSED {
+    (  $<Assay_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <has_sample> @<Sample> * ;
+          <has_data> @<DataEntity> * ;
+          <omics_type> @<OmicsType> +
+       ) ;
+       rdf:type [ <Assay> ]
+    )
+}
+
+<DataEntity>  (
+    CLOSED {
+       (  $<DataEntity_tes> (  &<NamedThing_tes> ;
+             rdf:type [ schema1:Thing ] ? ;
+             <data_path> @linkml:String ;
+             <data_format> @<DataFormat> ;
+             <has_sample> @<Sample> * ;
+             <has_reference> @<ReferenceGenome> ?
+          ) ;
+          rdf:type [ <DataEntity> ]
+       )
+    } OR @<AlignmentSet> OR @<Array> OR @<VariantSet>
+)
+
+<MODO> CLOSED {
+    (  $<MODO_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <creation_date> @linkml:Datetime ;
+          <has_assay> @<Assay> * ;
+          <last_update_date> @linkml:Datetime ;
+          <source_uri> @linkml:Uri ?
+       ) ;
+       rdf:type [ <MODO> ]
+    )
+}
+
+<MODOCollection> CLOSED {
+    (  $<MODOCollection_tes> <entries> @<MODO> * ;
+       rdf:type [ <MODOCollection> ] ?
+    )
+}
+
 <NamedThing>  (
     CLOSED {
        (  $<NamedThing_tes> (  schema1:name @linkml:String ? ;
@@ -50,24 +109,51 @@ linkml:Sparqlpath xsd:string
           ) ;
           rdf:type [ schema1:Thing ]
        )
-    } OR @<Study>
+    } OR @<Assay> OR @<DataEntity> OR @<MODO> OR @<ReferenceGenome> OR @<ReferenceSequence> OR @<Sample>
 )
 
-<Study> CLOSED {
-    (  $<Study_tes> (  &<NamedThing_tes> ;
+<ReferenceGenome> CLOSED {
+    (  $<ReferenceGenome_tes> (  &<NamedThing_tes> ;
           rdf:type [ schema1:Thing ] ? ;
-          schema1:email @linkml:String ? ;
-          schema1:birthDate @linkml:Date ? ;
-          <age_in_years> @linkml:Integer ? ;
-          <vital_status> @<PersonStatus> ?
+          <data_path> @linkml:String ;
+          <has_sequence> @<ReferenceSequence> * ;
+          <taxon_id> @linkml:Integer * ;
+          <source_uri> @linkml:Uri ? ;
+          <version> @linkml:String ?
        ) ;
-       rdf:type [ <Study> ]
+       rdf:type [ <ReferenceGenome> ]
     )
 }
 
-<StudyCollection> CLOSED {
-    (  $<StudyCollection_tes> <entries> @<Study> * ;
-       rdf:type [ <StudyCollection> ] ?
+<ReferenceSequence> CLOSED {
+    (  $<ReferenceSequence_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <sequence_md5> @linkml:String ? ;
+          <source_uri> @linkml:Uri ? ;
+          <version> @linkml:String ?
+       ) ;
+       rdf:type [ <ReferenceSequence> ]
+    )
+}
+
+<Sample> CLOSED {
+    (  $<Sample_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema1:Thing ] ? ;
+          <cell_type> @linkml:String ? ;
+          <source_material> @linkml:String ? ;
+          <sex> @<Sex> ? ;
+          <taxon_id> @linkml:Integer * ;
+          <collector> @linkml:String *
+       ) ;
+       rdf:type [ <Sample> ]
+    )
+}
+
+<VariantSet> CLOSED {
+    (  $<VariantSet_tes> (  &<DataEntity_tes> ;
+          rdf:type [ <DataEntity> ] ?
+       ) ;
+       rdf:type [ <VariantSet> ]
     )
 }
 

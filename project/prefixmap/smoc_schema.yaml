@@ -1,10 +1,15 @@
 {
-   "PATO": "http://purl.obolibrary.org/obo/PATO_",
+   "EDAM": "http://edamontology.org/",
+   "FG": "https://w3id.org/fair-genomes/ontology/",
+   "GENO": "http://purl.obolibrary.org/obo/GENO_",
+   "NCIT": "http://purl.obolibrary.org/obo/NCIT_",
    "biolink": "https://w3id.org/biolink/",
+   "bioschemas": "https://bioschemas.org/",
    "example": "https://example.org/",
    "linkml": "https://w3id.org/linkml/",
    "schema": "http://schema.org/",
-   "smoc_schema": "https://w3id.org/sdsc-ordes/smoc-schema/",
+   "smoc": "https://w3id.org/sdsc-ordes/smoc-schema/",
+   "sphn": "https://biomedit.ch/rdf/sphn-schema/sphn#",
    "NamedThing": {
       "@id": "schema:Thing"
    }
