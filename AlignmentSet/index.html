@@ -269,7 +269,7 @@
 </tr>
 <tr>
 <td><a href="../has_reference/">has_reference</a></td>
-<td>0..1 <br/> <a href="../ReferenceGenome/">ReferenceGenome</a></td>
+<td>0..* <br/> <a href="../ReferenceGenome/">ReferenceGenome</a></td>
 <td>Specifies the reference coordinate system used by an omics dataset</td>
 <td><a href="../DataEntity/">DataEntity</a></td>
 </tr>
@@ -383,6 +383,7 @@ attributes:
     from_schema: https://w3id.org/sdsc-ordes/smoc-schema
     rank: 1000
     is_a: has_part
+    multivalued: true
     alias: has_reference
     owner: AlignmentSet
     domain_of:
