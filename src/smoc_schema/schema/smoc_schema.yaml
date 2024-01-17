@@ -159,6 +159,7 @@ slots:
   has_part:
     slot_uri: schema:hasPart
     description: Indicates an item that is part of this item.
+    multivalued: true
   creation_date:
     description: The date on which something was created.
     range: datetime
@@ -176,17 +177,22 @@ slots:
     is_a: has_part
     description: An assay that was performed as part of a given thing.
     range: Assay
-    multivalued: true
   has_sample:
     is_a: has_part
     description: Biological sample included or described by a given thing.
     range: Sample
-    multivalued: true
   has_data:
     is_a: has_part
     description: Data entity included in a given collection.
     range: DataEntity
-    multivalued: true
+  has_sequence:
+    is_a: has_part
+    description: Denotes that a sequence belongs to a collection (e.g. a reference genome).
+    range: ReferenceSequence
+  has_reference:
+    is_a: has_part
+    description: Specifies the reference coordinate system used by an omics dataset.
+    range: ReferenceGenome
   data_format:
     description: Data/file format associated with a data entity.
     range: DataFormat
@@ -219,15 +225,6 @@ slots:
   source_uri:
     description: The URI from which a resource or dataset was obtained or derived.
     range: uri
-  has_sequence:
-    is_a: has_part
-    description: Denotes that a sequence belongs to a collection (e.g. a reference genome).
-    range: ReferenceSequence
-    multivalued: true
-  has_reference:
-    is_a: has_part
-    description: Specifies the reference coordinate system used by an omics dataset.
-    range: ReferenceGenome
   version:
     description: A string specifying the release or version of a software or resource.
     range: string
