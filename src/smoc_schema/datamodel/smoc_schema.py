@@ -1,5 +1,5 @@
 # Auto generated from smoc_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-01-12T11:08:53
+# Generation date: 2024-01-17T12:05:25
 # Schema: smoc-schema
 #
 # id: https://w3id.org/sdsc-ordes/smoc-schema
@@ -264,7 +264,7 @@ class DataEntity(NamedThing):
     data_path: str = None
     data_format: Union[str, "DataFormat"] = None
     has_sample: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
-    has_reference: Optional[Union[str, ReferenceGenomeId]] = None
+    has_reference: Optional[Union[Union[str, ReferenceGenomeId], List[Union[str, ReferenceGenomeId]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -286,8 +286,9 @@ class DataEntity(NamedThing):
             self.has_sample = [self.has_sample] if self.has_sample is not None else []
         self.has_sample = [v if isinstance(v, SampleId) else SampleId(v) for v in self.has_sample]
 
-        if self.has_reference is not None and not isinstance(self.has_reference, ReferenceGenomeId):
-            self.has_reference = ReferenceGenomeId(self.has_reference)
+        if not isinstance(self.has_reference, list):
+            self.has_reference = [self.has_reference] if self.has_reference is not None else []
+        self.has_reference = [v if isinstance(v, ReferenceGenomeId) else ReferenceGenomeId(v) for v in self.has_reference]
 
         super().__post_init__(**kwargs)
 
@@ -543,7 +544,7 @@ slots.description = Slot(uri=SCHEMA.description, name="description", curie=SCHEM
                    model_uri=SMOC.description, domain=None, range=Optional[str])
 
 slots.has_part = Slot(uri=SCHEMA.hasPart, name="has_part", curie=SCHEMA.curie('hasPart'),
-                   model_uri=SMOC.has_part, domain=None, range=Optional[str])
+                   model_uri=SMOC.has_part, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.creation_date = Slot(uri=SMOC.creation_date, name="creation_date", curie=SMOC.curie('creation_date'),
                    model_uri=SMOC.creation_date, domain=None, range=Union[str, XSDDateTime])
@@ -563,6 +564,12 @@ slots.has_sample = Slot(uri=SMOC.has_sample, name="has_sample", curie=SMOC.curie
 slots.has_data = Slot(uri=SMOC.has_data, name="has_data", curie=SMOC.curie('has_data'),
                    model_uri=SMOC.has_data, domain=None, range=Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]])
 
+slots.has_sequence = Slot(uri=SMOC.has_sequence, name="has_sequence", curie=SMOC.curie('has_sequence'),
+                   model_uri=SMOC.has_sequence, domain=None, range=Optional[Union[Union[str, ReferenceSequenceId], List[Union[str, ReferenceSequenceId]]]])
+
+slots.has_reference = Slot(uri=SMOC.has_reference, name="has_reference", curie=SMOC.curie('has_reference'),
+                   model_uri=SMOC.has_reference, domain=None, range=Optional[Union[Union[str, ReferenceGenomeId], List[Union[str, ReferenceGenomeId]]]])
+
 slots.data_format = Slot(uri=SMOC.data_format, name="data_format", curie=SMOC.curie('data_format'),
                    model_uri=SMOC.data_format, domain=None, range=Union[str, "DataFormat"])
 
@@ -581,12 +588,6 @@ slots.sequence_md5 = Slot(uri=SMOC.sequence_md5, name="sequence_md5", curie=SMOC
 
 slots.source_uri = Slot(uri=SMOC.source_uri, name="source_uri", curie=SMOC.curie('source_uri'),
                    model_uri=SMOC.source_uri, domain=None, range=Optional[Union[str, URI]])
-
-slots.has_sequence = Slot(uri=SMOC.has_sequence, name="has_sequence", curie=SMOC.curie('has_sequence'),
-                   model_uri=SMOC.has_sequence, domain=None, range=Optional[Union[Union[str, ReferenceSequenceId], List[Union[str, ReferenceSequenceId]]]])
-
-slots.has_reference = Slot(uri=SMOC.has_reference, name="has_reference", curie=SMOC.curie('has_reference'),
-                   model_uri=SMOC.has_reference, domain=None, range=Optional[Union[str, ReferenceGenomeId]])
 
 slots.version = Slot(uri=SMOC.version, name="version", curie=SMOC.curie('version'),
                    model_uri=SMOC.version, domain=None, range=Optional[str])

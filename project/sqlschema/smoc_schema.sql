@@ -1,5 +1,27 @@
 
 
+CREATE TABLE "AlignmentSet" (
+	id TEXT NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	data_path TEXT NOT NULL, 
+	data_format VARCHAR(5) NOT NULL, 
+	has_sample TEXT, 
+	has_reference TEXT, 
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE "Array" (
+	id TEXT NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	data_path TEXT NOT NULL, 
+	data_format VARCHAR(5) NOT NULL, 
+	has_sample TEXT, 
+	has_reference TEXT, 
+	PRIMARY KEY (id)
+);
+
 CREATE TABLE "MODO" (
 	id TEXT NOT NULL, 
 	name TEXT, 
@@ -42,7 +64,7 @@ CREATE TABLE "Sample" (
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE "AlignmentSet" (
+CREATE TABLE "VariantSet" (
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -50,20 +72,7 @@ CREATE TABLE "AlignmentSet" (
 	data_format VARCHAR(5) NOT NULL, 
 	has_sample TEXT, 
 	has_reference TEXT, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(has_reference) REFERENCES "ReferenceGenome" (id)
-);
-
-CREATE TABLE "Array" (
-	id TEXT NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	data_path TEXT NOT NULL, 
-	data_format VARCHAR(5) NOT NULL, 
-	has_sample TEXT, 
-	has_reference TEXT, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(has_reference) REFERENCES "ReferenceGenome" (id)
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE "Assay" (
@@ -86,18 +95,6 @@ CREATE TABLE "ReferenceSequence" (
 	"ReferenceGenome_id" TEXT, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY("ReferenceGenome_id") REFERENCES "ReferenceGenome" (id)
-);
-
-CREATE TABLE "VariantSet" (
-	id TEXT NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	data_path TEXT NOT NULL, 
-	data_format VARCHAR(5) NOT NULL, 
-	has_sample TEXT, 
-	has_reference TEXT, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(has_reference) REFERENCES "ReferenceGenome" (id)
 );
 
 CREATE TABLE "ReferenceGenome_taxon_id" (
@@ -131,7 +128,6 @@ CREATE TABLE "DataEntity" (
 	has_reference TEXT, 
 	"Assay_id" TEXT, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(has_reference) REFERENCES "ReferenceGenome" (id), 
 	FOREIGN KEY("Assay_id") REFERENCES "Assay" (id)
 );
 

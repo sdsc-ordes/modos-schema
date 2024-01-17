@@ -7,7 +7,7 @@ message AlignmentSet
   string dataPath = 0
   dataFormat dataFormat = 0
  repeated  sample hasSample = 0
-  referenceGenome hasReference = 0
+ repeated  referenceGenome hasReference = 0
  }
 // Data entity consisting of an N-dimensional array.
 message Array
@@ -18,7 +18,7 @@ message Array
   string dataPath = 0
   dataFormat dataFormat = 0
  repeated  sample hasSample = 0
-  referenceGenome hasReference = 0
+ repeated  referenceGenome hasReference = 0
  }
 // A coordinated set of actions designed to generate data from samples.
 message Assay
@@ -39,7 +39,7 @@ message DataEntity
   string dataPath = 0
   dataFormat dataFormat = 0
  repeated  sample hasSample = 0
-  referenceGenome hasReference = 0
+ repeated  referenceGenome hasReference = 0
  }
 // Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata.
 message MODO
@@ -107,5 +107,5 @@ message VariantSet
   string dataPath = 0
   dataFormat dataFormat = 0
  repeated  sample hasSample = 0
-  referenceGenome hasReference = 0
+ repeated  referenceGenome hasReference = 0
  }

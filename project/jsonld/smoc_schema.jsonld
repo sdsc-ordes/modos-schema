@@ -499,6 +499,7 @@
         "http://schema.org/hasPart"
       ],
       "slot_uri": "http://schema.org/hasPart",
+      "multivalued": true,
       "range": "string",
       "@type": "SlotDefinition"
     },
@@ -589,6 +590,36 @@
         "Assay"
       ],
       "range": "DataEntity",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "has_sequence",
+      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/has_sequence",
+      "description": "Denotes that a sequence belongs to a collection (e.g. a reference genome).",
+      "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
+      "is_a": "has_part",
+      "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/has_sequence",
+      "multivalued": true,
+      "owner": "ReferenceGenome",
+      "domain_of": [
+        "ReferenceGenome"
+      ],
+      "range": "ReferenceSequence",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "has_reference",
+      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/has_reference",
+      "description": "Specifies the reference coordinate system used by an omics dataset.",
+      "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
+      "is_a": "has_part",
+      "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/has_reference",
+      "multivalued": true,
+      "owner": "DataEntity",
+      "domain_of": [
+        "DataEntity"
+      ],
+      "range": "ReferenceGenome",
       "@type": "SlotDefinition"
     },
     {
@@ -690,35 +721,6 @@
         "ReferenceSequence"
       ],
       "range": "uri",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "has_sequence",
-      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/has_sequence",
-      "description": "Denotes that a sequence belongs to a collection (e.g. a reference genome).",
-      "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
-      "is_a": "has_part",
-      "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/has_sequence",
-      "multivalued": true,
-      "owner": "ReferenceGenome",
-      "domain_of": [
-        "ReferenceGenome"
-      ],
-      "range": "ReferenceSequence",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "has_reference",
-      "definition_uri": "https://w3id.org/sdsc-ordes/smoc-schema/has_reference",
-      "description": "Specifies the reference coordinate system used by an omics dataset.",
-      "from_schema": "https://w3id.org/sdsc-ordes/smoc-schema",
-      "is_a": "has_part",
-      "slot_uri": "https://w3id.org/sdsc-ordes/smoc-schema/has_reference",
-      "owner": "DataEntity",
-      "domain_of": [
-        "DataEntity"
-      ],
-      "range": "ReferenceGenome",
       "@type": "SlotDefinition"
     },
     {
@@ -1016,9 +1018,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "smoc_schema.yaml",
-  "source_file_date": "2024-01-12T10:41:27",
-  "source_file_size": 7740,
-  "generation_date": "2024-01-12T11:08:47",
+  "source_file_date": "2024-01-17T12:04:23",
+  "source_file_size": 7674,
+  "generation_date": "2024-01-17T12:05:20",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/smoc_schema.context.jsonld",

@@ -77,7 +77,7 @@ linkml:Sparqlpath xsd:string
              <data_path> @linkml:String ;
              <data_format> @<DataFormat> ;
              <has_sample> @<Sample> * ;
-             <has_reference> @<ReferenceGenome> ?
+             <has_reference> @<ReferenceGenome> *
           ) ;
           rdf:type [ <DataEntity> ]
        )

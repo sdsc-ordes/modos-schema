@@ -18,7 +18,10 @@
                 },
                 "has_reference": {
                     "description": "Specifies the reference coordinate system used by an omics dataset.",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "has_sample": {
                     "description": "Biological sample included or described by a given thing.",
@@ -62,7 +65,10 @@
                 },
                 "has_reference": {
                     "description": "Specifies the reference coordinate system used by an omics dataset.",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "has_sample": {
                     "description": "Biological sample included or described by a given thing.",
@@ -151,7 +157,10 @@
                 },
                 "has_reference": {
                     "description": "Specifies the reference coordinate system used by an omics dataset.",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "has_sample": {
                     "description": "Biological sample included or described by a given thing.",
@@ -489,7 +498,10 @@
                 },
                 "has_reference": {
                     "description": "Specifies the reference coordinate system used by an omics dataset.",
-                    "type": "string"
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "has_sample": {
                     "description": "Biological sample included or described by a given thing.",

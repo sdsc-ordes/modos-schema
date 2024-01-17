@@ -6,7 +6,7 @@ type AlignmentSet
     dataPath: String!
     dataFormat: DataFormat!
     hasSample: [Sample]
-    hasReference: ReferenceGenome
+    hasReference: [ReferenceGenome]
   }
 
 type Array
@@ -17,7 +17,7 @@ type Array
     dataPath: String!
     dataFormat: DataFormat!
     hasSample: [Sample]
-    hasReference: ReferenceGenome
+    hasReference: [ReferenceGenome]
   }
 
 type Assay
@@ -38,7 +38,7 @@ type DataEntity
     dataPath: String!
     dataFormat: DataFormat!
     hasSample: [Sample]
-    hasReference: ReferenceGenome
+    hasReference: [ReferenceGenome]
   }
 
 type MODO
@@ -106,6 +106,6 @@ type VariantSet
     dataPath: String!
     dataFormat: DataFormat!
     hasSample: [Sample]
-    hasReference: ReferenceGenome
+    hasReference: [ReferenceGenome]
   }
 
