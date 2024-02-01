@@ -3,7 +3,7 @@ name = "smoc_schema"
 version = "0.1.0"
 description = "Metadata schema for the SMOC Multi-Omics Digital Object"
 authors = ["Cyril Matthey-Doret"]
-license = "MIT"
+license = "Apache-2.0"
 readme = "README.md"
 include = ["README.md", "src/smoc_schema/schema", "project"]
 
