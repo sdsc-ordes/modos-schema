@@ -1,297 +1,297 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/AlignmentSet/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/AlignmentSet/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Array/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Array/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Assay/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Assay/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Boolean/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Boolean/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Curie/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Curie/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/DataEntity/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/DataEntity/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/DataFormat/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/DataFormat/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Date/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Date/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/DateOrDatetime/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/DateOrDatetime/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Datetime/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Datetime/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Decimal/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Decimal/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Double/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Double/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Float/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Float/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Integer/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Integer/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Jsonpath/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Jsonpath/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Jsonpointer/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Jsonpointer/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/MODO/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/MODO/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/MODOCollection/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/MODOCollection/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/NamedThing/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/NamedThing/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Ncname/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Ncname/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Nodeidentifier/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Nodeidentifier/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Objectidentifier/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Objectidentifier/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/OmicsType/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/OmicsType/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/ReferenceGenome/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/ReferenceGenome/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/ReferenceSequence/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/ReferenceSequence/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Sample/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Sample/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Sex/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Sex/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Sparqlpath/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Sparqlpath/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/String/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/String/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Time/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Time/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Uri/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Uri/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/Uriorcurie/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/Uriorcurie/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/VariantSet/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/VariantSet/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/about/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/about/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/cell_type/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/cell_type/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/collector/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/collector/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/creation_date/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/creation_date/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/data_format/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/data_format/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/data_path/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/data_path/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/description/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/description/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/entries/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/entries/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/has_assay/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/has_assay/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/has_data/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/has_data/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/has_part/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/has_part/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/has_reference/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/has_reference/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/has_sample/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/has_sample/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/has_sequence/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/has_sequence/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/id/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/id/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/last_update_date/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/last_update_date/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/name/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/modo-schema/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/omics_type/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/name/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/sequence_md5/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/omics_type/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/sex/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/sequence_md5/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/smoc-schema/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/sex/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/source_material/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/source_material/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/source_uri/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/source_uri/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/taxon_id/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/taxon_id/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/smoc-schema/version/</loc>
+         <loc>https://sdsc-ordes.github.io/modo-schema/version/</loc>
          <lastmod>2024-02-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
