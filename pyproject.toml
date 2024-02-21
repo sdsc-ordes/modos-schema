@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "smoc_schema"
+name = "modo_schema"
 version = "0.1.0"
 description = "Metadata schema for the SMOC Multi-Omics Digital Object"
 authors = ["Cyril Matthey-Doret"]
 license = "Apache-2.0"
 readme = "README.md"
-include = ["README.md", "src/smoc_schema/schema", "project"]
+include = ["README.md", "src/modo_schema/schema", "project"]
 
 [tool.poetry.dependencies]
 python = "^3.9"

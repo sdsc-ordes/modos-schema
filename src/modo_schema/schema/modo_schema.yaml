@@ -1,15 +1,15 @@
 ---
-id: https://w3id.org/sdsc-ordes/smoc-schema
-name: smoc-schema
-title: smoc-schema
+id: https://w3id.org/sdsc-ordes/modo-schema
+name: modo-schema
+title: modo-schema
 description: |-
   Metadata schema for the SMOC Multi-Omics Digital Object
 license: MIT
 see_also:
-  - https://sdsc-ordes.github.io/smoc-schema
+  - https://sdsc-ordes.github.io/modo-schema
 
 prefixes:
-  smoc: https://w3id.org/sdsc-ordes/smoc-schema/
+  modos: https://w3id.org/sdsc-ordes/modo-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/
   bioschemas: https://bioschemas.org/
@@ -20,7 +20,7 @@ prefixes:
   NCIT: http://purl.obolibrary.org/obo/NCIT_
   schema: http://schema.org/
   sphn: https://biomedit.ch/rdf/sphn-schema/sphn#
-default_prefix: smoc
+default_prefix: modos
 default_range: string
 
 imports:

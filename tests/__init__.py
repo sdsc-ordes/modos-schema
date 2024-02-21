@@ -1,1 +1,1 @@
-"""Tests for smoc-schema."""
+"""Tests for modo-schema."""

@@ -528,7 +528,7 @@
             "type": "object"
         }
     },
-    "$id": "https://w3id.org/sdsc-ordes/smoc-schema",
+    "$id": "https://w3id.org/sdsc-ordes/modo-schema",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": true,
     "description": "A holder for Multi-Omics Digital Objects",
@@ -541,7 +541,7 @@
             "type": "object"
         }
     },
-    "title": "smoc-schema",
+    "title": "modo-schema",
     "type": "object",
     "version": null
 }
