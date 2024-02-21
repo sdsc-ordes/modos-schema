@@ -12,7 +12,7 @@
   "license": "MIT",
   "prefixes": [
     {
-      "prefix_prefix": "modo",
+      "prefix_prefix": "modos",
       "prefix_reference": "https://w3id.org/sdsc-ordes/modo-schema/"
     },
     {
@@ -56,7 +56,7 @@
       "prefix_reference": "https://biomedit.ch/rdf/sphn-schema/sphn#"
     }
   ],
-  "default_prefix": "modo",
+  "default_prefix": "modos",
   "default_range": "string",
   "types": [
     {
@@ -1018,9 +1018,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "modo_schema.yaml",
-  "source_file_date": "2024-02-21T16:46:11",
-  "source_file_size": 7674,
-  "generation_date": "2024-02-21T16:55:56",
+  "source_file_date": "2024-02-21T17:20:49",
+  "source_file_size": 7676,
+  "generation_date": "2024-02-21T17:20:55",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/modo_schema.context.jsonld",
