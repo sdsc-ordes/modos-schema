@@ -1,4 +1,4 @@
-# smoc-schema
+# modo-schema
 
 Metadata schema for the SMOC Multi-Omics Digital Object.
 
@@ -70,17 +70,17 @@ ReferenceGenome ||--}o ReferenceSequence : "has_sequence"
 
 ## Website
 
-[https://sdsc-ordes.github.io/smoc-schema](https://sdsc-ordes.github.io/smoc-schema)
+[https://sdsc-ordes.github.io/modo-schema](https://sdsc-ordes.github.io/modo-schema)
 
 ## Repository Structure
 
 * [examples/](examples/) - example data
 * [project/](project/) - project files (do not edit these)
 * [src/](src/) - source files (edit these)
-  * [smoc_schema](src/smoc_schema)
-    * [schema](src/smoc_schema/schema) -- LinkML schema
+  * [modo_schema](src/modo_schema)
+    * [schema](src/modo_schema/schema) -- LinkML schema
       (edit this)
-    * [datamodel](src/smoc_schema/datamodel) -- generated
+    * [datamodel](src/modo_schema/datamodel) -- generated
       Python datamodel
 * [tests/](tests/) - Python tests
 
