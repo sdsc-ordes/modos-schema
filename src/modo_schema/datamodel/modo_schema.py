@@ -1,8 +1,8 @@
-# Auto generated from smoc_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-01-17T12:05:25
-# Schema: smoc-schema
+# Auto generated from modo_schema.yaml by pythongen.py version: 0.0.1
+# Generation date: 2024-02-21T16:56:00
+# Schema: modo-schema
 #
-# id: https://w3id.org/sdsc-ordes/smoc-schema
+# id: https://w3id.org/sdsc-ordes/modo-schema
 # description: Metadata schema for the SMOC Multi-Omics Digital Object
 # license: MIT
 
@@ -39,10 +39,10 @@ BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
 BIOSCHEMAS = CurieNamespace('bioschemas', 'https://bioschemas.org/')
 EXAMPLE = CurieNamespace('example', 'https://example.org/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
+MODO = CurieNamespace('modo', 'https://w3id.org/sdsc-ordes/modo-schema/')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
-SMOC = CurieNamespace('smoc', 'https://w3id.org/sdsc-ordes/smoc-schema/')
 SPHN = CurieNamespace('sphn', 'https://biomedit.ch/rdf/sphn-schema/sphn#')
-DEFAULT_ = SMOC
+DEFAULT_ = MODO
 
 
 # Types
@@ -98,7 +98,7 @@ class NamedThing(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = SCHEMA["Thing"]
     class_class_curie: ClassVar[str] = "schema:Thing"
     class_name: ClassVar[str] = "NamedThing"
-    class_model_uri: ClassVar[URIRef] = SMOC.NamedThing
+    class_model_uri: ClassVar[URIRef] = MODO.NamedThing
 
     id: Union[str, NamedThingId] = None
     name: Optional[str] = None
@@ -126,10 +126,10 @@ class MODO(NamedThing):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SMOC["MODO"]
-    class_class_curie: ClassVar[str] = "smoc:MODO"
+    class_class_uri: ClassVar[URIRef] = MODO["MODO"]
+    class_class_curie: ClassVar[str] = "modo:MODO"
     class_name: ClassVar[str] = "MODO"
-    class_model_uri: ClassVar[URIRef] = SMOC.MODO
+    class_model_uri: ClassVar[URIRef] = MODO.MODO
 
     id: Union[str, MODOId] = None
     creation_date: Union[str, XSDDateTime] = None
@@ -170,10 +170,10 @@ class Assay(NamedThing):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SMOC["Assay"]
-    class_class_curie: ClassVar[str] = "smoc:Assay"
+    class_class_uri: ClassVar[URIRef] = MODO["Assay"]
+    class_class_curie: ClassVar[str] = "modo:Assay"
     class_name: ClassVar[str] = "Assay"
-    class_model_uri: ClassVar[URIRef] = SMOC.Assay
+    class_model_uri: ClassVar[URIRef] = MODO.Assay
 
     id: Union[str, AssayId] = None
     omics_type: Union[Union[str, "OmicsType"], List[Union[str, "OmicsType"]]] = None
@@ -210,10 +210,10 @@ class Sample(NamedThing):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SMOC["Sample"]
-    class_class_curie: ClassVar[str] = "smoc:Sample"
+    class_class_uri: ClassVar[URIRef] = MODO["Sample"]
+    class_class_curie: ClassVar[str] = "modo:Sample"
     class_name: ClassVar[str] = "Sample"
-    class_model_uri: ClassVar[URIRef] = SMOC.Sample
+    class_model_uri: ClassVar[URIRef] = MODO.Sample
 
     id: Union[str, SampleId] = None
     cell_type: Optional[str] = None
@@ -255,10 +255,10 @@ class DataEntity(NamedThing):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SMOC["DataEntity"]
-    class_class_curie: ClassVar[str] = "smoc:DataEntity"
+    class_class_uri: ClassVar[URIRef] = MODO["DataEntity"]
+    class_class_curie: ClassVar[str] = "modo:DataEntity"
     class_name: ClassVar[str] = "DataEntity"
-    class_model_uri: ClassVar[URIRef] = SMOC.DataEntity
+    class_model_uri: ClassVar[URIRef] = MODO.DataEntity
 
     id: Union[str, DataEntityId] = None
     data_path: str = None
@@ -300,10 +300,10 @@ class ReferenceGenome(NamedThing):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SMOC["ReferenceGenome"]
-    class_class_curie: ClassVar[str] = "smoc:ReferenceGenome"
+    class_class_uri: ClassVar[URIRef] = MODO["ReferenceGenome"]
+    class_class_curie: ClassVar[str] = "modo:ReferenceGenome"
     class_name: ClassVar[str] = "ReferenceGenome"
-    class_model_uri: ClassVar[URIRef] = SMOC.ReferenceGenome
+    class_model_uri: ClassVar[URIRef] = MODO.ReferenceGenome
 
     id: Union[str, ReferenceGenomeId] = None
     data_path: str = None
@@ -347,10 +347,10 @@ class ReferenceSequence(NamedThing):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SMOC["ReferenceSequence"]
-    class_class_curie: ClassVar[str] = "smoc:ReferenceSequence"
+    class_class_uri: ClassVar[URIRef] = MODO["ReferenceSequence"]
+    class_class_curie: ClassVar[str] = "modo:ReferenceSequence"
     class_name: ClassVar[str] = "ReferenceSequence"
-    class_model_uri: ClassVar[URIRef] = SMOC.ReferenceSequence
+    class_model_uri: ClassVar[URIRef] = MODO.ReferenceSequence
 
     id: Union[str, ReferenceSequenceId] = None
     sequence_md5: Optional[str] = None
@@ -382,10 +382,10 @@ class AlignmentSet(DataEntity):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SMOC["AlignmentSet"]
-    class_class_curie: ClassVar[str] = "smoc:AlignmentSet"
+    class_class_uri: ClassVar[URIRef] = MODO["AlignmentSet"]
+    class_class_curie: ClassVar[str] = "modo:AlignmentSet"
     class_name: ClassVar[str] = "AlignmentSet"
-    class_model_uri: ClassVar[URIRef] = SMOC.AlignmentSet
+    class_model_uri: ClassVar[URIRef] = MODO.AlignmentSet
 
     id: Union[str, AlignmentSetId] = None
     data_path: str = None
@@ -407,10 +407,10 @@ class VariantSet(DataEntity):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SMOC["VariantSet"]
-    class_class_curie: ClassVar[str] = "smoc:VariantSet"
+    class_class_uri: ClassVar[URIRef] = MODO["VariantSet"]
+    class_class_curie: ClassVar[str] = "modo:VariantSet"
     class_name: ClassVar[str] = "VariantSet"
-    class_model_uri: ClassVar[URIRef] = SMOC.VariantSet
+    class_model_uri: ClassVar[URIRef] = MODO.VariantSet
 
     id: Union[str, VariantSetId] = None
     data_path: str = None
@@ -432,10 +432,10 @@ class Array(DataEntity):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SMOC["Array"]
-    class_class_curie: ClassVar[str] = "smoc:Array"
+    class_class_uri: ClassVar[URIRef] = MODO["Array"]
+    class_class_curie: ClassVar[str] = "modo:Array"
     class_name: ClassVar[str] = "Array"
-    class_model_uri: ClassVar[URIRef] = SMOC.Array
+    class_model_uri: ClassVar[URIRef] = MODO.Array
 
     id: Union[str, ArrayId] = None
     data_path: str = None
@@ -457,10 +457,10 @@ class MODOCollection(YAMLRoot):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SMOC["MODOCollection"]
-    class_class_curie: ClassVar[str] = "smoc:MODOCollection"
+    class_class_uri: ClassVar[URIRef] = MODO["MODOCollection"]
+    class_class_curie: ClassVar[str] = "modo:MODOCollection"
     class_name: ClassVar[str] = "MODOCollection"
-    class_model_uri: ClassVar[URIRef] = SMOC.MODOCollection
+    class_model_uri: ClassVar[URIRef] = MODO.MODOCollection
 
     entries: Optional[Union[Dict[Union[str, MODOId], Union[dict, MODO]], List[Union[dict, MODO]]]] = empty_dict()
 
@@ -535,71 +535,71 @@ class slots:
     pass
 
 slots.id = Slot(uri=SCHEMA.identifier, name="id", curie=SCHEMA.curie('identifier'),
-                   model_uri=SMOC.id, domain=None, range=URIRef)
+                   model_uri=MODO.id, domain=None, range=URIRef)
 
 slots.name = Slot(uri=SCHEMA.name, name="name", curie=SCHEMA.curie('name'),
-                   model_uri=SMOC.name, domain=None, range=Optional[str])
+                   model_uri=MODO.name, domain=None, range=Optional[str])
 
 slots.description = Slot(uri=SCHEMA.description, name="description", curie=SCHEMA.curie('description'),
-                   model_uri=SMOC.description, domain=None, range=Optional[str])
+                   model_uri=MODO.description, domain=None, range=Optional[str])
 
 slots.has_part = Slot(uri=SCHEMA.hasPart, name="has_part", curie=SCHEMA.curie('hasPart'),
-                   model_uri=SMOC.has_part, domain=None, range=Optional[Union[str, List[str]]])
+                   model_uri=MODO.has_part, domain=None, range=Optional[Union[str, List[str]]])
 
-slots.creation_date = Slot(uri=SMOC.creation_date, name="creation_date", curie=SMOC.curie('creation_date'),
-                   model_uri=SMOC.creation_date, domain=None, range=Union[str, XSDDateTime])
+slots.creation_date = Slot(uri=MODO.creation_date, name="creation_date", curie=MODO.curie('creation_date'),
+                   model_uri=MODO.creation_date, domain=None, range=Union[str, XSDDateTime])
 
-slots.last_update_date = Slot(uri=SMOC.last_update_date, name="last_update_date", curie=SMOC.curie('last_update_date'),
-                   model_uri=SMOC.last_update_date, domain=None, range=Union[str, XSDDateTime])
+slots.last_update_date = Slot(uri=MODO.last_update_date, name="last_update_date", curie=MODO.curie('last_update_date'),
+                   model_uri=MODO.last_update_date, domain=None, range=Union[str, XSDDateTime])
 
-slots.omics_type = Slot(uri=SMOC.omics_type, name="omics_type", curie=SMOC.curie('omics_type'),
-                   model_uri=SMOC.omics_type, domain=None, range=Union[Union[str, "OmicsType"], List[Union[str, "OmicsType"]]])
+slots.omics_type = Slot(uri=MODO.omics_type, name="omics_type", curie=MODO.curie('omics_type'),
+                   model_uri=MODO.omics_type, domain=None, range=Union[Union[str, "OmicsType"], List[Union[str, "OmicsType"]]])
 
-slots.has_assay = Slot(uri=SMOC.has_assay, name="has_assay", curie=SMOC.curie('has_assay'),
-                   model_uri=SMOC.has_assay, domain=None, range=Optional[Union[Union[str, AssayId], List[Union[str, AssayId]]]])
+slots.has_assay = Slot(uri=MODO.has_assay, name="has_assay", curie=MODO.curie('has_assay'),
+                   model_uri=MODO.has_assay, domain=None, range=Optional[Union[Union[str, AssayId], List[Union[str, AssayId]]]])
 
-slots.has_sample = Slot(uri=SMOC.has_sample, name="has_sample", curie=SMOC.curie('has_sample'),
-                   model_uri=SMOC.has_sample, domain=None, range=Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]])
+slots.has_sample = Slot(uri=MODO.has_sample, name="has_sample", curie=MODO.curie('has_sample'),
+                   model_uri=MODO.has_sample, domain=None, range=Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]])
 
-slots.has_data = Slot(uri=SMOC.has_data, name="has_data", curie=SMOC.curie('has_data'),
-                   model_uri=SMOC.has_data, domain=None, range=Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]])
+slots.has_data = Slot(uri=MODO.has_data, name="has_data", curie=MODO.curie('has_data'),
+                   model_uri=MODO.has_data, domain=None, range=Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]])
 
-slots.has_sequence = Slot(uri=SMOC.has_sequence, name="has_sequence", curie=SMOC.curie('has_sequence'),
-                   model_uri=SMOC.has_sequence, domain=None, range=Optional[Union[Union[str, ReferenceSequenceId], List[Union[str, ReferenceSequenceId]]]])
+slots.has_sequence = Slot(uri=MODO.has_sequence, name="has_sequence", curie=MODO.curie('has_sequence'),
+                   model_uri=MODO.has_sequence, domain=None, range=Optional[Union[Union[str, ReferenceSequenceId], List[Union[str, ReferenceSequenceId]]]])
 
-slots.has_reference = Slot(uri=SMOC.has_reference, name="has_reference", curie=SMOC.curie('has_reference'),
-                   model_uri=SMOC.has_reference, domain=None, range=Optional[Union[Union[str, ReferenceGenomeId], List[Union[str, ReferenceGenomeId]]]])
+slots.has_reference = Slot(uri=MODO.has_reference, name="has_reference", curie=MODO.curie('has_reference'),
+                   model_uri=MODO.has_reference, domain=None, range=Optional[Union[Union[str, ReferenceGenomeId], List[Union[str, ReferenceGenomeId]]]])
 
-slots.data_format = Slot(uri=SMOC.data_format, name="data_format", curie=SMOC.curie('data_format'),
-                   model_uri=SMOC.data_format, domain=None, range=Union[str, "DataFormat"])
+slots.data_format = Slot(uri=MODO.data_format, name="data_format", curie=MODO.curie('data_format'),
+                   model_uri=MODO.data_format, domain=None, range=Union[str, "DataFormat"])
 
-slots.taxon_id = Slot(uri=SMOC.taxon_id, name="taxon_id", curie=SMOC.curie('taxon_id'),
-                   model_uri=SMOC.taxon_id, domain=None, range=Optional[Union[int, List[int]]])
+slots.taxon_id = Slot(uri=MODO.taxon_id, name="taxon_id", curie=MODO.curie('taxon_id'),
+                   model_uri=MODO.taxon_id, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.collector = Slot(uri=SMOC.collector, name="collector", curie=SMOC.curie('collector'),
-                   model_uri=SMOC.collector, domain=None, range=Optional[Union[str, List[str]]])
+slots.collector = Slot(uri=MODO.collector, name="collector", curie=MODO.curie('collector'),
+                   model_uri=MODO.collector, domain=None, range=Optional[Union[str, List[str]]])
 
-slots.data_path = Slot(uri=SMOC.data_path, name="data_path", curie=SMOC.curie('data_path'),
-                   model_uri=SMOC.data_path, domain=None, range=str)
+slots.data_path = Slot(uri=MODO.data_path, name="data_path", curie=MODO.curie('data_path'),
+                   model_uri=MODO.data_path, domain=None, range=str)
 
-slots.sequence_md5 = Slot(uri=SMOC.sequence_md5, name="sequence_md5", curie=SMOC.curie('sequence_md5'),
-                   model_uri=SMOC.sequence_md5, domain=None, range=Optional[str],
+slots.sequence_md5 = Slot(uri=MODO.sequence_md5, name="sequence_md5", curie=MODO.curie('sequence_md5'),
+                   model_uri=MODO.sequence_md5, domain=None, range=Optional[str],
                    pattern=re.compile(r'^[a-f0-9]{32}$'))
 
-slots.source_uri = Slot(uri=SMOC.source_uri, name="source_uri", curie=SMOC.curie('source_uri'),
-                   model_uri=SMOC.source_uri, domain=None, range=Optional[Union[str, URI]])
+slots.source_uri = Slot(uri=MODO.source_uri, name="source_uri", curie=MODO.curie('source_uri'),
+                   model_uri=MODO.source_uri, domain=None, range=Optional[Union[str, URI]])
 
-slots.version = Slot(uri=SMOC.version, name="version", curie=SMOC.curie('version'),
-                   model_uri=SMOC.version, domain=None, range=Optional[str])
+slots.version = Slot(uri=MODO.version, name="version", curie=MODO.curie('version'),
+                   model_uri=MODO.version, domain=None, range=Optional[str])
 
-slots.cell_type = Slot(uri=SMOC.cell_type, name="cell_type", curie=SMOC.curie('cell_type'),
-                   model_uri=SMOC.cell_type, domain=None, range=Optional[str])
+slots.cell_type = Slot(uri=MODO.cell_type, name="cell_type", curie=MODO.curie('cell_type'),
+                   model_uri=MODO.cell_type, domain=None, range=Optional[str])
 
-slots.source_material = Slot(uri=SMOC.source_material, name="source_material", curie=SMOC.curie('source_material'),
-                   model_uri=SMOC.source_material, domain=None, range=Optional[str])
+slots.source_material = Slot(uri=MODO.source_material, name="source_material", curie=MODO.curie('source_material'),
+                   model_uri=MODO.source_material, domain=None, range=Optional[str])
 
-slots.sex = Slot(uri=SMOC.sex, name="sex", curie=SMOC.curie('sex'),
-                   model_uri=SMOC.sex, domain=None, range=Optional[Union[str, "Sex"]])
+slots.sex = Slot(uri=MODO.sex, name="sex", curie=MODO.curie('sex'),
+                   model_uri=MODO.sex, domain=None, range=Optional[Union[str, "Sex"]])
 
-slots.mODOCollection__entries = Slot(uri=SMOC.entries, name="mODOCollection__entries", curie=SMOC.curie('entries'),
-                   model_uri=SMOC.mODOCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, MODOId], Union[dict, MODO]], List[Union[dict, MODO]]]])
+slots.mODOCollection__entries = Slot(uri=MODO.entries, name="mODOCollection__entries", curie=MODO.curie('entries'),
+                   model_uri=MODO.mODOCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, MODOId], Union[dict, MODO]], List[Union[dict, MODO]]]])

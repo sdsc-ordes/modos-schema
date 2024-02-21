@@ -7,8 +7,8 @@
    "bioschemas": "https://bioschemas.org/",
    "example": "https://example.org/",
    "linkml": "https://w3id.org/linkml/",
+   "modo": "https://w3id.org/sdsc-ordes/modo-schema/",
    "schema": "http://schema.org/",
-   "smoc": "https://w3id.org/sdsc-ordes/smoc-schema/",
    "sphn": "https://biomedit.ch/rdf/sphn-schema/sphn#",
    "NamedThing": {
       "@id": "schema:Thing"
