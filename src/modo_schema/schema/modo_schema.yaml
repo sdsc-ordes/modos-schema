@@ -9,7 +9,7 @@ see_also:
   - https://sdsc-ordes.github.io/modo-schema
 
 prefixes:
-  modo: https://w3id.org/sdsc-ordes/modo-schema/
+  modos: https://w3id.org/sdsc-ordes/modo-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/
   bioschemas: https://bioschemas.org/
@@ -20,7 +20,7 @@ prefixes:
   NCIT: http://purl.obolibrary.org/obo/NCIT_
   schema: http://schema.org/
   sphn: https://biomedit.ch/rdf/sphn-schema/sphn#
-default_prefix: modo
+default_prefix: modos
 default_range: string
 
 imports:
