@@ -192,7 +192,9 @@
                 "CRAM",
                 "FASTQ",
                 "Zarr",
-                "FASTA"
+                "FASTA",
+                "VCF",
+                "BCF"
             ],
             "title": "DataFormat",
             "type": "string"

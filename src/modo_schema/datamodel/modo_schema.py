@@ -1,5 +1,5 @@
 # Auto generated from modo_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-21T17:20:59
+# Generation date: 2024-05-06T11:43:02
 # Schema: modo-schema
 #
 # id: https://w3id.org/sdsc-ordes/modo-schema
@@ -525,6 +525,14 @@ class DataFormat(EnumDefinitionImpl):
         text="FASTA",
         description="FASTA sequence format including NCBI-style IDs.",
         meaning=EDAM["format_1929"])
+    VCF = PermissibleValue(
+        text="VCF",
+        description="Variant call format for sequence variation.",
+        meaning=EDAM["format_3016"])
+    BCF = PermissibleValue(
+        text="BCF",
+        description="Binary call format, for efficient storage of sequence variation.",
+        meaning=EDAM["format_3020"])
 
     _defn = EnumDefinition(
         name="DataFormat",
