@@ -1,9 +1,9 @@
 # Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-06T11:43:02
+# Generation date: 2024-05-30T14:10:10
 # Schema: modos-schema
 #
 # id: https://w3id.org/sdsc-ordes/modos-schema
-# description: Metadata schema for the SMOC Multi-Omics Digital Object
+# description: Metadata schema for the SMOC Multi-Omics Digital Object System
 # license: MIT
 
 import dataclasses
