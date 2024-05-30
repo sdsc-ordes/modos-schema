@@ -1,1 +1,1 @@
-"""Tests for modo-schema."""
+"""Tests for modos-schema."""

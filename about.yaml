@@ -1,5 +1,5 @@
 ---
-name: modo_schema
+name: modos_schema
 author: SDSC-ORD
-description: Metadata schema for the SMOC Multi-Omics Digital Object
-source_schema_path: src/modo_schema/schema/modo_schema.yaml
+description: Metadata schema for the SMOC Multi-Omics Digital Object System
+source_schema_path: src/modos_schema/schema/modos_schema.yaml

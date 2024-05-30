@@ -1,15 +1,15 @@
 ---
-id: https://w3id.org/sdsc-ordes/modo-schema
-name: modo-schema
-title: modo-schema
+id: https://w3id.org/sdsc-ordes/modos-schema
+name: modos-schema
+title: modos-schema
 description: |-
-  Metadata schema for the SMOC Multi-Omics Digital Object
+  Metadata schema for the SMOC Multi-Omics Digital Object System
 license: MIT
 see_also:
-  - https://sdsc-ordes.github.io/modo-schema
+  - https://sdsc-ordes.github.io/modos-schema
 
 prefixes:
-  modos: https://w3id.org/sdsc-ordes/modo-schema/
+  modos: https://w3id.org/sdsc-ordes/modos-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/
   bioschemas: https://bioschemas.org/

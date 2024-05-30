@@ -132,7 +132,7 @@ examples/%.ttl: src/data/examples/%.yaml
 
 test-examples: examples/output
 
-examples/output: src/modo_schema/schema/modo_schema.yaml
+examples/output: src/modos_schema/schema/modos_schema.yaml
 	mkdir -p $@
 	$(RUN) linkml-run-examples \
 		--output-formats json \
