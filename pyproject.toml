@@ -5,7 +5,7 @@ description = "Metadata schema for the Multi-Omics Digital Object System"
 authors = ["Cyril Matthey-Doret"]
 license = "Apache-2.0"
 readme = "README.md"
-include = ["README.md", "src/modo_schema/schema", "project"]
+include = ["README.md", "src/modos_schema/schema", "project"]
 
 [tool.poetry.dependencies]
 python = "^3.9"

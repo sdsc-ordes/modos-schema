@@ -1,1 +1,1 @@
-from .modo_schema import *
+from .modos_schema import *
