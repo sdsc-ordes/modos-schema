@@ -1,6 +1,6 @@
-# modo-schema
+# modos-schema
 
-Metadata schema for the SMOC Multi-Omics Digital Object.
+Metadata schema for the SMOC Multi-Omics Digital Object System.
 
 ```mermaid
 erDiagram
@@ -70,17 +70,17 @@ ReferenceGenome ||--}o ReferenceSequence : "has_sequence"
 
 ## Website
 
-[https://sdsc-ordes.github.io/modo-schema](https://sdsc-ordes.github.io/modo-schema)
+[https://sdsc-ordes.github.io/modos-schema](https://sdsc-ordes.github.io/modos-schema)
 
 ## Repository Structure
 
 * [examples/](examples/) - example data
 * [project/](project/) - project files (do not edit these)
 * [src/](src/) - source files (edit these)
-  * [modo_schema](src/modo_schema)
-    * [schema](src/modo_schema/schema) -- LinkML schema
+  * [modos_schema](src/modos_schema)
+    * [schema](src/modos_schema/schema) -- LinkML schema
       (edit this)
-    * [datamodel](src/modo_schema/datamodel) -- generated
+    * [datamodel](src/modos_schema/datamodel) -- generated
       Python datamodel
 * [tests/](tests/) - Python tests
 

@@ -4,7 +4,7 @@ import glob
 import unittest
 
 from linkml_runtime.loaders import yaml_loader
-from modo_schema.datamodel.modo_schema import MODOCollection
+from modos_schema.datamodel.modos_schema import MODOCollection
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 DATA_DIR = os.path.join(ROOT, "src", "data", "examples")

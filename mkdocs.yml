@@ -1,5 +1,5 @@
 ---
-site_name: "modo-schema"
+site_name: "modos-schema"
 theme:
   name: material
   # palette:
@@ -14,8 +14,8 @@ nav:
   # - Home: home.md
   - Index: index.md
   - About: about.md
-site_url: https://sdsc-ordes.github.io/modo-schema
-repo_url: https://github.com/sdsc-ordes/modo-schema
+site_url: https://sdsc-ordes.github.io/modos-schema
+repo_url: https://github.com/sdsc-ordes/modos-schema
 
 # Uncomment this block to enable use of Google Analytics.
 # Replace the property value with your own ID.

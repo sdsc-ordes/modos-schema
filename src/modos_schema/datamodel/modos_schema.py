@@ -1,9 +1,9 @@
-# Auto generated from modo_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-06T11:43:02
-# Schema: modo-schema
+# Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
+# Generation date: 2024-05-30T14:10:10
+# Schema: modos-schema
 #
-# id: https://w3id.org/sdsc-ordes/modo-schema
-# description: Metadata schema for the SMOC Multi-Omics Digital Object
+# id: https://w3id.org/sdsc-ordes/modos-schema
+# description: Metadata schema for the SMOC Multi-Omics Digital Object System
 # license: MIT
 
 import dataclasses
@@ -39,7 +39,7 @@ BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
 BIOSCHEMAS = CurieNamespace('bioschemas', 'https://bioschemas.org/')
 EXAMPLE = CurieNamespace('example', 'https://example.org/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
-MODOS = CurieNamespace('modos', 'https://w3id.org/sdsc-ordes/modo-schema/')
+MODOS = CurieNamespace('modos', 'https://w3id.org/sdsc-ordes/modos-schema/')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
 SPHN = CurieNamespace('sphn', 'https://biomedit.ch/rdf/sphn-schema/sphn#')
 DEFAULT_ = MODOS

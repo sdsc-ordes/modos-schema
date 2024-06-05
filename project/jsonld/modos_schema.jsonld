@@ -1,11 +1,11 @@
 {
-  "name": "modo-schema",
-  "description": "Metadata schema for the SMOC Multi-Omics Digital Object",
-  "title": "modo-schema",
+  "name": "modos-schema",
+  "description": "Metadata schema for the SMOC Multi-Omics Digital Object System",
+  "title": "modos-schema",
   "see_also": [
-    "https://sdsc-ordes.github.io/modo-schema"
+    "https://sdsc-ordes.github.io/modos-schema"
   ],
-  "id": "https://w3id.org/sdsc-ordes/modo-schema",
+  "id": "https://w3id.org/sdsc-ordes/modos-schema",
   "imports": [
     "linkml:types"
   ],
@@ -13,7 +13,7 @@
   "prefixes": [
     {
       "prefix_prefix": "modos",
-      "prefix_reference": "https://w3id.org/sdsc-ordes/modo-schema/"
+      "prefix_reference": "https://w3id.org/sdsc-ordes/modos-schema/"
     },
     {
       "prefix_prefix": "linkml",
@@ -371,8 +371,8 @@
   "enums": [
     {
       "name": "Sex",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/Sex",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/Sex",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "permissible_values": [
         {
           "text": "Male",
@@ -386,8 +386,8 @@
     },
     {
       "name": "OmicsType",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/OmicsType",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/OmicsType",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "permissible_values": [
         {
           "text": "GENOMICS",
@@ -413,8 +413,8 @@
     },
     {
       "name": "DataFormat",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/DataFormat",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/DataFormat",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "permissible_values": [
         {
           "text": "CRAM",
@@ -452,9 +452,9 @@
   "slots": [
     {
       "name": "id",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/id",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/id",
       "description": "A unique identifier for a thing",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "mappings": [
         "http://schema.org/identifier"
       ],
@@ -470,9 +470,9 @@
     },
     {
       "name": "name",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/name",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/name",
       "description": "A human-readable name for a thing",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "mappings": [
         "http://schema.org/name"
       ],
@@ -486,9 +486,9 @@
     },
     {
       "name": "description",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/description",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/description",
       "description": "A human-readable description for a thing",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "mappings": [
         "http://schema.org/description"
       ],
@@ -502,9 +502,9 @@
     },
     {
       "name": "has_part",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/has_part",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_part",
       "description": "Indicates an item that is part of this item.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "mappings": [
         "http://schema.org/hasPart"
       ],
@@ -515,10 +515,10 @@
     },
     {
       "name": "creation_date",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/creation_date",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/creation_date",
       "description": "The date on which something was created.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/creation_date",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/creation_date",
       "owner": "MODO",
       "domain_of": [
         "MODO"
@@ -529,10 +529,10 @@
     },
     {
       "name": "last_update_date",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/last_update_date",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/last_update_date",
       "description": "The date on which the thing was last modified.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/last_update_date",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/last_update_date",
       "owner": "MODO",
       "domain_of": [
         "MODO"
@@ -543,10 +543,10 @@
     },
     {
       "name": "omics_type",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/omics_type",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/omics_type",
       "description": "The type of omics considered.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/omics_type",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/omics_type",
       "multivalued": true,
       "owner": "Assay",
       "domain_of": [
@@ -558,11 +558,11 @@
     },
     {
       "name": "has_assay",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/has_assay",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_assay",
       "description": "An assay that was performed as part of a given thing.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/has_assay",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_assay",
       "multivalued": true,
       "owner": "MODO",
       "domain_of": [
@@ -573,11 +573,11 @@
     },
     {
       "name": "has_sample",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/has_sample",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_sample",
       "description": "Biological sample included or described by a given thing.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/has_sample",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_sample",
       "multivalued": true,
       "owner": "DataEntity",
       "domain_of": [
@@ -589,11 +589,11 @@
     },
     {
       "name": "has_data",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/has_data",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_data",
       "description": "Data entity included in a given collection.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/has_data",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_data",
       "multivalued": true,
       "owner": "Assay",
       "domain_of": [
@@ -604,11 +604,11 @@
     },
     {
       "name": "has_sequence",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/has_sequence",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_sequence",
       "description": "Denotes that a sequence belongs to a collection (e.g. a reference genome).",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/has_sequence",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_sequence",
       "multivalued": true,
       "owner": "ReferenceGenome",
       "domain_of": [
@@ -619,11 +619,11 @@
     },
     {
       "name": "has_reference",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/has_reference",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_reference",
       "description": "Specifies the reference coordinate system used by an omics dataset.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/has_reference",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_reference",
       "multivalued": true,
       "owner": "DataEntity",
       "domain_of": [
@@ -634,10 +634,10 @@
     },
     {
       "name": "data_format",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/data_format",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/data_format",
       "description": "Data/file format associated with a data entity.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/data_format",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/data_format",
       "owner": "DataEntity",
       "domain_of": [
         "DataEntity"
@@ -648,10 +648,10 @@
     },
     {
       "name": "taxon_id",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/taxon_id",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/taxon_id",
       "description": "The taxid number describing the taxonomic range of a sample.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/taxon_id",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/taxon_id",
       "multivalued": true,
       "owner": "ReferenceGenome",
       "domain_of": [
@@ -663,10 +663,10 @@
     },
     {
       "name": "collector",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/collector",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/collector",
       "description": "The organization responsible for collecting a given sample.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/collector",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/collector",
       "multivalued": true,
       "owner": "Sample",
       "domain_of": [
@@ -677,7 +677,7 @@
     },
     {
       "name": "data_path",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/data_path",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/data_path",
       "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
       "examples": [
         {
@@ -693,8 +693,8 @@
           "@type": "Example"
         }
       ],
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/data_path",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/data_path",
       "owner": "ReferenceGenome",
       "domain_of": [
         "DataEntity",
@@ -706,10 +706,10 @@
     },
     {
       "name": "sequence_md5",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/sequence_md5",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/sequence_md5",
       "description": "The pre-computed hash uniquely representing a biological sequence. Calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/sequence_md5",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/sequence_md5",
       "owner": "ReferenceSequence",
       "domain_of": [
         "ReferenceSequence"
@@ -720,10 +720,10 @@
     },
     {
       "name": "source_uri",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/source_uri",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/source_uri",
       "description": "The URI from which a resource or dataset was obtained or derived.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/source_uri",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/source_uri",
       "owner": "ReferenceSequence",
       "domain_of": [
         "MODO",
@@ -735,10 +735,10 @@
     },
     {
       "name": "version",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/version",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/version",
       "description": "A string specifying the release or version of a software or resource.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/version",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/version",
       "owner": "ReferenceSequence",
       "domain_of": [
         "ReferenceGenome",
@@ -749,10 +749,10 @@
     },
     {
       "name": "cell_type",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/cell_type",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/cell_type",
       "description": "The cell type name.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/cell_type",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/cell_type",
       "owner": "Sample",
       "domain_of": [
         "Sample"
@@ -762,10 +762,10 @@
     },
     {
       "name": "source_material",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/source_material",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/source_material",
       "description": "The biological source from which the sample was isolated (tissue, organ, ...).",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/source_material",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/source_material",
       "owner": "Sample",
       "domain_of": [
         "Sample"
@@ -775,10 +775,10 @@
     },
     {
       "name": "sex",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/sex",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/sex",
       "description": "The biological sex of a sample.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/sex",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/sex",
       "owner": "Sample",
       "domain_of": [
         "Sample"
@@ -788,8 +788,8 @@
     },
     {
       "name": "mODOCollection__entries",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modo-schema/entries",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/entries",
       "multivalued": true,
       "alias": "entries",
       "owner": "MODOCollection",
@@ -804,9 +804,9 @@
   "classes": [
     {
       "name": "NamedThing",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/NamedThing",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/NamedThing",
       "description": "A generic grouping for any identifiable entity",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "mappings": [
         "schema:Thing"
       ],
@@ -821,9 +821,9 @@
     },
     {
       "name": "MODO",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/MODO",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/MODO",
       "description": "Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "NamedThing",
       "slots": [
         "id",
@@ -835,14 +835,14 @@
         "source_uri"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/sdsc-ordes/modo-schema/MODO",
+      "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/MODO",
       "@type": "ClassDefinition"
     },
     {
       "name": "Assay",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/Assay",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/Assay",
       "description": "A coordinated set of actions designed to generate data from samples.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "see_also": [
         "NCIT:C42790",
         "sphn:Assay"
@@ -857,14 +857,14 @@
         "omics_type"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/sdsc-ordes/modo-schema/Assay",
+      "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/Assay",
       "@type": "ClassDefinition"
     },
     {
       "name": "Sample",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/Sample",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/Sample",
       "description": "A biological sample used in assays. Examples include a whole organism, tissue or cell line.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "see_also": [
         "bioschemas:Sample"
       ],
@@ -880,14 +880,14 @@
         "collector"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/sdsc-ordes/modo-schema/Sample",
+      "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/Sample",
       "@type": "ClassDefinition"
     },
     {
       "name": "DataEntity",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/DataEntity",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/DataEntity",
       "description": "An entity containing data.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "NamedThing",
       "slots": [
         "id",
@@ -899,14 +899,14 @@
         "has_reference"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/sdsc-ordes/modo-schema/DataEntity",
+      "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/DataEntity",
       "@type": "ClassDefinition"
     },
     {
       "name": "ReferenceGenome",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/ReferenceGenome",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/ReferenceGenome",
       "description": "Reference assembly of a given genome, consisting of a collection of congiguous sequences (contigs).",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "see_also": [
         "GENO:0000914"
       ],
@@ -922,14 +922,14 @@
         "version"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/sdsc-ordes/modo-schema/ReferenceGenome",
+      "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/ReferenceGenome",
       "@type": "ClassDefinition"
     },
     {
       "name": "ReferenceSequence",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/ReferenceSequence",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/ReferenceSequence",
       "description": "A contiguous sequence of DNA part of a reference coordinate system (genome assembly).",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "see_also": [
         "GENO:0000017"
       ],
@@ -943,14 +943,14 @@
         "version"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/sdsc-ordes/modo-schema/ReferenceSequence",
+      "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/ReferenceSequence",
       "@type": "ClassDefinition"
     },
     {
       "name": "AlignmentSet",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/AlignmentSet",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/AlignmentSet",
       "description": "A data entity consisting of genomic intervals aligned to a reference.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "DataEntity",
       "slots": [
         "id",
@@ -962,14 +962,14 @@
         "has_reference"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/sdsc-ordes/modo-schema/AlignmentSet",
+      "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/AlignmentSet",
       "@type": "ClassDefinition"
     },
     {
       "name": "VariantSet",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/VariantSet",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/VariantSet",
       "description": "A data entity consisting of genomic variants relative to a reference.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "DataEntity",
       "slots": [
         "id",
@@ -981,14 +981,14 @@
         "has_reference"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/sdsc-ordes/modo-schema/VariantSet",
+      "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/VariantSet",
       "@type": "ClassDefinition"
     },
     {
       "name": "Array",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/Array",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/Array",
       "description": "Data entity consisting of an N-dimensional array.",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "DataEntity",
       "slots": [
         "id",
@@ -1000,14 +1000,14 @@
         "has_reference"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/sdsc-ordes/modo-schema/Array",
+      "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/Array",
       "@type": "ClassDefinition"
     },
     {
       "name": "MODOCollection",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modo-schema/MODOCollection",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/MODOCollection",
       "description": "A holder for Multi-Omics Digital Objects",
-      "from_schema": "https://w3id.org/sdsc-ordes/modo-schema",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slots": [
         "mODOCollection__entries"
       ],
@@ -1021,22 +1021,22 @@
           "@type": "SlotDefinition"
         }
       ],
-      "class_uri": "https://w3id.org/sdsc-ordes/modo-schema/MODOCollection",
+      "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/MODOCollection",
       "tree_root": true,
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
-  "source_file": "modo_schema.yaml",
-  "source_file_date": "2024-05-06T11:42:22",
-  "source_file_size": 7917,
-  "generation_date": "2024-05-06T11:43:01",
+  "source_file": "modos_schema.yaml",
+  "source_file_date": "2024-05-30T12:45:42",
+  "source_file_size": 7929,
+  "generation_date": "2024-05-30T14:10:10",
   "@type": "SchemaDefinition",
   "@context": [
-    "project/jsonld/modo_schema.context.jsonld",
+    "project/jsonld/modos_schema.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
     {
-      "@base": "https://w3id.org/sdsc-ordes/modo-schema/"
+      "@base": "https://w3id.org/sdsc-ordes/modos-schema/"
     }
   ]
 }
