@@ -100,4 +100,5 @@ This project was made with
 
 This project was developed by [SDSC](https://datascience.ch) as part of the [SMOC](http://smoc.ethz.ch) (Swiss Multi-Omics Consortium) and funded by the [PHRT](https://www.sfa-phrt.ch) ETH initiative (Personalized Health and Related technologies).
 
-<img src="http://smoc.ethz.ch/images/smoc_mint.svg" width=100 /> <img src="https://www.sfa-phrt.ch/wp-content/uploads/2022/07/PHRT_Logo_transparent_50px.png" width=200 /> 
+## Copyright
+Copyright © 2023-2024 Swiss Data Science Center (SDSC), [www.datascience.ch](http://www.datascience.ch/). All rights reserved. The SDSC is jointly established and legally represented by the École Polytechnique Fédérale de Lausanne (EPFL) and the Eidgenössische Technische Hochschule Zürich (ETH Zürich). This copyright encompasses all materials, software, documentation, and other content created and developed by the SDSC in the context of the Personalized Health Data Analysis Hub.
