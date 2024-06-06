@@ -1,6 +1,6 @@
 # modos-schema
 
-Metadata schema for the SMOC Multi-Omics Digital Object System.
+Metadata schema for the Multi-Omics Digital Object System - [MODOS](https://github.com/sdsc-ordes/modos-api).
 
 ```mermaid
 erDiagram
