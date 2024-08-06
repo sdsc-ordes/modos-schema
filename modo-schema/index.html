@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://sdsc-ordes.github.io/modos-schema/data_path/">
+        <link rel="canonical" href="https://sdsc-ordes.github.io/modos-schema/modo-schema/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: data_path - modos-schema</title>
+        <title>modo-schema - modos-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-data_path" class="md-skip">
+        <a href="#modo-schema" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: data_path
+              modo-schema
             
           </span>
         </div>
@@ -249,62 +249,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#applicable-classes" class="md-nav__link">
-    Applicable Classes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    Properties
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identifier-and-mapping-information" class="md-nav__link">
-    Identifier and Mapping Information
-  </a>
-  
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    Schema Source
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#linkml-source" class="md-nav__link">
-    LinkML Source
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -317,109 +261,15 @@
                 
                   
 
-  <a href="https://github.com/sdsc-ordes/modos-schema/edit/master/docs/data_path.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/sdsc-ordes/modos-schema/edit/master/docs/modo-schema.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-data_path">Slot: data_path</h1>
-<p><em>The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.</em></p>
-<p>URI: <a href="https://w3id.org/sdsc-ordes/modos-schema/data_path">modos:data_path</a></p>
-<!-- no inheritance hierarchy -->
-
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Modifies Slot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../VariantSet/">VariantSet</a></td>
-<td>A data entity consisting of genomic variants relative to a reference</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../AlignmentSet/">AlignmentSet</a></td>
-<td>A data entity consisting of genomic intervals aligned to a reference</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ReferenceGenome/">ReferenceGenome</a></td>
-<td>Reference assembly of a given genome, consisting of a collection of congiguou...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Array/">Array</a></td>
-<td>Data entity consisting of an N-dimensional array</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../DataEntity/">DataEntity</a></td>
-<td>An entity containing data</td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
-<h2 id="properties">Properties</h2>
-<ul>
-<li>
-<p>Range: <a href="../String/">String</a></p>
-</li>
-<li>
-<p>Required: True</p>
-</li>
-</ul>
-<h2 id="examples">Examples</h2>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>s3://example-bucket/path/to/data</td>
-</tr>
-<tr>
-<td>relative/file/path</td>
-</tr>
-<tr>
-<td>file:///absolute/file/path</td>
-</tr>
-</tbody>
-</table>
-<h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://w3id.org/sdsc-ordes/modos-schema</li>
-</ul>
-<h2 id="linkml-source">LinkML Source</h2>
-<details>
-
-<pre><code class="language-yaml">name: data_path
-description: The path to access a resource, on a network or local filesystem. Can
-  be a path relative to the root of the digital object, a URL, or an absolute path.
-examples:
-- value: s3://example-bucket/path/to/data
-- value: relative/file/path
-- value: file:///absolute/file/path
-from_schema: https://w3id.org/sdsc-ordes/modos-schema
-rank: 1000
-alias: data_path
-domain_of:
-- DataEntity
-- ReferenceGenome
-range: string
-required: true
-
-</code></pre>
-
-</details>
+<h1 id="modo-schema">modo-schema</h1>
+<p>Metadata schema for the SMOC Multi-Omics Digital Object</p>
+<p>URI: https://w3id.org/sdsc-ordes/modo-schema</p>
 
 
 
