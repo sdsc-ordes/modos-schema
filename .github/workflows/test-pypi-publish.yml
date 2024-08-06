@@ -7,8 +7,6 @@ name: Build and publish on test-pypi
 
 on:
   workflow_dispatch:
-  push:
-    branches: [ci/pypi-publish]
 
 permissions:
   contents: read
