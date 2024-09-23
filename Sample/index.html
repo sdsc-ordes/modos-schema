@@ -263,14 +263,14 @@
 <tbody>
 <tr>
 <td><a href="../cell_type/">cell_type</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The cell type name</td>
+<td>0..1 <br/> <a href="../String/">String</a> or <br/><a href="../CellType/">CellType</a> or <br/><a href="../String/">String</a></td>
+<td>The cell type name or code, if applicable</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../source_material/">source_material</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The biological source from which the sample was isolated (tissue, organ,</td>
+<td>0..1 <br/> <a href="../String/">String</a> or <br/><a href="../SourceMaterial/">SourceMaterial</a> or <br/><a href="../String/">String</a></td>
+<td>The biological source from which the sample was isolated (tissue, organ)</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -414,7 +414,7 @@ is_a: NamedThing
 attributes:
   cell_type:
     name: cell_type
-    description: The cell type name.
+    description: The cell type name or code, if applicable.
     from_schema: https://w3id.org/sdsc-ordes/modos-schema
     rank: 1000
     alias: cell_type
@@ -422,10 +422,13 @@ attributes:
     domain_of:
     - Sample
     range: string
+    any_of:
+    - range: CellType
+    - range: string
   source_material:
     name: source_material
     description: The biological source from which the sample was isolated (tissue,
-      organ, ...).
+      organ).
     from_schema: https://w3id.org/sdsc-ordes/modos-schema
     rank: 1000
     alias: source_material
@@ -433,6 +436,9 @@ attributes:
     domain_of:
     - Sample
     range: string
+    any_of:
+    - range: SourceMaterial
+    - range: string
   sex:
     name: sex
     description: The biological sex of a sample.
