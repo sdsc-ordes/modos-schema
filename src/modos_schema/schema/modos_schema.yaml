@@ -12,7 +12,9 @@ prefixes:
   modos: https://w3id.org/sdsc-ordes/modos-schema/
   linkml: https://w3id.org/linkml/
   biolink: https://w3id.org/biolink/
+  bioregistry: https://bioregistry.io/registry/
   bioschemas: https://bioschemas.org/
+  CL: https://bioregistry.io/reference/cl:/
   EDAM: http://edamontology.org/
   FG: https://w3id.org/fair-genomes/ontology/
   example: https://example.org/
@@ -131,9 +133,7 @@ classes:
         multivalued: true
         inlined: true
 
-# TODO: Expand schema to support standard use cases
 # NOTE: Suggestions below based on the SPHN 2024 schema
-
 # QualityControlMetric
 # StandardOperatingProcedure
 # SequencingAssay(Assay)
@@ -229,8 +229,10 @@ slots:
     description: A string specifying the release or version of a software or resource.
     range: string
   cell_type:
-    description: The cell type name.
-    range: string
+    description: The cell type or tissue name or code, if applicable.
+    any_of:
+      - range: CellType
+      - range: string
   source_material:
     description: The biological source from which the sample was isolated (tissue, organ, ...).
     range: string
@@ -283,3 +285,12 @@ enums:
       BCF:
         description: Binary call format, for efficient storage of sequence variation.
         meaning: EDAM:format_3020
+  CellType:
+    description: |
+      Cell type or tissue code from the cell ontology as a URI.
+      See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)
+    reachable_from:
+      source_ontology: bioregistry:cl
+      include_self: false
+      relationship_types:
+        - rdfs:subClassOf
