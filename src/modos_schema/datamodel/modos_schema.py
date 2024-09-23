@@ -1,5 +1,5 @@
 # Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-30T14:10:10
+# Generation date: 2024-09-23T14:52:26
 # Schema: modos-schema
 #
 # id: https://w3id.org/sdsc-ordes/modos-schema
@@ -11,6 +11,7 @@ import re
 from jsonasobj2 import JsonObj, as_dict
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+from datetime import date, datetime
 from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
 
 from linkml_runtime.utils.slot import Slot
@@ -31,11 +32,13 @@ version = None
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
+CL = CurieNamespace('CL', 'https://bioregistry.io/reference/cl:/')
 EDAM = CurieNamespace('EDAM', 'http://edamontology.org/')
 FG = CurieNamespace('FG', 'https://w3id.org/fair-genomes/ontology/')
 GENO = CurieNamespace('GENO', 'http://purl.obolibrary.org/obo/GENO_')
 NCIT = CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT_')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
+BIOREGISTRY = CurieNamespace('bioregistry', 'https://bioregistry.io/registry/')
 BIOSCHEMAS = CurieNamespace('bioschemas', 'https://bioschemas.org/')
 EXAMPLE = CurieNamespace('example', 'https://example.org/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
@@ -536,6 +539,17 @@ class DataFormat(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="DataFormat",
+    )
+
+class CellType(EnumDefinitionImpl):
+    """
+    Cell type or tissue code from the cell ontology as a URI.
+    See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)
+    """
+    _defn = EnumDefinition(
+        name="CellType",
+        description="""Cell type or tissue code from the cell ontology as a URI.
+See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)""",
     )
 
 # Slots

@@ -139,6 +139,11 @@
             "title": "Assay",
             "type": "object"
         },
+        "CellType": {
+            "description": "Cell type or tissue code from the cell ontology as a URI.\nSee: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)",
+            "title": "CellType",
+            "type": "string"
+        },
         "DataEntity": {
             "additionalProperties": false,
             "description": "An entity containing data.",
@@ -429,7 +434,15 @@
             "description": "A biological sample used in assays. Examples include a whole organism, tissue or cell line.",
             "properties": {
                 "cell_type": {
-                    "description": "The cell type name.",
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CellType"
+                        },
+                        {
+                            "type": "string"
+                        }
+                    ],
+                    "description": "The cell type or tissue name or code, if applicable.",
                     "type": "string"
                 },
                 "collector": {
@@ -531,7 +544,7 @@
         }
     },
     "$id": "https://w3id.org/sdsc-ordes/modos-schema",
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "A holder for Multi-Omics Digital Objects",
     "metamodel_version": "1.7.0",

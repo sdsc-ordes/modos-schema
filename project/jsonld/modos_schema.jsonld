@@ -24,8 +24,16 @@
       "prefix_reference": "https://w3id.org/biolink/"
     },
     {
+      "prefix_prefix": "bioregistry",
+      "prefix_reference": "https://bioregistry.io/registry/"
+    },
+    {
       "prefix_prefix": "bioschemas",
       "prefix_reference": "https://bioschemas.org/"
+    },
+    {
+      "prefix_prefix": "CL",
+      "prefix_reference": "https://bioregistry.io/reference/cl:/"
     },
     {
       "prefix_prefix": "EDAM",
@@ -447,6 +455,18 @@
           "meaning": "EDAM:format_3020"
         }
       ]
+    },
+    {
+      "name": "CellType",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/CellType",
+      "description": "Cell type or tissue code from the cell ontology as a URI.\nSee: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)\n",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "reachable_from": {
+        "source_ontology": "bioregistry:cl",
+        "relationship_types": [
+          "rdfs:subClassOf"
+        ]
+      }
     }
   ],
   "slots": [
@@ -750,7 +770,7 @@
     {
       "name": "cell_type",
       "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/cell_type",
-      "description": "The cell type name.",
+      "description": "The cell type or tissue name or code, if applicable.",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/cell_type",
       "owner": "Sample",
@@ -758,6 +778,16 @@
         "Sample"
       ],
       "range": "string",
+      "any_of": [
+        {
+          "range": "CellType",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "range": "string",
+          "@type": "AnonymousSlotExpression"
+        }
+      ],
       "@type": "SlotDefinition"
     },
     {
@@ -1028,9 +1058,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "modos_schema.yaml",
-  "source_file_date": "2024-05-30T12:45:42",
-  "source_file_size": 7929,
-  "generation_date": "2024-05-30T14:10:10",
+  "source_file_date": "2024-09-23T14:51:06",
+  "source_file_size": 8356,
+  "generation_date": "2024-09-23T14:52:25",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/modos_schema.context.jsonld",
