@@ -462,10 +462,7 @@
       "description": "Cell type or tissue code from the cell ontology as a URI.\nSee: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)\n",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "reachable_from": {
-        "source_ontology": "bioregistry:cl",
-        "relationship_types": [
-          "rdfs:subClassOf"
-        ]
+        "source_ontology": "bioregistry:cl"
       }
     }
   ],
@@ -1058,9 +1055,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "modos_schema.yaml",
-  "source_file_date": "2024-09-23T14:51:06",
-  "source_file_size": 8356,
-  "generation_date": "2024-09-23T14:52:25",
+  "source_file_date": "2024-09-23T15:07:35",
+  "source_file_size": 8278,
+  "generation_date": "2024-09-23T15:07:54",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/modos_schema.context.jsonld",
