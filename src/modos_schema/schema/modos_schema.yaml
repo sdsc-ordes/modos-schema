@@ -291,6 +291,3 @@ enums:
       See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)
     reachable_from:
       source_ontology: bioregistry:cl
-      include_self: false
-      relationship_types:
-        - rdfs:subClassOf
