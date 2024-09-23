@@ -15,8 +15,8 @@
 --     * Slot: name Description: A human-readable name for a thing
 --     * Slot: description Description: A human-readable description for a thing
 -- # Class: "Sample" Description: "A biological sample used in assays. Examples include a whole organism, tissue or cell line."
---     * Slot: cell_type Description: The cell type or tissue name or code, if applicable.
---     * Slot: source_material Description: The biological source from which the sample was isolated (tissue, organ, ...).
+--     * Slot: cell_type Description: The cell type name or code, if applicable.
+--     * Slot: source_material Description: The biological source from which the sample was isolated (tissue, organ).
 --     * Slot: sex Description: The biological sex of a sample.
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing

@@ -62,6 +62,10 @@
     {
       "prefix_prefix": "sphn",
       "prefix_reference": "https://biomedit.ch/rdf/sphn-schema/sphn#"
+    },
+    {
+      "prefix_prefix": "UBERON",
+      "prefix_reference": "http://purl.obolibrary.org/obo/UBERON_"
     }
   ],
   "default_prefix": "modos",
@@ -459,10 +463,31 @@
     {
       "name": "CellType",
       "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/CellType",
-      "description": "Cell type or tissue code from the cell ontology as a URI.\nSee: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)\n",
+      "description": "Cell type code from the cell ontology as a URI.\nSee: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)\n",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "reachable_from": {
-        "source_ontology": "bioregistry:cl"
+        "source_ontology": "bioregistry:cl",
+        "source_nodes": [
+          "CL:0000000"
+        ],
+        "relationship_types": [
+          "rdfs:subClassOf"
+        ]
+      }
+    },
+    {
+      "name": "SourceMaterial",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/SourceMaterial",
+      "description": "Tissue or organ code from the UBERON ontology as a URI.\nSee: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)\n",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "reachable_from": {
+        "source_ontology": "bioregistry:uberon",
+        "source_nodes": [
+          "UBERON:0001062"
+        ],
+        "relationship_types": [
+          "rdfs:subClassOf"
+        ]
       }
     }
   ],
@@ -767,7 +792,7 @@
     {
       "name": "cell_type",
       "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/cell_type",
-      "description": "The cell type or tissue name or code, if applicable.",
+      "description": "The cell type name or code, if applicable.",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/cell_type",
       "owner": "Sample",
@@ -790,7 +815,7 @@
     {
       "name": "source_material",
       "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/source_material",
-      "description": "The biological source from which the sample was isolated (tissue, organ, ...).",
+      "description": "The biological source from which the sample was isolated (tissue, organ).",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/source_material",
       "owner": "Sample",
@@ -798,6 +823,16 @@
         "Sample"
       ],
       "range": "string",
+      "any_of": [
+        {
+          "range": "SourceMaterial",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "range": "string",
+          "@type": "AnonymousSlotExpression"
+        }
+      ],
       "@type": "SlotDefinition"
     },
     {
@@ -1055,9 +1090,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "modos_schema.yaml",
-  "source_file_date": "2024-09-23T15:07:35",
-  "source_file_size": 8278,
-  "generation_date": "2024-09-23T15:07:54",
+  "source_file_date": "2024-09-23T15:23:55",
+  "source_file_size": 8844,
+  "generation_date": "2024-09-23T15:24:41",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/modos_schema.context.jsonld",

@@ -1,5 +1,5 @@
 # Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-09-23T15:07:55
+# Generation date: 2024-09-23T15:24:42
 # Schema: modos-schema
 #
 # id: https://w3id.org/sdsc-ordes/modos-schema
@@ -37,6 +37,7 @@ EDAM = CurieNamespace('EDAM', 'http://edamontology.org/')
 FG = CurieNamespace('FG', 'https://w3id.org/fair-genomes/ontology/')
 GENO = CurieNamespace('GENO', 'http://purl.obolibrary.org/obo/GENO_')
 NCIT = CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT_')
+UBERON = CurieNamespace('UBERON', 'http://purl.obolibrary.org/obo/UBERON_')
 BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
 BIOREGISTRY = CurieNamespace('bioregistry', 'https://bioregistry.io/registry/')
 BIOSCHEMAS = CurieNamespace('bioschemas', 'https://bioschemas.org/')
@@ -543,13 +544,24 @@ class DataFormat(EnumDefinitionImpl):
 
 class CellType(EnumDefinitionImpl):
     """
-    Cell type or tissue code from the cell ontology as a URI.
+    Cell type code from the cell ontology as a URI.
     See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)
     """
     _defn = EnumDefinition(
         name="CellType",
-        description="""Cell type or tissue code from the cell ontology as a URI.
+        description="""Cell type code from the cell ontology as a URI.
 See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)""",
+    )
+
+class SourceMaterial(EnumDefinitionImpl):
+    """
+    Tissue or organ code from the UBERON ontology as a URI.
+    See: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)
+    """
+    _defn = EnumDefinition(
+        name="SourceMaterial",
+        description="""Tissue or organ code from the UBERON ontology as a URI.
+See: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)""",
     )
 
 # Slots
