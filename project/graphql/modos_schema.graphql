@@ -72,7 +72,7 @@ type ReferenceGenome
     description: String
     dataPath: String!
     hasSequence: [ReferenceSequence]
-    taxonId: [Integer]
+    taxonId: [Uriorcurie]
     sourceUri: Uri
     version: String
   }
@@ -92,10 +92,10 @@ type Sample
     id: Uriorcurie!
     name: String
     description: String
-    cellType: String
-    sourceMaterial: String
+    cellType: Uriorcurie
+    sourceMaterial: Uriorcurie
     sex: Sex
-    taxonId: [Integer]
+    taxonId: [Uriorcurie]
     collector: [String]
   }
 

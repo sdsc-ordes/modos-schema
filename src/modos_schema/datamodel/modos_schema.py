@@ -1,5 +1,5 @@
 # Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-09-23T15:24:42
+# Generation date: 2024-09-24T11:54:46
 # Schema: modos-schema
 #
 # id: https://w3id.org/sdsc-ordes/modos-schema
@@ -22,7 +22,7 @@ from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from linkml_runtime.utils.curienamespace import CurieNamespace
-from linkml_runtime.linkml_model.types import Datetime, Integer, String, Uri, Uriorcurie
+from linkml_runtime.linkml_model.types import Datetime, String, Uri, Uriorcurie
 from linkml_runtime.utils.metamodelcore import URI, URIorCURIE, XSDDateTime
 
 metamodel_version = "1.7.0"
@@ -220,10 +220,10 @@ class Sample(NamedThing):
     class_model_uri: ClassVar[URIRef] = MODOS.Sample
 
     id: Union[str, SampleId] = None
-    cell_type: Optional[str] = None
-    source_material: Optional[str] = None
+    cell_type: Optional[Union[str, URIorCURIE]] = None
+    source_material: Optional[Union[str, URIorCURIE]] = None
     sex: Optional[Union[str, "Sex"]] = None
-    taxon_id: Optional[Union[int, List[int]]] = empty_list()
+    taxon_id: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
     collector: Optional[Union[str, List[str]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -232,18 +232,18 @@ class Sample(NamedThing):
         if not isinstance(self.id, SampleId):
             self.id = SampleId(self.id)
 
-        if self.cell_type is not None and not isinstance(self.cell_type, str):
-            self.cell_type = str(self.cell_type)
+        if self.cell_type is not None and not isinstance(self.cell_type, URIorCURIE):
+            self.cell_type = URIorCURIE(self.cell_type)
 
-        if self.source_material is not None and not isinstance(self.source_material, str):
-            self.source_material = str(self.source_material)
+        if self.source_material is not None and not isinstance(self.source_material, URIorCURIE):
+            self.source_material = URIorCURIE(self.source_material)
 
         if self.sex is not None and not isinstance(self.sex, Sex):
             self.sex = Sex(self.sex)
 
         if not isinstance(self.taxon_id, list):
             self.taxon_id = [self.taxon_id] if self.taxon_id is not None else []
-        self.taxon_id = [v if isinstance(v, int) else int(v) for v in self.taxon_id]
+        self.taxon_id = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.taxon_id]
 
         if not isinstance(self.collector, list):
             self.collector = [self.collector] if self.collector is not None else []
@@ -312,7 +312,7 @@ class ReferenceGenome(NamedThing):
     id: Union[str, ReferenceGenomeId] = None
     data_path: str = None
     has_sequence: Optional[Union[Union[str, ReferenceSequenceId], List[Union[str, ReferenceSequenceId]]]] = empty_list()
-    taxon_id: Optional[Union[int, List[int]]] = empty_list()
+    taxon_id: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
     source_uri: Optional[Union[str, URI]] = None
     version: Optional[str] = None
 
@@ -333,7 +333,7 @@ class ReferenceGenome(NamedThing):
 
         if not isinstance(self.taxon_id, list):
             self.taxon_id = [self.taxon_id] if self.taxon_id is not None else []
-        self.taxon_id = [v if isinstance(v, int) else int(v) for v in self.taxon_id]
+        self.taxon_id = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.taxon_id]
 
         if self.source_uri is not None and not isinstance(self.source_uri, URI):
             self.source_uri = URI(self.source_uri)
@@ -542,28 +542,6 @@ class DataFormat(EnumDefinitionImpl):
         name="DataFormat",
     )
 
-class CellType(EnumDefinitionImpl):
-    """
-    Cell type code from the cell ontology as a URI.
-    See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)
-    """
-    _defn = EnumDefinition(
-        name="CellType",
-        description="""Cell type code from the cell ontology as a URI.
-See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)""",
-    )
-
-class SourceMaterial(EnumDefinitionImpl):
-    """
-    Tissue or organ code from the UBERON ontology as a URI.
-    See: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)
-    """
-    _defn = EnumDefinition(
-        name="SourceMaterial",
-        description="""Tissue or organ code from the UBERON ontology as a URI.
-See: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)""",
-    )
-
 # Slots
 class slots:
     pass
@@ -608,7 +586,7 @@ slots.data_format = Slot(uri=MODOS.data_format, name="data_format", curie=MODOS.
                    model_uri=MODOS.data_format, domain=None, range=Union[str, "DataFormat"])
 
 slots.taxon_id = Slot(uri=MODOS.taxon_id, name="taxon_id", curie=MODOS.curie('taxon_id'),
-                   model_uri=MODOS.taxon_id, domain=None, range=Optional[Union[int, List[int]]])
+                   model_uri=MODOS.taxon_id, domain=None, range=Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]])
 
 slots.collector = Slot(uri=MODOS.collector, name="collector", curie=MODOS.curie('collector'),
                    model_uri=MODOS.collector, domain=None, range=Optional[Union[str, List[str]]])
@@ -627,10 +605,10 @@ slots.version = Slot(uri=MODOS.version, name="version", curie=MODOS.curie('versi
                    model_uri=MODOS.version, domain=None, range=Optional[str])
 
 slots.cell_type = Slot(uri=MODOS.cell_type, name="cell_type", curie=MODOS.curie('cell_type'),
-                   model_uri=MODOS.cell_type, domain=None, range=Optional[str])
+                   model_uri=MODOS.cell_type, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.source_material = Slot(uri=MODOS.source_material, name="source_material", curie=MODOS.curie('source_material'),
-                   model_uri=MODOS.source_material, domain=None, range=Optional[str])
+                   model_uri=MODOS.source_material, domain=None, range=Optional[Union[str, URIorCURIE]])
 
 slots.sex = Slot(uri=MODOS.sex, name="sex", curie=MODOS.curie('sex'),
                    model_uri=MODOS.sex, domain=None, range=Optional[Union[str, "Sex"]])

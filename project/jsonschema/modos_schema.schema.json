@@ -139,11 +139,6 @@
             "title": "Assay",
             "type": "object"
         },
-        "CellType": {
-            "description": "Cell type code from the cell ontology as a URI.\nSee: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)",
-            "title": "CellType",
-            "type": "string"
-        },
         "DataEntity": {
             "additionalProperties": false,
             "description": "An entity containing data.",
@@ -375,9 +370,9 @@
                     "type": "string"
                 },
                 "taxon_id": {
-                    "description": "The taxid number describing the taxonomic range of a sample.",
+                    "description": "The NCBI taxon code describing the taxonomic range of a sample.\nSee: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)\n",
                     "items": {
-                        "type": "integer"
+                        "type": "string"
                     },
                     "type": "array"
                 },
@@ -434,15 +429,7 @@
             "description": "A biological sample used in assays. Examples include a whole organism, tissue or cell line.",
             "properties": {
                 "cell_type": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/CellType"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ],
-                    "description": "The cell type name or code, if applicable.",
+                    "description": "The cell type of the sample, if applicable.\nShould be a cell type code URI from the cell ontology.\nSee: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)\n",
                     "type": "string"
                 },
                 "collector": {
@@ -469,21 +456,13 @@
                     "description": "The biological sex of a sample."
                 },
                 "source_material": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/SourceMaterial"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ],
-                    "description": "The biological source from which the sample was isolated (tissue, organ).",
+                    "description": "The biological source from which the sample was isolated (tissue, organ).\nShould be a tissue or organ code URI from the UBERON ontology.\nSee: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)\n",
                     "type": "string"
                 },
                 "taxon_id": {
-                    "description": "The taxid number describing the taxonomic range of a sample.",
+                    "description": "The NCBI taxon code describing the taxonomic range of a sample.\nSee: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)\n",
                     "items": {
-                        "type": "integer"
+                        "type": "string"
                     },
                     "type": "array"
                 }
@@ -501,11 +480,6 @@
                 "Female"
             ],
             "title": "Sex",
-            "type": "string"
-        },
-        "SourceMaterial": {
-            "description": "Tissue or organ code from the UBERON ontology as a URI.\nSee: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)",
-            "title": "SourceMaterial",
             "type": "string"
         },
         "VariantSet": {

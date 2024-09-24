@@ -15,8 +15,8 @@
 --     * Slot: name Description: A human-readable name for a thing
 --     * Slot: description Description: A human-readable description for a thing
 -- # Class: "Sample" Description: "A biological sample used in assays. Examples include a whole organism, tissue or cell line."
---     * Slot: cell_type Description: The cell type name or code, if applicable.
---     * Slot: source_material Description: The biological source from which the sample was isolated (tissue, organ).
+--     * Slot: cell_type Description: The cell type of the sample, if applicable.Should be a cell type code URI from the cell ontology.See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)
+--     * Slot: source_material Description: The biological source from which the sample was isolated (tissue, organ).Should be a tissue or organ code URI from the UBERON ontology.See: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)
 --     * Slot: sex Description: The biological sex of a sample.
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
@@ -75,7 +75,7 @@
 --     * Slot: omics_type Description: The type of omics considered.
 -- # Class: "Sample_taxon_id" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
---     * Slot: taxon_id Description: The taxid number describing the taxonomic range of a sample.
+--     * Slot: taxon_id Description: The NCBI taxon code describing the taxonomic range of a sample.See: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)
 -- # Class: "Sample_collector" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
 --     * Slot: collector Description: The organization responsible for collecting a given sample.
@@ -90,7 +90,7 @@
 --     * Slot: has_sequence_id Description: Denotes that a sequence belongs to a collection (e.g. a reference genome).
 -- # Class: "ReferenceGenome_taxon_id" Description: ""
 --     * Slot: ReferenceGenome_id Description: Autocreated FK slot
---     * Slot: taxon_id Description: The taxid number describing the taxonomic range of a sample.
+--     * Slot: taxon_id Description: The NCBI taxon code describing the taxonomic range of a sample.See: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)
 -- # Class: "AlignmentSet_has_sample" Description: ""
 --     * Slot: AlignmentSet_id Description: Autocreated FK slot
 --     * Slot: has_sample_id Description: Biological sample included or described by a given thing.
@@ -218,7 +218,7 @@ CREATE TABLE "Assay_omics_type" (
 );
 CREATE TABLE "Sample_taxon_id" (
 	"Sample_id" TEXT, 
-	taxon_id INTEGER, 
+	taxon_id TEXT, 
 	PRIMARY KEY ("Sample_id", taxon_id), 
 	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
 );
@@ -251,7 +251,7 @@ CREATE TABLE "ReferenceGenome_has_sequence" (
 );
 CREATE TABLE "ReferenceGenome_taxon_id" (
 	"ReferenceGenome_id" TEXT, 
-	taxon_id INTEGER, 
+	taxon_id TEXT, 
 	PRIMARY KEY ("ReferenceGenome_id", taxon_id), 
 	FOREIGN KEY("ReferenceGenome_id") REFERENCES "ReferenceGenome" (id)
 );
