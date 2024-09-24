@@ -199,8 +199,10 @@ slots:
     range: DataFormat
     required: true
   taxon_id:
-    description: The taxid number describing the taxonomic range of a sample.
-    range: integer
+    description: |
+      The NCBI taxon code describing the taxonomic range of a sample.
+      See: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)
+    range: uriorcurie
     multivalued: true
   collector:
     description: The organization responsible for collecting a given sample.
@@ -230,15 +232,17 @@ slots:
     description: A string specifying the release or version of a software or resource.
     range: string
   cell_type:
-    description: The cell type name or code, if applicable.
-    any_of:
-      - range: CellType
-      - range: string
+    description: |
+      The cell type of the sample, if applicable.
+      Should be a cell type code URI from the cell ontology.
+      See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)
+    range: uriorcurie
   source_material:
-    description: The biological source from which the sample was isolated (tissue, organ). 
-    any_of:
-      - range: SourceMaterial
-      - range: string
+    description: |
+      The biological source from which the sample was isolated (tissue, organ).
+      Should be a tissue or organ code URI from the UBERON ontology.
+      See: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)
+    range: uriorcurie
   sex:
     description: The biological sex of a sample.
     range: Sex
@@ -288,25 +292,3 @@ enums:
       BCF:
         description: Binary call format, for efficient storage of sequence variation.
         meaning: EDAM:format_3020
-  CellType:
-    description: |
-      Cell type code from the cell ontology as a URI.
-      See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)
-    reachable_from:
-      source_ontology: bioregistry:cl
-      source_nodes:
-        - CL:0000000
-      include_self: false
-      relationship_types:
-        - rdfs:subClassOf
-  SourceMaterial:
-    description: |
-      Tissue or organ code from the UBERON ontology as a URI.
-      See: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)
-    reachable_from:
-      source_ontology: bioregistry:uberon
-      source_nodes:
-        - UBERON:0001062
-      include_self: false
-      relationship_types:
-        - rdfs:subClassOf
