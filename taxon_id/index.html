@@ -317,7 +317,9 @@
 
 
 <h1 id="slot-taxon_id">Slot: taxon_id</h1>
-<p><em>The taxid number describing the taxonomic range of a sample.</em></p>
+<p><em>The NCBI taxon code describing the taxonomic range of a sample.</em></p>
+<p><em>See: <a href="https://obofoundry.org/ontology/ncbitaxon.html">https://obofoundry.org/ontology/ncbitaxon.html</a></em></p>
+<p>__</p>
 <p>URI: <a href="https://w3id.org/sdsc-ordes/modos-schema/taxon_id">modos:taxon_id</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -332,13 +334,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ReferenceGenome/">ReferenceGenome</a></td>
-<td>Reference assembly of a given genome, consisting of a collection of congiguou...</td>
+<td><a href="../Sample/">Sample</a></td>
+<td>A biological sample used in assays</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Sample/">Sample</a></td>
-<td>A biological sample used in assays</td>
+<td><a href="../ReferenceGenome/">ReferenceGenome</a></td>
+<td>Reference assembly of a given genome, consisting of a collection of congiguou...</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -346,7 +348,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../Integer/">Integer</a></p>
+<p>Range: <a href="../Uriorcurie/">Uriorcurie</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -361,7 +363,11 @@
 <details>
 
 <pre><code class="language-yaml">name: taxon_id
-description: The taxid number describing the taxonomic range of a sample.
+description: 'The NCBI taxon code describing the taxonomic range of a sample.
+
+  See: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)
+
+  '
 from_schema: https://w3id.org/sdsc-ordes/modos-schema
 rank: 1000
 multivalued: true
@@ -369,7 +375,7 @@ alias: taxon_id
 domain_of:
 - Sample
 - ReferenceGenome
-range: integer
+range: uriorcurie
 
 </code></pre>
 

@@ -318,6 +318,9 @@
 
 <h1 id="slot-source_material">Slot: source_material</h1>
 <p><em>The biological source from which the sample was isolated (tissue, organ).</em></p>
+<p><em>Should be a tissue or organ code URI from the UBERON ontology.</em></p>
+<p><em>See: <a href="https://bioregistry.io/registry/uberon">https://bioregistry.io/registry/uberon</a></em></p>
+<p>__</p>
 <p>URI: <a href="https://w3id.org/sdsc-ordes/modos-schema/source_material">modos:source_material</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -340,7 +343,7 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../String/">String</a>&nbsp;or&nbsp;<br /><a href="../SourceMaterial/">SourceMaterial</a>&nbsp;or&nbsp;<br /><a href="../String/">String</a></li>
+<li>Range: <a href="../Uriorcurie/">Uriorcurie</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -351,16 +354,19 @@
 <details>
 
 <pre><code class="language-yaml">name: source_material
-description: The biological source from which the sample was isolated (tissue, organ).
+description: 'The biological source from which the sample was isolated (tissue, organ).
+
+  Should be a tissue or organ code URI from the UBERON ontology.
+
+  See: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)
+
+  '
 from_schema: https://w3id.org/sdsc-ordes/modos-schema
 rank: 1000
 alias: source_material
 domain_of:
 - Sample
-range: string
-any_of:
-- range: SourceMaterial
-- range: string
+range: uriorcurie
 
 </code></pre>
 

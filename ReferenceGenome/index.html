@@ -275,8 +275,8 @@
 </tr>
 <tr>
 <td><a href="../taxon_id/">taxon_id</a></td>
-<td>* <br/> <a href="../Integer/">Integer</a></td>
-<td>The taxid number describing the taxonomic range of a sample</td>
+<td>* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>The NCBI taxon code describing the taxonomic range of a sample</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -439,7 +439,11 @@ attributes:
     range: ReferenceSequence
   taxon_id:
     name: taxon_id
-    description: The taxid number describing the taxonomic range of a sample.
+    description: 'The NCBI taxon code describing the taxonomic range of a sample.
+
+      See: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)
+
+      '
     from_schema: https://w3id.org/sdsc-ordes/modos-schema
     rank: 1000
     multivalued: true
@@ -448,7 +452,7 @@ attributes:
     domain_of:
     - Sample
     - ReferenceGenome
-    range: integer
+    range: uriorcurie
   source_uri:
     name: source_uri
     description: The URI from which a resource or dataset was obtained or derived.
