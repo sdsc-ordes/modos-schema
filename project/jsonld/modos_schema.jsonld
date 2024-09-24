@@ -24,8 +24,16 @@
       "prefix_reference": "https://w3id.org/biolink/"
     },
     {
+      "prefix_prefix": "bioregistry",
+      "prefix_reference": "https://bioregistry.io/registry/"
+    },
+    {
       "prefix_prefix": "bioschemas",
       "prefix_reference": "https://bioschemas.org/"
+    },
+    {
+      "prefix_prefix": "CL",
+      "prefix_reference": "https://bioregistry.io/reference/cl:/"
     },
     {
       "prefix_prefix": "EDAM",
@@ -54,6 +62,10 @@
     {
       "prefix_prefix": "sphn",
       "prefix_reference": "https://biomedit.ch/rdf/sphn-schema/sphn#"
+    },
+    {
+      "prefix_prefix": "UBERON",
+      "prefix_reference": "http://purl.obolibrary.org/obo/UBERON_"
     }
   ],
   "default_prefix": "modos",
@@ -509,8 +521,8 @@
         "http://schema.org/hasPart"
       ],
       "slot_uri": "http://schema.org/hasPart",
-      "multivalued": true,
       "range": "string",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -547,13 +559,13 @@
       "description": "The type of omics considered.",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/omics_type",
-      "multivalued": true,
       "owner": "Assay",
       "domain_of": [
         "Assay"
       ],
       "range": "OmicsType",
       "required": true,
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -563,12 +575,12 @@
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_assay",
-      "multivalued": true,
       "owner": "MODO",
       "domain_of": [
         "MODO"
       ],
       "range": "Assay",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -578,13 +590,13 @@
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_sample",
-      "multivalued": true,
       "owner": "DataEntity",
       "domain_of": [
         "Assay",
         "DataEntity"
       ],
       "range": "Sample",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -594,12 +606,12 @@
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_data",
-      "multivalued": true,
       "owner": "Assay",
       "domain_of": [
         "Assay"
       ],
       "range": "DataEntity",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -609,12 +621,12 @@
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_sequence",
-      "multivalued": true,
       "owner": "ReferenceGenome",
       "domain_of": [
         "ReferenceGenome"
       ],
       "range": "ReferenceSequence",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -624,12 +636,12 @@
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_reference",
-      "multivalued": true,
       "owner": "DataEntity",
       "domain_of": [
         "DataEntity"
       ],
       "range": "ReferenceGenome",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -649,16 +661,16 @@
     {
       "name": "taxon_id",
       "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/taxon_id",
-      "description": "The taxid number describing the taxonomic range of a sample.",
+      "description": "The NCBI taxon code describing the taxonomic range of a sample.\nSee: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)\n",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/taxon_id",
-      "multivalued": true,
       "owner": "ReferenceGenome",
       "domain_of": [
         "Sample",
         "ReferenceGenome"
       ],
-      "range": "integer",
+      "range": "uriorcurie",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -667,12 +679,12 @@
       "description": "The organization responsible for collecting a given sample.",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/collector",
-      "multivalued": true,
       "owner": "Sample",
       "domain_of": [
         "Sample"
       ],
       "range": "string",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -750,27 +762,27 @@
     {
       "name": "cell_type",
       "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/cell_type",
-      "description": "The cell type name.",
+      "description": "The cell type of the sample, if applicable.\nShould be a cell type code URI from the cell ontology.\nSee: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)\n",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/cell_type",
       "owner": "Sample",
       "domain_of": [
         "Sample"
       ],
-      "range": "string",
+      "range": "uriorcurie",
       "@type": "SlotDefinition"
     },
     {
       "name": "source_material",
       "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/source_material",
-      "description": "The biological source from which the sample was isolated (tissue, organ, ...).",
+      "description": "The biological source from which the sample was isolated (tissue, organ).\nShould be a tissue or organ code URI from the UBERON ontology.\nSee: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)\n",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/source_material",
       "owner": "Sample",
       "domain_of": [
         "Sample"
       ],
-      "range": "string",
+      "range": "uriorcurie",
       "@type": "SlotDefinition"
     },
     {
@@ -790,13 +802,13 @@
       "name": "mODOCollection__entries",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/entries",
-      "multivalued": true,
       "alias": "entries",
       "owner": "MODOCollection",
       "domain_of": [
         "MODOCollection"
       ],
       "range": "MODO",
+      "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     }
@@ -1015,8 +1027,8 @@
       "attributes": [
         {
           "name": "entries",
-          "multivalued": true,
           "range": "MODO",
+          "multivalued": true,
           "inlined": true,
           "@type": "SlotDefinition"
         }
@@ -1028,9 +1040,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "modos_schema.yaml",
-  "source_file_date": "2024-05-30T12:45:42",
-  "source_file_size": 7929,
-  "generation_date": "2024-05-30T14:10:10",
+  "source_file_date": "2024-09-24T11:54:35",
+  "source_file_size": 8488,
+  "generation_date": "2024-09-24T11:54:46",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/modos_schema.context.jsonld",

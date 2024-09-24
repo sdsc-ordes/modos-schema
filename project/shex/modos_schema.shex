@@ -1,7 +1,9 @@
+# metamodel_version: 1.7.0
 BASE <https://w3id.org/sdsc-ordes/modos-schema/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX linkml: <https://w3id.org/linkml/>
+PREFIX EDAM: <http://edamontology.org/>
 PREFIX schema1: <http://schema.org/>
 
 
@@ -64,7 +66,8 @@ linkml:Sparqlpath xsd:string
           rdf:type [ schema1:Thing ] ? ;
           <has_sample> @<Sample> * ;
           <has_data> @<DataEntity> * ;
-          <omics_type> @<OmicsType> +
+          <omics_type> [ <http://purl.obolibrary.org/obo/NCIT_C84343> <http://purl.obolibrary.org/obo/NCIT_C153189>
+             <http://purl.obolibrary.org/obo/NCIT_C49019> <http://purl.obolibrary.org/obo/NCIT_C20085> ] +
        ) ;
        rdf:type [ <Assay> ]
     )
@@ -75,7 +78,8 @@ linkml:Sparqlpath xsd:string
        (  $<DataEntity_tes> (  &<NamedThing_tes> ;
              rdf:type [ schema1:Thing ] ? ;
              <data_path> @linkml:String ;
-             <data_format> @<DataFormat> ;
+             <data_format> [ EDAM:format_3462 EDAM:format_1930 EDAM:format_3915 EDAM:format_1929 EDAM:format_3016 EDAM:format_3020
+                ] ;
              <has_sample> @<Sample> * ;
              <has_reference> @<ReferenceGenome> *
           ) ;
@@ -117,7 +121,7 @@ linkml:Sparqlpath xsd:string
           rdf:type [ schema1:Thing ] ? ;
           <data_path> @linkml:String ;
           <has_sequence> @<ReferenceSequence> * ;
-          <taxon_id> @linkml:Integer * ;
+          <taxon_id> @linkml:Uriorcurie * ;
           <source_uri> @linkml:Uri ? ;
           <version> @linkml:String ?
        ) ;
@@ -139,10 +143,10 @@ linkml:Sparqlpath xsd:string
 <Sample> CLOSED {
     (  $<Sample_tes> (  &<NamedThing_tes> ;
           rdf:type [ schema1:Thing ] ? ;
-          <cell_type> @linkml:String ? ;
-          <source_material> @linkml:String ? ;
-          <sex> @<Sex> ? ;
-          <taxon_id> @linkml:Integer * ;
+          <cell_type> @linkml:Uriorcurie ? ;
+          <source_material> @linkml:Uriorcurie ? ;
+          <sex> [ <https://w3id.org/sdsc-ordes/modos-schema/Sex#Male> <https://w3id.org/sdsc-ordes/modos-schema/Sex#Female> ] ? ;
+          <taxon_id> @linkml:Uriorcurie * ;
           <collector> @linkml:String *
        ) ;
        rdf:type [ <Sample> ]
@@ -156,5 +160,4 @@ linkml:Sparqlpath xsd:string
        rdf:type [ <VariantSet> ]
     )
 }
-
 

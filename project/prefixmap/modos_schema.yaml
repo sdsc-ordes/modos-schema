@@ -1,9 +1,12 @@
 {
+   "CL": "https://bioregistry.io/reference/cl:/",
    "EDAM": "http://edamontology.org/",
    "FG": "https://w3id.org/fair-genomes/ontology/",
    "GENO": "http://purl.obolibrary.org/obo/GENO_",
    "NCIT": "http://purl.obolibrary.org/obo/NCIT_",
+   "UBERON": "http://purl.obolibrary.org/obo/UBERON_",
    "biolink": "https://w3id.org/biolink/",
+   "bioregistry": "https://bioregistry.io/registry/",
    "bioschemas": "https://bioschemas.org/",
    "example": "https://example.org/",
    "linkml": "https://w3id.org/linkml/",

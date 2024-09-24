@@ -1,3 +1,6 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.7.0
 // A data entity consisting of genomic intervals aligned to a reference.
 message AlignmentSet
  {
@@ -72,7 +75,7 @@ message ReferenceGenome
   string description = 0
   string dataPath = 0
  repeated  referenceSequence hasSequence = 0
- repeated  integer taxonId = 0
+ repeated  uriorcurie taxonId = 0
   uri sourceUri = 0
   string version = 0
  }
@@ -92,10 +95,10 @@ message Sample
   uriorcurie id = 0
   string name = 0
   string description = 0
-  string cellType = 0
-  string sourceMaterial = 0
+  uriorcurie cellType = 0
+  uriorcurie sourceMaterial = 0
   sex sex = 0
- repeated  integer taxonId = 0
+ repeated  uriorcurie taxonId = 0
  repeated  string collector = 0
  }
 // A data entity consisting of genomic variants relative to a reference.
