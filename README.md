@@ -8,52 +8,52 @@ MODOCollection {
 
 }
 MODO {
-    datetime creation_date  
-    datetime last_update_date  
-    uri source_uri  
-    uriorcurie id  
-    string name  
-    string description  
+    datetime creation_date
+    datetime last_update_date
+    uri source_uri
+    uriorcurie id
+    string name
+    string description
 }
 Assay {
-    OmicsTypeList omics_type  
-    uriorcurie id  
-    string name  
-    string description  
+    OmicsTypeList omics_type
+    uriorcurie id
+    string name
+    string description
 }
 DataEntity {
-    string data_path  
-    DataFormat data_format  
-    uriorcurie id  
-    string name  
-    string description  
+    string data_path
+    DataFormat data_format
+    uriorcurie id
+    string name
+    string description
 }
 ReferenceGenome {
-    string data_path  
-    integerList taxon_id  
-    uri source_uri  
-    string version  
-    uriorcurie id  
-    string name  
-    string description  
+    string data_path
+    uriorcurieList taxon_id
+    uri source_uri
+    string version
+    uriorcurie id
+    string name
+    string description
 }
 ReferenceSequence {
-    string sequence_md5  
-    uri source_uri  
-    string version  
-    uriorcurie id  
-    string name  
-    string description  
+    string sequence_md5
+    uri source_uri
+    string version
+    uriorcurie id
+    string name
+    string description
 }
 Sample {
-    string cell_type  
-    string source_material  
-    Sex sex  
-    integerList taxon_id  
-    stringList collector  
-    uriorcurie id  
-    string name  
-    string description  
+    uriorcurie cell_type
+    uriorcurie source_material
+    Sex sex
+    uriorcurieList taxon_id
+    stringList collector
+    uriorcurie id
+    string name
+    string description
 }
 
 MODOCollection ||--}o MODO : "entries"
@@ -61,7 +61,7 @@ MODO ||--}o Assay : "has_assay"
 Assay ||--}o Sample : "has_sample"
 Assay ||--}o DataEntity : "has_data"
 DataEntity ||--}o Sample : "has_sample"
-DataEntity ||--|o ReferenceGenome : "has_reference"
+DataEntity ||--}o ReferenceGenome : "has_reference"
 ReferenceGenome ||--}o ReferenceSequence : "has_sequence"
 
 ```
