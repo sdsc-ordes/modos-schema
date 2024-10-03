@@ -62,6 +62,7 @@ classes:
       - has_sample
       - has_data
       - omics_type
+      - has_sample_processing
 
   Sample:
     is_a: NamedThing
@@ -119,6 +120,10 @@ classes:
   VariantSet:
     is_a: DataEntity
     description: A data entity consisting of genomic variants relative to a reference.
+
+  MassSpectrometryResults:
+    is_a: DataEntity
+    description: A data entity consisting of quantitative results from a mass spectrometry experiment.
 
   Array:
     is_a: DataEntity
@@ -186,6 +191,14 @@ slots:
     is_a: has_part
     description: Data entity included in a given collection.
     range: DataEntity
+  has_sample_processing:
+    description: |
+      Codes describing sample processing, preparation or handling steps.
+      The order of the codes should reflect the order in which the steps were performed.
+      Should be codes from [MSIO](https://bioregistry.io/registry/msio) or OBI[https://obofoundry.org/ontology/obi.html)].
+    multivalued: true
+    list_elements_ordered: true
+    range: uriorcurie
   has_sequence:
     is_a: has_part
     description: Denotes that a sequence belongs to a collection (e.g. a reference genome).
@@ -200,8 +213,7 @@ slots:
     required: true
   taxon_id:
     description: |
-      The NCBI taxon code describing the taxonomic range of a sample.
-      See: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)
+      The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.
     range: uriorcurie
     multivalued: true
   collector:
@@ -240,8 +252,7 @@ slots:
   source_material:
     description: |
       The biological source from which the sample was isolated (tissue, organ).
-      Should be a tissue or organ code URI from the UBERON ontology.
-      See: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)
+      Should be a code URI from the [UBERON](https://bioregistry.io/registry/uberon) ontology or [fairgenomes biospecimen types](https://raw.githubusercontent.com/fairgenomes/fairgenomes-semantic-model/refs/tags/v1.2/generated/ontology/fair-genomes-biospecimentypes.ttl).
     range: uriorcurie
   sex:
     description: The biological sex of a sample.
@@ -292,3 +303,6 @@ enums:
       BCF:
         description: Binary call format, for efficient storage of sequence variation.
         meaning: EDAM:format_3020
+      mzTab:
+        description: tab-delimited format for mass spectrometry-based proteomics and metabolomics results.
+        meaning: EDAM:format_3681
