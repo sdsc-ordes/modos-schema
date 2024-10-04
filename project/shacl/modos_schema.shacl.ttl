@@ -21,13 +21,7 @@ schema1:Thing a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path schema1:name ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path schema1:identifier ] ;
+            sh:path schema1:name ] ;
     sh:targetClass schema1:Thing .
 
 modos:AlignmentSet a sh:NodeShape ;
@@ -136,11 +130,16 @@ modos:MODOCollection a sh:NodeShape ;
             sh:path modos:entries ] ;
     sh:targetClass modos:MODOCollection .
 
-modos:VariantSet a sh:NodeShape ;
+modos:MassSpectrometryResults a sh:NodeShape ;
     sh:closed true ;
-    sh:description "A data entity consisting of genomic variants relative to a reference." ;
+    sh:description "A data entity consisting of quantitative results from a mass spectrometry experiment." ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:class modos:Sample ;
+            sh:description "Biological sample included or described by a given thing." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path modos:has_sample ],
+        [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -211,6 +210,18 @@ modos:Assay a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path modos:has_data ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path schema1:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path schema1:name ],
         [ sh:class modos:Sample ;
             sh:description "Biological sample included or described by a given thing." ;
             sh:nodeKind sh:IRI ;
@@ -319,7 +330,13 @@ modos:MODO a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path modos:creation_date ] ;
+            sh:path modos:creation_date ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path schema1:name ] ;
     sh:targetClass modos:MODO .
 
 modos:ReferenceSequence a sh:NodeShape ;
@@ -336,8 +353,8 @@ modos:ReferenceSequence a sh:NodeShape ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path schema1:description ],
+            sh:order 1 ;
+            sh:path modos:source_uri ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
@@ -360,7 +377,6 @@ modos:ReferenceSequence a sh:NodeShape ;
         [ sh:datatype xsd:anyURI ;
             sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path schema1:identifier ] ;
@@ -443,8 +459,7 @@ See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)
             sh:path schema1:description ],
         [ sh:datatype xsd:anyURI ;
             sh:description """The biological source from which the sample was isolated (tissue, organ).
-Should be a tissue or organ code URI from the UBERON ontology.
-See: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)
+Should be a code URI from the [UBERON](https://bioregistry.io/registry/uberon) ontology or [fairgenomes biospecimen types](https://raw.githubusercontent.com/fairgenomes/fairgenomes-semantic-model/refs/tags/v1.2/generated/ontology/fair-genomes-biospecimentypes.ttl).
 """ ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;

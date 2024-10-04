@@ -88,6 +88,10 @@ class VariantSetId(DataEntityId):
     pass
 
 
+class MassSpectrometryResultsId(DataEntityId):
+    pass
+
+
 class ArrayId(DataEntityId):
     pass
 
@@ -183,6 +187,7 @@ class Assay(NamedThing):
     omics_type: Union[Union[str, "OmicsType"], List[Union[str, "OmicsType"]]] = None
     has_sample: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
     has_data: Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]] = empty_list()
+    has_sample_processing: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -203,6 +208,10 @@ class Assay(NamedThing):
         if not isinstance(self.has_data, list):
             self.has_data = [self.has_data] if self.has_data is not None else []
         self.has_data = [v if isinstance(v, DataEntityId) else DataEntityId(v) for v in self.has_data]
+
+        if not isinstance(self.has_sample_processing, list):
+            self.has_sample_processing = [self.has_sample_processing] if self.has_sample_processing is not None else []
+        self.has_sample_processing = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.has_sample_processing]
 
         super().__post_init__(**kwargs)
 
@@ -537,6 +546,10 @@ class DataFormat(EnumDefinitionImpl):
         text="BCF",
         description="Binary call format, for efficient storage of sequence variation.",
         meaning=EDAM["format_3020"])
+    mzTab = PermissibleValue(
+        text="mzTab",
+        description="tab-delimited format for mass spectrometry-based proteomics and metabolomics results.",
+        meaning=EDAM["format_3681"])
 
     _defn = EnumDefinition(
         name="DataFormat",
@@ -575,6 +588,9 @@ slots.has_sample = Slot(uri=MODOS.has_sample, name="has_sample", curie=MODOS.cur
 
 slots.has_data = Slot(uri=MODOS.has_data, name="has_data", curie=MODOS.curie('has_data'),
                    model_uri=MODOS.has_data, domain=None, range=Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]])
+
+slots.has_sample_processing = Slot(uri=MODOS.has_sample_processing, name="has_sample_processing", curie=MODOS.curie('has_sample_processing'),
+                   model_uri=MODOS.has_sample_processing, domain=None, range=Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]])
 
 slots.has_sequence = Slot(uri=MODOS.has_sequence, name="has_sequence", curie=MODOS.curie('has_sequence'),
                    model_uri=MODOS.has_sequence, domain=None, range=Optional[Union[Union[str, ReferenceSequenceId], List[Union[str, ReferenceSequenceId]]]])

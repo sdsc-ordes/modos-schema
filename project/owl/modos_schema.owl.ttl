@@ -39,6 +39,13 @@ modos:MODOCollection a owl:Class,
     skos:definition "A holder for Multi-Omics Digital Objects" ;
     skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
 
+modos:MassSpectrometryResults a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "MassSpectrometryResults" ;
+    rdfs:subClassOf modos:DataEntity ;
+    skos:definition "A data entity consisting of quantitative results from a mass spectrometry experiment." ;
+    skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
+
 modos:VariantSet a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "VariantSet" ;
@@ -78,10 +85,7 @@ modos:MODO a owl:Class,
             owl:onProperty modos:creation_date ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Datetime ;
-            owl:onProperty modos:last_update_date ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty modos:has_assay ],
+            owl:onProperty modos:creation_date ],
         [ a owl:Restriction ;
             owl:allValuesFrom modos:Assay ;
             owl:onProperty modos:has_assay ],
@@ -112,6 +116,11 @@ EDAM:format_3020 a owl:Class,
 EDAM:format_3462 a owl:Class,
         modos:DataFormat ;
     rdfs:label "CRAM" ;
+    rdfs:subClassOf modos:DataFormat .
+
+EDAM:format_3681 a owl:Class,
+        modos:DataFormat ;
+    rdfs:label "mzTab" ;
     rdfs:subClassOf modos:DataFormat .
 
 EDAM:format_3915 a owl:Class,
@@ -164,6 +173,9 @@ modos:Assay a owl:Class,
             owl:onProperty modos:has_sample ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty modos:has_sample_processing ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty modos:has_sample ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
@@ -282,6 +294,16 @@ modos:entries a owl:ObjectProperty,
     rdfs:label "entries" ;
     skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
 
+modos:has_sample_processing a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "has_sample_processing" ;
+    rdfs:range linkml:Uriorcurie ;
+    skos:definition """Codes describing sample processing, preparation or handling steps.
+The order of the codes should reflect the order in which the steps were performed.
+Should be codes from [MSIO](https://bioregistry.io/registry/msio) or OBI[https://obofoundry.org/ontology/obi.html)].
+""" ;
+    skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
+
 modos:omics_type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "omics_type" ;
@@ -306,8 +328,8 @@ modos:Sample a owl:Class,
             owl:allValuesFrom modos:Sex ;
             owl:onProperty modos:sex ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
-            owl:onProperty modos:source_material ],
+            owl:minCardinality 0 ;
+            owl:onProperty modos:sex ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty modos:source_material ],
@@ -317,6 +339,9 @@ modos:Sample a owl:Class,
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty modos:cell_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty modos:source_material ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty modos:taxon_id ],
@@ -440,8 +465,7 @@ modos:source_material a owl:ObjectProperty,
     rdfs:label "source_material" ;
     rdfs:range linkml:Uriorcurie ;
     skos:definition """The biological source from which the sample was isolated (tissue, organ).
-Should be a tissue or organ code URI from the UBERON ontology.
-See: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)
+Should be a code URI from the [UBERON](https://bioregistry.io/registry/uberon) ontology or [fairgenomes biospecimen types](https://raw.githubusercontent.com/fairgenomes/fairgenomes-semantic-model/refs/tags/v1.2/generated/ontology/fair-genomes-biospecimentypes.ttl).
 """ ;
     skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
 
@@ -449,8 +473,7 @@ modos:taxon_id a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "taxon_id" ;
     rdfs:range linkml:Uriorcurie ;
-    skos:definition """The NCBI taxon code describing the taxonomic range of a sample.
-See: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)
+    skos:definition """The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.
 """ ;
     skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
 
@@ -503,10 +526,56 @@ modos:has_part a owl:ObjectProperty,
     skos:definition "Indicates an item that is part of this item." ;
     skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
 
+modos:DataEntity a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "DataEntity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:has_reference ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:has_sample ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty modos:data_format ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom modos:ReferenceGenome ;
+            owl:onProperty modos:has_reference ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:data_format ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:data_path ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty modos:has_reference ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty modos:data_path ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom modos:Sample ;
+            owl:onProperty modos:has_sample ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom modos:DataFormat ;
+            owl:onProperty modos:data_format ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty modos:data_path ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty modos:has_sample ],
+        modos:NamedThing ;
+    skos:definition "An entity containing data." ;
+    skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
+
 modos:NamedThing a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "NamedThing" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty modos:name ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty modos:description ],
         [ a owl:Restriction ;
@@ -582,12 +651,13 @@ modos:OmicsType a owl:Class,
 
 modos:DataFormat a owl:Class,
         linkml:EnumDefinition ;
-    owl:unionOf ( EDAM:format_3462 EDAM:format_1930 EDAM:format_3915 EDAM:format_1929 EDAM:format_3016 EDAM:format_3020 ) ;
+    owl:unionOf ( EDAM:format_3462 EDAM:format_1930 EDAM:format_3915 EDAM:format_1929 EDAM:format_3016 EDAM:format_3020 EDAM:format_3681 ) ;
     linkml:permissible_values EDAM:format_1929,
         EDAM:format_1930,
         EDAM:format_3016,
         EDAM:format_3020,
         EDAM:format_3462,
+        EDAM:format_3681,
         EDAM:format_3915 .
 
 <https://w3id.org/sdsc-ordes/modos-schema> a owl:Ontology ;

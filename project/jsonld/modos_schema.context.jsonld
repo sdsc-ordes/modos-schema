@@ -75,6 +75,10 @@
          "@type": "@id",
          "@id": "has_sample"
       },
+      "has_sample_processing": {
+         "@type": "@id",
+         "@id": "has_sample_processing"
+      },
       "has_sequence": {
          "@type": "@id",
          "@id": "has_sequence"
@@ -136,6 +140,9 @@
       },
       "DataEntity": {
          "@id": "DataEntity"
+      },
+      "MassSpectrometryResults": {
+         "@id": "MassSpectrometryResults"
       },
       "MODO": {
          "@id": "MODO"
