@@ -31,10 +31,10 @@ modos:MODOCollection a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "MODOCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom modos:MODO ;
             owl:onProperty modos:entries ],
         [ a owl:Restriction ;
-            owl:allValuesFrom modos:MODO ;
+            owl:minCardinality 0 ;
             owl:onProperty modos:entries ] ;
     skos:definition "A holder for Multi-Omics Digital Objects" ;
     skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
@@ -63,6 +63,9 @@ modos:MODO a owl:Class,
             owl:allValuesFrom linkml:Datetime ;
             owl:onProperty modos:creation_date ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty modos:last_update_date ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty modos:source_uri ],
         [ a owl:Restriction ;
@@ -87,7 +90,7 @@ modos:MODO a owl:Class,
             owl:allValuesFrom linkml:Datetime ;
             owl:onProperty modos:creation_date ],
         [ a owl:Restriction ;
-            owl:allValuesFrom modos:Assay ;
+            owl:minCardinality 0 ;
             owl:onProperty modos:has_assay ],
         modos:NamedThing ;
     skos:definition "Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata." ;
@@ -195,9 +198,6 @@ modos:ReferenceGenome a owl:Class,
             owl:maxCardinality 1 ;
             owl:onProperty modos:data_path ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty modos:has_sequence ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty modos:has_sequence ],
         [ a owl:Restriction ;
@@ -300,7 +300,7 @@ modos:has_sample_processing a owl:ObjectProperty,
     rdfs:range linkml:Uriorcurie ;
     skos:definition """Codes describing sample processing, preparation or handling steps.
 The order of the codes should reflect the order in which the steps were performed.
-Should be codes from [MSIO](https://bioregistry.io/registry/msio) or OBI[https://obofoundry.org/ontology/obi.html)].
+Should be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].
 """ ;
     skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
 
@@ -530,23 +530,17 @@ modos:DataEntity a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "DataEntity" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty modos:has_reference ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty modos:has_sample ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty modos:data_format ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty modos:data_path ],
         [ a owl:Restriction ;
             owl:allValuesFrom modos:ReferenceGenome ;
             owl:onProperty modos:has_reference ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty modos:data_format ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty modos:data_path ],
+            owl:minCardinality 0 ;
+            owl:onProperty modos:has_sample ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty modos:has_reference ],
@@ -554,16 +548,22 @@ modos:DataEntity a owl:Class,
             owl:allValuesFrom linkml:String ;
             owl:onProperty modos:data_path ],
         [ a owl:Restriction ;
-            owl:allValuesFrom modos:Sample ;
-            owl:onProperty modos:has_sample ],
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:has_reference ],
         [ a owl:Restriction ;
             owl:allValuesFrom modos:DataFormat ;
             owl:onProperty modos:data_format ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:data_format ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty modos:data_path ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom modos:Sample ;
+            owl:onProperty modos:has_sample ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty modos:has_sample ],
         modos:NamedThing ;
     skos:definition "An entity containing data." ;
@@ -573,6 +573,9 @@ modos:NamedThing a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "NamedThing" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty modos:name ],
+        [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty modos:name ],
         [ a owl:Restriction ;

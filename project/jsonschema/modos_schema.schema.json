@@ -150,7 +150,7 @@
                     ]
                 },
                 "has_sample_processing": {
-                    "description": "Codes describing sample processing, preparation or handling steps.\nThe order of the codes should reflect the order in which the steps were performed.\nShould be codes from [MSIO](https://bioregistry.io/registry/msio) or OBI[https://obofoundry.org/ontology/obi.html)].\n",
+                    "description": "Codes describing sample processing, preparation or handling steps.\nThe order of the codes should reflect the order in which the steps were performed.\nShould be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].\n",
                     "items": {
                         "type": "string"
                     },

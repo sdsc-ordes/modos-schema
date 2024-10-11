@@ -81,7 +81,7 @@
 --     * Slot: omics_type Description: The type of omics considered.
 -- # Class: "Assay_has_sample_processing" Description: ""
 --     * Slot: Assay_id Description: Autocreated FK slot
---     * Slot: has_sample_processing Description: Codes describing sample processing, preparation or handling steps.The order of the codes should reflect the order in which the steps were performed.Should be codes from [MSIO](https://bioregistry.io/registry/msio) or OBI[https://obofoundry.org/ontology/obi.html)].
+--     * Slot: has_sample_processing Description: Codes describing sample processing, preparation or handling steps.The order of the codes should reflect the order in which the steps were performed.Should be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].
 -- # Class: "Sample_taxon_id" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
 --     * Slot: taxon_id Description: The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.
