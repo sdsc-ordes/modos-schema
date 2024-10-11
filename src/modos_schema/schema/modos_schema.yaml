@@ -195,7 +195,7 @@ slots:
     description: |
       Codes describing sample processing, preparation or handling steps.
       The order of the codes should reflect the order in which the steps were performed.
-      Should be codes from [MSIO](https://bioregistry.io/registry/msio) or OBI[https://obofoundry.org/ontology/obi.html)].
+      Should be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].
     multivalued: true
     list_elements_ordered: true
     range: uriorcurie
