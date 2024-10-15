@@ -68,7 +68,7 @@ linkml:Sparqlpath xsd:string
           <has_data> @<DataEntity> * ;
           <omics_type> [ <http://purl.obolibrary.org/obo/NCIT_C84343> <http://purl.obolibrary.org/obo/NCIT_C153189>
              <http://purl.obolibrary.org/obo/NCIT_C49019> <http://purl.obolibrary.org/obo/NCIT_C20085> ] + ;
-          <has_sample_processing> @linkml:Uriorcurie *
+          <sample_processing> @linkml:Uriorcurie *
        ) ;
        rdf:type [ <Assay> ]
     )

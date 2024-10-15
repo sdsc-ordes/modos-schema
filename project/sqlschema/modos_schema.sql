@@ -79,9 +79,9 @@
 -- # Class: "Assay_omics_type" Description: ""
 --     * Slot: Assay_id Description: Autocreated FK slot
 --     * Slot: omics_type Description: The type of omics considered.
--- # Class: "Assay_has_sample_processing" Description: ""
+-- # Class: "Assay_sample_processing" Description: ""
 --     * Slot: Assay_id Description: Autocreated FK slot
---     * Slot: has_sample_processing Description: Codes describing sample processing, preparation or handling steps.The order of the codes should reflect the order in which the steps were performed.Should be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].
+--     * Slot: sample_processing Description: Codes describing sample processing, preparation or handling steps.The order of the codes should reflect the order in which the steps were performed.Should be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].
 -- # Class: "Sample_taxon_id" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
 --     * Slot: taxon_id Description: The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.
@@ -239,10 +239,10 @@ CREATE TABLE "Assay_omics_type" (
 	PRIMARY KEY ("Assay_id", omics_type), 
 	FOREIGN KEY("Assay_id") REFERENCES "Assay" (id)
 );
-CREATE TABLE "Assay_has_sample_processing" (
+CREATE TABLE "Assay_sample_processing" (
 	"Assay_id" TEXT, 
-	has_sample_processing TEXT, 
-	PRIMARY KEY ("Assay_id", has_sample_processing), 
+	sample_processing TEXT, 
+	PRIMARY KEY ("Assay_id", sample_processing), 
 	FOREIGN KEY("Assay_id") REFERENCES "Assay" (id)
 );
 CREATE TABLE "Sample_taxon_id" (
