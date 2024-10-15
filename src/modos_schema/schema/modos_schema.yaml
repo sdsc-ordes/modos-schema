@@ -62,7 +62,7 @@ classes:
       - has_sample
       - has_data
       - omics_type
-      - has_sample_processing
+      - sample_processing
 
   Sample:
     is_a: NamedThing
@@ -191,7 +191,7 @@ slots:
     is_a: has_part
     description: Data entity included in a given collection.
     range: DataEntity
-  has_sample_processing:
+  sample_processing:
     description: |
       Codes describing sample processing, preparation or handling steps.
       The order of the codes should reflect the order in which the steps were performed.
