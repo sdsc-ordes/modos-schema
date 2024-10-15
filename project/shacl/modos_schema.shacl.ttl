@@ -88,6 +88,24 @@ modos:Array a sh:NodeShape ;
             sh:order 2 ;
             sh:path modos:has_sample ],
         [ sh:datatype xsd:string ;
+            sh:description "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path modos:data_path ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path schema1:name ],
+        [ sh:class modos:ReferenceGenome ;
+            sh:description "Specifies the reference coordinate system used by an omics dataset." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path modos:has_reference ],
+        [ sh:datatype xsd:string ;
             sh:description "A human-readable description for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -118,54 +136,6 @@ modos:Array a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path schema1:identifier ] ;
-    sh:targetClass modos:AlignmentSet .
-
-modos:Array a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "Data entity consisting of an N-dimensional array." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path schema1:name ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:string ;
-            sh:description "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path modos:data_path ],
-        [ sh:description "Data/file format associated with a data entity." ;
-            sh:in ( EDAM:format_3462 EDAM:format_1930 EDAM:format_3915 EDAM:format_1929 EDAM:format_3016 EDAM:format_3020 EDAM:format_3681 ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path modos:data_format ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path schema1:identifier ],
-        [ sh:class modos:Sample ;
-            sh:description "Biological sample included or described by a given thing." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path modos:has_sample ],
-        [ sh:class modos:ReferenceGenome ;
-            sh:description "Specifies the reference coordinate system used by an omics dataset." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path modos:has_reference ] ;
     sh:targetClass modos:Array .
 
 modos:MODOCollection a sh:NodeShape ;
@@ -189,72 +159,6 @@ modos:MassSpectrometryResults a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path schema1:identifier ],
-        [ sh:class modos:Sample ;
-            sh:description "Biological sample included or described by a given thing." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path modos:has_sample ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable name for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path schema1:name ],
-        [ sh:class modos:ReferenceGenome ;
-            sh:description "Specifies the reference coordinate system used by an omics dataset." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path modos:has_reference ],
-        [ sh:datatype xsd:string ;
-            sh:description "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path modos:data_path ],
-        [ sh:description "Data/file format associated with a data entity." ;
-            sh:in ( EDAM:format_3462 EDAM:format_1930 EDAM:format_3915 EDAM:format_1929 EDAM:format_3016 EDAM:format_3020 EDAM:format_3681 ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path modos:data_format ] ;
-    sh:targetClass modos:MassSpectrometryResults .
-
-modos:VariantSet a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "A data entity consisting of genomic variants relative to a reference." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path modos:data_path ],
-        [ sh:class modos:ReferenceGenome ;
-            sh:description "Specifies the reference coordinate system used by an omics dataset." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path modos:has_reference ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path schema1:description ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "A unique identifier for a thing" ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path schema1:identifier ],
         [ sh:description "Data/file format associated with a data entity." ;
             sh:in ( EDAM:format_3462 EDAM:format_1930 EDAM:format_3915 EDAM:format_1929 EDAM:format_3016 EDAM:format_3020 EDAM:format_3681 ) ;
             sh:maxCount 1 ;
@@ -271,35 +175,60 @@ modos:VariantSet a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
-            sh:path schema1:name ] ;
-    sh:targetClass modos:VariantSet .
-
-modos:Assay a sh:NodeShape ;
-    sh:closed true ;
-    sh:description "A coordinated set of actions designed to generate data from samples." ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "The type of omics considered." ;
-            sh:in ( NCIT:C84343 NCIT:C153189 NCIT:C49019 NCIT:C20085 ) ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path." ;
+            sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:order 2 ;
-            sh:path modos:omics_type ],
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path modos:data_path ],
+        [ sh:class modos:ReferenceGenome ;
+            sh:description "Specifies the reference coordinate system used by an omics dataset." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path modos:has_reference ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path schema1:description ] ;
+    sh:targetClass modos:MassSpectrometryResults .
+
+modos:VariantSet a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A data entity consisting of genomic variants relative to a reference." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path modos:data_path ],
+        [ sh:description "Data/file format associated with a data entity." ;
+            sh:in ( EDAM:format_3462 EDAM:format_1930 EDAM:format_3915 EDAM:format_1929 EDAM:format_3016 EDAM:format_3020 EDAM:format_3681 ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path modos:data_format ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path schema1:name ],
-        [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path schema1:description ],
-        [ sh:class modos:DataEntity ;
-            sh:description "Data entity included in a given collection." ;
+        [ sh:class modos:ReferenceGenome ;
+            sh:description "Specifies the reference coordinate system used by an omics dataset." ;
             sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path modos:has_data ],
+            sh:order 3 ;
+            sh:path modos:has_reference ],
+        [ sh:class modos:Sample ;
+            sh:description "Biological sample included or described by a given thing." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path modos:has_sample ],
         [ sh:datatype xsd:anyURI ;
             sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
@@ -307,12 +236,19 @@ modos:Assay a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path schema1:identifier ],
-        [ sh:class modos:Sample ;
-            sh:description "Biological sample included or described by a given thing." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path modos:has_sample ],
-        [ sh:datatype xsd:anyURI ;
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path schema1:description ] ;
+    sh:targetClass modos:VariantSet .
+
+modos:Assay a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A coordinated set of actions designed to generate data from samples." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
             sh:description """Codes describing sample processing, preparation or handling steps.
 The order of the codes should reflect the order in which the steps were performed.
 Should be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].
@@ -337,18 +273,22 @@ modos:DataEntity a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
-            sh:path modos:data_format ],
+            sh:path modos:has_data ],
         [ sh:datatype xsd:string ;
             sh:description "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path modos:data_path ],
+            sh:order 5 ;
+            sh:path schema1:name ],
+        [ sh:description "The type of omics considered." ;
+            sh:in ( NCIT:C84343 NCIT:C153189 NCIT:C49019 NCIT:C20085 ) ;
+            sh:minCount 1 ;
+            sh:order 2 ;
+            sh:path modos:omics_type ],
         [ sh:class modos:Sample ;
             sh:description "Biological sample included or described by a given thing." ;
             sh:nodeKind sh:IRI ;
-            sh:order 2 ;
+            sh:order 0 ;
             sh:path modos:has_sample ],
         [ sh:class modos:ReferenceGenome ;
             sh:description "Specifies the reference coordinate system used by an omics dataset." ;
@@ -470,9 +410,9 @@ modos:DataEntity a sh:NodeShape ;
             sh:path schema1:description ] ;
     sh:targetClass modos:DataEntity .
 
-modos:MODO a sh:NodeShape ;
+modos:DataEntity a sh:NodeShape ;
     sh:closed true ;
-    sh:description "Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata." ;
+    sh:description "An entity containing data." ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:dateTime ;
             sh:description "The date on which the thing was last modified." ;
@@ -500,11 +440,19 @@ modos:MODO a sh:NodeShape ;
             sh:order 1 ;
             sh:path modos:has_assay ],
         [ sh:datatype xsd:anyURI ;
-            sh:description "The URI from which a resource or dataset was obtained or derived." ;
+            sh:description "A unique identifier for a thing" ;
             sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path modos:source_uri ],
+            sh:order 4 ;
+            sh:path schema1:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path modos:data_path ],
         [ sh:datatype xsd:string ;
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
@@ -517,7 +465,19 @@ modos:MODO a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path modos:last_update_date ] ;
+            sh:path modos:last_update_date ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path schema1:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path schema1:description ] ;
     sh:targetClass modos:MODO .
 
 modos:ReferenceSequence a sh:NodeShape ;
@@ -531,7 +491,7 @@ modos:ReferenceSequence a sh:NodeShape ;
             sh:order 1 ;
             sh:path modos:source_uri ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
+            sh:description "The pre-computed hash uniquely representing a biological sequence. Calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
@@ -597,6 +557,17 @@ See: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ont
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path modos:source_uri ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description """The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.
+""" ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path modos:taxon_id ],
+        [ sh:class modos:ReferenceSequence ;
+            sh:description "Denotes that a sequence belongs to a collection (e.g. a reference genome)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path modos:has_sequence ],
         [ sh:datatype xsd:string ;
             sh:description "A string specifying the release or version of a software or resource." ;
             sh:maxCount 1 ;
@@ -610,8 +581,13 @@ See: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ont
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path schema1:identifier ],
+        [ sh:description "The biological sex of a sample." ;
+            sh:in ( "Male" "Female" ) ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path modos:sex ],
         [ sh:datatype xsd:string ;
-            sh:description "A human-readable description for a thing" ;
+            sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 7 ;
@@ -673,7 +649,7 @@ See: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ont
             sh:description "A human-readable name for a thing" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path schema1:name ] ;
+            sh:order 3 ;
+            sh:path modos:taxon_id ] ;
     sh:targetClass modos:Sample .
 

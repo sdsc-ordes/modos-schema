@@ -149,13 +149,6 @@
                         "null"
                     ]
                 },
-                "has_sample_processing": {
-                    "description": "Codes describing sample processing, preparation or handling steps.\nThe order of the codes should reflect the order in which the steps were performed.\nShould be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].\n",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
                 "id": {
                     "description": "A unique identifier for a thing",
                     "type": "string"
@@ -171,6 +164,13 @@
                     "description": "The type of omics considered.",
                     "items": {
                         "$ref": "#/$defs/OmicsType"
+                    },
+                    "type": "array"
+                },
+                "sample_processing": {
+                    "description": "Codes describing sample processing, preparation or handling steps.\nThe order of the codes should reflect the order in which the steps were performed.\nShould be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].\n",
+                    "items": {
+                        "type": "string"
                     },
                     "type": "array"
                 }

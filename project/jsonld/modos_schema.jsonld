@@ -620,11 +620,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "has_sample_processing",
-      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_sample_processing",
+      "name": "sample_processing",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/sample_processing",
       "description": "Codes describing sample processing, preparation or handling steps.\nThe order of the codes should reflect the order in which the steps were performed.\nShould be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].\n",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
-      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_sample_processing",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/sample_processing",
       "list_elements_ordered": true,
       "owner": "Assay",
       "domain_of": [
@@ -887,7 +887,7 @@
         "has_sample",
         "has_data",
         "omics_type",
-        "has_sample_processing"
+        "sample_processing"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/Assay",

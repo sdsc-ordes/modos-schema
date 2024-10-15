@@ -29,7 +29,7 @@ type Assay
     hasSample: [Sample]
     hasData: [DataEntity]
     omicsType: [OmicsType]!
-    hasSampleProcessing: [Uriorcurie]
+    sampleProcessing: [Uriorcurie]
   }
 
 type DataEntity

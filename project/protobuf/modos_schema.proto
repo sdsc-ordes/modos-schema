@@ -32,7 +32,7 @@ message Assay
  repeated  sample hasSample = 0
  repeated  dataEntity hasData = 0
  repeated  omicsType omicsType = 0
- repeated  uriorcurie hasSampleProcessing = 0
+ repeated  uriorcurie sampleProcessing = 0
  }
 // An entity containing data.
 message DataEntity

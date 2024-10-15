@@ -75,10 +75,6 @@
          "@type": "@id",
          "@id": "has_sample"
       },
-      "has_sample_processing": {
-         "@type": "@id",
-         "@id": "has_sample_processing"
-      },
       "has_sequence": {
          "@type": "@id",
          "@id": "has_sequence"
@@ -102,6 +98,10 @@
             "meaning": "@id"
          },
          "@id": "omics_type"
+      },
+      "sample_processing": {
+         "@type": "@id",
+         "@id": "sample_processing"
       },
       "sequence_md5": {
          "@id": "sequence_md5"
