@@ -1,5 +1,5 @@
 # Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-09-24T11:54:46
+# Generation date: 2024-10-23T16:01:05
 # Schema: modos-schema
 #
 # id: https://w3id.org/sdsc-ordes/modos-schema
@@ -11,7 +11,7 @@ import re
 from jsonasobj2 import JsonObj, as_dict
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import date, datetime, time
 from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
 
 from linkml_runtime.utils.slot import Slot
@@ -92,7 +92,7 @@ class ArrayId(DataEntityId):
     pass
 
 
-@dataclass
+@dataclass(repr=False)
 class NamedThing(YAMLRoot):
     """
     A generic grouping for any identifiable entity
@@ -123,7 +123,7 @@ class NamedThing(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class MODO(NamedThing):
     """
     Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata.
@@ -167,7 +167,7 @@ class MODO(NamedThing):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class Assay(NamedThing):
     """
     A coordinated set of actions designed to generate data from samples.
@@ -207,7 +207,7 @@ class Assay(NamedThing):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class Sample(NamedThing):
     """
     A biological sample used in assays. Examples include a whole organism, tissue or cell line.
@@ -252,7 +252,7 @@ class Sample(NamedThing):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class DataEntity(NamedThing):
     """
     An entity containing data.
@@ -297,7 +297,7 @@ class DataEntity(NamedThing):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class ReferenceGenome(NamedThing):
     """
     Reference assembly of a given genome, consisting of a collection of congiguous sequences (contigs).
@@ -344,7 +344,7 @@ class ReferenceGenome(NamedThing):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class ReferenceSequence(NamedThing):
     """
     A contiguous sequence of DNA part of a reference coordinate system (genome assembly).
@@ -379,7 +379,7 @@ class ReferenceSequence(NamedThing):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class AlignmentSet(DataEntity):
     """
     A data entity consisting of genomic intervals aligned to a reference.
@@ -404,7 +404,7 @@ class AlignmentSet(DataEntity):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class VariantSet(DataEntity):
     """
     A data entity consisting of genomic variants relative to a reference.
@@ -429,7 +429,7 @@ class VariantSet(DataEntity):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class Array(DataEntity):
     """
     Data entity consisting of an N-dimensional array.
@@ -454,7 +454,7 @@ class Array(DataEntity):
         super().__post_init__(**kwargs)
 
 
-@dataclass
+@dataclass(repr=False)
 class MODOCollection(YAMLRoot):
     """
     A holder for Multi-Omics Digital Objects
