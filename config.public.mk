@@ -7,10 +7,10 @@
 ###### schema definition variables, used by makefile
 
 # Note: makefile variables should not be quoted, as makefile handles quoting differently than bash
-LINKML_SCHEMA_NAME=smoc_schema
+LINKML_SCHEMA_NAME=modos_schema
 LINKML_SCHEMA_AUTHOR=Swiss Data Science Center
-LINKML_SCHEMA_DESCRIPTION=Metadata schema for the SMOC Multi-Omics Digital Object
-LINKML_SCHEMA_SOURCE_PATH=src/smoc_schema/schema/smoc_schema.yaml
+LINKML_SCHEMA_DESCRIPTION=Metadata schema for Multi-Omics Digital ObjectS
+LINKML_SCHEMA_SOURCE_PATH=src/modos_schema/schema/modos_schema.yaml
 LINKML_SCHEMA_GOOGLE_SHEET_ID=1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ
 LINKML_SCHEMA_GOOGLE_SHEET_TABS=personinfo enums
 

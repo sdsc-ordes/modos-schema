@@ -1,3 +1,3 @@
-# smoc-schema
+# modos-schema
 
-Metadata schema for the SMOC Multi-Omics Digital Object
+Metadata schema for Multi-Omics Digital ObjectS
