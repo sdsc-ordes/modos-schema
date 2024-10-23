@@ -887,13 +887,13 @@ referencing = ">=0.31.0"
 
 [[package]]
 name = "linkml"
-version = "1.7.10"
+version = "1.8.4"
 description = "Linked Open Data Modeling Language"
 optional = false
 python-versions = "<4.0.0,>=3.8.1"
 files = [
-    {file = "linkml-1.7.10-py3-none-any.whl", hash = "sha256:bf21cce814e9d1509489f1e6e15a7e86e4f11d949490d9a7a5c3f6b5b412ec62"},
-    {file = "linkml-1.7.10.tar.gz", hash = "sha256:1c38601c3cd495e34490b8cf7277fd3674ec68dcbe9f5efcec2658093801ce91"},
+    {file = "linkml-1.8.4-py3-none-any.whl", hash = "sha256:9fa26d7e522dd98568d0313e363abd67c2b17a671f31595c9e53beaec27b7214"},
+    {file = "linkml-1.8.4.tar.gz", hash = "sha256:a1918d226ab5c268e260ddc7cfa6edb53d7faab3fb0144efef5fad572b052c36"},
 ]
 
 [package.dependencies]
@@ -906,7 +906,7 @@ jinja2 = ">=3.1.0"
 jsonasobj2 = ">=1.0.3,<2.0.0"
 jsonschema = {version = ">=4.0.0", extras = ["format"]}
 linkml-dataops = "*"
-linkml-runtime = ">=1.7.4"
+linkml-runtime = ">=1.8.1,<2.0.0"
 openpyxl = "*"
 parse = "*"
 prefixcommons = ">=0.1.7"
@@ -924,8 +924,9 @@ watchdog = ">=0.9.0"
 
 [package.extras]
 black = ["black (>=24.0.0)"]
+numpydantic = ["numpydantic (>=1.6.1)"]
 shacl = ["pyshacl (>=0.25.0,<0.26.0)"]
-tests = ["black (>=24.0.0)", "pyshacl (>=0.25.0,<0.26.0)"]
+tests = ["black (>=24.0.0)", "numpydantic (>=1.6.1)", "pyshacl (>=0.25.0,<0.26.0)"]
 
 [[package]]
 name = "linkml-dataops"
@@ -947,13 +948,13 @@ linkml-runtime = ">=1.1.6"
 
 [[package]]
 name = "linkml-runtime"
-version = "1.7.6"
+version = "1.8.3"
 description = "Runtime environment for LinkML, the Linked open data modeling language"
 optional = false
 python-versions = "<4.0,>=3.8"
 files = [
-    {file = "linkml_runtime-1.7.6-py3-none-any.whl", hash = "sha256:71403ca655733ec4697147e18a7b108d864bd7f285c472f2f25bf401567886a4"},
-    {file = "linkml_runtime-1.7.6.tar.gz", hash = "sha256:c7a82ab6eb5082a7861e91ff547bb6e70b9d4ed5eedf0fc45ffa15d01b380b8d"},
+    {file = "linkml_runtime-1.8.3-py3-none-any.whl", hash = "sha256:0750920f1348fffa903d99e7b5834ce425a2a538285aff9068dbd96d05caabd1"},
+    {file = "linkml_runtime-1.8.3.tar.gz", hash = "sha256:5b7f682eef54aaf0a59c50eeacdb11463b43b124a044caf496cde59936ac05c8"},
 ]
 
 [package.dependencies]
@@ -1699,6 +1700,7 @@ description = "A pure Python implementation of the trie data structure."
 optional = false
 python-versions = "*"
 files = [
+    {file = "PyTrie-0.4.0-py3-none-any.whl", hash = "sha256:f687c224ee8c66cda8e8628a903011b692635ffbb08d4b39c5f92b18eb78c950"},
     {file = "PyTrie-0.4.0.tar.gz", hash = "sha256:8f4488f402d3465993fb6b6efa09866849ed8cda7903b50647b7d0342b805379"},
 ]
 
@@ -1730,6 +1732,7 @@ files = [
     {file = "PyYAML-6.0.1-cp311-cp311-win_amd64.whl", hash = "sha256:bf07ee2fef7014951eeb99f56f39c9bb4af143d8aa3c21b1677805985307da34"},
     {file = "PyYAML-6.0.1-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:855fb52b0dc35af121542a76b9a84f8d1cd886ea97c84703eaa6d88e37a2ad28"},
     {file = "PyYAML-6.0.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:40df9b996c2b73138957fe23a16a4f0ba614f4c0efce1e9406a184b6d07fa3a9"},
+    {file = "PyYAML-6.0.1-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:a08c6f0fe150303c1c6b71ebcd7213c2858041a7e01975da3a99aed1e7a378ef"},
     {file = "PyYAML-6.0.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6c22bec3fbe2524cde73d7ada88f6566758a8f7227bfbf93a408a9d86bcc12a0"},
     {file = "PyYAML-6.0.1-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:8d4e9c88387b0f5c7d5f281e55304de64cf7f9c0021a3525bd3b1c542da3b0e4"},
     {file = "PyYAML-6.0.1-cp312-cp312-win32.whl", hash = "sha256:d483d2cdf104e7c9fa60c544d92981f12ad66a457afae824d146093b8c294c54"},
@@ -2591,4 +2594,4 @@ docs = []
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "61968b2bd6fef92b947d1b8636e64ee8958a87ec3ebea436f9bd025b78bee0e5"
+content-hash = "ad959b997700ce7701ea78c11a3a14b3875bde950ad4a357e672d7f2c1e439b0"

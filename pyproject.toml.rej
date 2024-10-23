@@ -1,0 +1,17 @@
+diff a/pyproject.toml b/pyproject.toml	(rejected hunks)
+@@ -19,7 +19,7 @@ style = "pep440"
+ [tool.poetry.dev-dependencies]
+ linkml = "^1.3.5"
+ mkdocs-material = "^8.2.8"
+-mkdocs-mermaid2-plugin = "^0.6.0"
++mkdocs-mermaid2-plugin = "^1.1.1"
+ schemasheets = "^0.1.14"
+ 
+ [build-system]
+@@ -27,4 +27,4 @@ requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+ build-backend = "poetry_dynamic_versioning.backend"
+ 
+ [tool.poetry.extras]
+-docs = ["linkml", "mkdocs-material"]
+\ No newline at end of file
++docs = ["linkml", "mkdocs-material"]
