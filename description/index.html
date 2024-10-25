@@ -290,6 +290,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#mappings" class="md-nav__link">
+    Mappings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#linkml-source" class="md-nav__link">
     LinkML Source
   </a>
@@ -332,13 +339,18 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../VariantSet/">VariantSet</a></td>
-<td>A data entity consisting of genomic variants relative to a reference</td>
+<td><a href="../MODO/">MODO</a></td>
+<td>Represents the Multi-Omics Digital Object</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../DataEntity/">DataEntity</a></td>
-<td>An entity containing data</td>
+<td><a href="../Assay/">Assay</a></td>
+<td>A coordinated set of actions designed to generate data from samples</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../VariantSet/">VariantSet</a></td>
+<td>A data entity consisting of genomic variants relative to a reference</td>
 <td>no</td>
 </tr>
 <tr>
@@ -349,6 +361,16 @@
 <tr>
 <td><a href="../ReferenceGenome/">ReferenceGenome</a></td>
 <td>Reference assembly of a given genome, consisting of a collection of congiguou...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../DataEntity/">DataEntity</a></td>
+<td>An entity containing data</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../NamedThing/">NamedThing</a></td>
+<td>A generic grouping for any identifiable entity</td>
 <td>no</td>
 </tr>
 <tr>
@@ -366,21 +388,6 @@
 <td>Data entity consisting of an N-dimensional array</td>
 <td>no</td>
 </tr>
-<tr>
-<td><a href="../Assay/">Assay</a></td>
-<td>A coordinated set of actions designed to generate data from samples</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../NamedThing/">NamedThing</a></td>
-<td>A generic grouping for any identifiable entity</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../MODO/">MODO</a></td>
-<td>Represents the Multi-Omics Digital Object</td>
-<td>no</td>
-</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
@@ -392,6 +399,25 @@
 <ul>
 <li>from schema: https://w3id.org/sdsc-ordes/modos-schema</li>
 </ul>
+<h2 id="mappings">Mappings</h2>
+<table>
+<thead>
+<tr>
+<th>Mapping Type</th>
+<th>Mapped Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>self</td>
+<td>schema:description</td>
+</tr>
+<tr>
+<td>native</td>
+<td>modos:description</td>
+</tr>
+</tbody>
+</table>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
