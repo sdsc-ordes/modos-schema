@@ -1,5 +1,5 @@
 # Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-10-23T16:01:05
+# Generation date: 2024-11-08T09:56:39
 # Schema: modos-schema
 #
 # id: https://w3id.org/sdsc-ordes/modos-schema
@@ -434,6 +434,31 @@ class VariantSet(DataEntity):
             self.MissingRequiredField("id")
         if not isinstance(self.id, VariantSetId):
             self.id = VariantSetId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class MassSpectrometryResults(DataEntity):
+    """
+    A data entity consisting of quantitative results from a mass spectrometry experiment.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MODOS["MassSpectrometryResults"]
+    class_class_curie: ClassVar[str] = "modos:MassSpectrometryResults"
+    class_name: ClassVar[str] = "MassSpectrometryResults"
+    class_model_uri: ClassVar[URIRef] = MODOS.MassSpectrometryResults
+
+    id: Union[str, MassSpectrometryResultsId] = None
+    data_path: str = None
+    data_format: Union[str, "DataFormat"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, MassSpectrometryResultsId):
+            self.id = MassSpectrometryResultsId(self.id)
 
         super().__post_init__(**kwargs)
 
