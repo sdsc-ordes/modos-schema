@@ -85,7 +85,7 @@ classes:
     slots:
       - data_path
       - data_format
-      - has_part
+      - derived_from
       - has_sample
       - has_reference
 
@@ -243,8 +243,12 @@ slots:
     range: string
     pattern: "^[a-f0-9]{32}$"
   source_uri:
-    description: The URI from which a resource or dataset was obtained or derived.
+    description: The URI from which a resource or dataset was obtained.
     range: uri
+  derived_from: 
+    description: The source data from which some new data was derived.
+    range: DataEntity
+    multivalued: true
   version:
     description: A string specifying the release or version of a software or resource.
     range: string
