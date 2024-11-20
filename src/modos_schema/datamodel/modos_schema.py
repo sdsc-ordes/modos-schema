@@ -1,5 +1,5 @@
 # Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-10-23T16:01:05
+# Generation date: 2024-11-20T13:01:49
 # Schema: modos-schema
 #
 # id: https://w3id.org/sdsc-ordes/modos-schema
@@ -88,7 +88,15 @@ class VariantSetId(DataEntityId):
     pass
 
 
+class MassSpectrometryResultsId(DataEntityId):
+    pass
+
+
 class ArrayId(DataEntityId):
+    pass
+
+
+class TableId(DataEntityId):
     pass
 
 
@@ -183,6 +191,7 @@ class Assay(NamedThing):
     omics_type: Union[Union[str, "OmicsType"], List[Union[str, "OmicsType"]]] = None
     has_sample: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
     has_data: Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]] = empty_list()
+    sample_processing: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -203,6 +212,10 @@ class Assay(NamedThing):
         if not isinstance(self.has_data, list):
             self.has_data = [self.has_data] if self.has_data is not None else []
         self.has_data = [v if isinstance(v, DataEntityId) else DataEntityId(v) for v in self.has_data]
+
+        if not isinstance(self.sample_processing, list):
+            self.sample_processing = [self.sample_processing] if self.sample_processing is not None else []
+        self.sample_processing = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.sample_processing]
 
         super().__post_init__(**kwargs)
 
@@ -267,6 +280,7 @@ class DataEntity(NamedThing):
     id: Union[str, DataEntityId] = None
     data_path: str = None
     data_format: Union[str, "DataFormat"] = None
+    derived_from: Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]] = empty_list()
     has_sample: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
     has_reference: Optional[Union[Union[str, ReferenceGenomeId], List[Union[str, ReferenceGenomeId]]]] = empty_list()
 
@@ -285,6 +299,10 @@ class DataEntity(NamedThing):
             self.MissingRequiredField("data_format")
         if not isinstance(self.data_format, DataFormat):
             self.data_format = DataFormat(self.data_format)
+
+        if not isinstance(self.derived_from, list):
+            self.derived_from = [self.derived_from] if self.derived_from is not None else []
+        self.derived_from = [v if isinstance(v, DataEntityId) else DataEntityId(v) for v in self.derived_from]
 
         if not isinstance(self.has_sample, list):
             self.has_sample = [self.has_sample] if self.has_sample is not None else []
@@ -430,6 +448,31 @@ class VariantSet(DataEntity):
 
 
 @dataclass(repr=False)
+class MassSpectrometryResults(DataEntity):
+    """
+    A data entity consisting of quantitative results from a mass spectrometry experiment.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MODOS["MassSpectrometryResults"]
+    class_class_curie: ClassVar[str] = "modos:MassSpectrometryResults"
+    class_name: ClassVar[str] = "MassSpectrometryResults"
+    class_model_uri: ClassVar[URIRef] = MODOS.MassSpectrometryResults
+
+    id: Union[str, MassSpectrometryResultsId] = None
+    data_path: str = None
+    data_format: Union[str, "DataFormat"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, MassSpectrometryResultsId):
+            self.id = MassSpectrometryResultsId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class Array(DataEntity):
     """
     Data entity consisting of an N-dimensional array.
@@ -450,6 +493,31 @@ class Array(DataEntity):
             self.MissingRequiredField("id")
         if not isinstance(self.id, ArrayId):
             self.id = ArrayId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class Table(DataEntity):
+    """
+    Data entity organized in a tabular structure.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MODOS["Table"]
+    class_class_curie: ClassVar[str] = "modos:Table"
+    class_name: ClassVar[str] = "Table"
+    class_model_uri: ClassVar[URIRef] = MODOS.Table
+
+    id: Union[str, TableId] = None
+    data_path: str = None
+    data_format: Union[str, "DataFormat"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, TableId):
+            self.id = TableId(self.id)
 
         super().__post_init__(**kwargs)
 
@@ -537,6 +605,14 @@ class DataFormat(EnumDefinitionImpl):
         text="BCF",
         description="Binary call format, for efficient storage of sequence variation.",
         meaning=EDAM["format_3020"])
+    mzTab = PermissibleValue(
+        text="mzTab",
+        description="tab-delimited format for mass spectrometry-based proteomics and metabolomics results.",
+        meaning=EDAM["format_3681"])
+    parquet = PermissibleValue(
+        text="parquet",
+        description="column-oriented format for efficient storage and retrieval.",
+        meaning=None)
 
     _defn = EnumDefinition(
         name="DataFormat",
@@ -576,6 +652,9 @@ slots.has_sample = Slot(uri=MODOS.has_sample, name="has_sample", curie=MODOS.cur
 slots.has_data = Slot(uri=MODOS.has_data, name="has_data", curie=MODOS.curie('has_data'),
                    model_uri=MODOS.has_data, domain=None, range=Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]])
 
+slots.sample_processing = Slot(uri=MODOS.sample_processing, name="sample_processing", curie=MODOS.curie('sample_processing'),
+                   model_uri=MODOS.sample_processing, domain=None, range=Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]])
+
 slots.has_sequence = Slot(uri=MODOS.has_sequence, name="has_sequence", curie=MODOS.curie('has_sequence'),
                    model_uri=MODOS.has_sequence, domain=None, range=Optional[Union[Union[str, ReferenceSequenceId], List[Union[str, ReferenceSequenceId]]]])
 
@@ -600,6 +679,9 @@ slots.sequence_md5 = Slot(uri=MODOS.sequence_md5, name="sequence_md5", curie=MOD
 
 slots.source_uri = Slot(uri=MODOS.source_uri, name="source_uri", curie=MODOS.curie('source_uri'),
                    model_uri=MODOS.source_uri, domain=None, range=Optional[Union[str, URI]])
+
+slots.derived_from = Slot(uri=MODOS.derived_from, name="derived_from", curie=MODOS.curie('derived_from'),
+                   model_uri=MODOS.derived_from, domain=None, range=Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]])
 
 slots.version = Slot(uri=MODOS.version, name="version", curie=MODOS.curie('version'),
                    model_uri=MODOS.version, domain=None, range=Optional[str])

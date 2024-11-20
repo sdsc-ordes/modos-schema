@@ -12,6 +12,16 @@
                     "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
                     "type": "string"
                 },
+                "derived_from": {
+                    "description": "The source data from which some new data was derived.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "description": {
                     "description": "A human-readable description for a thing",
                     "type": [
@@ -70,6 +80,16 @@
                 "data_path": {
                     "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
                     "type": "string"
+                },
+                "derived_from": {
+                    "description": "The source data from which some new data was derived.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
@@ -166,6 +186,16 @@
                         "$ref": "#/$defs/OmicsType"
                     },
                     "type": "array"
+                },
+                "sample_processing": {
+                    "description": "Codes describing sample processing, preparation or handling steps.\nThe order of the codes should reflect the order in which the steps were performed.\nShould be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].\n",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -186,6 +216,16 @@
                 "data_path": {
                     "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
                     "type": "string"
+                },
+                "derived_from": {
+                    "description": "The source data from which some new data was derived.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
@@ -242,7 +282,9 @@
                 "Zarr",
                 "FASTA",
                 "VCF",
-                "BCF"
+                "BCF",
+                "mzTab",
+                "parquet"
             ],
             "title": "DataFormat",
             "type": "string"
@@ -290,7 +332,7 @@
                     ]
                 },
                 "source_uri": {
-                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "description": "The URI from which a resource or dataset was obtained.",
                     "type": [
                         "string",
                         "null"
@@ -365,7 +407,7 @@
                     ]
                 },
                 "source_uri": {
-                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "description": "The URI from which a resource or dataset was obtained.",
                     "type": [
                         "string",
                         "null"
@@ -377,6 +419,75 @@
                 "last_update_date"
             ],
             "title": "MODO",
+            "type": "object"
+        },
+        "MassSpectrometryResults": {
+            "additionalProperties": false,
+            "description": "A data entity consisting of quantitative results from a mass spectrometry experiment.",
+            "properties": {
+                "data_format": {
+                    "$ref": "#/$defs/DataFormat",
+                    "description": "Data/file format associated with a data entity."
+                },
+                "data_path": {
+                    "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
+                    "type": "string"
+                },
+                "derived_from": {
+                    "description": "The source data from which some new data was derived.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_reference": {
+                    "description": "Specifies the reference coordinate system used by an omics dataset.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_sample": {
+                    "description": "Biological sample included or described by a given thing.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "data_path",
+                "data_format",
+                "id"
+            ],
+            "title": "MassSpectrometryResults",
             "type": "object"
         },
         "NamedThing": {
@@ -459,14 +570,14 @@
                     ]
                 },
                 "source_uri": {
-                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "description": "The URI from which a resource or dataset was obtained.",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
                 "taxon_id": {
-                    "description": "The NCBI taxon code describing the taxonomic range of a sample.\nSee: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)\n",
+                    "description": "The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.\n",
                     "items": {
                         "type": "string"
                     },
@@ -521,7 +632,7 @@
                     ]
                 },
                 "source_uri": {
-                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "description": "The URI from which a resource or dataset was obtained.",
                     "type": [
                         "string",
                         "null"
@@ -585,14 +696,14 @@
                     "description": "The biological sex of a sample."
                 },
                 "source_material": {
-                    "description": "The biological source from which the sample was isolated (tissue, organ).\nShould be a tissue or organ code URI from the UBERON ontology.\nSee: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)\n",
+                    "description": "The biological source from which the sample was isolated (tissue, organ).\nShould be a code URI from the [UBERON](https://bioregistry.io/registry/uberon) ontology or [fairgenomes biospecimen types](https://raw.githubusercontent.com/fairgenomes/fairgenomes-semantic-model/refs/tags/v1.2/generated/ontology/fair-genomes-biospecimentypes.ttl).\n",
                     "type": [
                         "string",
                         "null"
                     ]
                 },
                 "taxon_id": {
-                    "description": "The NCBI taxon code describing the taxonomic range of a sample.\nSee: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)\n",
+                    "description": "The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.\n",
                     "items": {
                         "type": "string"
                     },
@@ -617,6 +728,75 @@
             "title": "Sex",
             "type": "string"
         },
+        "Table": {
+            "additionalProperties": false,
+            "description": "Data entity organized in a tabular structure.",
+            "properties": {
+                "data_format": {
+                    "$ref": "#/$defs/DataFormat",
+                    "description": "Data/file format associated with a data entity."
+                },
+                "data_path": {
+                    "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
+                    "type": "string"
+                },
+                "derived_from": {
+                    "description": "The source data from which some new data was derived.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_reference": {
+                    "description": "Specifies the reference coordinate system used by an omics dataset.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_sample": {
+                    "description": "Biological sample included or described by a given thing.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "data_path",
+                "data_format",
+                "id"
+            ],
+            "title": "Table",
+            "type": "object"
+        },
         "VariantSet": {
             "additionalProperties": false,
             "description": "A data entity consisting of genomic variants relative to a reference.",
@@ -628,6 +808,16 @@
                 "data_path": {
                     "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
                     "type": "string"
+                },
+                "derived_from": {
+                    "description": "The source data from which some new data was derived.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "description": {
                     "description": "A human-readable description for a thing",

@@ -457,6 +457,16 @@
           "text": "BCF",
           "description": "Binary call format, for efficient storage of sequence variation.",
           "meaning": "EDAM:format_3020"
+        },
+        {
+          "text": "mzTab",
+          "description": "tab-delimited format for mass spectrometry-based proteomics and metabolomics results.",
+          "meaning": "EDAM:format_3681"
+        },
+        {
+          "text": "parquet",
+          "description": "column-oriented format for efficient storage and retrieval.",
+          "meaning": "https://parquet.apache.org"
         }
       ]
     }
@@ -615,6 +625,21 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "sample_processing",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/sample_processing",
+      "description": "Codes describing sample processing, preparation or handling steps.\nThe order of the codes should reflect the order in which the steps were performed.\nShould be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].\n",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/sample_processing",
+      "list_elements_ordered": true,
+      "owner": "Assay",
+      "domain_of": [
+        "Assay"
+      ],
+      "range": "uriorcurie",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "has_sequence",
       "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_sequence",
       "description": "Denotes that a sequence belongs to a collection (e.g. a reference genome).",
@@ -661,7 +686,7 @@
     {
       "name": "taxon_id",
       "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/taxon_id",
-      "description": "The NCBI taxon code describing the taxonomic range of a sample.\nSee: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)\n",
+      "description": "The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.\n",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/taxon_id",
       "owner": "ReferenceGenome",
@@ -733,7 +758,7 @@
     {
       "name": "source_uri",
       "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/source_uri",
-      "description": "The URI from which a resource or dataset was obtained or derived.",
+      "description": "The URI from which a resource or dataset was obtained.",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/source_uri",
       "owner": "ReferenceSequence",
@@ -743,6 +768,20 @@
         "ReferenceSequence"
       ],
       "range": "uri",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "derived_from",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/derived_from",
+      "description": "The source data from which some new data was derived.",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/derived_from",
+      "owner": "DataEntity",
+      "domain_of": [
+        "DataEntity"
+      ],
+      "range": "DataEntity",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -775,7 +814,7 @@
     {
       "name": "source_material",
       "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/source_material",
-      "description": "The biological source from which the sample was isolated (tissue, organ).\nShould be a tissue or organ code URI from the UBERON ontology.\nSee: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)\n",
+      "description": "The biological source from which the sample was isolated (tissue, organ).\nShould be a code URI from the [UBERON](https://bioregistry.io/registry/uberon) ontology or [fairgenomes biospecimen types](https://raw.githubusercontent.com/fairgenomes/fairgenomes-semantic-model/refs/tags/v1.2/generated/ontology/fair-genomes-biospecimentypes.ttl).\n",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/source_material",
       "owner": "Sample",
@@ -866,7 +905,8 @@
         "description",
         "has_sample",
         "has_data",
-        "omics_type"
+        "omics_type",
+        "sample_processing"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/Assay",
@@ -907,6 +947,7 @@
         "description",
         "data_path",
         "data_format",
+        "derived_from",
         "has_sample",
         "has_reference"
       ],
@@ -970,6 +1011,7 @@
         "description",
         "data_path",
         "data_format",
+        "derived_from",
         "has_sample",
         "has_reference"
       ],
@@ -989,11 +1031,32 @@
         "description",
         "data_path",
         "data_format",
+        "derived_from",
         "has_sample",
         "has_reference"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/VariantSet",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "MassSpectrometryResults",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/MassSpectrometryResults",
+      "description": "A data entity consisting of quantitative results from a mass spectrometry experiment.",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "is_a": "DataEntity",
+      "slots": [
+        "id",
+        "name",
+        "description",
+        "data_path",
+        "data_format",
+        "derived_from",
+        "has_sample",
+        "has_reference"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/MassSpectrometryResults",
       "@type": "ClassDefinition"
     },
     {
@@ -1008,11 +1071,32 @@
         "description",
         "data_path",
         "data_format",
+        "derived_from",
         "has_sample",
         "has_reference"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/Array",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Table",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/Table",
+      "description": "Data entity organized in a tabular structure.",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "is_a": "DataEntity",
+      "slots": [
+        "id",
+        "name",
+        "description",
+        "data_path",
+        "data_format",
+        "derived_from",
+        "has_sample",
+        "has_reference"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/Table",
       "@type": "ClassDefinition"
     },
     {
@@ -1040,9 +1124,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "modos_schema.yaml",
-  "source_file_date": "2024-10-23T15:50:05",
-  "source_file_size": 8488,
-  "generation_date": "2024-10-23T16:01:04",
+  "source_file_date": "2024-11-20T13:01:44",
+  "source_file_size": 9668,
+  "generation_date": "2024-11-20T13:01:48",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/modos_schema.context.jsonld",
