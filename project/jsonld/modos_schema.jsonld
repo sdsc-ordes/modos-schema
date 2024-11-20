@@ -462,6 +462,11 @@
           "text": "mzTab",
           "description": "tab-delimited format for mass spectrometry-based proteomics and metabolomics results.",
           "meaning": "EDAM:format_3681"
+        },
+        {
+          "text": "parquet",
+          "description": "column-oriented format for efficient storage and retrieval.",
+          "meaning": "https://parquet.apache.org"
         }
       ]
     }
@@ -753,7 +758,7 @@
     {
       "name": "source_uri",
       "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/source_uri",
-      "description": "The URI from which a resource or dataset was obtained or derived.",
+      "description": "The URI from which a resource or dataset was obtained.",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/source_uri",
       "owner": "ReferenceSequence",
@@ -763,6 +768,20 @@
         "ReferenceSequence"
       ],
       "range": "uri",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "derived_from",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/derived_from",
+      "description": "The source data from which some new data was derived.",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/derived_from",
+      "owner": "DataEntity",
+      "domain_of": [
+        "DataEntity"
+      ],
+      "range": "DataEntity",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -928,6 +947,7 @@
         "description",
         "data_path",
         "data_format",
+        "derived_from",
         "has_sample",
         "has_reference"
       ],
@@ -991,6 +1011,7 @@
         "description",
         "data_path",
         "data_format",
+        "derived_from",
         "has_sample",
         "has_reference"
       ],
@@ -1010,6 +1031,7 @@
         "description",
         "data_path",
         "data_format",
+        "derived_from",
         "has_sample",
         "has_reference"
       ],
@@ -1029,6 +1051,7 @@
         "description",
         "data_path",
         "data_format",
+        "derived_from",
         "has_sample",
         "has_reference"
       ],
@@ -1048,11 +1071,32 @@
         "description",
         "data_path",
         "data_format",
+        "derived_from",
         "has_sample",
         "has_reference"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/Array",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Table",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/Table",
+      "description": "Data entity organized in a tabular structure.",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "is_a": "DataEntity",
+      "slots": [
+        "id",
+        "name",
+        "description",
+        "data_path",
+        "data_format",
+        "derived_from",
+        "has_sample",
+        "has_reference"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/Table",
       "@type": "ClassDefinition"
     },
     {
@@ -1080,9 +1124,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "modos_schema.yaml",
-  "source_file_date": "2024-11-08T09:56:24",
-  "source_file_size": 9291,
-  "generation_date": "2024-11-08T09:56:39",
+  "source_file_date": "2024-11-20T13:01:44",
+  "source_file_size": 9668,
+  "generation_date": "2024-11-20T13:01:48",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/modos_schema.context.jsonld",

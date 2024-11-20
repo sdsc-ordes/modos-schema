@@ -5,7 +5,7 @@
 -- # Class: "MODO" Description: "Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata."
 --     * Slot: creation_date Description: The date on which something was created.
 --     * Slot: last_update_date Description: The date on which the thing was last modified.
---     * Slot: source_uri Description: The URI from which a resource or dataset was obtained or derived.
+--     * Slot: source_uri Description: The URI from which a resource or dataset was obtained.
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
 --     * Slot: description Description: A human-readable description for a thing
@@ -29,14 +29,14 @@
 --     * Slot: description Description: A human-readable description for a thing
 -- # Class: "ReferenceGenome" Description: "Reference assembly of a given genome, consisting of a collection of congiguous sequences (contigs)."
 --     * Slot: data_path Description: The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.
---     * Slot: source_uri Description: The URI from which a resource or dataset was obtained or derived.
+--     * Slot: source_uri Description: The URI from which a resource or dataset was obtained.
 --     * Slot: version Description: A string specifying the release or version of a software or resource.
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
 --     * Slot: description Description: A human-readable description for a thing
 -- # Class: "ReferenceSequence" Description: "A contiguous sequence of DNA part of a reference coordinate system (genome assembly)."
 --     * Slot: sequence_md5 Description: The pre-computed hash uniquely representing a biological sequence. Calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).
---     * Slot: source_uri Description: The URI from which a resource or dataset was obtained or derived.
+--     * Slot: source_uri Description: The URI from which a resource or dataset was obtained.
 --     * Slot: version Description: A string specifying the release or version of a software or resource.
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
@@ -65,6 +65,12 @@
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
 --     * Slot: description Description: A human-readable description for a thing
+-- # Class: "Table" Description: "Data entity organized in a tabular structure."
+--     * Slot: data_path Description: The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.
+--     * Slot: data_format Description: Data/file format associated with a data entity.
+--     * Slot: id Description: A unique identifier for a thing
+--     * Slot: name Description: A human-readable name for a thing
+--     * Slot: description Description: A human-readable description for a thing
 -- # Class: "MODOCollection" Description: "A holder for Multi-Omics Digital Objects"
 --     * Slot: id Description: 
 -- # Class: "MODO_has_assay" Description: ""
@@ -88,6 +94,9 @@
 -- # Class: "Sample_collector" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
 --     * Slot: collector Description: The organization responsible for collecting a given sample.
+-- # Class: "DataEntity_derived_from" Description: ""
+--     * Slot: DataEntity_id Description: Autocreated FK slot
+--     * Slot: derived_from_id Description: The source data from which some new data was derived.
 -- # Class: "DataEntity_has_sample" Description: ""
 --     * Slot: DataEntity_id Description: Autocreated FK slot
 --     * Slot: has_sample_id Description: Biological sample included or described by a given thing.
@@ -100,29 +109,50 @@
 -- # Class: "ReferenceGenome_taxon_id" Description: ""
 --     * Slot: ReferenceGenome_id Description: Autocreated FK slot
 --     * Slot: taxon_id Description: The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.
+-- # Class: "AlignmentSet_derived_from" Description: ""
+--     * Slot: AlignmentSet_id Description: Autocreated FK slot
+--     * Slot: derived_from_id Description: The source data from which some new data was derived.
 -- # Class: "AlignmentSet_has_sample" Description: ""
 --     * Slot: AlignmentSet_id Description: Autocreated FK slot
 --     * Slot: has_sample_id Description: Biological sample included or described by a given thing.
 -- # Class: "AlignmentSet_has_reference" Description: ""
 --     * Slot: AlignmentSet_id Description: Autocreated FK slot
 --     * Slot: has_reference_id Description: Specifies the reference coordinate system used by an omics dataset.
+-- # Class: "VariantSet_derived_from" Description: ""
+--     * Slot: VariantSet_id Description: Autocreated FK slot
+--     * Slot: derived_from_id Description: The source data from which some new data was derived.
 -- # Class: "VariantSet_has_sample" Description: ""
 --     * Slot: VariantSet_id Description: Autocreated FK slot
 --     * Slot: has_sample_id Description: Biological sample included or described by a given thing.
 -- # Class: "VariantSet_has_reference" Description: ""
 --     * Slot: VariantSet_id Description: Autocreated FK slot
 --     * Slot: has_reference_id Description: Specifies the reference coordinate system used by an omics dataset.
+-- # Class: "MassSpectrometryResults_derived_from" Description: ""
+--     * Slot: MassSpectrometryResults_id Description: Autocreated FK slot
+--     * Slot: derived_from_id Description: The source data from which some new data was derived.
 -- # Class: "MassSpectrometryResults_has_sample" Description: ""
 --     * Slot: MassSpectrometryResults_id Description: Autocreated FK slot
 --     * Slot: has_sample_id Description: Biological sample included or described by a given thing.
 -- # Class: "MassSpectrometryResults_has_reference" Description: ""
 --     * Slot: MassSpectrometryResults_id Description: Autocreated FK slot
 --     * Slot: has_reference_id Description: Specifies the reference coordinate system used by an omics dataset.
+-- # Class: "Array_derived_from" Description: ""
+--     * Slot: Array_id Description: Autocreated FK slot
+--     * Slot: derived_from_id Description: The source data from which some new data was derived.
 -- # Class: "Array_has_sample" Description: ""
 --     * Slot: Array_id Description: Autocreated FK slot
 --     * Slot: has_sample_id Description: Biological sample included or described by a given thing.
 -- # Class: "Array_has_reference" Description: ""
 --     * Slot: Array_id Description: Autocreated FK slot
+--     * Slot: has_reference_id Description: Specifies the reference coordinate system used by an omics dataset.
+-- # Class: "Table_derived_from" Description: ""
+--     * Slot: Table_id Description: Autocreated FK slot
+--     * Slot: derived_from_id Description: The source data from which some new data was derived.
+-- # Class: "Table_has_sample" Description: ""
+--     * Slot: Table_id Description: Autocreated FK slot
+--     * Slot: has_sample_id Description: Biological sample included or described by a given thing.
+-- # Class: "Table_has_reference" Description: ""
+--     * Slot: Table_id Description: Autocreated FK slot
 --     * Slot: has_reference_id Description: Specifies the reference coordinate system used by an omics dataset.
 
 CREATE TABLE "NamedThing" (
@@ -148,7 +178,7 @@ CREATE TABLE "Sample" (
 );
 CREATE TABLE "DataEntity" (
 	data_path TEXT NOT NULL, 
-	data_format VARCHAR(5) NOT NULL, 
+	data_format VARCHAR(7) NOT NULL, 
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -174,7 +204,7 @@ CREATE TABLE "ReferenceSequence" (
 );
 CREATE TABLE "AlignmentSet" (
 	data_path TEXT NOT NULL, 
-	data_format VARCHAR(5) NOT NULL, 
+	data_format VARCHAR(7) NOT NULL, 
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -182,7 +212,7 @@ CREATE TABLE "AlignmentSet" (
 );
 CREATE TABLE "VariantSet" (
 	data_path TEXT NOT NULL, 
-	data_format VARCHAR(5) NOT NULL, 
+	data_format VARCHAR(7) NOT NULL, 
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -190,7 +220,7 @@ CREATE TABLE "VariantSet" (
 );
 CREATE TABLE "MassSpectrometryResults" (
 	data_path TEXT NOT NULL, 
-	data_format VARCHAR(5) NOT NULL, 
+	data_format VARCHAR(7) NOT NULL, 
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -198,7 +228,15 @@ CREATE TABLE "MassSpectrometryResults" (
 );
 CREATE TABLE "Array" (
 	data_path TEXT NOT NULL, 
-	data_format VARCHAR(5) NOT NULL, 
+	data_format VARCHAR(7) NOT NULL, 
+	id TEXT NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	PRIMARY KEY (id)
+);
+CREATE TABLE "Table" (
+	data_path TEXT NOT NULL, 
+	data_format VARCHAR(7) NOT NULL, 
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -257,6 +295,13 @@ CREATE TABLE "Sample_collector" (
 	PRIMARY KEY ("Sample_id", collector), 
 	FOREIGN KEY("Sample_id") REFERENCES "Sample" (id)
 );
+CREATE TABLE "DataEntity_derived_from" (
+	"DataEntity_id" TEXT, 
+	derived_from_id TEXT, 
+	PRIMARY KEY ("DataEntity_id", derived_from_id), 
+	FOREIGN KEY("DataEntity_id") REFERENCES "DataEntity" (id), 
+	FOREIGN KEY(derived_from_id) REFERENCES "DataEntity" (id)
+);
 CREATE TABLE "DataEntity_has_sample" (
 	"DataEntity_id" TEXT, 
 	has_sample_id TEXT, 
@@ -284,6 +329,13 @@ CREATE TABLE "ReferenceGenome_taxon_id" (
 	PRIMARY KEY ("ReferenceGenome_id", taxon_id), 
 	FOREIGN KEY("ReferenceGenome_id") REFERENCES "ReferenceGenome" (id)
 );
+CREATE TABLE "AlignmentSet_derived_from" (
+	"AlignmentSet_id" TEXT, 
+	derived_from_id TEXT, 
+	PRIMARY KEY ("AlignmentSet_id", derived_from_id), 
+	FOREIGN KEY("AlignmentSet_id") REFERENCES "AlignmentSet" (id), 
+	FOREIGN KEY(derived_from_id) REFERENCES "DataEntity" (id)
+);
 CREATE TABLE "AlignmentSet_has_sample" (
 	"AlignmentSet_id" TEXT, 
 	has_sample_id TEXT, 
@@ -297,6 +349,13 @@ CREATE TABLE "AlignmentSet_has_reference" (
 	PRIMARY KEY ("AlignmentSet_id", has_reference_id), 
 	FOREIGN KEY("AlignmentSet_id") REFERENCES "AlignmentSet" (id), 
 	FOREIGN KEY(has_reference_id) REFERENCES "ReferenceGenome" (id)
+);
+CREATE TABLE "VariantSet_derived_from" (
+	"VariantSet_id" TEXT, 
+	derived_from_id TEXT, 
+	PRIMARY KEY ("VariantSet_id", derived_from_id), 
+	FOREIGN KEY("VariantSet_id") REFERENCES "VariantSet" (id), 
+	FOREIGN KEY(derived_from_id) REFERENCES "DataEntity" (id)
 );
 CREATE TABLE "VariantSet_has_sample" (
 	"VariantSet_id" TEXT, 
@@ -312,6 +371,13 @@ CREATE TABLE "VariantSet_has_reference" (
 	FOREIGN KEY("VariantSet_id") REFERENCES "VariantSet" (id), 
 	FOREIGN KEY(has_reference_id) REFERENCES "ReferenceGenome" (id)
 );
+CREATE TABLE "MassSpectrometryResults_derived_from" (
+	"MassSpectrometryResults_id" TEXT, 
+	derived_from_id TEXT, 
+	PRIMARY KEY ("MassSpectrometryResults_id", derived_from_id), 
+	FOREIGN KEY("MassSpectrometryResults_id") REFERENCES "MassSpectrometryResults" (id), 
+	FOREIGN KEY(derived_from_id) REFERENCES "DataEntity" (id)
+);
 CREATE TABLE "MassSpectrometryResults_has_sample" (
 	"MassSpectrometryResults_id" TEXT, 
 	has_sample_id TEXT, 
@@ -326,6 +392,13 @@ CREATE TABLE "MassSpectrometryResults_has_reference" (
 	FOREIGN KEY("MassSpectrometryResults_id") REFERENCES "MassSpectrometryResults" (id), 
 	FOREIGN KEY(has_reference_id) REFERENCES "ReferenceGenome" (id)
 );
+CREATE TABLE "Array_derived_from" (
+	"Array_id" TEXT, 
+	derived_from_id TEXT, 
+	PRIMARY KEY ("Array_id", derived_from_id), 
+	FOREIGN KEY("Array_id") REFERENCES "Array" (id), 
+	FOREIGN KEY(derived_from_id) REFERENCES "DataEntity" (id)
+);
 CREATE TABLE "Array_has_sample" (
 	"Array_id" TEXT, 
 	has_sample_id TEXT, 
@@ -338,6 +411,27 @@ CREATE TABLE "Array_has_reference" (
 	has_reference_id TEXT, 
 	PRIMARY KEY ("Array_id", has_reference_id), 
 	FOREIGN KEY("Array_id") REFERENCES "Array" (id), 
+	FOREIGN KEY(has_reference_id) REFERENCES "ReferenceGenome" (id)
+);
+CREATE TABLE "Table_derived_from" (
+	"Table_id" TEXT, 
+	derived_from_id TEXT, 
+	PRIMARY KEY ("Table_id", derived_from_id), 
+	FOREIGN KEY("Table_id") REFERENCES "Table" (id), 
+	FOREIGN KEY(derived_from_id) REFERENCES "DataEntity" (id)
+);
+CREATE TABLE "Table_has_sample" (
+	"Table_id" TEXT, 
+	has_sample_id TEXT, 
+	PRIMARY KEY ("Table_id", has_sample_id), 
+	FOREIGN KEY("Table_id") REFERENCES "Table" (id), 
+	FOREIGN KEY(has_sample_id) REFERENCES "Sample" (id)
+);
+CREATE TABLE "Table_has_reference" (
+	"Table_id" TEXT, 
+	has_reference_id TEXT, 
+	PRIMARY KEY ("Table_id", has_reference_id), 
+	FOREIGN KEY("Table_id") REFERENCES "Table" (id), 
 	FOREIGN KEY(has_reference_id) REFERENCES "ReferenceGenome" (id)
 );
 CREATE TABLE "MODO_has_assay" (

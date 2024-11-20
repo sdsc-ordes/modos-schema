@@ -12,6 +12,16 @@
                     "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
                     "type": "string"
                 },
+                "derived_from": {
+                    "description": "The source data from which some new data was derived.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "description": {
                     "description": "A human-readable description for a thing",
                     "type": [
@@ -70,6 +80,16 @@
                 "data_path": {
                     "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
                     "type": "string"
+                },
+                "derived_from": {
+                    "description": "The source data from which some new data was derived.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
@@ -197,6 +217,16 @@
                     "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
                     "type": "string"
                 },
+                "derived_from": {
+                    "description": "The source data from which some new data was derived.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "description": {
                     "description": "A human-readable description for a thing",
                     "type": [
@@ -253,7 +283,8 @@
                 "FASTA",
                 "VCF",
                 "BCF",
-                "mzTab"
+                "mzTab",
+                "parquet"
             ],
             "title": "DataFormat",
             "type": "string"
@@ -301,7 +332,7 @@
                     ]
                 },
                 "source_uri": {
-                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "description": "The URI from which a resource or dataset was obtained.",
                     "type": [
                         "string",
                         "null"
@@ -376,7 +407,7 @@
                     ]
                 },
                 "source_uri": {
-                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "description": "The URI from which a resource or dataset was obtained.",
                     "type": [
                         "string",
                         "null"
@@ -401,6 +432,16 @@
                 "data_path": {
                     "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
                     "type": "string"
+                },
+                "derived_from": {
+                    "description": "The source data from which some new data was derived.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
@@ -529,7 +570,7 @@
                     ]
                 },
                 "source_uri": {
-                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "description": "The URI from which a resource or dataset was obtained.",
                     "type": [
                         "string",
                         "null"
@@ -591,7 +632,7 @@
                     ]
                 },
                 "source_uri": {
-                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "description": "The URI from which a resource or dataset was obtained.",
                     "type": [
                         "string",
                         "null"
@@ -687,6 +728,75 @@
             "title": "Sex",
             "type": "string"
         },
+        "Table": {
+            "additionalProperties": false,
+            "description": "Data entity organized in a tabular structure.",
+            "properties": {
+                "data_format": {
+                    "$ref": "#/$defs/DataFormat",
+                    "description": "Data/file format associated with a data entity."
+                },
+                "data_path": {
+                    "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
+                    "type": "string"
+                },
+                "derived_from": {
+                    "description": "The source data from which some new data was derived.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "description": {
+                    "description": "A human-readable description for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "has_reference": {
+                    "description": "Specifies the reference coordinate system used by an omics dataset.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "has_sample": {
+                    "description": "Biological sample included or described by a given thing.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "A unique identifier for a thing",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A human-readable name for a thing",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "data_path",
+                "data_format",
+                "id"
+            ],
+            "title": "Table",
+            "type": "object"
+        },
         "VariantSet": {
             "additionalProperties": false,
             "description": "A data entity consisting of genomic variants relative to a reference.",
@@ -698,6 +808,16 @@
                 "data_path": {
                     "description": "The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.",
                     "type": "string"
+                },
+                "derived_from": {
+                    "description": "The source data from which some new data was derived.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "description": {
                     "description": "A human-readable description for a thing",

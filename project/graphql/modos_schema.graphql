@@ -6,6 +6,7 @@ type AlignmentSet
     description: String
     dataPath: String!
     dataFormat: DataFormat!
+    derivedFrom: [DataEntity]
     hasSample: [Sample]
     hasReference: [ReferenceGenome]
   }
@@ -17,6 +18,7 @@ type Array
     description: String
     dataPath: String!
     dataFormat: DataFormat!
+    derivedFrom: [DataEntity]
     hasSample: [Sample]
     hasReference: [ReferenceGenome]
   }
@@ -39,6 +41,7 @@ type DataEntity
     description: String
     dataPath: String!
     dataFormat: DataFormat!
+    derivedFrom: [DataEntity]
     hasSample: [Sample]
     hasReference: [ReferenceGenome]
   }
@@ -50,6 +53,7 @@ type MassSpectrometryResults
     description: String
     dataPath: String!
     dataFormat: DataFormat!
+    derivedFrom: [DataEntity]
     hasSample: [Sample]
     hasReference: [ReferenceGenome]
   }
@@ -111,6 +115,18 @@ type Sample
     collector: [String]
   }
 
+type Table
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    dataPath: String!
+    dataFormat: DataFormat!
+    derivedFrom: [DataEntity]
+    hasSample: [Sample]
+    hasReference: [ReferenceGenome]
+  }
+
 type VariantSet
   {
     id: Uriorcurie!
@@ -118,6 +134,7 @@ type VariantSet
     description: String
     dataPath: String!
     dataFormat: DataFormat!
+    derivedFrom: [DataEntity]
     hasSample: [Sample]
     hasReference: [ReferenceGenome]
   }

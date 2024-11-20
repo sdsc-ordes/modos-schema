@@ -1,5 +1,5 @@
 # Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-11-08T09:56:39
+# Generation date: 2024-11-20T13:01:49
 # Schema: modos-schema
 #
 # id: https://w3id.org/sdsc-ordes/modos-schema
@@ -93,6 +93,10 @@ class MassSpectrometryResultsId(DataEntityId):
 
 
 class ArrayId(DataEntityId):
+    pass
+
+
+class TableId(DataEntityId):
     pass
 
 
@@ -276,6 +280,7 @@ class DataEntity(NamedThing):
     id: Union[str, DataEntityId] = None
     data_path: str = None
     data_format: Union[str, "DataFormat"] = None
+    derived_from: Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]] = empty_list()
     has_sample: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
     has_reference: Optional[Union[Union[str, ReferenceGenomeId], List[Union[str, ReferenceGenomeId]]]] = empty_list()
 
@@ -294,6 +299,10 @@ class DataEntity(NamedThing):
             self.MissingRequiredField("data_format")
         if not isinstance(self.data_format, DataFormat):
             self.data_format = DataFormat(self.data_format)
+
+        if not isinstance(self.derived_from, list):
+            self.derived_from = [self.derived_from] if self.derived_from is not None else []
+        self.derived_from = [v if isinstance(v, DataEntityId) else DataEntityId(v) for v in self.derived_from]
 
         if not isinstance(self.has_sample, list):
             self.has_sample = [self.has_sample] if self.has_sample is not None else []
@@ -489,6 +498,31 @@ class Array(DataEntity):
 
 
 @dataclass(repr=False)
+class Table(DataEntity):
+    """
+    Data entity organized in a tabular structure.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MODOS["Table"]
+    class_class_curie: ClassVar[str] = "modos:Table"
+    class_name: ClassVar[str] = "Table"
+    class_model_uri: ClassVar[URIRef] = MODOS.Table
+
+    id: Union[str, TableId] = None
+    data_path: str = None
+    data_format: Union[str, "DataFormat"] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, TableId):
+            self.id = TableId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class MODOCollection(YAMLRoot):
     """
     A holder for Multi-Omics Digital Objects
@@ -575,6 +609,10 @@ class DataFormat(EnumDefinitionImpl):
         text="mzTab",
         description="tab-delimited format for mass spectrometry-based proteomics and metabolomics results.",
         meaning=EDAM["format_3681"])
+    parquet = PermissibleValue(
+        text="parquet",
+        description="column-oriented format for efficient storage and retrieval.",
+        meaning=None)
 
     _defn = EnumDefinition(
         name="DataFormat",
@@ -641,6 +679,9 @@ slots.sequence_md5 = Slot(uri=MODOS.sequence_md5, name="sequence_md5", curie=MOD
 
 slots.source_uri = Slot(uri=MODOS.source_uri, name="source_uri", curie=MODOS.curie('source_uri'),
                    model_uri=MODOS.source_uri, domain=None, range=Optional[Union[str, URI]])
+
+slots.derived_from = Slot(uri=MODOS.derived_from, name="derived_from", curie=MODOS.curie('derived_from'),
+                   model_uri=MODOS.derived_from, domain=None, range=Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]])
 
 slots.version = Slot(uri=MODOS.version, name="version", curie=MODOS.curie('version'),
                    model_uri=MODOS.version, domain=None, range=Optional[str])

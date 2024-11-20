@@ -9,6 +9,7 @@ message AlignmentSet
   string description = 0
   string dataPath = 0
   dataFormat dataFormat = 0
+ repeated  dataEntity derivedFrom = 0
  repeated  sample hasSample = 0
  repeated  referenceGenome hasReference = 0
  }
@@ -20,6 +21,7 @@ message Array
   string description = 0
   string dataPath = 0
   dataFormat dataFormat = 0
+ repeated  dataEntity derivedFrom = 0
  repeated  sample hasSample = 0
  repeated  referenceGenome hasReference = 0
  }
@@ -42,6 +44,7 @@ message DataEntity
   string description = 0
   string dataPath = 0
   dataFormat dataFormat = 0
+ repeated  dataEntity derivedFrom = 0
  repeated  sample hasSample = 0
  repeated  referenceGenome hasReference = 0
  }
@@ -53,6 +56,7 @@ message MassSpectrometryResults
   string description = 0
   string dataPath = 0
   dataFormat dataFormat = 0
+ repeated  dataEntity derivedFrom = 0
  repeated  sample hasSample = 0
  repeated  referenceGenome hasReference = 0
  }
@@ -113,6 +117,18 @@ message Sample
  repeated  uriorcurie taxonId = 0
  repeated  string collector = 0
  }
+// Data entity organized in a tabular structure.
+message Table
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string dataPath = 0
+  dataFormat dataFormat = 0
+ repeated  dataEntity derivedFrom = 0
+ repeated  sample hasSample = 0
+ repeated  referenceGenome hasReference = 0
+ }
 // A data entity consisting of genomic variants relative to a reference.
 message VariantSet
  {
@@ -121,6 +137,7 @@ message VariantSet
   string description = 0
   string dataPath = 0
   dataFormat dataFormat = 0
+ repeated  dataEntity derivedFrom = 0
  repeated  sample hasSample = 0
  repeated  referenceGenome hasReference = 0
  }
