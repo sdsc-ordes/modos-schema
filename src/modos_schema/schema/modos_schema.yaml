@@ -310,3 +310,6 @@ enums:
       mzTab:
         description: tab-delimited format for mass spectrometry-based proteomics and metabolomics results.
         meaning: EDAM:format_3681
+      parquet: 
+        description: column-oriented format for efficient storage and retrieval.
+        meaning: https://parquet.apache.org
