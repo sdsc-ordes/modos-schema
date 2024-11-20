@@ -129,6 +129,10 @@ classes:
     is_a: DataEntity
     description: Data entity consisting of an N-dimensional array.
 
+  Table:
+    is_a: DataEntity
+    description: Data entity organized in a tabular structure.
+
   MODOCollection:
     tree_root: true
     description: >-
