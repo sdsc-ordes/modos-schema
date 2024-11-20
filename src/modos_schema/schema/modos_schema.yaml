@@ -85,6 +85,7 @@ classes:
     slots:
       - data_path
       - data_format
+      - has_part
       - has_sample
       - has_reference
 
