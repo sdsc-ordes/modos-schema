@@ -1,699 +1,449 @@
-# Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-11-20T13:01:49
-# Schema: modos-schema
-#
-# id: https://w3id.org/sdsc-ordes/modos-schema
-# description: Metadata schema for the SMOC Multi-Omics Digital Object System
-# license: MIT
+from __future__ import annotations 
 
-import dataclasses
 import re
-from jsonasobj2 import JsonObj, as_dict
-from typing import Optional, List, Union, Dict, ClassVar, Any
-from dataclasses import dataclass
-from datetime import date, datetime, time
-from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
+import sys
+from datetime import (
+    date,
+    datetime,
+    time
+)
+from decimal import Decimal 
+from enum import Enum 
+from typing import (
+    Any,
+    ClassVar,
+    Dict,
+    List,
+    Literal,
+    Optional,
+    Union
+)
 
-from linkml_runtime.utils.slot import Slot
-from linkml_runtime.utils.metamodelcore import empty_list, empty_dict, bnode
-from linkml_runtime.utils.yamlutils import YAMLRoot, extended_str, extended_float, extended_int
-from linkml_runtime.utils.dataclass_extensions_376 import dataclasses_init_fn_with_kwargs
-from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
-from linkml_runtime.utils.enumerations import EnumDefinitionImpl
-from rdflib import Namespace, URIRef
-from linkml_runtime.utils.curienamespace import CurieNamespace
-from linkml_runtime.linkml_model.types import Datetime, String, Uri, Uriorcurie
-from linkml_runtime.utils.metamodelcore import URI, URIorCURIE, XSDDateTime
-
-metamodel_version = "1.7.0"
-version = None
-
-# Overwrite dataclasses _init_fn to add **kwargs in __init__
-dataclasses._init_fn = dataclasses_init_fn_with_kwargs
-
-# Namespaces
-CL = CurieNamespace('CL', 'https://bioregistry.io/reference/cl:/')
-EDAM = CurieNamespace('EDAM', 'http://edamontology.org/')
-FG = CurieNamespace('FG', 'https://w3id.org/fair-genomes/ontology/')
-GENO = CurieNamespace('GENO', 'http://purl.obolibrary.org/obo/GENO_')
-NCIT = CurieNamespace('NCIT', 'http://purl.obolibrary.org/obo/NCIT_')
-UBERON = CurieNamespace('UBERON', 'http://purl.obolibrary.org/obo/UBERON_')
-BIOLINK = CurieNamespace('biolink', 'https://w3id.org/biolink/')
-BIOREGISTRY = CurieNamespace('bioregistry', 'https://bioregistry.io/registry/')
-BIOSCHEMAS = CurieNamespace('bioschemas', 'https://bioschemas.org/')
-EXAMPLE = CurieNamespace('example', 'https://example.org/')
-LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
-MODOS = CurieNamespace('modos', 'https://w3id.org/sdsc-ordes/modos-schema/')
-SCHEMA = CurieNamespace('schema', 'http://schema.org/')
-SPHN = CurieNamespace('sphn', 'https://biomedit.ch/rdf/sphn-schema/sphn#')
-DEFAULT_ = MODOS
+from pydantic import (
+    BaseModel,
+    ConfigDict,
+    Field,
+    RootModel,
+    field_validator
+)
 
 
-# Types
+metamodel_version = "None"
+version = "None"
 
-# Class references
-class NamedThingId(URIorCURIE):
+
+class ConfiguredBaseModel(BaseModel):
+    model_config = ConfigDict(
+        validate_assignment = True,
+        validate_default = True,
+        extra = "forbid",
+        arbitrary_types_allowed = True,
+        use_enum_values = True,
+        strict = False,
+    )
     pass
 
 
-class MODOId(NamedThingId):
-    pass
 
 
-class AssayId(NamedThingId):
-    pass
+class LinkMLMeta(RootModel):
+    root: Dict[str, Any] = {}
+    model_config = ConfigDict(frozen=True)
+
+    def __getattr__(self, key:str):
+        return getattr(self.root, key)
+
+    def __getitem__(self, key:str):
+        return self.root[key]
+
+    def __setitem__(self, key:str, value):
+        self.root[key] = value
+
+    def __contains__(self, key:str) -> bool:
+        return key in self.root
 
 
-class SampleId(NamedThingId):
-    pass
+linkml_meta = LinkMLMeta({'default_prefix': 'modos',
+     'default_range': 'string',
+     'description': 'Metadata schema for the SMOC Multi-Omics Digital Object '
+                    'System',
+     'id': 'https://w3id.org/sdsc-ordes/modos-schema',
+     'imports': ['linkml:types'],
+     'license': 'MIT',
+     'name': 'modos-schema',
+     'prefixes': {'CL': {'prefix_prefix': 'CL',
+                         'prefix_reference': 'https://bioregistry.io/reference/cl:/'},
+                  'EDAM': {'prefix_prefix': 'EDAM',
+                           'prefix_reference': 'http://edamontology.org/'},
+                  'FG': {'prefix_prefix': 'FG',
+                         'prefix_reference': 'https://w3id.org/fair-genomes/ontology/'},
+                  'GENO': {'prefix_prefix': 'GENO',
+                           'prefix_reference': 'http://purl.obolibrary.org/obo/GENO_'},
+                  'NCIT': {'prefix_prefix': 'NCIT',
+                           'prefix_reference': 'http://purl.obolibrary.org/obo/NCIT_'},
+                  'UBERON': {'prefix_prefix': 'UBERON',
+                             'prefix_reference': 'http://purl.obolibrary.org/obo/UBERON_'},
+                  'biolink': {'prefix_prefix': 'biolink',
+                              'prefix_reference': 'https://w3id.org/biolink/'},
+                  'bioregistry': {'prefix_prefix': 'bioregistry',
+                                  'prefix_reference': 'https://bioregistry.io/registry/'},
+                  'bioschemas': {'prefix_prefix': 'bioschemas',
+                                 'prefix_reference': 'https://bioschemas.org/'},
+                  'example': {'prefix_prefix': 'example',
+                              'prefix_reference': 'https://example.org/'},
+                  'linkml': {'prefix_prefix': 'linkml',
+                             'prefix_reference': 'https://w3id.org/linkml/'},
+                  'modos': {'prefix_prefix': 'modos',
+                            'prefix_reference': 'https://w3id.org/sdsc-ordes/modos-schema/'},
+                  'schema': {'prefix_prefix': 'schema',
+                             'prefix_reference': 'http://schema.org/'},
+                  'sphn': {'prefix_prefix': 'sphn',
+                           'prefix_reference': 'https://biomedit.ch/rdf/sphn-schema/sphn#'}},
+     'see_also': ['https://sdsc-ordes.github.io/modos-schema'],
+     'source_file': 'src/modos_schema/schema/modos_schema.yaml',
+     'title': 'modos-schema'} )
+
+class Sex(str, Enum):
+    # The male sex.
+    Male = "Male"
+    # The female sex.
+    Female = "Female"
 
 
-class DataEntityId(NamedThingId):
-    pass
+class OmicsType(str, Enum):
+    # The study of the structure, function, expression, evolution, mapping and editing of genomes.
+    GENOMICS = "GENOMICS"
+    # The study of the complete set of RNA transcripts that are produced by the genome.
+    TRANSCRIPTOMICS = "TRANSCRIPTOMICS"
+    # The study of biological metabolic profiles.
+    METABOLOMICS = "METABOLOMICS"
+    # The global analysis of cellular proteins.
+    PROTEOMICS = "PROTEOMICS"
 
 
-class ReferenceGenomeId(NamedThingId):
-    pass
+class DataFormat(str, Enum):
+    # Referenced-based compression of alignment format.
+    CRAM = "CRAM"
+    # FASTQ short read format with sequence and any type of quality scores.
+    FASTQ = "FASTQ"
+    # Chunked, compressed N-dimensional arrays.
+    Zarr = "Zarr"
+    # FASTA sequence format including NCBI-style IDs.
+    FASTA = "FASTA"
+    # Variant call format for sequence variation.
+    VCF = "VCF"
+    # Binary call format, for efficient storage of sequence variation.
+    BCF = "BCF"
+    # tab-delimited format for mass spectrometry-based proteomics and metabolomics results.
+    mzTab = "mzTab"
+    # column-oriented format for efficient storage and retrieval.
+    parquet = "parquet"
 
 
-class ReferenceSequenceId(NamedThingId):
-    pass
 
-
-class AlignmentSetId(DataEntityId):
-    pass
-
-
-class VariantSetId(DataEntityId):
-    pass
-
-
-class MassSpectrometryResultsId(DataEntityId):
-    pass
-
-
-class ArrayId(DataEntityId):
-    pass
-
-
-class TableId(DataEntityId):
-    pass
-
-
-@dataclass(repr=False)
-class NamedThing(YAMLRoot):
+class NamedThing(ConfiguredBaseModel):
     """
     A generic grouping for any identifiable entity
     """
-    _inherited_slots: ClassVar[List[str]] = []
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'class_uri': 'schema:Thing',
+         'from_schema': 'https://w3id.org/sdsc-ordes/modos-schema'})
 
-    class_class_uri: ClassVar[URIRef] = SCHEMA["Thing"]
-    class_class_curie: ClassVar[str] = "schema:Thing"
-    class_name: ClassVar[str] = "NamedThing"
-    class_model_uri: ClassVar[URIRef] = MODOS.NamedThing
-
-    id: Union[str, NamedThingId] = None
-    name: Optional[str] = None
-    description: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, NamedThingId):
-            self.id = NamedThingId(self.id)
-
-        if self.name is not None and not isinstance(self.name, str):
-            self.name = str(self.name)
-
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
-
-        super().__post_init__(**kwargs)
+    id: str = Field(..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+         'domain_of': ['NamedThing'],
+         'slot_uri': 'schema:description'} })
 
 
-@dataclass(repr=False)
 class MODO(NamedThing):
     """
     Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata.
     """
-    _inherited_slots: ClassVar[List[str]] = []
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/sdsc-ordes/modos-schema'})
 
-    class_class_uri: ClassVar[URIRef] = MODOS["MODO"]
-    class_class_curie: ClassVar[str] = "modos:MODO"
-    class_name: ClassVar[str] = "MODO"
-    class_model_uri: ClassVar[URIRef] = MODOS.MODO
-
-    id: Union[str, MODOId] = None
-    creation_date: Union[str, XSDDateTime] = None
-    last_update_date: Union[str, XSDDateTime] = None
-    has_assay: Optional[Union[Union[str, AssayId], List[Union[str, AssayId]]]] = empty_list()
-    source_uri: Optional[Union[str, URI]] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, MODOId):
-            self.id = MODOId(self.id)
-
-        if self._is_empty(self.creation_date):
-            self.MissingRequiredField("creation_date")
-        if not isinstance(self.creation_date, XSDDateTime):
-            self.creation_date = XSDDateTime(self.creation_date)
-
-        if self._is_empty(self.last_update_date):
-            self.MissingRequiredField("last_update_date")
-        if not isinstance(self.last_update_date, XSDDateTime):
-            self.last_update_date = XSDDateTime(self.last_update_date)
-
-        if not isinstance(self.has_assay, list):
-            self.has_assay = [self.has_assay] if self.has_assay is not None else []
-        self.has_assay = [v if isinstance(v, AssayId) else AssayId(v) for v in self.has_assay]
-
-        if self.source_uri is not None and not isinstance(self.source_uri, URI):
-            self.source_uri = URI(self.source_uri)
-
-        super().__post_init__(**kwargs)
+    creation_date: datetime  = Field(..., description="""The date on which something was created.""", json_schema_extra = { "linkml_meta": {'alias': 'creation_date', 'domain_of': ['MODO']} })
+    has_assay: Optional[List[str]] = Field(None, description="""An assay that was performed as part of a given thing.""", json_schema_extra = { "linkml_meta": {'alias': 'has_assay', 'domain_of': ['MODO'], 'is_a': 'has_part'} })
+    last_update_date: datetime  = Field(..., description="""The date on which the thing was last modified.""", json_schema_extra = { "linkml_meta": {'alias': 'last_update_date', 'domain_of': ['MODO']} })
+    source_uri: Optional[str] = Field(None, description="""The URI from which a resource or dataset was obtained.""", json_schema_extra = { "linkml_meta": {'alias': 'source_uri',
+         'domain_of': ['MODO', 'ReferenceGenome', 'ReferenceSequence']} })
+    id: str = Field(..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+         'domain_of': ['NamedThing'],
+         'slot_uri': 'schema:description'} })
 
 
-@dataclass(repr=False)
 class Assay(NamedThing):
     """
     A coordinated set of actions designed to generate data from samples.
     """
-    _inherited_slots: ClassVar[List[str]] = []
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/sdsc-ordes/modos-schema',
+         'see_also': ['NCIT:C42790', 'sphn:Assay']})
 
-    class_class_uri: ClassVar[URIRef] = MODOS["Assay"]
-    class_class_curie: ClassVar[str] = "modos:Assay"
-    class_name: ClassVar[str] = "Assay"
-    class_model_uri: ClassVar[URIRef] = MODOS.Assay
-
-    id: Union[str, AssayId] = None
-    omics_type: Union[Union[str, "OmicsType"], List[Union[str, "OmicsType"]]] = None
-    has_sample: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
-    has_data: Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]] = empty_list()
-    sample_processing: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, AssayId):
-            self.id = AssayId(self.id)
-
-        if self._is_empty(self.omics_type):
-            self.MissingRequiredField("omics_type")
-        if not isinstance(self.omics_type, list):
-            self.omics_type = [self.omics_type] if self.omics_type is not None else []
-        self.omics_type = [v if isinstance(v, OmicsType) else OmicsType(v) for v in self.omics_type]
-
-        if not isinstance(self.has_sample, list):
-            self.has_sample = [self.has_sample] if self.has_sample is not None else []
-        self.has_sample = [v if isinstance(v, SampleId) else SampleId(v) for v in self.has_sample]
-
-        if not isinstance(self.has_data, list):
-            self.has_data = [self.has_data] if self.has_data is not None else []
-        self.has_data = [v if isinstance(v, DataEntityId) else DataEntityId(v) for v in self.has_data]
-
-        if not isinstance(self.sample_processing, list):
-            self.sample_processing = [self.sample_processing] if self.sample_processing is not None else []
-        self.sample_processing = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.sample_processing]
-
-        super().__post_init__(**kwargs)
+    has_sample: Optional[List[str]] = Field(None, description="""Biological sample included or described by a given thing.""", json_schema_extra = { "linkml_meta": {'alias': 'has_sample',
+         'domain_of': ['Assay', 'DataEntity'],
+         'is_a': 'has_part'} })
+    has_data: Optional[List[str]] = Field(None, description="""Data entity included in a given collection.""", json_schema_extra = { "linkml_meta": {'alias': 'has_data', 'domain_of': ['Assay'], 'is_a': 'has_part'} })
+    omics_type: List[OmicsType] = Field(..., description="""The type of omics considered.""", json_schema_extra = { "linkml_meta": {'alias': 'omics_type', 'domain_of': ['Assay']} })
+    sample_processing: Optional[List[str]] = Field(None, description="""Codes describing sample processing, preparation or handling steps.
+The order of the codes should reflect the order in which the steps were performed.
+Should be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].
+""", json_schema_extra = { "linkml_meta": {'alias': 'sample_processing',
+         'domain_of': ['Assay'],
+         'list_elements_ordered': True} })
+    id: str = Field(..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+         'domain_of': ['NamedThing'],
+         'slot_uri': 'schema:description'} })
 
 
-@dataclass(repr=False)
 class Sample(NamedThing):
     """
     A biological sample used in assays. Examples include a whole organism, tissue or cell line.
     """
-    _inherited_slots: ClassVar[List[str]] = []
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/sdsc-ordes/modos-schema',
+         'see_also': ['bioschemas:Sample']})
 
-    class_class_uri: ClassVar[URIRef] = MODOS["Sample"]
-    class_class_curie: ClassVar[str] = "modos:Sample"
-    class_name: ClassVar[str] = "Sample"
-    class_model_uri: ClassVar[URIRef] = MODOS.Sample
-
-    id: Union[str, SampleId] = None
-    cell_type: Optional[Union[str, URIorCURIE]] = None
-    source_material: Optional[Union[str, URIorCURIE]] = None
-    sex: Optional[Union[str, "Sex"]] = None
-    taxon_id: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
-    collector: Optional[Union[str, List[str]]] = empty_list()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, SampleId):
-            self.id = SampleId(self.id)
-
-        if self.cell_type is not None and not isinstance(self.cell_type, URIorCURIE):
-            self.cell_type = URIorCURIE(self.cell_type)
-
-        if self.source_material is not None and not isinstance(self.source_material, URIorCURIE):
-            self.source_material = URIorCURIE(self.source_material)
-
-        if self.sex is not None and not isinstance(self.sex, Sex):
-            self.sex = Sex(self.sex)
-
-        if not isinstance(self.taxon_id, list):
-            self.taxon_id = [self.taxon_id] if self.taxon_id is not None else []
-        self.taxon_id = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.taxon_id]
-
-        if not isinstance(self.collector, list):
-            self.collector = [self.collector] if self.collector is not None else []
-        self.collector = [v if isinstance(v, str) else str(v) for v in self.collector]
-
-        super().__post_init__(**kwargs)
+    cell_type: Optional[str] = Field(None, description="""The cell type of the sample, if applicable.
+Should be a cell type code URI from the cell ontology.
+See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)
+""", json_schema_extra = { "linkml_meta": {'alias': 'cell_type', 'domain_of': ['Sample']} })
+    source_material: Optional[str] = Field(None, description="""The biological source from which the sample was isolated (tissue, organ).
+Should be a code URI from the [UBERON](https://bioregistry.io/registry/uberon) ontology or [fairgenomes biospecimen types](https://raw.githubusercontent.com/fairgenomes/fairgenomes-semantic-model/refs/tags/v1.2/generated/ontology/fair-genomes-biospecimentypes.ttl).
+""", json_schema_extra = { "linkml_meta": {'alias': 'source_material', 'domain_of': ['Sample']} })
+    sex: Optional[Sex] = Field(None, description="""The biological sex of a sample.""", json_schema_extra = { "linkml_meta": {'alias': 'sex', 'domain_of': ['Sample']} })
+    taxon_id: Optional[List[str]] = Field(None, description="""The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.
+""", json_schema_extra = { "linkml_meta": {'alias': 'taxon_id', 'domain_of': ['Sample', 'ReferenceGenome']} })
+    collector: Optional[List[str]] = Field(None, description="""The organization responsible for collecting a given sample.""", json_schema_extra = { "linkml_meta": {'alias': 'collector', 'domain_of': ['Sample']} })
+    id: str = Field(..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+         'domain_of': ['NamedThing'],
+         'slot_uri': 'schema:description'} })
 
 
-@dataclass(repr=False)
 class DataEntity(NamedThing):
     """
     An entity containing data.
     """
-    _inherited_slots: ClassVar[List[str]] = []
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/sdsc-ordes/modos-schema'})
 
-    class_class_uri: ClassVar[URIRef] = MODOS["DataEntity"]
-    class_class_curie: ClassVar[str] = "modos:DataEntity"
-    class_name: ClassVar[str] = "DataEntity"
-    class_model_uri: ClassVar[URIRef] = MODOS.DataEntity
-
-    id: Union[str, DataEntityId] = None
-    data_path: str = None
-    data_format: Union[str, "DataFormat"] = None
-    derived_from: Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]] = empty_list()
-    has_sample: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
-    has_reference: Optional[Union[Union[str, ReferenceGenomeId], List[Union[str, ReferenceGenomeId]]]] = empty_list()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, DataEntityId):
-            self.id = DataEntityId(self.id)
-
-        if self._is_empty(self.data_path):
-            self.MissingRequiredField("data_path")
-        if not isinstance(self.data_path, str):
-            self.data_path = str(self.data_path)
-
-        if self._is_empty(self.data_format):
-            self.MissingRequiredField("data_format")
-        if not isinstance(self.data_format, DataFormat):
-            self.data_format = DataFormat(self.data_format)
-
-        if not isinstance(self.derived_from, list):
-            self.derived_from = [self.derived_from] if self.derived_from is not None else []
-        self.derived_from = [v if isinstance(v, DataEntityId) else DataEntityId(v) for v in self.derived_from]
-
-        if not isinstance(self.has_sample, list):
-            self.has_sample = [self.has_sample] if self.has_sample is not None else []
-        self.has_sample = [v if isinstance(v, SampleId) else SampleId(v) for v in self.has_sample]
-
-        if not isinstance(self.has_reference, list):
-            self.has_reference = [self.has_reference] if self.has_reference is not None else []
-        self.has_reference = [v if isinstance(v, ReferenceGenomeId) else ReferenceGenomeId(v) for v in self.has_reference]
-
-        super().__post_init__(**kwargs)
+    data_path: str = Field(..., description="""The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.""", json_schema_extra = { "linkml_meta": {'alias': 'data_path',
+         'domain_of': ['DataEntity', 'ReferenceGenome'],
+         'examples': [{'value': 's3://example-bucket/path/to/data'},
+                      {'value': 'relative/file/path'},
+                      {'value': 'file:///absolute/file/path'}]} })
+    data_format: DataFormat = Field(..., description="""Data/file format associated with a data entity.""", json_schema_extra = { "linkml_meta": {'alias': 'data_format', 'domain_of': ['DataEntity']} })
+    derived_from: Optional[List[str]] = Field(None, description="""The source data from which some new data was derived.""", json_schema_extra = { "linkml_meta": {'alias': 'derived_from', 'domain_of': ['DataEntity']} })
+    has_sample: Optional[List[str]] = Field(None, description="""Biological sample included or described by a given thing.""", json_schema_extra = { "linkml_meta": {'alias': 'has_sample',
+         'domain_of': ['Assay', 'DataEntity'],
+         'is_a': 'has_part'} })
+    has_reference: Optional[List[str]] = Field(None, description="""Specifies the reference coordinate system used by an omics dataset.""", json_schema_extra = { "linkml_meta": {'alias': 'has_reference', 'domain_of': ['DataEntity'], 'is_a': 'has_part'} })
+    id: str = Field(..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+         'domain_of': ['NamedThing'],
+         'slot_uri': 'schema:description'} })
 
 
-@dataclass(repr=False)
 class ReferenceGenome(NamedThing):
     """
     Reference assembly of a given genome, consisting of a collection of congiguous sequences (contigs).
     """
-    _inherited_slots: ClassVar[List[str]] = []
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/sdsc-ordes/modos-schema',
+         'see_also': ['GENO:0000914']})
 
-    class_class_uri: ClassVar[URIRef] = MODOS["ReferenceGenome"]
-    class_class_curie: ClassVar[str] = "modos:ReferenceGenome"
-    class_name: ClassVar[str] = "ReferenceGenome"
-    class_model_uri: ClassVar[URIRef] = MODOS.ReferenceGenome
-
-    id: Union[str, ReferenceGenomeId] = None
-    data_path: str = None
-    has_sequence: Optional[Union[Union[str, ReferenceSequenceId], List[Union[str, ReferenceSequenceId]]]] = empty_list()
-    taxon_id: Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]] = empty_list()
-    source_uri: Optional[Union[str, URI]] = None
-    version: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ReferenceGenomeId):
-            self.id = ReferenceGenomeId(self.id)
-
-        if self._is_empty(self.data_path):
-            self.MissingRequiredField("data_path")
-        if not isinstance(self.data_path, str):
-            self.data_path = str(self.data_path)
-
-        if not isinstance(self.has_sequence, list):
-            self.has_sequence = [self.has_sequence] if self.has_sequence is not None else []
-        self.has_sequence = [v if isinstance(v, ReferenceSequenceId) else ReferenceSequenceId(v) for v in self.has_sequence]
-
-        if not isinstance(self.taxon_id, list):
-            self.taxon_id = [self.taxon_id] if self.taxon_id is not None else []
-        self.taxon_id = [v if isinstance(v, URIorCURIE) else URIorCURIE(v) for v in self.taxon_id]
-
-        if self.source_uri is not None and not isinstance(self.source_uri, URI):
-            self.source_uri = URI(self.source_uri)
-
-        if self.version is not None and not isinstance(self.version, str):
-            self.version = str(self.version)
-
-        super().__post_init__(**kwargs)
+    data_path: str = Field(..., description="""The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.""", json_schema_extra = { "linkml_meta": {'alias': 'data_path',
+         'domain_of': ['DataEntity', 'ReferenceGenome'],
+         'examples': [{'value': 's3://example-bucket/path/to/data'},
+                      {'value': 'relative/file/path'},
+                      {'value': 'file:///absolute/file/path'}]} })
+    has_sequence: Optional[List[str]] = Field(None, description="""Denotes that a sequence belongs to a collection (e.g. a reference genome).""", json_schema_extra = { "linkml_meta": {'alias': 'has_sequence', 'domain_of': ['ReferenceGenome'], 'is_a': 'has_part'} })
+    taxon_id: Optional[List[str]] = Field(None, description="""The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.
+""", json_schema_extra = { "linkml_meta": {'alias': 'taxon_id', 'domain_of': ['Sample', 'ReferenceGenome']} })
+    source_uri: Optional[str] = Field(None, description="""The URI from which a resource or dataset was obtained.""", json_schema_extra = { "linkml_meta": {'alias': 'source_uri',
+         'domain_of': ['MODO', 'ReferenceGenome', 'ReferenceSequence']} })
+    version: Optional[str] = Field(None, description="""A string specifying the release or version of a software or resource.""", json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['ReferenceGenome', 'ReferenceSequence']} })
+    id: str = Field(..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+         'domain_of': ['NamedThing'],
+         'slot_uri': 'schema:description'} })
 
 
-@dataclass(repr=False)
 class ReferenceSequence(NamedThing):
     """
     A contiguous sequence of DNA part of a reference coordinate system (genome assembly).
     """
-    _inherited_slots: ClassVar[List[str]] = []
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/sdsc-ordes/modos-schema',
+         'see_also': ['GENO:0000017']})
 
-    class_class_uri: ClassVar[URIRef] = MODOS["ReferenceSequence"]
-    class_class_curie: ClassVar[str] = "modos:ReferenceSequence"
-    class_name: ClassVar[str] = "ReferenceSequence"
-    class_model_uri: ClassVar[URIRef] = MODOS.ReferenceSequence
+    sequence_md5: Optional[str] = Field(None, description="""The pre-computed hash uniquely representing a biological sequence. Calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).""", json_schema_extra = { "linkml_meta": {'alias': 'sequence_md5', 'domain_of': ['ReferenceSequence']} })
+    source_uri: Optional[str] = Field(None, description="""The URI from which a resource or dataset was obtained.""", json_schema_extra = { "linkml_meta": {'alias': 'source_uri',
+         'domain_of': ['MODO', 'ReferenceGenome', 'ReferenceSequence']} })
+    version: Optional[str] = Field(None, description="""A string specifying the release or version of a software or resource.""", json_schema_extra = { "linkml_meta": {'alias': 'version', 'domain_of': ['ReferenceGenome', 'ReferenceSequence']} })
+    id: str = Field(..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+         'domain_of': ['NamedThing'],
+         'slot_uri': 'schema:description'} })
 
-    id: Union[str, ReferenceSequenceId] = None
-    sequence_md5: Optional[str] = None
-    source_uri: Optional[Union[str, URI]] = None
-    version: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ReferenceSequenceId):
-            self.id = ReferenceSequenceId(self.id)
-
-        if self.sequence_md5 is not None and not isinstance(self.sequence_md5, str):
-            self.sequence_md5 = str(self.sequence_md5)
-
-        if self.source_uri is not None and not isinstance(self.source_uri, URI):
-            self.source_uri = URI(self.source_uri)
-
-        if self.version is not None and not isinstance(self.version, str):
-            self.version = str(self.version)
-
-        super().__post_init__(**kwargs)
+    @field_validator('sequence_md5')
+    def pattern_sequence_md5(cls, v):
+        pattern=re.compile(r"^[a-f0-9]{32}$")
+        if isinstance(v,list):
+            for element in v:
+                if isinstance(v, str) and not pattern.match(element):
+                    raise ValueError(f"Invalid sequence_md5 format: {element}")
+        elif isinstance(v,str):
+            if not pattern.match(v):
+                raise ValueError(f"Invalid sequence_md5 format: {v}")
+        return v
 
 
-@dataclass(repr=False)
 class AlignmentSet(DataEntity):
     """
     A data entity consisting of genomic intervals aligned to a reference.
     """
-    _inherited_slots: ClassVar[List[str]] = []
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/sdsc-ordes/modos-schema'})
 
-    class_class_uri: ClassVar[URIRef] = MODOS["AlignmentSet"]
-    class_class_curie: ClassVar[str] = "modos:AlignmentSet"
-    class_name: ClassVar[str] = "AlignmentSet"
-    class_model_uri: ClassVar[URIRef] = MODOS.AlignmentSet
+    data_path: str = Field(..., description="""The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.""", json_schema_extra = { "linkml_meta": {'alias': 'data_path',
+         'domain_of': ['DataEntity', 'ReferenceGenome'],
+         'examples': [{'value': 's3://example-bucket/path/to/data'},
+                      {'value': 'relative/file/path'},
+                      {'value': 'file:///absolute/file/path'}]} })
+    data_format: DataFormat = Field(..., description="""Data/file format associated with a data entity.""", json_schema_extra = { "linkml_meta": {'alias': 'data_format', 'domain_of': ['DataEntity']} })
+    derived_from: Optional[List[str]] = Field(None, description="""The source data from which some new data was derived.""", json_schema_extra = { "linkml_meta": {'alias': 'derived_from', 'domain_of': ['DataEntity']} })
+    has_sample: Optional[List[str]] = Field(None, description="""Biological sample included or described by a given thing.""", json_schema_extra = { "linkml_meta": {'alias': 'has_sample',
+         'domain_of': ['Assay', 'DataEntity'],
+         'is_a': 'has_part'} })
+    has_reference: Optional[List[str]] = Field(None, description="""Specifies the reference coordinate system used by an omics dataset.""", json_schema_extra = { "linkml_meta": {'alias': 'has_reference', 'domain_of': ['DataEntity'], 'is_a': 'has_part'} })
+    id: str = Field(..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+         'domain_of': ['NamedThing'],
+         'slot_uri': 'schema:description'} })
 
-    id: Union[str, AlignmentSetId] = None
-    data_path: str = None
-    data_format: Union[str, "DataFormat"] = None
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, AlignmentSetId):
-            self.id = AlignmentSetId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
 class VariantSet(DataEntity):
     """
     A data entity consisting of genomic variants relative to a reference.
     """
-    _inherited_slots: ClassVar[List[str]] = []
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/sdsc-ordes/modos-schema'})
 
-    class_class_uri: ClassVar[URIRef] = MODOS["VariantSet"]
-    class_class_curie: ClassVar[str] = "modos:VariantSet"
-    class_name: ClassVar[str] = "VariantSet"
-    class_model_uri: ClassVar[URIRef] = MODOS.VariantSet
+    data_path: str = Field(..., description="""The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.""", json_schema_extra = { "linkml_meta": {'alias': 'data_path',
+         'domain_of': ['DataEntity', 'ReferenceGenome'],
+         'examples': [{'value': 's3://example-bucket/path/to/data'},
+                      {'value': 'relative/file/path'},
+                      {'value': 'file:///absolute/file/path'}]} })
+    data_format: DataFormat = Field(..., description="""Data/file format associated with a data entity.""", json_schema_extra = { "linkml_meta": {'alias': 'data_format', 'domain_of': ['DataEntity']} })
+    derived_from: Optional[List[str]] = Field(None, description="""The source data from which some new data was derived.""", json_schema_extra = { "linkml_meta": {'alias': 'derived_from', 'domain_of': ['DataEntity']} })
+    has_sample: Optional[List[str]] = Field(None, description="""Biological sample included or described by a given thing.""", json_schema_extra = { "linkml_meta": {'alias': 'has_sample',
+         'domain_of': ['Assay', 'DataEntity'],
+         'is_a': 'has_part'} })
+    has_reference: Optional[List[str]] = Field(None, description="""Specifies the reference coordinate system used by an omics dataset.""", json_schema_extra = { "linkml_meta": {'alias': 'has_reference', 'domain_of': ['DataEntity'], 'is_a': 'has_part'} })
+    id: str = Field(..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+         'domain_of': ['NamedThing'],
+         'slot_uri': 'schema:description'} })
 
-    id: Union[str, VariantSetId] = None
-    data_path: str = None
-    data_format: Union[str, "DataFormat"] = None
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, VariantSetId):
-            self.id = VariantSetId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
 class MassSpectrometryResults(DataEntity):
     """
     A data entity consisting of quantitative results from a mass spectrometry experiment.
     """
-    _inherited_slots: ClassVar[List[str]] = []
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/sdsc-ordes/modos-schema'})
 
-    class_class_uri: ClassVar[URIRef] = MODOS["MassSpectrometryResults"]
-    class_class_curie: ClassVar[str] = "modos:MassSpectrometryResults"
-    class_name: ClassVar[str] = "MassSpectrometryResults"
-    class_model_uri: ClassVar[URIRef] = MODOS.MassSpectrometryResults
+    data_path: str = Field(..., description="""The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.""", json_schema_extra = { "linkml_meta": {'alias': 'data_path',
+         'domain_of': ['DataEntity', 'ReferenceGenome'],
+         'examples': [{'value': 's3://example-bucket/path/to/data'},
+                      {'value': 'relative/file/path'},
+                      {'value': 'file:///absolute/file/path'}]} })
+    data_format: DataFormat = Field(..., description="""Data/file format associated with a data entity.""", json_schema_extra = { "linkml_meta": {'alias': 'data_format', 'domain_of': ['DataEntity']} })
+    derived_from: Optional[List[str]] = Field(None, description="""The source data from which some new data was derived.""", json_schema_extra = { "linkml_meta": {'alias': 'derived_from', 'domain_of': ['DataEntity']} })
+    has_sample: Optional[List[str]] = Field(None, description="""Biological sample included or described by a given thing.""", json_schema_extra = { "linkml_meta": {'alias': 'has_sample',
+         'domain_of': ['Assay', 'DataEntity'],
+         'is_a': 'has_part'} })
+    has_reference: Optional[List[str]] = Field(None, description="""Specifies the reference coordinate system used by an omics dataset.""", json_schema_extra = { "linkml_meta": {'alias': 'has_reference', 'domain_of': ['DataEntity'], 'is_a': 'has_part'} })
+    id: str = Field(..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+         'domain_of': ['NamedThing'],
+         'slot_uri': 'schema:description'} })
 
-    id: Union[str, MassSpectrometryResultsId] = None
-    data_path: str = None
-    data_format: Union[str, "DataFormat"] = None
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, MassSpectrometryResultsId):
-            self.id = MassSpectrometryResultsId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
 class Array(DataEntity):
     """
     Data entity consisting of an N-dimensional array.
     """
-    _inherited_slots: ClassVar[List[str]] = []
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/sdsc-ordes/modos-schema'})
 
-    class_class_uri: ClassVar[URIRef] = MODOS["Array"]
-    class_class_curie: ClassVar[str] = "modos:Array"
-    class_name: ClassVar[str] = "Array"
-    class_model_uri: ClassVar[URIRef] = MODOS.Array
+    data_path: str = Field(..., description="""The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.""", json_schema_extra = { "linkml_meta": {'alias': 'data_path',
+         'domain_of': ['DataEntity', 'ReferenceGenome'],
+         'examples': [{'value': 's3://example-bucket/path/to/data'},
+                      {'value': 'relative/file/path'},
+                      {'value': 'file:///absolute/file/path'}]} })
+    data_format: DataFormat = Field(..., description="""Data/file format associated with a data entity.""", json_schema_extra = { "linkml_meta": {'alias': 'data_format', 'domain_of': ['DataEntity']} })
+    derived_from: Optional[List[str]] = Field(None, description="""The source data from which some new data was derived.""", json_schema_extra = { "linkml_meta": {'alias': 'derived_from', 'domain_of': ['DataEntity']} })
+    has_sample: Optional[List[str]] = Field(None, description="""Biological sample included or described by a given thing.""", json_schema_extra = { "linkml_meta": {'alias': 'has_sample',
+         'domain_of': ['Assay', 'DataEntity'],
+         'is_a': 'has_part'} })
+    has_reference: Optional[List[str]] = Field(None, description="""Specifies the reference coordinate system used by an omics dataset.""", json_schema_extra = { "linkml_meta": {'alias': 'has_reference', 'domain_of': ['DataEntity'], 'is_a': 'has_part'} })
+    id: str = Field(..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+         'domain_of': ['NamedThing'],
+         'slot_uri': 'schema:description'} })
 
-    id: Union[str, ArrayId] = None
-    data_path: str = None
-    data_format: Union[str, "DataFormat"] = None
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ArrayId):
-            self.id = ArrayId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
 class Table(DataEntity):
     """
     Data entity organized in a tabular structure.
     """
-    _inherited_slots: ClassVar[List[str]] = []
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/sdsc-ordes/modos-schema'})
 
-    class_class_uri: ClassVar[URIRef] = MODOS["Table"]
-    class_class_curie: ClassVar[str] = "modos:Table"
-    class_name: ClassVar[str] = "Table"
-    class_model_uri: ClassVar[URIRef] = MODOS.Table
+    data_path: str = Field(..., description="""The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.""", json_schema_extra = { "linkml_meta": {'alias': 'data_path',
+         'domain_of': ['DataEntity', 'ReferenceGenome'],
+         'examples': [{'value': 's3://example-bucket/path/to/data'},
+                      {'value': 'relative/file/path'},
+                      {'value': 'file:///absolute/file/path'}]} })
+    data_format: DataFormat = Field(..., description="""Data/file format associated with a data entity.""", json_schema_extra = { "linkml_meta": {'alias': 'data_format', 'domain_of': ['DataEntity']} })
+    derived_from: Optional[List[str]] = Field(None, description="""The source data from which some new data was derived.""", json_schema_extra = { "linkml_meta": {'alias': 'derived_from', 'domain_of': ['DataEntity']} })
+    has_sample: Optional[List[str]] = Field(None, description="""Biological sample included or described by a given thing.""", json_schema_extra = { "linkml_meta": {'alias': 'has_sample',
+         'domain_of': ['Assay', 'DataEntity'],
+         'is_a': 'has_part'} })
+    has_reference: Optional[List[str]] = Field(None, description="""Specifies the reference coordinate system used by an omics dataset.""", json_schema_extra = { "linkml_meta": {'alias': 'has_reference', 'domain_of': ['DataEntity'], 'is_a': 'has_part'} })
+    id: str = Field(..., description="""A unique identifier for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'id', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:identifier'} })
+    name: Optional[str] = Field(None, description="""A human-readable name for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'name', 'domain_of': ['NamedThing'], 'slot_uri': 'schema:name'} })
+    description: Optional[str] = Field(None, description="""A human-readable description for a thing""", json_schema_extra = { "linkml_meta": {'alias': 'description',
+         'domain_of': ['NamedThing'],
+         'slot_uri': 'schema:description'} })
 
-    id: Union[str, TableId] = None
-    data_path: str = None
-    data_format: Union[str, "DataFormat"] = None
 
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, TableId):
-            self.id = TableId(self.id)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass(repr=False)
-class MODOCollection(YAMLRoot):
+class MODOCollection(ConfiguredBaseModel):
     """
     A holder for Multi-Omics Digital Objects
     """
-    _inherited_slots: ClassVar[List[str]] = []
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://w3id.org/sdsc-ordes/modos-schema', 'tree_root': True})
 
-    class_class_uri: ClassVar[URIRef] = MODOS["MODOCollection"]
-    class_class_curie: ClassVar[str] = "modos:MODOCollection"
-    class_name: ClassVar[str] = "MODOCollection"
-    class_model_uri: ClassVar[URIRef] = MODOS.MODOCollection
-
-    entries: Optional[Union[Dict[Union[str, MODOId], Union[dict, MODO]], List[Union[dict, MODO]]]] = empty_dict()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="entries", slot_type=MODO, key_name="id", keyed=True)
-
-        super().__post_init__(**kwargs)
+    entries: Optional[Dict[str, MODO]] = Field(None, json_schema_extra = { "linkml_meta": {'alias': 'entries', 'domain_of': ['MODOCollection']} })
 
 
-# Enumerations
-class Sex(EnumDefinitionImpl):
+# Model rebuild
+# see https://pydantic-docs.helpmanual.io/usage/models/#rebuilding-a-model
+NamedThing.model_rebuild()
+MODO.model_rebuild()
+Assay.model_rebuild()
+Sample.model_rebuild()
+DataEntity.model_rebuild()
+ReferenceGenome.model_rebuild()
+ReferenceSequence.model_rebuild()
+AlignmentSet.model_rebuild()
+VariantSet.model_rebuild()
+MassSpectrometryResults.model_rebuild()
+Array.model_rebuild()
+Table.model_rebuild()
+MODOCollection.model_rebuild()
 
-    Male = PermissibleValue(
-        text="Male",
-        description="The male sex.")
-    Female = PermissibleValue(
-        text="Female",
-        description="The female sex.")
-
-    _defn = EnumDefinition(
-        name="Sex",
-    )
-
-class OmicsType(EnumDefinitionImpl):
-
-    GENOMICS = PermissibleValue(
-        text="GENOMICS",
-        description="The study of the structure, function, expression, evolution, mapping and editing of genomes.",
-        meaning=NCIT["C84343"])
-    TRANSCRIPTOMICS = PermissibleValue(
-        text="TRANSCRIPTOMICS",
-        description="The study of the complete set of RNA transcripts that are produced by the genome.",
-        meaning=NCIT["C153189"])
-    METABOLOMICS = PermissibleValue(
-        text="METABOLOMICS",
-        description="The study of biological metabolic profiles.",
-        meaning=NCIT["C49019"])
-    PROTEOMICS = PermissibleValue(
-        text="PROTEOMICS",
-        description="The global analysis of cellular proteins.",
-        meaning=NCIT["C20085"])
-
-    _defn = EnumDefinition(
-        name="OmicsType",
-    )
-
-class DataFormat(EnumDefinitionImpl):
-
-    CRAM = PermissibleValue(
-        text="CRAM",
-        description="Referenced-based compression of alignment format.",
-        meaning=EDAM["format_3462"])
-    FASTQ = PermissibleValue(
-        text="FASTQ",
-        description="FASTQ short read format with sequence and any type of quality scores.",
-        meaning=EDAM["format_1930"])
-    Zarr = PermissibleValue(
-        text="Zarr",
-        description="Chunked, compressed N-dimensional arrays.",
-        meaning=EDAM["format_3915"])
-    FASTA = PermissibleValue(
-        text="FASTA",
-        description="FASTA sequence format including NCBI-style IDs.",
-        meaning=EDAM["format_1929"])
-    VCF = PermissibleValue(
-        text="VCF",
-        description="Variant call format for sequence variation.",
-        meaning=EDAM["format_3016"])
-    BCF = PermissibleValue(
-        text="BCF",
-        description="Binary call format, for efficient storage of sequence variation.",
-        meaning=EDAM["format_3020"])
-    mzTab = PermissibleValue(
-        text="mzTab",
-        description="tab-delimited format for mass spectrometry-based proteomics and metabolomics results.",
-        meaning=EDAM["format_3681"])
-    parquet = PermissibleValue(
-        text="parquet",
-        description="column-oriented format for efficient storage and retrieval.",
-        meaning=None)
-
-    _defn = EnumDefinition(
-        name="DataFormat",
-    )
-
-# Slots
-class slots:
-    pass
-
-slots.id = Slot(uri=SCHEMA.identifier, name="id", curie=SCHEMA.curie('identifier'),
-                   model_uri=MODOS.id, domain=None, range=URIRef)
-
-slots.name = Slot(uri=SCHEMA.name, name="name", curie=SCHEMA.curie('name'),
-                   model_uri=MODOS.name, domain=None, range=Optional[str])
-
-slots.description = Slot(uri=SCHEMA.description, name="description", curie=SCHEMA.curie('description'),
-                   model_uri=MODOS.description, domain=None, range=Optional[str])
-
-slots.has_part = Slot(uri=SCHEMA.hasPart, name="has_part", curie=SCHEMA.curie('hasPart'),
-                   model_uri=MODOS.has_part, domain=None, range=Optional[Union[str, List[str]]])
-
-slots.creation_date = Slot(uri=MODOS.creation_date, name="creation_date", curie=MODOS.curie('creation_date'),
-                   model_uri=MODOS.creation_date, domain=None, range=Union[str, XSDDateTime])
-
-slots.last_update_date = Slot(uri=MODOS.last_update_date, name="last_update_date", curie=MODOS.curie('last_update_date'),
-                   model_uri=MODOS.last_update_date, domain=None, range=Union[str, XSDDateTime])
-
-slots.omics_type = Slot(uri=MODOS.omics_type, name="omics_type", curie=MODOS.curie('omics_type'),
-                   model_uri=MODOS.omics_type, domain=None, range=Union[Union[str, "OmicsType"], List[Union[str, "OmicsType"]]])
-
-slots.has_assay = Slot(uri=MODOS.has_assay, name="has_assay", curie=MODOS.curie('has_assay'),
-                   model_uri=MODOS.has_assay, domain=None, range=Optional[Union[Union[str, AssayId], List[Union[str, AssayId]]]])
-
-slots.has_sample = Slot(uri=MODOS.has_sample, name="has_sample", curie=MODOS.curie('has_sample'),
-                   model_uri=MODOS.has_sample, domain=None, range=Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]])
-
-slots.has_data = Slot(uri=MODOS.has_data, name="has_data", curie=MODOS.curie('has_data'),
-                   model_uri=MODOS.has_data, domain=None, range=Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]])
-
-slots.sample_processing = Slot(uri=MODOS.sample_processing, name="sample_processing", curie=MODOS.curie('sample_processing'),
-                   model_uri=MODOS.sample_processing, domain=None, range=Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]])
-
-slots.has_sequence = Slot(uri=MODOS.has_sequence, name="has_sequence", curie=MODOS.curie('has_sequence'),
-                   model_uri=MODOS.has_sequence, domain=None, range=Optional[Union[Union[str, ReferenceSequenceId], List[Union[str, ReferenceSequenceId]]]])
-
-slots.has_reference = Slot(uri=MODOS.has_reference, name="has_reference", curie=MODOS.curie('has_reference'),
-                   model_uri=MODOS.has_reference, domain=None, range=Optional[Union[Union[str, ReferenceGenomeId], List[Union[str, ReferenceGenomeId]]]])
-
-slots.data_format = Slot(uri=MODOS.data_format, name="data_format", curie=MODOS.curie('data_format'),
-                   model_uri=MODOS.data_format, domain=None, range=Union[str, "DataFormat"])
-
-slots.taxon_id = Slot(uri=MODOS.taxon_id, name="taxon_id", curie=MODOS.curie('taxon_id'),
-                   model_uri=MODOS.taxon_id, domain=None, range=Optional[Union[Union[str, URIorCURIE], List[Union[str, URIorCURIE]]]])
-
-slots.collector = Slot(uri=MODOS.collector, name="collector", curie=MODOS.curie('collector'),
-                   model_uri=MODOS.collector, domain=None, range=Optional[Union[str, List[str]]])
-
-slots.data_path = Slot(uri=MODOS.data_path, name="data_path", curie=MODOS.curie('data_path'),
-                   model_uri=MODOS.data_path, domain=None, range=str)
-
-slots.sequence_md5 = Slot(uri=MODOS.sequence_md5, name="sequence_md5", curie=MODOS.curie('sequence_md5'),
-                   model_uri=MODOS.sequence_md5, domain=None, range=Optional[str],
-                   pattern=re.compile(r'^[a-f0-9]{32}$'))
-
-slots.source_uri = Slot(uri=MODOS.source_uri, name="source_uri", curie=MODOS.curie('source_uri'),
-                   model_uri=MODOS.source_uri, domain=None, range=Optional[Union[str, URI]])
-
-slots.derived_from = Slot(uri=MODOS.derived_from, name="derived_from", curie=MODOS.curie('derived_from'),
-                   model_uri=MODOS.derived_from, domain=None, range=Optional[Union[Union[str, DataEntityId], List[Union[str, DataEntityId]]]])
-
-slots.version = Slot(uri=MODOS.version, name="version", curie=MODOS.curie('version'),
-                   model_uri=MODOS.version, domain=None, range=Optional[str])
-
-slots.cell_type = Slot(uri=MODOS.cell_type, name="cell_type", curie=MODOS.curie('cell_type'),
-                   model_uri=MODOS.cell_type, domain=None, range=Optional[Union[str, URIorCURIE]])
-
-slots.source_material = Slot(uri=MODOS.source_material, name="source_material", curie=MODOS.curie('source_material'),
-                   model_uri=MODOS.source_material, domain=None, range=Optional[Union[str, URIorCURIE]])
-
-slots.sex = Slot(uri=MODOS.sex, name="sex", curie=MODOS.curie('sex'),
-                   model_uri=MODOS.sex, domain=None, range=Optional[Union[str, "Sex"]])
-
-slots.mODOCollection__entries = Slot(uri=MODOS.entries, name="mODOCollection__entries", curie=MODOS.curie('entries'),
-                   model_uri=MODOS.mODOCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, MODOId], Union[dict, MODO]], List[Union[dict, MODO]]]])
