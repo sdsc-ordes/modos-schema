@@ -32,9 +32,21 @@ message Assay
  repeated  sample hasSample = 0
  repeated  dataEntity hasData = 0
  repeated  omicsType omicsType = 0
+ repeated  uriorcurie sampleProcessing = 0
  }
 // An entity containing data.
 message DataEntity
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+  string dataPath = 0
+  dataFormat dataFormat = 0
+ repeated  sample hasSample = 0
+ repeated  referenceGenome hasReference = 0
+ }
+// A data entity consisting of quantitative results from a mass spectrometry experiment.
+message MassSpectrometryResults
  {
   uriorcurie id = 0
   string name = 0

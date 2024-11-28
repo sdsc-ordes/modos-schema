@@ -29,9 +29,21 @@ type Assay
     hasSample: [Sample]
     hasData: [DataEntity]
     omicsType: [OmicsType]!
+    sampleProcessing: [Uriorcurie]
   }
 
 type DataEntity
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    dataPath: String!
+    dataFormat: DataFormat!
+    hasSample: [Sample]
+    hasReference: [ReferenceGenome]
+  }
+
+type MassSpectrometryResults
   {
     id: Uriorcurie!
     name: String

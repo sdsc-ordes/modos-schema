@@ -16,7 +16,7 @@
 --     * Slot: description Description: A human-readable description for a thing
 -- # Class: "Sample" Description: "A biological sample used in assays. Examples include a whole organism, tissue or cell line."
 --     * Slot: cell_type Description: The cell type of the sample, if applicable.Should be a cell type code URI from the cell ontology.See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)
---     * Slot: source_material Description: The biological source from which the sample was isolated (tissue, organ).Should be a tissue or organ code URI from the UBERON ontology.See: [https://bioregistry.io/registry/uberon](https://bioregistry.io/registry/uberon)
+--     * Slot: source_material Description: The biological source from which the sample was isolated (tissue, organ).Should be a code URI from the [UBERON](https://bioregistry.io/registry/uberon) ontology or [fairgenomes biospecimen types](https://raw.githubusercontent.com/fairgenomes/fairgenomes-semantic-model/refs/tags/v1.2/generated/ontology/fair-genomes-biospecimentypes.ttl).
 --     * Slot: sex Description: The biological sex of a sample.
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
@@ -53,6 +53,12 @@
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
 --     * Slot: description Description: A human-readable description for a thing
+-- # Class: "MassSpectrometryResults" Description: "A data entity consisting of quantitative results from a mass spectrometry experiment."
+--     * Slot: data_path Description: The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.
+--     * Slot: data_format Description: Data/file format associated with a data entity.
+--     * Slot: id Description: A unique identifier for a thing
+--     * Slot: name Description: A human-readable name for a thing
+--     * Slot: description Description: A human-readable description for a thing
 -- # Class: "Array" Description: "Data entity consisting of an N-dimensional array."
 --     * Slot: data_path Description: The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.
 --     * Slot: data_format Description: Data/file format associated with a data entity.
@@ -73,9 +79,12 @@
 -- # Class: "Assay_omics_type" Description: ""
 --     * Slot: Assay_id Description: Autocreated FK slot
 --     * Slot: omics_type Description: The type of omics considered.
+-- # Class: "Assay_sample_processing" Description: ""
+--     * Slot: Assay_id Description: Autocreated FK slot
+--     * Slot: sample_processing Description: Codes describing sample processing, preparation or handling steps.The order of the codes should reflect the order in which the steps were performed.Should be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].
 -- # Class: "Sample_taxon_id" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
---     * Slot: taxon_id Description: The NCBI taxon code describing the taxonomic range of a sample.See: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)
+--     * Slot: taxon_id Description: The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.
 -- # Class: "Sample_collector" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
 --     * Slot: collector Description: The organization responsible for collecting a given sample.
@@ -90,7 +99,7 @@
 --     * Slot: has_sequence_id Description: Denotes that a sequence belongs to a collection (e.g. a reference genome).
 -- # Class: "ReferenceGenome_taxon_id" Description: ""
 --     * Slot: ReferenceGenome_id Description: Autocreated FK slot
---     * Slot: taxon_id Description: The NCBI taxon code describing the taxonomic range of a sample.See: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)
+--     * Slot: taxon_id Description: The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.
 -- # Class: "AlignmentSet_has_sample" Description: ""
 --     * Slot: AlignmentSet_id Description: Autocreated FK slot
 --     * Slot: has_sample_id Description: Biological sample included or described by a given thing.
@@ -102,6 +111,12 @@
 --     * Slot: has_sample_id Description: Biological sample included or described by a given thing.
 -- # Class: "VariantSet_has_reference" Description: ""
 --     * Slot: VariantSet_id Description: Autocreated FK slot
+--     * Slot: has_reference_id Description: Specifies the reference coordinate system used by an omics dataset.
+-- # Class: "MassSpectrometryResults_has_sample" Description: ""
+--     * Slot: MassSpectrometryResults_id Description: Autocreated FK slot
+--     * Slot: has_sample_id Description: Biological sample included or described by a given thing.
+-- # Class: "MassSpectrometryResults_has_reference" Description: ""
+--     * Slot: MassSpectrometryResults_id Description: Autocreated FK slot
 --     * Slot: has_reference_id Description: Specifies the reference coordinate system used by an omics dataset.
 -- # Class: "Array_has_sample" Description: ""
 --     * Slot: Array_id Description: Autocreated FK slot
@@ -173,6 +188,14 @@ CREATE TABLE "VariantSet" (
 	description TEXT, 
 	PRIMARY KEY (id)
 );
+CREATE TABLE "MassSpectrometryResults" (
+	data_path TEXT NOT NULL, 
+	data_format VARCHAR(5) NOT NULL, 
+	id TEXT NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	PRIMARY KEY (id)
+);
 CREATE TABLE "Array" (
 	data_path TEXT NOT NULL, 
 	data_format VARCHAR(5) NOT NULL, 
@@ -214,6 +237,12 @@ CREATE TABLE "Assay_omics_type" (
 	"Assay_id" TEXT, 
 	omics_type VARCHAR(15) NOT NULL, 
 	PRIMARY KEY ("Assay_id", omics_type), 
+	FOREIGN KEY("Assay_id") REFERENCES "Assay" (id)
+);
+CREATE TABLE "Assay_sample_processing" (
+	"Assay_id" TEXT, 
+	sample_processing TEXT, 
+	PRIMARY KEY ("Assay_id", sample_processing), 
 	FOREIGN KEY("Assay_id") REFERENCES "Assay" (id)
 );
 CREATE TABLE "Sample_taxon_id" (
@@ -281,6 +310,20 @@ CREATE TABLE "VariantSet_has_reference" (
 	has_reference_id TEXT, 
 	PRIMARY KEY ("VariantSet_id", has_reference_id), 
 	FOREIGN KEY("VariantSet_id") REFERENCES "VariantSet" (id), 
+	FOREIGN KEY(has_reference_id) REFERENCES "ReferenceGenome" (id)
+);
+CREATE TABLE "MassSpectrometryResults_has_sample" (
+	"MassSpectrometryResults_id" TEXT, 
+	has_sample_id TEXT, 
+	PRIMARY KEY ("MassSpectrometryResults_id", has_sample_id), 
+	FOREIGN KEY("MassSpectrometryResults_id") REFERENCES "MassSpectrometryResults" (id), 
+	FOREIGN KEY(has_sample_id) REFERENCES "Sample" (id)
+);
+CREATE TABLE "MassSpectrometryResults_has_reference" (
+	"MassSpectrometryResults_id" TEXT, 
+	has_reference_id TEXT, 
+	PRIMARY KEY ("MassSpectrometryResults_id", has_reference_id), 
+	FOREIGN KEY("MassSpectrometryResults_id") REFERENCES "MassSpectrometryResults" (id), 
 	FOREIGN KEY(has_reference_id) REFERENCES "ReferenceGenome" (id)
 );
 CREATE TABLE "Array_has_sample" (

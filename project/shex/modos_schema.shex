@@ -67,7 +67,8 @@ linkml:Sparqlpath xsd:string
           <has_sample> @<Sample> * ;
           <has_data> @<DataEntity> * ;
           <omics_type> [ <http://purl.obolibrary.org/obo/NCIT_C84343> <http://purl.obolibrary.org/obo/NCIT_C153189>
-             <http://purl.obolibrary.org/obo/NCIT_C49019> <http://purl.obolibrary.org/obo/NCIT_C20085> ] +
+             <http://purl.obolibrary.org/obo/NCIT_C49019> <http://purl.obolibrary.org/obo/NCIT_C20085> ] + ;
+          <sample_processing> @linkml:Uriorcurie *
        ) ;
        rdf:type [ <Assay> ]
     )
@@ -79,14 +80,22 @@ linkml:Sparqlpath xsd:string
              rdf:type [ schema1:Thing ] ? ;
              <data_path> @linkml:String ;
              <data_format> [ EDAM:format_3462 EDAM:format_1930 EDAM:format_3915 EDAM:format_1929 EDAM:format_3016 EDAM:format_3020
-                ] ;
+                EDAM:format_3681 ] ;
              <has_sample> @<Sample> * ;
              <has_reference> @<ReferenceGenome> *
           ) ;
           rdf:type [ <DataEntity> ]
        )
-    } OR @<AlignmentSet> OR @<Array> OR @<VariantSet>
+    } OR @<AlignmentSet> OR @<Array> OR @<MassSpectrometryResults> OR @<VariantSet>
 )
+
+<MassSpectrometryResults> CLOSED {
+    (  $<MassSpectrometryResults_tes> (  &<DataEntity_tes> ;
+          rdf:type [ <DataEntity> ] ?
+       ) ;
+       rdf:type [ <MassSpectrometryResults> ]
+    )
+}
 
 <MODO> CLOSED {
     (  $<MODO_tes> (  &<NamedThing_tes> ;
