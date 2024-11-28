@@ -251,6 +251,8 @@
     click OmicsType href "../OmicsType"
 
 
+      Assay : sample_processing
+
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -287,6 +289,12 @@
 <td><a href="../omics_type/">omics_type</a></td>
 <td>1..* <br/> <a href="../OmicsType/">OmicsType</a></td>
 <td>The type of omics considered</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../sample_processing/">sample_processing</a></td>
+<td>* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>Codes describing sample processing, preparation or handling steps</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -372,6 +380,7 @@ slots:
 - has_sample
 - has_data
 - omics_type
+- sample_processing
 
 </code></pre>
 </details>
@@ -421,6 +430,24 @@ attributes:
     - Assay
     range: OmicsType
     required: true
+    multivalued: true
+  sample_processing:
+    name: sample_processing
+    description: 'Codes describing sample processing, preparation or handling steps.
+
+      The order of the codes should reflect the order in which the steps were performed.
+
+      Should be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].
+
+      '
+    from_schema: https://w3id.org/sdsc-ordes/modos-schema
+    rank: 1000
+    list_elements_ordered: true
+    alias: sample_processing
+    owner: Assay
+    domain_of:
+    - Assay
+    range: uriorcurie
     multivalued: true
   id:
     name: id

@@ -276,7 +276,7 @@
 <tr>
 <td><a href="../taxon_id/">taxon_id</a></td>
 <td>* <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
-<td>The NCBI taxon code describing the taxonomic range of a sample</td>
+<td>The NCBI taxon code from [ncbitaxon](https://obofoundry</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -336,6 +336,12 @@
 </tr>
 <tr>
 <td><a href="../VariantSet/">VariantSet</a></td>
+<td><a href="../has_reference/">has_reference</a></td>
+<td>range</td>
+<td><a href="./">ReferenceGenome</a></td>
+</tr>
+<tr>
+<td><a href="../MassSpectrometryResults/">MassSpectrometryResults</a></td>
 <td><a href="../has_reference/">has_reference</a></td>
 <td>range</td>
 <td><a href="./">ReferenceGenome</a></td>
@@ -439,9 +445,8 @@ attributes:
     multivalued: true
   taxon_id:
     name: taxon_id
-    description: 'The NCBI taxon code describing the taxonomic range of a sample.
-
-      See: [https://obofoundry.org/ontology/ncbitaxon.html](https://obofoundry.org/ontology/ncbitaxon.html)
+    description: 'The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html)
+      describing the taxonomic range of a sample.
 
       '
     from_schema: https://w3id.org/sdsc-ordes/modos-schema
