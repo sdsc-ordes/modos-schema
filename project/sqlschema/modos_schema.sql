@@ -24,6 +24,7 @@
 -- # Class: "DataEntity" Description: "An entity containing data."
 --     * Slot: data_path Description: The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.
 --     * Slot: data_format Description: Data/file format associated with a data entity.
+--     * Slot: data_checksum Description: The pre-computed BLAKE2b hash uniquely representing a file content.
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
 --     * Slot: description Description: A human-readable description for a thing
@@ -44,24 +45,28 @@
 -- # Class: "AlignmentSet" Description: "A data entity consisting of genomic intervals aligned to a reference."
 --     * Slot: data_path Description: The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.
 --     * Slot: data_format Description: Data/file format associated with a data entity.
+--     * Slot: data_checksum Description: The pre-computed BLAKE2b hash uniquely representing a file content.
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
 --     * Slot: description Description: A human-readable description for a thing
 -- # Class: "VariantSet" Description: "A data entity consisting of genomic variants relative to a reference."
 --     * Slot: data_path Description: The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.
 --     * Slot: data_format Description: Data/file format associated with a data entity.
+--     * Slot: data_checksum Description: The pre-computed BLAKE2b hash uniquely representing a file content.
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
 --     * Slot: description Description: A human-readable description for a thing
 -- # Class: "MassSpectrometryResults" Description: "A data entity consisting of quantitative results from a mass spectrometry experiment."
 --     * Slot: data_path Description: The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.
 --     * Slot: data_format Description: Data/file format associated with a data entity.
+--     * Slot: data_checksum Description: The pre-computed BLAKE2b hash uniquely representing a file content.
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
 --     * Slot: description Description: A human-readable description for a thing
 -- # Class: "Array" Description: "Data entity consisting of an N-dimensional array."
 --     * Slot: data_path Description: The path to access a resource, on a network or local filesystem. Can be a path relative to the root of the digital object, a URL, or an absolute path.
 --     * Slot: data_format Description: Data/file format associated with a data entity.
+--     * Slot: data_checksum Description: The pre-computed BLAKE2b hash uniquely representing a file content.
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
 --     * Slot: description Description: A human-readable description for a thing
@@ -149,6 +154,7 @@ CREATE TABLE "Sample" (
 CREATE TABLE "DataEntity" (
 	data_path TEXT NOT NULL, 
 	data_format VARCHAR(5) NOT NULL, 
+	data_checksum TEXT, 
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -175,6 +181,7 @@ CREATE TABLE "ReferenceSequence" (
 CREATE TABLE "AlignmentSet" (
 	data_path TEXT NOT NULL, 
 	data_format VARCHAR(5) NOT NULL, 
+	data_checksum TEXT, 
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -183,6 +190,7 @@ CREATE TABLE "AlignmentSet" (
 CREATE TABLE "VariantSet" (
 	data_path TEXT NOT NULL, 
 	data_format VARCHAR(5) NOT NULL, 
+	data_checksum TEXT, 
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -191,6 +199,7 @@ CREATE TABLE "VariantSet" (
 CREATE TABLE "MassSpectrometryResults" (
 	data_path TEXT NOT NULL, 
 	data_format VARCHAR(5) NOT NULL, 
+	data_checksum TEXT, 
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -199,6 +208,7 @@ CREATE TABLE "MassSpectrometryResults" (
 CREATE TABLE "Array" (
 	data_path TEXT NOT NULL, 
 	data_format VARCHAR(5) NOT NULL, 
+	data_checksum TEXT, 
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 

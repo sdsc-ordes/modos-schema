@@ -526,8 +526,8 @@
         "http://schema.org/hasPart"
       ],
       "slot_uri": "http://schema.org/hasPart",
-      "range": "string",
       "multivalued": true,
+      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -564,13 +564,13 @@
       "description": "The type of omics considered.",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/omics_type",
+      "multivalued": true,
       "owner": "Assay",
       "domain_of": [
         "Assay"
       ],
       "range": "OmicsType",
       "required": true,
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -580,12 +580,12 @@
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_assay",
+      "multivalued": true,
       "owner": "MODO",
       "domain_of": [
         "MODO"
       ],
       "range": "Assay",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -595,13 +595,13 @@
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_sample",
+      "multivalued": true,
       "owner": "DataEntity",
       "domain_of": [
         "Assay",
         "DataEntity"
       ],
       "range": "Sample",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -611,12 +611,12 @@
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_data",
+      "multivalued": true,
       "owner": "Assay",
       "domain_of": [
         "Assay"
       ],
       "range": "DataEntity",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -625,13 +625,13 @@
       "description": "Codes describing sample processing, preparation or handling steps.\nThe order of the codes should reflect the order in which the steps were performed.\nShould be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].\n",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/sample_processing",
+      "multivalued": true,
       "list_elements_ordered": true,
       "owner": "Assay",
       "domain_of": [
         "Assay"
       ],
       "range": "uriorcurie",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -641,12 +641,12 @@
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_sequence",
+      "multivalued": true,
       "owner": "ReferenceGenome",
       "domain_of": [
         "ReferenceGenome"
       ],
       "range": "ReferenceSequence",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -656,12 +656,12 @@
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "is_a": "has_part",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/has_reference",
+      "multivalued": true,
       "owner": "DataEntity",
       "domain_of": [
         "DataEntity"
       ],
       "range": "ReferenceGenome",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -684,13 +684,13 @@
       "description": "The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.\n",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/taxon_id",
+      "multivalued": true,
       "owner": "ReferenceGenome",
       "domain_of": [
         "Sample",
         "ReferenceGenome"
       ],
       "range": "uriorcurie",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -699,12 +699,12 @@
       "description": "The organization responsible for collecting a given sample.",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/collector",
+      "multivalued": true,
       "owner": "Sample",
       "domain_of": [
         "Sample"
       ],
       "range": "string",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -819,16 +819,30 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "data_checksum",
+      "definition_uri": "https://w3id.org/sdsc-ordes/modos-schema/data_checksum",
+      "description": "The pre-computed BLAKE2b hash uniquely representing a file content.",
+      "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
+      "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/data_checksum",
+      "owner": "DataEntity",
+      "domain_of": [
+        "DataEntity"
+      ],
+      "range": "string",
+      "pattern": "^[0-9a-fA-F]{128}$",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "mODOCollection__entries",
       "from_schema": "https://w3id.org/sdsc-ordes/modos-schema",
       "slot_uri": "https://w3id.org/sdsc-ordes/modos-schema/entries",
+      "multivalued": true,
       "alias": "entries",
       "owner": "MODOCollection",
       "domain_of": [
         "MODOCollection"
       ],
       "range": "MODO",
-      "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     }
@@ -929,7 +943,8 @@
         "data_path",
         "data_format",
         "has_sample",
-        "has_reference"
+        "has_reference",
+        "data_checksum"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/DataEntity",
@@ -992,7 +1007,8 @@
         "data_path",
         "data_format",
         "has_sample",
-        "has_reference"
+        "has_reference",
+        "data_checksum"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/AlignmentSet",
@@ -1011,7 +1027,8 @@
         "data_path",
         "data_format",
         "has_sample",
-        "has_reference"
+        "has_reference",
+        "data_checksum"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/VariantSet",
@@ -1030,7 +1047,8 @@
         "data_path",
         "data_format",
         "has_sample",
-        "has_reference"
+        "has_reference",
+        "data_checksum"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/MassSpectrometryResults",
@@ -1049,7 +1067,8 @@
         "data_path",
         "data_format",
         "has_sample",
-        "has_reference"
+        "has_reference",
+        "data_checksum"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/Array",
@@ -1067,8 +1086,8 @@
       "attributes": [
         {
           "name": "entries",
-          "range": "MODO",
           "multivalued": true,
+          "range": "MODO",
           "inlined": true,
           "@type": "SlotDefinition"
         }
@@ -1080,9 +1099,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "modos_schema.yaml",
-  "source_file_date": "2024-11-08T09:56:24",
-  "source_file_size": 9291,
-  "generation_date": "2024-11-08T09:56:39",
+  "source_file_date": "2025-01-17T15:54:47",
+  "source_file_size": 9476,
+  "generation_date": "2025-01-17T15:55:35",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/modos_schema.context.jsonld",

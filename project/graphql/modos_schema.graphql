@@ -8,6 +8,7 @@ type AlignmentSet
     dataFormat: DataFormat!
     hasSample: [Sample]
     hasReference: [ReferenceGenome]
+    dataChecksum: String
   }
 
 type Array
@@ -19,6 +20,7 @@ type Array
     dataFormat: DataFormat!
     hasSample: [Sample]
     hasReference: [ReferenceGenome]
+    dataChecksum: String
   }
 
 type Assay
@@ -41,6 +43,7 @@ type DataEntity
     dataFormat: DataFormat!
     hasSample: [Sample]
     hasReference: [ReferenceGenome]
+    dataChecksum: String
   }
 
 type MassSpectrometryResults
@@ -52,6 +55,7 @@ type MassSpectrometryResults
     dataFormat: DataFormat!
     hasSample: [Sample]
     hasReference: [ReferenceGenome]
+    dataChecksum: String
   }
 
 type MODO
@@ -120,5 +124,6 @@ type VariantSet
     dataFormat: DataFormat!
     hasSample: [Sample]
     hasReference: [ReferenceGenome]
+    dataChecksum: String
   }
 
