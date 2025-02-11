@@ -17,6 +17,7 @@ MODO {
 }
 Assay {
     OmicsTypeList omics_type
+    uriorcurieList sample_processing
     uriorcurie id
     string name
     string description
@@ -24,6 +25,7 @@ Assay {
 DataEntity {
     string data_path
     DataFormat data_format
+    string data_checksum
     uriorcurie id
     string name
     string description
