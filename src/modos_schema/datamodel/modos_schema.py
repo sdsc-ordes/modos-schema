@@ -1,5 +1,5 @@
 # Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-11-08T09:56:39
+# Generation date: 2025-01-17T15:55:36
 # Schema: modos-schema
 #
 # id: https://w3id.org/sdsc-ordes/modos-schema
@@ -11,7 +11,7 @@ import re
 from jsonasobj2 import JsonObj, as_dict
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
-from datetime import date, datetime, time
+from datetime import date, datetime
 from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
 
 from linkml_runtime.utils.slot import Slot
@@ -96,7 +96,7 @@ class ArrayId(DataEntityId):
     pass
 
 
-@dataclass(repr=False)
+@dataclass
 class NamedThing(YAMLRoot):
     """
     A generic grouping for any identifiable entity
@@ -127,7 +127,7 @@ class NamedThing(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
+@dataclass
 class MODO(NamedThing):
     """
     Represents the Multi-Omics Digital Object. It encapsulates omics and other datasets and their metadata.
@@ -171,7 +171,7 @@ class MODO(NamedThing):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
+@dataclass
 class Assay(NamedThing):
     """
     A coordinated set of actions designed to generate data from samples.
@@ -216,7 +216,7 @@ class Assay(NamedThing):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
+@dataclass
 class Sample(NamedThing):
     """
     A biological sample used in assays. Examples include a whole organism, tissue or cell line.
@@ -261,7 +261,7 @@ class Sample(NamedThing):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
+@dataclass
 class DataEntity(NamedThing):
     """
     An entity containing data.
@@ -278,6 +278,7 @@ class DataEntity(NamedThing):
     data_format: Union[str, "DataFormat"] = None
     has_sample: Optional[Union[Union[str, SampleId], List[Union[str, SampleId]]]] = empty_list()
     has_reference: Optional[Union[Union[str, ReferenceGenomeId], List[Union[str, ReferenceGenomeId]]]] = empty_list()
+    data_checksum: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.id):
@@ -303,10 +304,13 @@ class DataEntity(NamedThing):
             self.has_reference = [self.has_reference] if self.has_reference is not None else []
         self.has_reference = [v if isinstance(v, ReferenceGenomeId) else ReferenceGenomeId(v) for v in self.has_reference]
 
+        if self.data_checksum is not None and not isinstance(self.data_checksum, str):
+            self.data_checksum = str(self.data_checksum)
+
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
+@dataclass
 class ReferenceGenome(NamedThing):
     """
     Reference assembly of a given genome, consisting of a collection of congiguous sequences (contigs).
@@ -353,7 +357,7 @@ class ReferenceGenome(NamedThing):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
+@dataclass
 class ReferenceSequence(NamedThing):
     """
     A contiguous sequence of DNA part of a reference coordinate system (genome assembly).
@@ -388,7 +392,7 @@ class ReferenceSequence(NamedThing):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
+@dataclass
 class AlignmentSet(DataEntity):
     """
     A data entity consisting of genomic intervals aligned to a reference.
@@ -413,7 +417,7 @@ class AlignmentSet(DataEntity):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
+@dataclass
 class VariantSet(DataEntity):
     """
     A data entity consisting of genomic variants relative to a reference.
@@ -438,7 +442,7 @@ class VariantSet(DataEntity):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
+@dataclass
 class MassSpectrometryResults(DataEntity):
     """
     A data entity consisting of quantitative results from a mass spectrometry experiment.
@@ -463,7 +467,7 @@ class MassSpectrometryResults(DataEntity):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
+@dataclass
 class Array(DataEntity):
     """
     Data entity consisting of an N-dimensional array.
@@ -488,7 +492,7 @@ class Array(DataEntity):
         super().__post_init__(**kwargs)
 
 
-@dataclass(repr=False)
+@dataclass
 class MODOCollection(YAMLRoot):
     """
     A holder for Multi-Omics Digital Objects
@@ -653,6 +657,10 @@ slots.source_material = Slot(uri=MODOS.source_material, name="source_material", 
 
 slots.sex = Slot(uri=MODOS.sex, name="sex", curie=MODOS.curie('sex'),
                    model_uri=MODOS.sex, domain=None, range=Optional[Union[str, "Sex"]])
+
+slots.data_checksum = Slot(uri=MODOS.data_checksum, name="data_checksum", curie=MODOS.curie('data_checksum'),
+                   model_uri=MODOS.data_checksum, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^[0-9a-fA-F]{128}$'))
 
 slots.mODOCollection__entries = Slot(uri=MODOS.entries, name="mODOCollection__entries", curie=MODOS.curie('entries'),
                    model_uri=MODOS.mODOCollection__entries, domain=None, range=Optional[Union[Dict[Union[str, MODOId], Union[dict, MODO]], List[Union[dict, MODO]]]])

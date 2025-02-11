@@ -87,6 +87,7 @@ classes:
       - data_format
       - has_sample
       - has_reference
+      - data_checksum
 
   ReferenceGenome:
     is_a: NamedThing
@@ -257,6 +258,11 @@ slots:
   sex:
     description: The biological sex of a sample.
     range: Sex
+  data_checksum:
+    description: >-
+      The pre-computed BLAKE2b hash uniquely representing a file content.
+    range: string
+    pattern: "^[0-9a-fA-F]{128}$"
 
 enums:
   Sex:
