@@ -208,6 +208,8 @@
       DataEntity &lt;|-- AlignmentSet
         click DataEntity href "../DataEntity"
 
+      AlignmentSet : data_checksum
+
       AlignmentSet : data_format
 
 
@@ -288,6 +290,12 @@
 <td><a href="../has_reference/">has_reference</a></td>
 <td>* <br/> <a href="../ReferenceGenome/">ReferenceGenome</a></td>
 <td>Specifies the reference coordinate system used by an omics dataset</td>
+<td><a href="../DataEntity/">DataEntity</a></td>
+</tr>
+<tr>
+<td><a href="../data_checksum/">data_checksum</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The pre-computed BLAKE2b hash uniquely representing a file content</td>
 <td><a href="../DataEntity/">DataEntity</a></td>
 </tr>
 <tr>
@@ -406,6 +414,17 @@ attributes:
     - DataEntity
     range: ReferenceGenome
     multivalued: true
+  data_checksum:
+    name: data_checksum
+    description: The pre-computed BLAKE2b hash uniquely representing a file content.
+    from_schema: https://w3id.org/sdsc-ordes/modos-schema
+    rank: 1000
+    alias: data_checksum
+    owner: AlignmentSet
+    domain_of:
+    - DataEntity
+    range: string
+    pattern: ^[0-9a-fA-F]{128}$
   id:
     name: id
     description: A unique identifier for a thing
