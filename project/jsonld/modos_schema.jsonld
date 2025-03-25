@@ -462,6 +462,16 @@
           "text": "mzTab",
           "description": "tab-delimited format for mass spectrometry-based proteomics and metabolomics results.",
           "meaning": "EDAM:format_3681"
+        },
+        {
+          "text": "TSV",
+          "description": "Comma-separated values format.",
+          "meaning": "EDAM:format_3475"
+        },
+        {
+          "text": "JSON",
+          "description": "JavaScript Object Notation format.",
+          "meaning": "EDAM:format_3464"
         }
       ]
     }
@@ -1099,9 +1109,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "modos_schema.yaml",
-  "source_file_date": "2025-01-17T15:54:47",
-  "source_file_size": 9476,
-  "generation_date": "2025-01-17T15:55:35",
+  "source_file_date": "2025-03-25T08:37:32",
+  "source_file_size": 9675,
+  "generation_date": "2025-03-25T08:40:51",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/modos_schema.context.jsonld",
