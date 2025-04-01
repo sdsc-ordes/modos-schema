@@ -80,7 +80,7 @@ linkml:Sparqlpath xsd:string
              rdf:type [ schema1:Thing ] ? ;
              <data_path> @linkml:String ;
              <data_format> [ EDAM:format_3462 EDAM:format_1930 EDAM:format_3915 EDAM:format_1929 EDAM:format_3016 EDAM:format_3020
-                EDAM:format_3681 ] ;
+                EDAM:format_3681 EDAM:format_3475 EDAM:format_3464 ] ;
              <has_sample> @<Sample> * ;
              <has_reference> @<ReferenceGenome> * ;
              <data_checksum> @linkml:String ?

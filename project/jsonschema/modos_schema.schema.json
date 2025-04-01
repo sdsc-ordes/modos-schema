@@ -217,7 +217,9 @@
                 "FASTA",
                 "VCF",
                 "BCF",
-                "mzTab"
+                "mzTab",
+                "TSV",
+                "JSON"
             ],
             "title": "DataFormat",
             "type": "string"

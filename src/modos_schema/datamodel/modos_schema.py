@@ -1,5 +1,5 @@
 # Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-01-17T15:55:36
+# Generation date: 2025-04-01T14:51:39
 # Schema: modos-schema
 #
 # id: https://w3id.org/sdsc-ordes/modos-schema
@@ -579,6 +579,14 @@ class DataFormat(EnumDefinitionImpl):
         text="mzTab",
         description="tab-delimited format for mass spectrometry-based proteomics and metabolomics results.",
         meaning=EDAM["format_3681"])
+    TSV = PermissibleValue(
+        text="TSV",
+        description="Tab-separated values format.",
+        meaning=EDAM["format_3475"])
+    JSON = PermissibleValue(
+        text="JSON",
+        description="JavaScript Object Notation format.",
+        meaning=EDAM["format_3464"])
 
     _defn = EnumDefinition(
         name="DataFormat",

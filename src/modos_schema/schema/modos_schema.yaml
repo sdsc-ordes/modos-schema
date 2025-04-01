@@ -312,3 +312,9 @@ enums:
       mzTab:
         description: tab-delimited format for mass spectrometry-based proteomics and metabolomics results.
         meaning: EDAM:format_3681
+      TSV:
+        description: Tab-separated values format.
+        meaning: EDAM:format_3475
+      JSON:
+        description: JavaScript Object Notation format.
+        meaning: EDAM:format_3464
