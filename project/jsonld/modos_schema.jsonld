@@ -465,7 +465,7 @@
         },
         {
           "text": "TSV",
-          "description": "Comma-separated values format.",
+          "description": "Tab-separated values format.",
           "meaning": "EDAM:format_3475"
         },
         {
@@ -1109,9 +1109,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "modos_schema.yaml",
-  "source_file_date": "2025-03-25T08:37:32",
-  "source_file_size": 9675,
-  "generation_date": "2025-03-25T08:40:51",
+  "source_file_date": "2025-04-01T14:51:33",
+  "source_file_size": 9673,
+  "generation_date": "2025-04-01T14:51:38",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/modos_schema.context.jsonld",

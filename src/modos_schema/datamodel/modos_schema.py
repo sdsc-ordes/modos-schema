@@ -1,5 +1,5 @@
 # Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-25T08:40:51
+# Generation date: 2025-04-01T14:51:39
 # Schema: modos-schema
 #
 # id: https://w3id.org/sdsc-ordes/modos-schema
@@ -581,7 +581,7 @@ class DataFormat(EnumDefinitionImpl):
         meaning=EDAM["format_3681"])
     TSV = PermissibleValue(
         text="TSV",
-        description="Comma-separated values format.",
+        description="Tab-separated values format.",
         meaning=EDAM["format_3475"])
     JSON = PermissibleValue(
         text="JSON",
