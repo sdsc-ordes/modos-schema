@@ -7,7 +7,10 @@
                 "data_checksum": {
                     "description": "The pre-computed BLAKE2b hash uniquely representing a file content.",
                     "pattern": "^[0-9a-fA-F]{128}$",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "data_format": {
                     "$ref": "#/$defs/DataFormat",
@@ -19,21 +22,30 @@
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "has_reference": {
                     "description": "Specifies the reference coordinate system used by an omics dataset.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "has_sample": {
                     "description": "Biological sample included or described by a given thing.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
@@ -41,7 +53,10 @@
                 },
                 "name": {
                     "description": "A human-readable name for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -59,7 +74,10 @@
                 "data_checksum": {
                     "description": "The pre-computed BLAKE2b hash uniquely representing a file content.",
                     "pattern": "^[0-9a-fA-F]{128}$",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "data_format": {
                     "$ref": "#/$defs/DataFormat",
@@ -71,21 +89,30 @@
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "has_reference": {
                     "description": "Specifies the reference coordinate system used by an omics dataset.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "has_sample": {
                     "description": "Biological sample included or described by a given thing.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
@@ -93,7 +120,10 @@
                 },
                 "name": {
                     "description": "A human-readable name for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -110,21 +140,30 @@
             "properties": {
                 "description": {
                     "description": "A human-readable description for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "has_data": {
                     "description": "Data entity included in a given collection.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "has_sample": {
                     "description": "Biological sample included or described by a given thing.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
@@ -132,7 +171,10 @@
                 },
                 "name": {
                     "description": "A human-readable name for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "omics_type": {
                     "description": "The type of omics considered.",
@@ -146,7 +188,10 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -163,7 +208,10 @@
                 "data_checksum": {
                     "description": "The pre-computed BLAKE2b hash uniquely representing a file content.",
                     "pattern": "^[0-9a-fA-F]{128}$",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "data_format": {
                     "$ref": "#/$defs/DataFormat",
@@ -175,21 +223,30 @@
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "has_reference": {
                     "description": "Specifies the reference coordinate system used by an omics dataset.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "has_sample": {
                     "description": "Biological sample included or described by a given thing.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
@@ -197,7 +254,10 @@
                 },
                 "name": {
                     "description": "A human-readable name for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -235,14 +295,20 @@
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "has_assay": {
                     "description": "An assay that was performed as part of a given thing.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
@@ -255,11 +321,17 @@
                 },
                 "name": {
                     "description": "A human-readable name for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "source_uri": {
                     "description": "The URI from which a resource or dataset was obtained or derived.",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -278,7 +350,10 @@
                     "additionalProperties": {
                         "$ref": "#/$defs/MODO__identifier_optional"
                     },
-                    "type": "object"
+                    "type": [
+                        "object",
+                        "null"
+                    ]
                 }
             },
             "title": "MODOCollection",
@@ -295,14 +370,20 @@
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "has_assay": {
                     "description": "An assay that was performed as part of a given thing.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
@@ -315,11 +396,17 @@
                 },
                 "name": {
                     "description": "A human-readable name for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "source_uri": {
                     "description": "The URI from which a resource or dataset was obtained or derived.",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -336,7 +423,10 @@
                 "data_checksum": {
                     "description": "The pre-computed BLAKE2b hash uniquely representing a file content.",
                     "pattern": "^[0-9a-fA-F]{128}$",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "data_format": {
                     "$ref": "#/$defs/DataFormat",
@@ -348,21 +438,30 @@
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "has_reference": {
                     "description": "Specifies the reference coordinate system used by an omics dataset.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "has_sample": {
                     "description": "Biological sample included or described by a given thing.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
@@ -370,7 +469,10 @@
                 },
                 "name": {
                     "description": "A human-readable name for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -387,15 +489,24 @@
             "properties": {
                 "description": {
                     "description": "A human-readable description for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "name": {
                     "description": "A human-readable name for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -425,14 +536,20 @@
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "has_sequence": {
                     "description": "Denotes that a sequence belongs to a collection (e.g. a reference genome).",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
@@ -440,22 +557,34 @@
                 },
                 "name": {
                     "description": "A human-readable name for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "source_uri": {
                     "description": "The URI from which a resource or dataset was obtained or derived.",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "taxon_id": {
                     "description": "The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.\n",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "version": {
                     "description": "A string specifying the release or version of a software or resource.",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -471,7 +600,10 @@
             "properties": {
                 "description": {
                     "description": "A human-readable description for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
@@ -479,20 +611,32 @@
                 },
                 "name": {
                     "description": "A human-readable name for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "sequence_md5": {
                     "description": "The pre-computed hash uniquely representing a biological sequence. Calculated as the MD5 of the upper-case sequence excluding all whitespace characters (this is equivalent to SQ:M5 in SAM).",
                     "pattern": "^[a-f0-9]{32}$",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "source_uri": {
                     "description": "The URI from which a resource or dataset was obtained or derived.",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "version": {
                     "description": "A string specifying the release or version of a software or resource.",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -507,18 +651,27 @@
             "properties": {
                 "cell_type": {
                     "description": "The cell type of the sample, if applicable.\nShould be a cell type code URI from the cell ontology.\nSee: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)\n",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "collector": {
                     "description": "The organization responsible for collecting a given sample.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
@@ -526,7 +679,10 @@
                 },
                 "name": {
                     "description": "A human-readable name for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "sex": {
                     "$ref": "#/$defs/Sex",
@@ -534,14 +690,20 @@
                 },
                 "source_material": {
                     "description": "The biological source from which the sample was isolated (tissue, organ).\nShould be a code URI from the [UBERON](https://bioregistry.io/registry/uberon) ontology or [fairgenomes biospecimen types](https://raw.githubusercontent.com/fairgenomes/fairgenomes-semantic-model/refs/tags/v1.2/generated/ontology/fair-genomes-biospecimentypes.ttl).\n",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "taxon_id": {
                     "description": "The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.\n",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -566,7 +728,10 @@
                 "data_checksum": {
                     "description": "The pre-computed BLAKE2b hash uniquely representing a file content.",
                     "pattern": "^[0-9a-fA-F]{128}$",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "data_format": {
                     "$ref": "#/$defs/DataFormat",
@@ -578,21 +743,30 @@
                 },
                 "description": {
                     "description": "A human-readable description for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "has_reference": {
                     "description": "Specifies the reference coordinate system used by an omics dataset.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "has_sample": {
                     "description": "Biological sample included or described by a given thing.",
                     "items": {
                         "type": "string"
                     },
-                    "type": "array"
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "id": {
                     "description": "A unique identifier for a thing",
@@ -600,7 +774,10 @@
                 },
                 "name": {
                     "description": "A human-readable name for a thing",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
             "required": [
@@ -622,7 +799,10 @@
             "additionalProperties": {
                 "$ref": "#/$defs/MODO__identifier_optional"
             },
-            "type": "object"
+            "type": [
+                "object",
+                "null"
+            ]
         }
     },
     "title": "modos-schema",
