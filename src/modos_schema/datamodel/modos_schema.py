@@ -1,5 +1,5 @@
 # Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-05-09T11:49:17
+# Generation date: 2025-05-09T11:55:20
 # Schema: modos-schema
 #
 # id: https://w3id.org/sdsc-ordes/modos-schema
