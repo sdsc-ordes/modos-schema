@@ -21,10 +21,6 @@
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/CellType/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
          <loc>https://sdsc-ordes.github.io/modos-schema/Curie/</loc>
          <lastmod>2025-05-09</lastmod>
     </url>
@@ -54,10 +50,6 @@
     </url>
     <url>
          <loc>https://sdsc-ordes.github.io/modos-schema/Double/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/Experiment/</loc>
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
@@ -109,10 +101,6 @@
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/Record/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
          <loc>https://sdsc-ordes.github.io/modos-schema/ReferenceGenome/</loc>
          <lastmod>2025-05-09</lastmod>
     </url>
@@ -129,27 +117,11 @@
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/SourceMaterial/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
          <loc>https://sdsc-ordes.github.io/modos-schema/Sparqlpath/</loc>
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
          <loc>https://sdsc-ordes.github.io/modos-schema/String/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/Study/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/StudyCollection/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/Table/</loc>
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
@@ -181,10 +153,6 @@
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/completion_date/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
          <loc>https://sdsc-ordes.github.io/modos-schema/creation_date/</loc>
          <lastmod>2025-05-09</lastmod>
     </url>
@@ -201,19 +169,11 @@
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/derived_from/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
          <loc>https://sdsc-ordes.github.io/modos-schema/description/</loc>
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
          <loc>https://sdsc-ordes.github.io/modos-schema/entries/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/format/</loc>
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
@@ -225,15 +185,7 @@
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/has_experiment/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
          <loc>https://sdsc-ordes.github.io/modos-schema/has_part/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/has_record/</loc>
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
@@ -242,10 +194,6 @@
     </url>
     <url>
          <loc>https://sdsc-ordes.github.io/modos-schema/has_sample/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/has_sample_processing/</loc>
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
@@ -258,14 +206,6 @@
     </url>
     <url>
          <loc>https://sdsc-ordes.github.io/modos-schema/last_update_date/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/location/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/modo-schema/</loc>
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
@@ -293,10 +233,6 @@
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/smoc-schema/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
          <loc>https://sdsc-ordes.github.io/modos-schema/source_material/</loc>
          <lastmod>2025-05-09</lastmod>
     </url>
@@ -305,19 +241,7 @@
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/start_date/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
          <loc>https://sdsc-ordes.github.io/modos-schema/taxon_id/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/types/</loc>
-         <lastmod>2025-05-09</lastmod>
-    </url>
-    <url>
-         <loc>https://sdsc-ordes.github.io/modos-schema/uri/</loc>
          <lastmod>2025-05-09</lastmod>
     </url>
     <url>
