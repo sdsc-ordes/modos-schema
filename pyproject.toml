@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "modos_schema"
-version = "0.3.1"
+version = "0.3.2"
 description = "Metadata schema for the Multi-Omics Digital Object System"
 authors = ["Cyril Matthey-Doret"]
 license = "Apache-2.0"
