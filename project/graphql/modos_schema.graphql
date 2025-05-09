@@ -1,4 +1,31 @@
 # metamodel_version: 1.7.0
+enum DataFormat
+  {
+    CRAM
+    FASTQ
+    Zarr
+    FASTA
+    VCF
+    BCF
+    mzTab
+    TSV
+    JSON
+  }
+
+enum OmicsType
+  {
+    GENOMICS
+    TRANSCRIPTOMICS
+    METABOLOMICS
+    PROTEOMICS
+  }
+
+enum Sex
+  {
+    Male
+    Female
+  }
+
 type AlignmentSet
   {
     id: Uriorcurie!
