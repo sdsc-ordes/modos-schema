@@ -1,5 +1,5 @@
 # Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-05-09T11:55:20
+# Generation date: 2025-09-06T14:30:17
 # Schema: modos-schema
 #
 # id: https://w3id.org/sdsc-ordes/modos-schema
@@ -265,6 +265,7 @@ class Sample(NamedThing):
     sex: Optional[Union[str, "Sex"]] = None
     taxon_id: Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]] = empty_list()
     collector: Optional[Union[str, list[str]]] = empty_list()
+    source_uri: Optional[Union[str, URI]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
@@ -288,6 +289,9 @@ class Sample(NamedThing):
         if not isinstance(self.collector, list):
             self.collector = [self.collector] if self.collector is not None else []
         self.collector = [v if isinstance(v, str) else str(v) for v in self.collector]
+
+        if self.source_uri is not None and not isinstance(self.source_uri, URI):
+            self.source_uri = URI(self.source_uri)
 
         super().__post_init__(**kwargs)
 

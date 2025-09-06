@@ -116,6 +116,7 @@ message Sample
   sex sex = 0
  repeated  uriorcurie taxonId = 0
  repeated  string collector = 0
+  uri sourceUri = 0
  }
 // A data entity consisting of genomic variants relative to a reference.
 message VariantSet
