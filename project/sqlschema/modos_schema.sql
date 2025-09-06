@@ -18,6 +18,7 @@
 --     * Slot: cell_type Description: The cell type of the sample, if applicable.Should be a cell type code URI from the cell ontology.See: [https://bioregistry.io/registry/cl](https://bioregistry.io/registry/cl)
 --     * Slot: source_material Description: The biological source from which the sample was isolated (tissue, organ).Should be a code URI from the [UBERON](https://bioregistry.io/registry/uberon) ontology or [fairgenomes biospecimen types](https://raw.githubusercontent.com/fairgenomes/fairgenomes-semantic-model/refs/tags/v1.2/generated/ontology/fair-genomes-biospecimentypes.ttl).
 --     * Slot: sex Description: The biological sex of a sample.
+--     * Slot: source_uri Description: The URI from which a resource or dataset was obtained or derived.
 --     * Slot: id Description: A unique identifier for a thing
 --     * Slot: name Description: A human-readable name for a thing
 --     * Slot: description Description: A human-readable description for a thing
@@ -146,6 +147,7 @@ CREATE TABLE "Sample" (
 	cell_type TEXT, 
 	source_material TEXT, 
 	sex VARCHAR(6), 
+	source_uri TEXT, 
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 

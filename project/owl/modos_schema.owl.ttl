@@ -57,38 +57,38 @@ modos:MODO a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "MODO" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Datetime ;
+            owl:onProperty modos:last_update_date ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty modos:creation_date ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uri ;
+            owl:onProperty modos:source_uri ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Datetime ;
             owl:onProperty modos:creation_date ],
         [ a owl:Restriction ;
             owl:allValuesFrom modos:Assay ;
             owl:onProperty modos:has_assay ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty modos:has_assay ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty modos:source_uri ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:has_assay ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty modos:last_update_date ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Datetime ;
-            owl:onProperty modos:last_update_date ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty modos:has_assay ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty modos:has_assay ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Datetime ;
-            owl:onProperty modos:creation_date ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty modos:source_uri ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty modos:last_update_date ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uri ;
-            owl:onProperty modos:source_uri ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty modos:creation_date ],
@@ -167,7 +167,7 @@ modos:Assay a owl:Class,
     rdfs:seeAlso NCIT:C42790,
         sphn:Assay ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty modos:sample_processing ],
         [ a owl:Restriction ;
             owl:allValuesFrom modos:OmicsType ;
@@ -176,25 +176,25 @@ modos:Assay a owl:Class,
             owl:allValuesFrom modos:DataEntity ;
             owl:onProperty modos:has_data ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:minCardinality 0 ;
             owl:onProperty modos:sample_processing ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty modos:has_data ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty modos:has_sample ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty modos:has_data ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty modos:omics_type ],
         [ a owl:Restriction ;
-            owl:allValuesFrom modos:Sample ;
+            owl:maxCardinality 1 ;
             owl:onProperty modos:has_sample ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty modos:has_data ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty modos:has_data ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom modos:Sample ;
             owl:onProperty modos:has_sample ],
         modos:NamedThing ;
     skos:definition "A coordinated set of actions designed to generate data from samples." ;
@@ -208,43 +208,43 @@ modos:ReferenceGenome a owl:Class,
             owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty modos:taxon_id ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty modos:version ],
-        [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty modos:data_path ],
         [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty modos:version ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty modos:version ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom modos:ReferenceSequence ;
+            owl:onProperty modos:has_sequence ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uri ;
             owl:onProperty modos:source_uri ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:data_path ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty modos:version ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty modos:taxon_id ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty modos:has_sequence ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty modos:version ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty modos:data_path ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty modos:version ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uri ;
             owl:onProperty modos:source_uri ],
         [ a owl:Restriction ;
-            owl:allValuesFrom modos:ReferenceSequence ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:source_uri ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty modos:has_sequence ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty modos:data_path ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty modos:source_uri ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty modos:has_sequence ],
         modos:NamedThing ;
     skos:definition "Reference assembly of a given genome, consisting of a collection of congiguous sequences (contigs)." ;
@@ -255,34 +255,34 @@ modos:ReferenceSequence a owl:Class,
     rdfs:label "ReferenceSequence" ;
     rdfs:seeAlso GENO:0000017 ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom [ a rdfs:Datatype ;
-                    owl:intersectionOf ( linkml:String [ a rdfs:Datatype ;
-                                owl:onDatatype xsd:string ;
-                                owl:withRestrictions ( [ xsd:pattern "^[a-f0-9]{32}$" ] ) ] ) ] ;
-            owl:onProperty modos:sequence_md5 ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty modos:sequence_md5 ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uri ;
-            owl:onProperty modos:source_uri ],
+            owl:onProperty modos:version ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty modos:version ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty modos:version ],
+            owl:onProperty modos:source_uri ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty modos:source_uri ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty modos:source_uri ],
+            owl:onProperty modos:sequence_md5 ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty modos:version ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty modos:sequence_md5 ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uri ;
+            owl:onProperty modos:source_uri ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:intersectionOf ( linkml:String [ a rdfs:Datatype ;
+                                owl:onDatatype xsd:string ;
+                                owl:withRestrictions ( [ xsd:pattern "^[a-f0-9]{32}$" ] ) ] ) ] ;
             owl:onProperty modos:sequence_md5 ],
         modos:NamedThing ;
     skos:definition "A contiguous sequence of DNA part of a reference coordinate system (genome assembly)." ;
@@ -332,44 +332,53 @@ modos:Sample a owl:Class,
     rdfs:label "Sample" ;
     rdfs:seeAlso bioschemas:Sample ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty modos:sex ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty modos:taxon_id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty modos:source_material ],
-        [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty modos:cell_type ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:cell_type ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty modos:sex ],
+            owl:onProperty modos:collector ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty modos:source_material ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty modos:source_material ],
+            owl:onProperty modos:sex ],
         [ a owl:Restriction ;
             owl:allValuesFrom modos:Sex ;
             owl:onProperty modos:sex ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:source_material ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uri ;
+            owl:onProperty modos:source_uri ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty modos:source_uri ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty modos:taxon_id ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty modos:cell_type ],
+            owl:minCardinality 0 ;
+            owl:onProperty modos:sex ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty modos:source_material ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Uriorcurie ;
+            owl:onProperty modos:taxon_id ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty modos:collector ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty modos:collector ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty modos:cell_type ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:source_uri ],
         modos:NamedThing ;
     skos:definition "A biological sample used in assays. Examples include a whole organism, tissue or cell line." ;
     skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
@@ -511,34 +520,31 @@ modos:DataEntity a owl:Class,
     rdfs:label "DataEntity" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty modos:data_checksum ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty modos:data_format ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom modos:Sample ;
-            owl:onProperty modos:has_sample ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty modos:has_reference ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:data_path ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty modos:data_checksum ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty modos:data_path ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty modos:has_sample ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty modos:data_path ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty modos:data_checksum ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty modos:data_path ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty modos:has_sample ],
         [ a owl:Restriction ;
-            owl:allValuesFrom modos:ReferenceGenome ;
-            owl:onProperty modos:has_reference ],
+            owl:allValuesFrom modos:DataFormat ;
+            owl:onProperty modos:data_format ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:data_checksum ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ a rdfs:Datatype ;
                     owl:intersectionOf ( linkml:String [ a rdfs:Datatype ;
@@ -546,17 +552,20 @@ modos:DataEntity a owl:Class,
                                 owl:withRestrictions ( [ xsd:pattern "^[0-9a-fA-F]{128}$" ] ) ] ) ] ;
             owl:onProperty modos:data_checksum ],
         [ a owl:Restriction ;
-            owl:allValuesFrom modos:DataFormat ;
-            owl:onProperty modos:data_format ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty modos:data_format ],
         [ a owl:Restriction ;
-            owl:allValuesFrom linkml:String ;
-            owl:onProperty modos:data_path ],
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:data_format ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty modos:has_reference ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom modos:ReferenceGenome ;
+            owl:onProperty modos:has_reference ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom modos:Sample ;
+            owl:onProperty modos:has_sample ],
         modos:NamedThing ;
     skos:definition "An entity containing data." ;
     skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
@@ -565,32 +574,32 @@ modos:NamedThing a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "NamedThing" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty modos:name ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty modos:description ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty modos:id ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty modos:id ],
-        [ a owl:Restriction ;
             owl:allValuesFrom linkml:Uriorcurie ;
             owl:onProperty modos:id ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty modos:description ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty modos:description ],
+            owl:minCardinality 1 ;
+            owl:onProperty modos:id ],
         [ a owl:Restriction ;
             owl:allValuesFrom linkml:String ;
             owl:onProperty modos:name ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty modos:name ] ;
+            owl:onProperty modos:id ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty modos:name ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty modos:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:name ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty modos:description ] ;
     skos:definition "A generic grouping for any identifiable entity" ;
     skos:exactMatch schema1:Thing ;
     skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
@@ -623,13 +632,6 @@ modos:version a owl:ObjectProperty,
     skos:definition "A string specifying the release or version of a software or resource." ;
     skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
 
-modos:source_uri a owl:ObjectProperty,
-        linkml:SlotDefinition ;
-    rdfs:label "source_uri" ;
-    rdfs:range linkml:Uri ;
-    skos:definition "The URI from which a resource or dataset was obtained or derived." ;
-    skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
-
 modos:OmicsType a owl:Class,
         linkml:EnumDefinition ;
     owl:unionOf ( NCIT:C84343 NCIT:C153189 NCIT:C49019 NCIT:C20085 ) ;
@@ -637,6 +639,13 @@ modos:OmicsType a owl:Class,
         NCIT:C20085,
         NCIT:C49019,
         NCIT:C84343 .
+
+modos:source_uri a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "source_uri" ;
+    rdfs:range linkml:Uri ;
+    skos:definition "The URI from which a resource or dataset was obtained or derived." ;
+    skos:inScheme <https://w3id.org/sdsc-ordes/modos-schema> .
 
 modos:DataFormat a owl:Class,
         linkml:EnumDefinition ;

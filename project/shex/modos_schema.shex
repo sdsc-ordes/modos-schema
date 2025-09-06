@@ -157,7 +157,8 @@ linkml:Sparqlpath xsd:string
           <source_material> @linkml:Uriorcurie ? ;
           <sex> [ <https://w3id.org/sdsc-ordes/modos-schema/Sex#Male> <https://w3id.org/sdsc-ordes/modos-schema/Sex#Female> ] ? ;
           <taxon_id> @linkml:Uriorcurie * ;
-          <collector> @linkml:String *
+          <collector> @linkml:String * ;
+          <source_uri> @linkml:Uri ?
        ) ;
        rdf:type [ <Sample> ]
     )

@@ -140,6 +140,7 @@ type Sample
     sex: Sex
     taxonId: [Uriorcurie]
     collector: [String]
+    sourceUri: Uri
   }
 
 type VariantSet

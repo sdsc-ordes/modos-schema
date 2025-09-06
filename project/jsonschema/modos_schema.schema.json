@@ -695,6 +695,13 @@
                         "null"
                     ]
                 },
+                "source_uri": {
+                    "description": "The URI from which a resource or dataset was obtained or derived.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "taxon_id": {
                     "description": "The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.\n",
                     "items": {

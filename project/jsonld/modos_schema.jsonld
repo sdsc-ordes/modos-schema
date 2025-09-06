@@ -769,6 +769,7 @@
       "owner": "ReferenceSequence",
       "domain_of": [
         "MODO",
+        "Sample",
         "ReferenceGenome",
         "ReferenceSequence"
       ],
@@ -934,7 +935,8 @@
         "source_material",
         "sex",
         "taxon_id",
-        "collector"
+        "collector",
+        "source_uri"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/sdsc-ordes/modos-schema/Sample",
@@ -1109,9 +1111,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "modos_schema.yaml",
-  "source_file_date": "2025-05-09T11:17:13",
-  "source_file_size": 9673,
-  "generation_date": "2025-05-09T11:55:20",
+  "source_file_date": "2025-09-06T14:27:32",
+  "source_file_size": 9692,
+  "generation_date": "2025-09-06T14:45:21",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/modos_schema.context.jsonld",
