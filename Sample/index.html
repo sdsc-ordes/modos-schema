@@ -239,6 +239,8 @@
 
       Sample : source_material
 
+      Sample : source_uri
+
       Sample : taxon_id
 
 
@@ -289,6 +291,12 @@
 <td><a href="../collector/">collector</a></td>
 <td>* <br/> <a href="../String/">String</a></td>
 <td>The organization responsible for collecting a given sample</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../source_uri/">source_uri</a></td>
+<td>0..1 <br/> <a href="../Uri/">Uri</a></td>
+<td>The URI from which a resource or dataset was obtained or derived</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -405,6 +413,7 @@ slots:
 - sex
 - taxon_id
 - collector
+- source_uri
 
 </code></pre>
 </details>
@@ -486,6 +495,19 @@ attributes:
     - Sample
     range: string
     multivalued: true
+  source_uri:
+    name: source_uri
+    description: The URI from which a resource or dataset was obtained or derived.
+    from_schema: https://w3id.org/sdsc-ordes/modos-schema
+    rank: 1000
+    alias: source_uri
+    owner: Sample
+    domain_of:
+    - MODO
+    - Sample
+    - ReferenceGenome
+    - ReferenceSequence
+    range: uri
   id:
     name: id
     description: A unique identifier for a thing
