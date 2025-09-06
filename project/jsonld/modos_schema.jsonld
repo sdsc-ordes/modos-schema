@@ -1113,7 +1113,7 @@
   "source_file": "modos_schema.yaml",
   "source_file_date": "2025-09-06T14:27:32",
   "source_file_size": 9692,
-  "generation_date": "2025-09-06T14:30:17",
+  "generation_date": "2025-09-06T14:45:21",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/modos_schema.context.jsonld",
