@@ -1,5 +1,5 @@
 # Auto generated from modos_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-09-06T14:45:21
+# Generation date: 2025-09-24T11:40:49
 # Schema: modos-schema
 #
 # id: https://w3id.org/sdsc-ordes/modos-schema
@@ -216,7 +216,6 @@ class Assay(NamedThing):
 
     id: Union[str, AssayId] = None
     omics_type: Union[Union[str, "OmicsType"], list[Union[str, "OmicsType"]]] = None
-    has_sample: Optional[Union[Union[str, SampleId], list[Union[str, SampleId]]]] = empty_list()
     has_data: Optional[Union[Union[str, DataEntityId], list[Union[str, DataEntityId]]]] = empty_list()
     sample_processing: Optional[Union[Union[str, URIorCURIE], list[Union[str, URIorCURIE]]]] = empty_list()
 
@@ -231,10 +230,6 @@ class Assay(NamedThing):
         if not isinstance(self.omics_type, list):
             self.omics_type = [self.omics_type] if self.omics_type is not None else []
         self.omics_type = [v if isinstance(v, OmicsType) else OmicsType(v) for v in self.omics_type]
-
-        if not isinstance(self.has_sample, list):
-            self.has_sample = [self.has_sample] if self.has_sample is not None else []
-        self.has_sample = [v if isinstance(v, SampleId) else SampleId(v) for v in self.has_sample]
 
         if not isinstance(self.has_data, list):
             self.has_data = [self.has_data] if self.has_data is not None else []

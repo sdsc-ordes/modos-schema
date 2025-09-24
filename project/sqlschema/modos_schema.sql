@@ -76,9 +76,6 @@
 -- # Class: "MODO_has_assay" Description: ""
 --     * Slot: MODO_id Description: Autocreated FK slot
 --     * Slot: has_assay_id Description: An assay that was performed as part of a given thing.
--- # Class: "Assay_has_sample" Description: ""
---     * Slot: Assay_id Description: Autocreated FK slot
---     * Slot: has_sample_id Description: Biological sample included or described by a given thing.
 -- # Class: "Assay_has_data" Description: ""
 --     * Slot: Assay_id Description: Autocreated FK slot
 --     * Slot: has_data_id Description: Data entity included in a given collection.
@@ -87,7 +84,7 @@
 --     * Slot: omics_type Description: The type of omics considered.
 -- # Class: "Assay_sample_processing" Description: ""
 --     * Slot: Assay_id Description: Autocreated FK slot
---     * Slot: sample_processing Description: Codes describing sample processing, preparation or handling steps.The order of the codes should reflect the order in which the steps were performed.Should be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].
+--     * Slot: sample_processing Description: Codes describing sample processing, preparation or handling steps.Should be codes from [MSIO](https://bioregistry.io/registry/msio), [EFO](https://www.ebi.ac.uk/efo) or [OBI](https://obofoundry.org/ontology/obi.html).
 -- # Class: "Sample_taxon_id" Description: ""
 --     * Slot: Sample_id Description: Autocreated FK slot
 --     * Slot: taxon_id Description: The NCBI taxon code from [ncbitaxon](https://obofoundry.org/ontology/ncbitaxon.html) describing the taxonomic range of a sample.
@@ -230,13 +227,6 @@ CREATE TABLE "MODO" (
 	"MODOCollection_id" INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY("MODOCollection_id") REFERENCES "MODOCollection" (id)
-);
-CREATE TABLE "Assay_has_sample" (
-	"Assay_id" TEXT, 
-	has_sample_id TEXT, 
-	PRIMARY KEY ("Assay_id", has_sample_id), 
-	FOREIGN KEY("Assay_id") REFERENCES "Assay" (id), 
-	FOREIGN KEY(has_sample_id) REFERENCES "Sample" (id)
 );
 CREATE TABLE "Assay_has_data" (
 	"Assay_id" TEXT, 
