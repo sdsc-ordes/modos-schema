@@ -59,7 +59,6 @@ classes:
     description: >-
       A coordinated set of actions designed to generate data from samples.
     slots:
-      - has_sample
       - has_data
       - omics_type
       - sample_processing
