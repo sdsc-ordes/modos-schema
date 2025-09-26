@@ -31,7 +31,6 @@ message Assay
   uriorcurie id = 0
   string name = 0
   string description = 0
- repeated  sample hasSample = 0
  repeated  dataEntity hasData = 0
  repeated  omicsType omicsType = 0
  repeated  uriorcurie sampleProcessing = 0

@@ -55,7 +55,6 @@ type Assay
     id: Uriorcurie!
     name: String
     description: String
-    hasSample: [Sample]
     hasData: [DataEntity]
     omicsType: [OmicsType]!
     sampleProcessing: [Uriorcurie]

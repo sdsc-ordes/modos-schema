@@ -59,7 +59,6 @@ classes:
     description: >-
       A coordinated set of actions designed to generate data from samples.
     slots:
-      - has_sample
       - has_data
       - omics_type
       - sample_processing
@@ -196,10 +195,8 @@ slots:
   sample_processing:
     description: |
       Codes describing sample processing, preparation or handling steps.
-      The order of the codes should reflect the order in which the steps were performed.
-      Should be codes from [MSIO](https://bioregistry.io/registry/msio) or [OBI](https://obofoundry.org/ontology/obi.html)].
+      Should be codes from [MSIO](https://bioregistry.io/registry/msio), [EFO](https://www.ebi.ac.uk/efo) or [OBI](https://obofoundry.org/ontology/obi.html).
     multivalued: true
-    list_elements_ordered: true
     range: uriorcurie
   has_sequence:
     is_a: has_part
