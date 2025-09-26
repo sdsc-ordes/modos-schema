@@ -352,8 +352,8 @@ Alias: has_sample</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="../AlignmentSet/">AlignmentSet</a></td>
-<td>A data entity consisting of genomic intervals aligned to a reference</td>
+<td><a href="../VariantSet/">VariantSet</a></td>
+<td>A data entity consisting of genomic variants relative to a reference</td>
 <td>no</td>
 </tr>
 <tr>
@@ -362,8 +362,8 @@ Alias: has_sample</p>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Assay/">Assay</a></td>
-<td>A coordinated set of actions designed to generate data from samples</td>
+<td><a href="../AlignmentSet/">AlignmentSet</a></td>
+<td>A data entity consisting of genomic intervals aligned to a reference</td>
 <td>no</td>
 </tr>
 <tr>
@@ -374,11 +374,6 @@ Alias: has_sample</p>
 <tr>
 <td><a href="../DataEntity/">DataEntity</a></td>
 <td>An entity containing data</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../VariantSet/">VariantSet</a></td>
-<td>A data entity consisting of genomic variants relative to a reference</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -426,7 +421,6 @@ rank: 1000
 is_a: has_part
 alias: has_sample
 domain_of:
-- Assay
 - DataEntity
 range: Sample
 multivalued: true
